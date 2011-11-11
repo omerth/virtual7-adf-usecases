@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical">
+          <af:table value="#{bindings.EmployeesView11.collectionModel}" var="row"
+                    rows="#{bindings.EmployeesView11.rangeSize}"
+                    emptyText="#{bindings.EmployeesView11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.EmployeesView11.rangeSize}" rowBandingInterval="0" id="t2">
+            <af:column sortProperty="EmployeeId" sortable="false"
+                       headerText="#{bindings.EmployeesView11.hints.EmployeeId.label}" id="c4">
+              <af:panelGroupLayout layout="horizontal">
+                <af:outputText value="#{row.EmployeeId}" id="ot3">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesView11.hints.EmployeeId.format}"/>
+                </af:outputText>
+                <af:commandButton text="click" binding="#{pageFlowScope.managedBean.button}" id="cb1">
+                  <f:attribute name="empId" value="#{row.EmployeeId}"/>
+                  <af:fileDownloadActionListener method="#{pageFlowScope.managedBean.downloadHandler}"
+                                                 contentType="text/html" filename="test.html"/>
+                </af:commandButton>
+              </af:panelGroupLayout>
+            </af:column>
+            <af:column sortProperty="FirstName" sortable="false"
+                       headerText="#{bindings.EmployeesView11.hints.FirstName.label}" id="c5">
+              <af:outputText value="#{row.FirstName}" id="ot1"/>
+            </af:column>
+            <af:column sortProperty="LastName" sortable="false"
+                       headerText="#{bindings.EmployeesView11.hints.LastName.label}" id="c6">
+              <af:outputText value="#{row.LastName}" id="ot2"/>
+            </af:column>
+          </af:table>
+          <af:iterator value="#{bindings.EmployeesView11.collectionModel}" var="row" id="i1">
+            <af:panelGroupLayout layout="horizontal" id="pgl1">
+              <af:outputText value="#{row.EmployeeId}" id="ot4"/>
+              <af:commandButton text="click" binding="#{pageFlowScope.managedBean.button1}" id="cb2">
+                <f:attribute name="empId" value="#{row.EmployeeId}"/>
+                <af:fileDownloadActionListener method="#{pageFlowScope.managedBean.downloadHandler1}"
+                                               contentType="text/html" filename="test.html"/>
+              </af:commandButton>
+            </af:panelGroupLayout>
+          </af:iterator>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
