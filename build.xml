@@ -5,6 +5,8 @@
 		<ant antfile="ApplicationAMBCPooling/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ApplicationSampleTemplate/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ApplicationStampBinding/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="ApplicationAMComplexParams/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="ApplicationTextMessenger/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 	</target>
 
 	<import file="wldeploy.xml" />
