@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:table value="#{bindings.EmployeesView1.collectionModel}" var="row" rows="#{bindings.EmployeesView1.rangeSize}"
+            emptyText="#{bindings.EmployeesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+            fetchSize="#{bindings.EmployeesView1.rangeSize}" rowBandingInterval="0" id="t1">
+    <af:column sortProperty="EmployeeId" sortable="false"
+               headerText="#{bindings.EmployeesView1.hints.EmployeeId.label}" id="c1">
+               <af:commandButton text="#{row.bindings.EmployeeId.inputValue}" id="cb1"
+                                 actionListener="#{pageFlowScope.tableButtonBean.buttonListener}"/>
+    </af:column>
+    <af:column sortProperty="FirstName" sortable="false" headerText="#{bindings.EmployeesView1.hints.FirstName.label}"
+               id="c2">
+      <af:inputText value="#{row.bindings.FirstName.inputValue}"
+                    label="#{bindings.EmployeesView1.hints.FirstName.label}"
+                    required="#{bindings.EmployeesView1.hints.FirstName.mandatory}"
+                    columns="#{bindings.EmployeesView1.hints.FirstName.displayWidth}"
+                    maximumLength="#{bindings.EmployeesView1.hints.FirstName.precision}"
+                    shortDesc="#{bindings.EmployeesView1.hints.FirstName.tooltip}" id="it2">
+        <f:validator binding="#{row.bindings.FirstName.validator}"/>
+      </af:inputText>
+    </af:column>
+    <af:column sortProperty="LastName" sortable="false" headerText="#{bindings.EmployeesView1.hints.LastName.label}"
+               id="c3">
+      <af:inputText value="#{row.bindings.LastName.inputValue}" label="#{bindings.EmployeesView1.hints.LastName.label}"
+                    required="#{bindings.EmployeesView1.hints.LastName.mandatory}"
+                    columns="#{bindings.EmployeesView1.hints.LastName.displayWidth}"
+                    maximumLength="#{bindings.EmployeesView1.hints.LastName.precision}"
+                    shortDesc="#{bindings.EmployeesView1.hints.LastName.tooltip}" id="it3">
+        <f:validator binding="#{row.bindings.LastName.validator}"/>
+      </af:inputText>
+    </af:column>
+  </af:table>
+</jsp:root>
