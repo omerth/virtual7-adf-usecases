@@ -8,7 +8,7 @@
   </executables>
   <bindings>
     <tree IterBinding="EmployeesView1Iterator" id="EmployeesView1">
-      <nodeDefinition DefName="com.virtual7.tableButton.model.views.EmployeesView">
+      <nodeDefinition DefName="com.virtual7.tableButton.model.views.EmployeesView" Name="EmployeesView10">
         <AttrNames>
           <Item Value="EmployeeId"/>
           <Item Value="FirstName"/>

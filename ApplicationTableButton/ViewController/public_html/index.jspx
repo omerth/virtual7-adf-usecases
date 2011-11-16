@@ -9,6 +9,12 @@
         <af:panelGroupLayout layout="vertical">
           <af:outputText value="ApplicationTableButton" id="ot1"/>
           <af:region value="#{bindings.taskflowtableButton1.regionModel}" id="r1"/>
+          <af:panelTabbed id="pt2" childCreation="lazy">
+            <af:showDetailItem text="Tab1" id="sdi1"></af:showDetailItem>
+            <af:showDetailItem text="Tab2" id="sdi2">
+              <af:region value="#{bindings.taskflowtableButton2.regionModel}" id="r2"/>
+            </af:showDetailItem>
+          </af:panelTabbed>
         </af:panelGroupLayout>
       </af:form>
     </af:document>
