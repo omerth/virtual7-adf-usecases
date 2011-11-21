@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="DummyDataControl"
+          Package="com.virtual7.dummyDataControl.view.managed"
+          BeanClass="com.virtual7.dummyDataControl.view.managed.DummyDataControl" isJavaBased="true">
+  <ConstructorMethod IsCollection="true" Type="com.virtual7.dummyDataControl.view.managed.DummyDataControl"
+                     BeanClass="com.virtual7.dummyDataControl.view.managed.DummyDataControl" id="DummyDataControl"/>
+</JavaBean>
