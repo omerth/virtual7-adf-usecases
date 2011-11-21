@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="virtual7-adf-usecases" default="deploy" basedir=".">
+	<property file="build.properties" />
+	<target name="deploy">
+		<ant antfile="ApplicationAMBCPooling/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="ApplicationSampleTemplate/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="ApplicationStampBinding/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="ApplicationAMComplexParams/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="ApplicationTextMessenger/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+	</target>
+
+	<import file="wldeploy.xml" />
+
+	<target name="wldeploy-undeploy-virtual7Util">
+		<input message="Please enter password for ${wls.user}:" addproperty="wls.password" />
+		<wldeploy-undeploy name="virtual7Util_view_shared" />
+		<wldeploy-undeploy name="virtual7Util_model_shared" />
+	</target>
+
+	<target name="wldeploy-deploy-virtual7Util">
+		<input message="Please enter password for ${wls.user}:" addproperty="wls.password" />
+		<wldeploy-deploy-shared name="virtual7Util_model_shared" source="_deploy/virtual7Util_model_shared.ear" />
+		<wldeploy-deploy-shared name="virtual7Util_view_shared" source="_deploy/virtual7Util_view_shared.war" />
+	</target>
+
+	<target name="wldeploy-redeploy-virtual7Util" depends="wldeploy-undeploy-virtual7Util,wldeploy-deploy-virtual7Util" />
+</project>

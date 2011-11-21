@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.ambcPoolingRoot.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="taskflowcountries11"
+              taskFlowId="/WEB-INF/com/virtual7/ambcPoolingRoot/controller/task-flow-countries1.xml#task-flow-countries1"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="taskflowcountries21"
+              taskFlowId="/WEB-INF/com/virtual7/ambcPoolingRoot/controller/task-flow-countries2.xml#task-flow-countries2"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="taskflowcountries31"
+              taskFlowId="/WEB-INF/com/virtual7/ambcPoolingRoot/controller/task-flow-countries3.xml#task-flow-countries3"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="taskflowcountries41"
+              taskFlowId="/WEB-INF/com/virtual7/ambcPoolingRoot/controller/task-flow-countries4.xml#task-flow-countries4"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="taskflowcountries51"
+              taskFlowId="/WEB-INF/com/virtual7/ambcPoolingRoot/controller/task-flow-countries5.xml#task-flow-countries5"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>
