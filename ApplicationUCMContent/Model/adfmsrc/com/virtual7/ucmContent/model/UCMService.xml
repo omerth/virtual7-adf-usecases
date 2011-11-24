@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="UCMService"
+          Package="com.virtual7.ucmContent.model" BeanClass="com.virtual7.ucmContent.model.UCMService"
+          isJavaBased="true">
+  <Attribute Name="documentContent" Type="java.lang.String"/>
+  <MethodAccessor IsCollection="false" Type="void" id="selectDocument" ReturnNodeName="Return">
+    <ParameterInfo id="docName" Type="java.lang.String" isStructured="false"/>
+  </MethodAccessor>
+  <MethodAccessor IsCollection="false" Type="void" id="saveDocument" ReturnNodeName="Return"/>
+  <MethodAccessor IsCollection="false" Type="void" id="cancel" ReturnNodeName="Return"/>
+  <ConstructorMethod IsCollection="true" Type="com.virtual7.ucmContent.model.UCMService"
+                     BeanClass="com.virtual7.ucmContent.model.UCMService" id="UCMService"/>
+</JavaBean>
