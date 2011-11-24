@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.60.13"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="EmpDetailsViewView1"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmpDetailsViewView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="DepartmentsView2"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.DepartmentsView"/>
+  <ViewUsage
+    Name="EmployeesView3"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.EmpManagerFkLink"
+    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView1"
+    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DeptMgrFkLink1"
+    ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.DeptMgrFkLink"
+    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView1"
+    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.DepartmentsView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.EmpDeptFkLink"
+    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.DepartmentsView1"
+    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView3"
+    Reversed="false"/>
+</AppModule>
