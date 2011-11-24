@@ -136,6 +136,9 @@
     <extension>swf</extension>
     <mime-type>application/x-shockwave-flash</mime-type>
   </mime-mapping>
+  <welcome-file-list>
+    <welcome-file>/faces/index.jspx</welcome-file>
+  </welcome-file-list>
   <jsp-config>
     <jsp-property-group>
       <url-pattern>*.jsff</url-pattern>
