@@ -20,7 +20,7 @@
 	</target>
 
 	<target name="cloneApp">
-		<property name="replace.token1" value="ApplicationAMComplexParams" />
+		<property name="replace.token1" value="${ant.project.name}" />
 		<property name="replace.token2" value="amcomplexparams" />
 		<property name="replace.token3" value="amComplexParams" />
 		<property name="replace.token4" value="AMComplexParams" />

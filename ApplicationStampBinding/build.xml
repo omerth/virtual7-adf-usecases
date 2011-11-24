@@ -20,7 +20,7 @@
 	</target>
 
 	<target name="cloneApp">
-		<property name="replace.token1" value="ApplicationStampBinding" />
+		<property name="replace.token1" value="${ant.project.name}" />
 		<property name="replace.token2" value="stampbinding" />
 		<property name="replace.token3" value="stampBinding" />
 		<property name="replace.token4" value="StampBinding" />

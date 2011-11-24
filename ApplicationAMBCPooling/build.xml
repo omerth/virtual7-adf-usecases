@@ -22,7 +22,7 @@
 	</target>
 
 	<target name="cloneApp">
-		<property name="replace.token1" value="ApplicationAMBCPooling" />
+		<property name="replace.token1" value="${ant.project.name}" />
 		<property name="replace.token2" value="ambcpooling" />
 		<property name="replace.token3" value="ambcPooling" />
 		<property name="replace.token4" value="AMBCPooling" />
