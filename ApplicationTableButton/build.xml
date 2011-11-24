@@ -20,7 +20,7 @@
 	</target>
 
 	<target name="cloneApp">
-		<property name="replace.token1" value="ApplicationTableButton" />
+		<property name="replace.token1" value="${ant.project.name}" />
 		<property name="replace.token2" value="tablebutton" />
 		<property name="replace.token3" value="tableButton" />
 		<property name="replace.token4" value="TableButton" />
