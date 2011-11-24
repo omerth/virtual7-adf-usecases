@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="top">
+      <af:panelFormLayout id="pfl1">
+        <af:panelLabelAndMessage label="#{bindings.DepartmentId.hints.label}" id="plam1">
+          <af:outputText value="#{bindings.DepartmentId.inputValue}" id="ot1">
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+          </af:outputText>
+        </af:panelLabelAndMessage>
+        <af:panelLabelAndMessage label="#{bindings.DepartmentName.hints.label}" id="plam2">
+          <af:outputText value="#{bindings.DepartmentName.inputValue}" id="ot2"/>
+        </af:panelLabelAndMessage>
+      </af:panelFormLayout>
+    </f:facet>
+    <f:facet name="center">
+      <af:richTextEditor value="#{bindings.documentContent.inputValue}"
+                         required="#{bindings.documentContent.hints.mandatory}"
+                         columns="#{bindings.documentContent.hints.displayWidth}"
+                         shortDesc="#{bindings.documentContent.hints.tooltip}" id="it1" autoSubmit="true"
+                         partialTriggers="cb1 cb2"/>
+    </f:facet>
+    <f:facet name="bottom">
+      <af:panelGroupLayout layout="horizontal" id="pgl1">
+        <af:commandButton actionListener="#{bindings.saveDocument.execute}" text="saveDocument"
+                          disabled="#{!bindings.saveDocument.enabled}" id="cb1" partialSubmit="true"/>
+        <af:commandButton actionListener="#{bindings.cancel.execute}" text="cancel"
+                          disabled="#{!bindings.cancel.enabled}" id="cb2" partialSubmit="true"/>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>
