@@ -7,9 +7,9 @@
     <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
   </definitionFactories>
   <pageMap>
-    <page path="/Xdm.jspx" usageId="com_virtual7_xdm_XdmPageDef"/>
+    <page path="/index.jspx" usageId="com_virtual7_xdm_indexPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
-    <page id="com_virtual7_xdm_XdmPageDef" path="com.virtual7.xdm.pageDefs.XdmPageDef"/>
+    <page id="com_virtual7_xdm_indexPageDef" path="com.virtual7.xdm.pageDefs.indexPageDef"/>
   </pageDefinitionUsages>
 </Application>
