@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="JobsView"
+  Version="11.1.1.60.13"
+  SelectList="Jobs.JOB_ID, 
+       Jobs.JOB_TITLE, 
+       Jobs.MIN_SALARY, 
+       Jobs.MAX_SALARY, 
+       Jobs.LAST_CHANGE_DATE, 
+       Jobs.LAST_CHANGE_USER"
+  FromList="JOBS Jobs"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Jobs"
+    Entity="com.virtual7.historizationConcept.model.entities.Jobs"/>
+  <ViewAttribute
+    Name="JobId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JobId"
+    EntityUsage="Jobs"
+    AliasName="JOB_ID"/>
+  <ViewAttribute
+    Name="JobTitle"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="JobTitle"
+    EntityUsage="Jobs"
+    AliasName="JOB_TITLE"/>
+  <ViewAttribute
+    Name="MinSalary"
+    PrecisionRule="true"
+    EntityAttrName="MinSalary"
+    EntityUsage="Jobs"
+    AliasName="MIN_SALARY"/>
+  <ViewAttribute
+    Name="MaxSalary"
+    PrecisionRule="true"
+    EntityAttrName="MaxSalary"
+    EntityUsage="Jobs"
+    AliasName="MAX_SALARY"/>
+  <ViewAttribute
+    Name="LastChangeDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastChangeDate"
+    EntityUsage="Jobs"
+    AliasName="LAST_CHANGE_DATE"/>
+  <ViewAttribute
+    Name="LastChangeUser"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastChangeUser"
+    EntityUsage="Jobs"
+    AliasName="LAST_CHANGE_USER"/>
+</ViewObject>

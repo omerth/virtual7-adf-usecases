@@ -67,6 +67,33 @@
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="LastChangeDate"
+    IsNotNull="true"
+    ColumnName="LAST_CHANGE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="JOBS"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastChangeUser"
+    IsNotNull="true"
+    Precision="25"
+    ColumnName="LAST_CHANGE_USER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="JOBS"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Employees"
     Association="com.virtual7.historizationConcept.model.entities.associations.EmpJobFkAssoc"
@@ -93,6 +120,28 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.virtual7.historizationConcept.model.entities.Jobs.JobTitle"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010994">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010994"/>
+      <Attr Name="_checkCondition" Value='"LAST_CHANGE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.historizationConcept.model.entities.Jobs.LastChangeDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010995">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010995"/>
+      <Attr Name="_checkCondition" Value='"LAST_CHANGE_USER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.historizationConcept.model.entities.Jobs.LastChangeUser"/>
     </AttrArray>
   </Key>
 </Entity>

@@ -10,13 +10,14 @@
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <ViewLinkDefEnd
-    Name="DepartmentsView1_1"
+    Name="DepartmentsView"
     Cardinality="1"
     Owner="com.virtual7.historizationConcept.model.views.DepartmentsView"
     Source="true">
     <DesignTime>
-      <Attr Name="_finderName" Value="DepartmentsView1"/>
+      <Attr Name="_finderName" Value="DepartmentsView"/>
       <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_accessor" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.virtual7.historizationConcept.model.views.DepartmentsView.DepartmentId"/>
@@ -29,6 +30,7 @@
     <DesignTime>
       <Attr Name="_finderName" Value="EmployeesView"/>
       <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_accessor" Value="false"/>
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.virtual7.historizationConcept.model.views.EmployeesView.DepartmentId"/>

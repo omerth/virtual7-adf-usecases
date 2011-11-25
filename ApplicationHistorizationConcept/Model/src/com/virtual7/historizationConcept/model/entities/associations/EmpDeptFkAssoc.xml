@@ -9,13 +9,13 @@
     <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <AssociationEnd
-    Name="Departments1"
+    Name="Departments"
     Cardinality="1"
     Source="true"
     Owner="com.virtual7.historizationConcept.model.entities.Departments">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="Departments1"/>
+      <Attr Name="_finderName" Value="Departments"/>
       <Attr Name="_foreignKey" Value="com.virtual7.historizationConcept.model.entities.Departments.DeptIdPk"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
@@ -24,12 +24,12 @@
     </AttrArray>
   </AssociationEnd>
   <AssociationEnd
-    Name="Employees1"
+    Name="Employees"
     Cardinality="-1"
     Owner="com.virtual7.historizationConcept.model.entities.Employees">
     <DesignTime>
       <Attr Name="_aggregation" Value="0"/>
-      <Attr Name="_finderName" Value="Employees1"/>
+      <Attr Name="_finderName" Value="Employees"/>
       <Attr Name="_foreignKey" Value="com.virtual7.historizationConcept.model.entities.Employees.EmpDeptFk"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>

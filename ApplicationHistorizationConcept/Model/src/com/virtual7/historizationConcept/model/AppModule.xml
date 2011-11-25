@@ -10,39 +10,57 @@
     <Attr Name="_deployType" Value="0"/>
   </DesignTime>
   <ViewUsage
-    Name="DepartmentsView1"
+    Name="EmployeesView"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView">
+    <ViewCriteriaUsage
+      Name="EmployeesDetailsHistory1ViewCriteria"
+      FullName="com.virtual7.historizationConcept.model.views.EmployeesView.EmployeesDetailsHistory1ViewCriteria"/>
+    <ViewCriteriaUsage
+      Name="EmployeesDetailsHistory2ViewCriteria"
+      FullName="com.virtual7.historizationConcept.model.views.EmployeesView.EmployeesDetailsHistory2ViewCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="EmployeesDetailHist2View"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist2View">
+    <ViewCriteriaUsage
+      Name="EmployeesDetailHist2ViewCriteria"
+      FullName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist2View.EmployeesDetailHist2ViewCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="EmployeesDetailHist1View"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist1View">
+    <ViewCriteriaUsage
+      Name="EmployeesDetailHist1ViewCriteria"
+      FullName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist1View.EmployeesDetailHist1ViewCriteria"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="DepartmentsView"
     ViewObjectName="com.virtual7.historizationConcept.model.views.DepartmentsView"/>
   <ViewUsage
-    Name="EmployeesView1"
-    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView"/>
-  <ViewUsage
-    Name="EmpDetailsViewView1"
-    ViewObjectName="com.virtual7.historizationConcept.model.views.EmpDetailsViewView"/>
-  <ViewUsage
-    Name="EmployeesView2"
-    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView"/>
-  <ViewUsage
-    Name="DepartmentsView2"
-    ViewObjectName="com.virtual7.historizationConcept.model.views.DepartmentsView"/>
-  <ViewUsage
-    Name="EmployeesView3"
-    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView"/>
+    Name="JobsView"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.JobsView"/>
   <ViewLinkUsage
-    Name="EmpManagerFkLink1"
-    ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.EmpManagerFkLink"
-    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView1"
-    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView2"
+    Name="EmployeesDetailsHistoryLink1"
+    ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.EmployeesDetailsHistory2Link"
+    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView"
+    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesDetailHist2View"
     Reversed="false"/>
   <ViewLinkUsage
-    Name="DeptMgrFkLink1"
-    ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.DeptMgrFkLink"
-    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView1"
-    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.DepartmentsView2"
+    Name="EmployeesDetailsHistory1Link1"
+    ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.EmployeesDetailsHistory1Link"
+    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView"
+    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesDetailHist1View"
     Reversed="false"/>
   <ViewLinkUsage
     Name="EmpDeptFkLink1"
     ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.EmpDeptFkLink"
-    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.DepartmentsView1"
-    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView3"
-    Reversed="false"/>
+    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView"
+    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.DepartmentsView"
+    Reversed="true"/>
+  <ViewLinkUsage
+    Name="EmpJobFkLink1"
+    ViewLinkObjectName="com.virtual7.historizationConcept.model.views.links.EmpJobFkLink"
+    SrcViewUsageName="com.virtual7.historizationConcept.model.AppModule.EmployeesView"
+    DstViewUsageName="com.virtual7.historizationConcept.model.AppModule.JobsView"
+    Reversed="true"/>
 </AppModule>

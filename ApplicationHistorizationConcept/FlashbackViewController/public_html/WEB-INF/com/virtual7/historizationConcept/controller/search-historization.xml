@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="search-historization">
+    <default-activity id="__1">filterEmployeesView</default-activity>
+    <view id="historizationMain">
+      <page>/WEB-INF/com/virtual7/historizationConcept/view/historizationMain.jsff</page>
+    </view>
+    <method-call id="filterEmployeesView">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="filterEmployeesDetailHistView">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome id="__13">
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="setSelectedEmployee">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome id="__8">
+        <fixed-outcome>setCurrentRowWithKey</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="updateEmployee">
+      <page>/WEB-INF/com/virtual7/historizationConcept/view/updateEmployee.jsff</page>
+    </view>
+    <method-call id="Commit">
+      <method>#{bindings.Commit.execute}</method>
+      <outcome id="__28">
+        <fixed-outcome>Commit</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome id="__39">
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id id="__4">historizationMain</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">search</from-outcome>
+        <to-activity-id id="__6">filterEmployeesView</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__11">
+        <from-outcome id="__17">details</from-outcome>
+        <to-activity-id id="__12">setSelectedEmployee</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id id="__15">filterEmployeesView</from-activity-id>
+      <control-flow-case id="__18">
+        <to-activity-id id="__16">filterEmployeesDetailHistView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__19">
+      <from-activity-id id="__20">filterEmployeesDetailHistView</from-activity-id>
+      <control-flow-case id="__22">
+        <to-activity-id id="__23">historizationMain</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__24">setSelectedEmployee</from-activity-id>
+      <control-flow-case id="__27">
+        <to-activity-id id="__25">updateEmployee</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id id="__30">updateEmployee</from-activity-id>
+      <control-flow-case id="__31">
+        <from-outcome id="__33">commit</from-outcome>
+        <to-activity-id id="__32">Commit</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__41">
+        <from-outcome id="__42">rollback</from-outcome>
+        <to-activity-id id="__40">Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__34">
+      <from-activity-id id="__35">Commit</from-activity-id>
+      <control-flow-case id="__36">
+        <to-activity-id id="__37">filterEmployeesView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__43">
+      <from-activity-id id="__44">Rollback</from-activity-id>
+      <control-flow-case id="__47">
+        <to-activity-id id="__45">filterEmployeesView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
