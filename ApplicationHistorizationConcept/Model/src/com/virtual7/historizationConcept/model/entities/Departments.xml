@@ -68,18 +68,38 @@
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="LastChangeDate"
+    IsNotNull="true"
+    ColumnName="LAST_CHANGE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="DEPARTMENTS"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastChangeUser"
+    IsNotNull="true"
+    Precision="25"
+    ColumnName="LAST_CHANGE_USER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DEPARTMENTS"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Employees"
-    Association="com.virtual7.historizationConcept.model.entities.associations.DeptMgrFkAssoc"
-    AssociationEnd="com.virtual7.historizationConcept.model.entities.associations.DeptMgrFkAssoc.Employees"
-    AssociationOtherEnd="com.virtual7.historizationConcept.model.entities.associations.DeptMgrFkAssoc.Departments"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
-  <AccessorAttribute
-    Name="Employees1"
     Association="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc"
-    AssociationEnd="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc.Employees1"
-    AssociationOtherEnd="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc.Departments1"
+    AssociationEnd="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc.Employees"
+    AssociationOtherEnd="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc.Departments"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <Key
@@ -101,6 +121,28 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.virtual7.historizationConcept.model.entities.Departments.DepartmentName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010998">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010998"/>
+      <Attr Name="_checkCondition" Value='"LAST_CHANGE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.historizationConcept.model.entities.Departments.LastChangeDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010999">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010999"/>
+      <Attr Name="_checkCondition" Value='"LAST_CHANGE_USER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.historizationConcept.model.entities.Departments.LastChangeUser"/>
     </AttrArray>
   </Key>
   <Key

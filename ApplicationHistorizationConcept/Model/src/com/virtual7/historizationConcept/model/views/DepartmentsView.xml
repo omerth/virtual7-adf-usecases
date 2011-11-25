@@ -8,7 +8,9 @@
   SelectList="Departments.DEPARTMENT_ID, 
        Departments.DEPARTMENT_NAME, 
        Departments.MANAGER_ID, 
-       Departments.LOCATION_ID"
+       Departments.LOCATION_ID, 
+       Departments.LAST_CHANGE_DATE, 
+       Departments.LAST_CHANGE_USER"
   FromList="DEPARTMENTS Departments"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -46,9 +48,18 @@
     EntityAttrName="LocationId"
     EntityUsage="Departments"
     AliasName="LOCATION_ID"/>
-  <ViewLinkAccessor
-    Name="EmployeesView"
-    ViewLink="com.virtual7.historizationConcept.model.views.links.EmpDeptFkLink"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastChangeDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastChangeDate"
+    EntityUsage="Departments"
+    AliasName="LAST_CHANGE_DATE"/>
+  <ViewAttribute
+    Name="LastChangeUser"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastChangeUser"
+    EntityUsage="Departments"
+    AliasName="LAST_CHANGE_USER"/>
 </ViewObject>

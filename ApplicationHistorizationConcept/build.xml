@@ -6,7 +6,8 @@
 	<target name="deploy" description="Deploy JDeveloper profiles">
 
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="FlashbackViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="CustomViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 
 		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
 		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />

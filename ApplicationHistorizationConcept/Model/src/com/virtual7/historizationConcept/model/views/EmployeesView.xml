@@ -15,7 +15,9 @@
        Employees.SALARY, 
        Employees.COMMISSION_PCT, 
        Employees.MANAGER_ID, 
-       Employees.DEPARTMENT_ID"
+       Employees.DEPARTMENT_ID, 
+       Employees.LAST_CHANGE_DATE, 
+       Employees.LAST_CHANGE_USER"
   FromList="EMPLOYEES Employees"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -24,6 +26,40 @@
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
   </DesignTime>
+  <Variable
+    Name="filterLastName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="filterDepartmentName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="filterJobTitle"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="DepartmentsViewAccessor"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.DepartmentsView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_DepartmentId"
+    ListVOName="DepartmentsViewAccessor"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_DepartmentId_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="DepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="DepartmentId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="DepartmentName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="Employees"
     Entity="com.virtual7.historizationConcept.model.entities.Employees"/>
@@ -98,15 +134,189 @@
     PrecisionRule="true"
     EntityAttrName="DepartmentId"
     EntityUsage="Employees"
-    AliasName="DEPARTMENT_ID"/>
+    AliasName="DEPARTMENT_ID"
+    LOVName="LOV_DepartmentId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastChangeDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastChangeDate"
+    EntityUsage="Employees"
+    AliasName="LAST_CHANGE_DATE"
+    IsUpdateable="false"/>
+  <ViewAttribute
+    Name="LastChangeUser"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastChangeUser"
+    EntityUsage="Employees"
+    AliasName="LAST_CHANGE_USER"
+    IsUpdateable="false"/>
+  <ViewCriteria
+    Name="EmployeesDetailsHistory2ViewCriteria"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="EmployeesDetailHist2View"
+        ViewAttribute="EmployeesDetailHist2View"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="EmployeesDetailHist2ViewNestedCriteria"
+          ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist2View"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="vcrow3"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="LastName"
+              ViewAttribute="LastName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=":filterLastName"
+              IsBindVarValue="true"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="JobTitle"
+              ViewAttribute="JobTitle"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=":filterJobTitle"
+              IsBindVarValue="true"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="DepartmentName"
+              ViewAttribute="DepartmentName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=":filterDepartmentName"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="EmployeesDetailsHistory1ViewCriteria"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="EmployeesDetailHist1View"
+        ViewAttribute="EmployeesDetailHist1View"
+        Operator="EXISTS"
+        Conjunction="AND"
+        IsNestedCriteria="true"
+        Required="Optional">
+        <ViewCriteria
+          Name="EmployeesDetailHist1ViewNestedCriteria"
+          ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist1View"
+          Conjunction="AND">
+          <ViewCriteriaRow
+            Name="vcrow3"
+            UpperColumns="1">
+            <ViewCriteriaItem
+              Name="LastName"
+              ViewAttribute="LastName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=":filterLastName"
+              IsBindVarValue="true"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="JobTitle"
+              ViewAttribute="JobTitle"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=":filterJobTitle"
+              IsBindVarValue="true"
+              Required="Optional"/>
+            <ViewCriteriaItem
+              Name="DepartmentName"
+              ViewAttribute="DepartmentName"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=":filterDepartmentName"
+              IsBindVarValue="true"
+              Required="Optional"/>
+          </ViewCriteriaRow>
+        </ViewCriteria>
+      </ViewCriteriaItem>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
-    Name="EmployeesView"
-    ViewLink="com.virtual7.historizationConcept.model.views.links.EmpManagerFkLink"
+    Name="EmployeesDetailHist2View"
+    ViewLink="com.virtual7.historizationConcept.model.views.links.EmployeesDetailsHistory2Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="EmployeesDetailHist1View"
+    ViewLink="com.virtual7.historizationConcept.model.views.links.EmployeesDetailsHistory1Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ViewLinkAccessor
     Name="DepartmentsView"
-    ViewLink="com.virtual7.historizationConcept.model.views.links.DeptMgrFkLink"
-    Type="oracle.jbo.RowIterator"
+    ViewLink="com.virtual7.historizationConcept.model.views.links.EmpDeptFkLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="JobsView"
+    ViewLink="com.virtual7.historizationConcept.model.views.links.EmpJobFkLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
     IsUpdateable="false"/>
 </ViewObject>

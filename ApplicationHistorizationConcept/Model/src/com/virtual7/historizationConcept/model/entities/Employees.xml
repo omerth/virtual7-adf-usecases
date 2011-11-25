@@ -157,32 +157,38 @@
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </Attribute>
-  <AccessorAttribute
-    Name="Employees"
-    Association="com.virtual7.historizationConcept.model.entities.associations.EmpManagerFkAssoc"
-    AssociationEnd="com.virtual7.historizationConcept.model.entities.associations.EmpManagerFkAssoc.Employees"
-    AssociationOtherEnd="com.virtual7.historizationConcept.model.entities.associations.EmpManagerFkAssoc.ManagerIdEmployees"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <AccessorAttribute
-    Name="ManagerIdEmployees"
-    Association="com.virtual7.historizationConcept.model.entities.associations.EmpManagerFkAssoc"
-    AssociationEnd="com.virtual7.historizationConcept.model.entities.associations.EmpManagerFkAssoc.ManagerIdEmployees"
-    AssociationOtherEnd="com.virtual7.historizationConcept.model.entities.associations.EmpManagerFkAssoc.Employees"
-    Type="oracle.jbo.server.EntityImpl"
-    IsUpdateable="true"/>
+  <Attribute
+    Name="LastChangeDate"
+    IsNotNull="true"
+    ColumnName="LAST_CHANGE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="EMPLOYEES"
+    HistoryColumn="DateHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LastChangeUser"
+    IsNotNull="true"
+    Precision="25"
+    ColumnName="LAST_CHANGE_USER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="EMPLOYEES"
+    HistoryColumn="UserHistory">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="25"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="Departments"
-    Association="com.virtual7.historizationConcept.model.entities.associations.DeptMgrFkAssoc"
-    AssociationEnd="com.virtual7.historizationConcept.model.entities.associations.DeptMgrFkAssoc.Departments"
-    AssociationOtherEnd="com.virtual7.historizationConcept.model.entities.associations.DeptMgrFkAssoc.Employees"
-    Type="oracle.jbo.RowIterator"
-    IsUpdateable="false"/>
-  <AccessorAttribute
-    Name="Departments1"
     Association="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc"
-    AssociationEnd="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc.Departments1"
-    AssociationOtherEnd="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc.Employees1"
+    AssociationEnd="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc.Departments"
+    AssociationOtherEnd="com.virtual7.historizationConcept.model.entities.associations.EmpDeptFkAssoc.Employees"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
   <AccessorAttribute
@@ -265,6 +271,28 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="com.virtual7.historizationConcept.model.entities.Employees.Salary"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010988">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010988"/>
+      <Attr Name="_checkCondition" Value='"LAST_CHANGE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.historizationConcept.model.entities.Employees.LastChangeDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0010989">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010989"/>
+      <Attr Name="_checkCondition" Value='"LAST_CHANGE_USER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.historizationConcept.model.entities.Employees.LastChangeUser"/>
     </AttrArray>
   </Key>
   <Key
