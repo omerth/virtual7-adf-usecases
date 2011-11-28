@@ -25,6 +25,10 @@
     Name="filterJobTitle"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="filterHideHistory"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <SQLQuery>
     <![CDATA[SELECT 
     EmployeesDetailHist2.LAST_CHANGE_DATE, 
@@ -66,11 +70,11 @@ FROM
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
+    Type="java.lang.String"
     ColumnType="NUMBER"
     AliasName="IS_LAST"
     Expression="IS_LAST"
-    SQLType="NUMERIC">
+    SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
@@ -208,6 +212,14 @@ FROM
     <ViewCriteriaRow
       Name="vcrow14"
       UpperColumns="1">
+      <ViewCriteriaItem
+        Name="IsLast"
+        ViewAttribute="IsLast"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":filterHideHistory"
+        IsBindVarValue="true"
+        Required="Optional"/>
       <ViewCriteriaItem
         Name="LastName"
         ViewAttribute="LastName"

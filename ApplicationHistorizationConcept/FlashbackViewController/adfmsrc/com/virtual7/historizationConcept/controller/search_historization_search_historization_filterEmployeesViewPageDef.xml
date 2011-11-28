@@ -14,6 +14,7 @@
       <NamedData NDName="filterDepartmentName" NDValue="#{pageFlowScope.filterDepartmentName}"
                  NDType="java.lang.String"/>
       <NamedData NDName="filterJobTitle" NDValue="#{pageFlowScope.filterJobTitle}" NDType="java.lang.String"/>
+      <NamedData NDName="filterHideHistory" NDValue="#{pageFlowScope.filterIncludeHistory ? '%' : '1'}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

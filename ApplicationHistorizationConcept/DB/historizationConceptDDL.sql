@@ -250,8 +250,8 @@ SELECT
   ELSE t3.LAST_CHANGE_DATE
   END LAST_CHANGE_DATE,
   CASE
-  WHEN t1.e = binary_float_infinity AND t2.e = binary_float_infinity AND t3.e = binary_float_infinity THEN 1
-  ELSE 0
+  WHEN t1.e = binary_float_infinity AND t2.e = binary_float_infinity AND t3.e = binary_float_infinity THEN '1'
+  ELSE '0'
   END IS_LAST,
   t1.EMPLOYEE_ID,
   t1.FIRST_NAME,
@@ -282,8 +282,8 @@ SELECT
   ELSE t3.LAST_CHANGE_DATE
   END LAST_CHANGE_DATE,
   CASE
-  WHEN t1.e = binary_float_infinity AND t2.e = binary_float_infinity AND t3.e = binary_float_infinity THEN 1
-  ELSE 0
+  WHEN t1.e = binary_float_infinity AND t2.e = binary_float_infinity AND t3.e = binary_float_infinity THEN '1'
+  ELSE '0'
   END IS_LAST,
   t1.EMPLOYEE_ID,
   t1.FIRST_NAME,
