@@ -16,6 +16,7 @@
             <af:inputText label="Job Title" id="itJobName" value="#{pageFlowScope.filterJobTitle}"/>
             <af:inputText label="Department Name" id="itDepartmentName" autoSubmit="false"
                           value="#{pageFlowScope.filterDepartmentName}"/>
+            <af:selectBooleanCheckbox label="History" id="sbc1" value="#{pageFlowScope.filterIncludeHistory}"/>
           </af:panelFormLayout>
         </af:panelBox>
         <af:panelGroupLayout id="pgl2" layout="horizontal" styleClass="AFStretchWidth">
