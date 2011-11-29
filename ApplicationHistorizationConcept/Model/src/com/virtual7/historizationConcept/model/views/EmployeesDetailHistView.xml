@@ -3,15 +3,17 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="EmployeesDetailHist1View"
+  Name="EmployeesDetailHistView"
   Version="11.1.1.60.13"
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  RowClass="com.virtual7.historizationConcept.model.views.EmployeesDetailHistViewRowImpl">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
     <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
   </DesignTime>
   <Variable
     Name="filterDepartmentName"
@@ -30,16 +32,18 @@
     Kind="viewcriteria"
     Type="java.lang.String"/>
   <SQLQuery>
-    <![CDATA[SELECT EmployeesDetailHist1.LAST_CHANGE_DATE,
-       EmployeesDetailHist1.IS_LAST,
-       EmployeesDetailHist1.EMPLOYEE_ID,
-       EmployeesDetailHist1.FIRST_NAME,
-       EmployeesDetailHist1.LAST_NAME,
-       EmployeesDetailHist1.JOB_ID,
-       EmployeesDetailHist1.JOB_TITLE,
-       EmployeesDetailHist1.DEPARTMENT_ID,
-       EmployeesDetailHist1.DEPARTMENT_NAME
-FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
+    <![CDATA[SELECT 
+    EmployeesDetailHist.LAST_CHANGE_DATE, 
+    EmployeesDetailHist.IS_LAST,     
+    EmployeesDetailHist.EMPLOYEE_ID, 
+    EmployeesDetailHist.FIRST_NAME, 
+    EmployeesDetailHist.LAST_NAME, 
+    EmployeesDetailHist.JOB_ID, 
+    EmployeesDetailHist.JOB_TITLE, 
+    EmployeesDetailHist.DEPARTMENT_ID, 
+    EmployeesDetailHist.DEPARTMENT_NAME 
+FROM 
+    EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist]]>
   </SQLQuery>
   <ViewAttribute
     Name="LastChangeDate"
@@ -57,9 +61,11 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMATTER
-          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHist1View.LastChangeDate_FMT_FORMATTER"/>
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.LastChangeDate_FMT_FORMATTER"/>
         <FMT_FORMAT
-          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHist1View.LastChangeDate_FMT_FORMAT"/>
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.LastChangeDate_FMT_FORMAT"/>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.LastChangeDate_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -76,6 +82,12 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.IsLast_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="EmployeeId"
@@ -93,6 +105,12 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.EmployeeId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="FirstName"
@@ -108,6 +126,12 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.FirstName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="LastName"
@@ -124,6 +148,12 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="25"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.LastName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="JobId"
@@ -140,6 +170,12 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="10"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.JobId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="JobTitle"
@@ -156,6 +192,12 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="35"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.JobTitle_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="DepartmentId"
@@ -173,6 +215,12 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.DepartmentId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="DepartmentName"
@@ -189,10 +237,82 @@ FROM EMPLOYEES_DETAIL_HIST1 EmployeesDetailHist1]]>
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.DepartmentName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="LastNameDiff"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[adf.object.calculateLastNameDiff()]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="LastName"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.LastNameDiff_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="DepartmentNameDiff"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[adf.object.calculateDepartmentNameDiff()]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="DepartmentName"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.DepartmentNameDiff_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="JobTitleDiff"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <TransientExpression><![CDATA[adf.object.calculateJobTitleDiff()]]></TransientExpression>
+    <Dependencies>
+      <Item
+        Value="JobTitle"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView.JobTitleDiff_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
-    Name="EmployeesDetailHist1ViewCriteria"
-    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist1View"
+    Name="EmployeesDetailHistViewCriteria"
+    ViewObjectName="com.virtual7.historizationConcept.model.views.EmployeesDetailHistView"
     Conjunction="AND">
     <Properties>
       <CustomProperties>

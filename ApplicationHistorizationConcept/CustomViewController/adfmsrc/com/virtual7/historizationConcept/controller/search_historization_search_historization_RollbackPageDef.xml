@@ -5,6 +5,6 @@
   <parameters/>
   <executables/>
   <bindings>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppModule2DataControl"/>
   </bindings>
 </pageDefinition>

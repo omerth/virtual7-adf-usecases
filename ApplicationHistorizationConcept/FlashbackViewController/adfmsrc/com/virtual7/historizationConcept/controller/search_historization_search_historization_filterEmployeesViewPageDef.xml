@@ -4,7 +4,7 @@
                 Package="com.virtual7.historizationConcept.controller" SkipValidation="true">
   <parameters/>
   <executables>
-    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeesViewIterator"
+    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModule1DataControl" id="EmployeesViewIterator"
               Refresh="never"/>
   </executables>
   <bindings>

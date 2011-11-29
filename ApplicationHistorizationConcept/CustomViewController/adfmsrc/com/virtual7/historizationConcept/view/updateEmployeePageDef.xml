@@ -4,9 +4,9 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeesViewIterator"/>
-    <iterator Binds="DepartmentsView" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentsViewIterator"/>
-    <iterator Binds="JobsView" RangeSize="25" DataControl="AppModuleDataControl" id="JobsViewIterator"/>
+    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModule2DataControl" id="EmployeesViewIterator"/>
+    <iterator Binds="DepartmentsView" RangeSize="25" DataControl="AppModule2DataControl" id="DepartmentsViewIterator"/>
+    <iterator Binds="JobsView" RangeSize="25" DataControl="AppModule2DataControl" id="JobsViewIterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="EmployeesViewIterator" id="EmployeeId">
