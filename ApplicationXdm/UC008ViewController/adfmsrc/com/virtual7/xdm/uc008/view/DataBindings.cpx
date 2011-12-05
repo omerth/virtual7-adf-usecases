@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.xdm.uc008.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/taskOverviewEdit.jsff" usageId="com_virtual7_xdm_uc008_view_taskOverviewEditPageDef"/>
+    <page path="/testpages/TaskEditOverview.jspx" usageId="com_virtual7_xdm_uc008_view_TaskEditOverviewPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_xdm_uc008_view_taskOverviewEditPageDef"
+          path="com.virtual7.xdm.uc008.view.pageDefs.taskOverviewEditPageDef"/>
+    <page id="com_virtual7_xdm_uc008_view_TaskEditOverviewPageDef" path="testpages.TaskEditOverviewPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="UC008ServiceDataControl" Package="com.virtual7.xdm.uc008.model.views"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="UC008ServiceLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="XdmLovServicesDataControl" Package="com.virtual7.xdm.model.views.lov"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="XdmLovServicesLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

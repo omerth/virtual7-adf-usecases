@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XdmElements"
+  Version="11.1.1.60.13"
+  DBObjectType="table"
+  DBObjectName="XDM_ELEMENTS"
+  AliasName="XdmElements"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="com.virtual7.xdm.framework.EntityImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="ElemKey"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="ELEM_KEY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XDM_ELEMENTS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SuplId"
+    Precision="12"
+    Scale="0"
+    ColumnName="SUPL_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XDM_ELEMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="250"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="XDM_ELEMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="250"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="MaxPax"
+    Precision="5"
+    Scale="0"
+    ColumnName="MAX_PAX"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="XDM_ELEMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="XdmTasks"
+    Association="com.virtual7.xdm.model.entities.associations.XdmElemTaskFkAssoc"
+    AssociationEnd="com.virtual7.xdm.model.entities.associations.XdmElemTaskFkAssoc.XdmTasks"
+    AssociationOtherEnd="com.virtual7.xdm.model.entities.associations.XdmElemTaskFkAssoc.XdmElements"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="SysC007334">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C007334"/>
+      <Attr Name="_checkCondition" Value='"ELEM_KEY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.xdm.model.entities.XdmElements.ElemKey"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="XdmElementsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="XDM_ELEMENTS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.xdm.model.entities.XdmElements.ElemKey"/>
+    </AttrArray>
+  </Key>
+</Entity>
