@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="11.1.1.60.13" id="DataControls"
+                    Package="com.virtual7.multipleFileUploadProxy.model">
+  <AdapterDataControl id="AppModuleServiceDataControl" FactoryClass="oracle.adf.model.adapter.DataControlFactoryImpl"
+                      ImplDef="oracle.adfinternal.model.adapter.webservice.WSDefinition" SupportsTransactions="false"
+                      SupportsSortCollection="false" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true"
+                      Definition="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl"
+                      BeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl"
+                      xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <definition xmlns="http://xmlns.oracle.com/adfm/adapter/webservice" name="AppModuleServiceDataControl"
+                  version="1.0" provider="oracle.adfinternal.model.adapter.webservice.provider.soap.SOAPProvider"
+                  wsdl="http://localhost:7101/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService?wsdl">
+        <service name="AppModuleService" namespace="/com/virtual7/multipleFileUpload/model/common/"
+                 connection="AppModuleServiceDataControl">
+          <port name="AppModuleServiceSoapHttpPort">
+            <operation name="findEmployeesView1">
+              <dataformat format="XML"/>
+            </operation>
+          </port>
+        </service>
+      </definition>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

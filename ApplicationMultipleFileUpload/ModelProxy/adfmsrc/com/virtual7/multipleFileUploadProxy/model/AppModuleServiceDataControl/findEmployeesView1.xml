@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="findEmployeesView1"
+          Package="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl"
+          BeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1"
+          isJavaBased="false">
+  <AccessorAttribute id="result" IsCollection="true"
+                     BeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1.result"
+                     CollectionBeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1_Operations"/>
+</JavaBean>
