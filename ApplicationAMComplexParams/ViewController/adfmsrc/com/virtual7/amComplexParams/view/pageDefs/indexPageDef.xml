@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.amComplexParams.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+  </executables>
+  <bindings>
+    <methodAction id="saveUsers" RequiresUpdateModel="true" Action="invokeMethod" MethodName="saveUsers"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider">
+      <NamedData NDName="users" NDValue="#{pageFlowScope.managedBean.users}"
+                 NDType="java.util.List&lt;com.virtual7.amComplexParams.model.UserBean>"/>
+    </methodAction>
+    <methodAction id="saveUsers1" RequiresUpdateModel="true" Action="invokeMethod" MethodName="saveUsers1"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider">
+      <NamedData NDName="userList" NDValue="#{pageFlowScope.managedBean.userList}"
+                 NDType="com.virtual7.amComplexParams.model.UserList"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

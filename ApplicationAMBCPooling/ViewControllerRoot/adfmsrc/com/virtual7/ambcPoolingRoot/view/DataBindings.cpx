@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.ambcPoolingRoot.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_virtual7_ambcPoolingRoot_view_indexPageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPoolingRoot/view/countries1.jsff" usageId="com_virtual7_ambcPoolingRoot_view_countries1PageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPoolingRoot/view/countries2.jsff" usageId="com_virtual7_ambcPoolingRoot_view_countries2PageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPoolingRoot/view/countries3.jsff" usageId="com_virtual7_ambcPoolingRoot_view_countries3PageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPoolingRoot/view/countries4.jsff" usageId="com_virtual7_ambcPoolingRoot_view_countries4PageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPoolingRoot/view/countries5.jsff" usageId="com_virtual7_ambcPoolingRoot_view_countries5PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_ambcPoolingRoot_view_indexPageDef" path="com.virtual7.ambcPoolingRoot.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_ambcPoolingRoot_view_countries1PageDef" path="com.virtual7.ambcPoolingRoot.view.countries1PageDef"/>
+    <page id="com_virtual7_ambcPoolingRoot_view_countries2PageDef" path="com.virtual7.ambcPoolingRoot.view.countries2PageDef"/>
+    <page id="com_virtual7_ambcPoolingRoot_view_countries3PageDef" path="com.virtual7.ambcPoolingRoot.view.countries3PageDef"/>
+    <page id="com_virtual7_ambcPoolingRoot_view_countries4PageDef" path="com.virtual7.ambcPoolingRoot.view.countries4PageDef"/>
+    <page id="com_virtual7_ambcPoolingRoot_view_countries5PageDef" path="com.virtual7.ambcPoolingRoot.view.countries5PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleRootDataControl" Package="com.virtual7.ambcPoolingRoot.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleRootLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

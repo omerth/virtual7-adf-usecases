@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelFormLayout id="pfl1">
+        <af:outputText value="#{bindings.EmployeeId.inputValue}" id="ot1">
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId.format}"/>
+        </af:outputText>
+        <af:inputText value="#{bindings.FirstName.inputValue}" label="#{bindings.FirstName.hints.label}"
+                      required="#{bindings.FirstName.hints.mandatory}"
+                      columns="#{bindings.FirstName.hints.displayWidth}"
+                      maximumLength="#{bindings.FirstName.hints.precision}"
+                      shortDesc="#{bindings.FirstName.hints.tooltip}" id="it4">
+          <f:validator binding="#{bindings.FirstName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                      required="#{bindings.LastName.hints.mandatory}" columns="#{bindings.LastName.hints.displayWidth}"
+                      maximumLength="#{bindings.LastName.hints.precision}"
+                      shortDesc="#{bindings.LastName.hints.tooltip}" id="it3">
+          <f:validator binding="#{bindings.LastName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.JobTitle.inputValue}" label="#{bindings.JobTitle.hints.label}"
+                      required="#{bindings.JobTitle.hints.mandatory}" columns="#{bindings.JobTitle.hints.displayWidth}"
+                      maximumLength="#{bindings.JobTitle.hints.precision}"
+                      shortDesc="#{bindings.JobTitle.hints.tooltip}" id="it2">
+          <f:validator binding="#{bindings.JobTitle.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.label}"
+                            required="#{bindings.DepartmentId.hints.mandatory}"
+                            shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="soc1" autoSubmit="true">
+          <f:selectItems value="#{bindings.DepartmentId.items}" id="si1"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.DepartmentName.inputValue}" label="#{bindings.DepartmentName.hints.label}"
+                      required="#{bindings.DepartmentName.hints.mandatory}"
+                      columns="#{bindings.DepartmentName.hints.displayWidth}"
+                      maximumLength="#{bindings.DepartmentName.hints.precision}"
+                      shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it1" partialTriggers="soc1">
+          <f:validator binding="#{bindings.DepartmentName.validator}"/>
+        </af:inputText>
+        <f:facet name="footer">
+          <af:panelGroupLayout id="pgl1" layout="horizontal">
+            <af:commandButton text="Save" id="cb1" action="commit"/>
+            <af:commandButton text="Cancel" id="cb2" immediate="true" action="rollback">
+              <af:resetActionListener/>
+            </af:commandButton>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelFormLayout>
+      <!-- id="af_one_column_stretched"   -->
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

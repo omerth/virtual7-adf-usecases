@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-countries5">
+    <default-activity id="__1">countries5</default-activity>
+    <view id="countries5">
+      <page>/WEB-INF/com/virtual7/ambcPooling/view/countries5.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.exceptionHandler.view" ClientType="Generic"
+             ErrorHandlerClass="com.virtual7.exceptionHandler.view.CustomErrorHandler">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_virtual7_exceptionHandler_view_indexPageDef"/>
+    <page path="/WEB-INF/com/virtual7/exceptionHandler/view/pageWithErrorsFromModel.jsff"
+          usageId="com_virtual7_exceptionHandler_view_pageWithErrorsPageDef"/>
+    <page path="/WEB-INF/com/virtual7/exceptionHandler/controller/task-flow-content.xml#task-flow-content@modelMethod"
+          usageId="com_virtual7_exceptionHandler_view_task_flow_content_task_flow_content_methodThatGenerateExceptionPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_exceptionHandler_view_indexPageDef" path="com.virtual7.exceptionHandler.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_exceptionHandler_view_pageWithErrorsPageDef"
+          path="com.virtual7.exceptionHandler.view.pageWithErrorsPageDef"/>
+    <page id="com_virtual7_exceptionHandler_view_task_flow_content_task_flow_content_methodThatGenerateExceptionPageDef"
+          path="com.virtual7.exceptionHandler.controller.task_flow_content_task_flow_content_methodThatGenerateExceptionPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.exceptionHandler.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

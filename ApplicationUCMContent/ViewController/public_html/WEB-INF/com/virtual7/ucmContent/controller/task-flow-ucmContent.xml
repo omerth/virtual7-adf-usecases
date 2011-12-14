@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-ucmContent">
+    <default-activity id="__1">selectDocument</default-activity>
+    <transaction id="__19">
+      <new-transaction/>
+    </transaction>
+    <data-control-scope id="__20">
+      <isolated/>
+    </data-control-scope>
+    <input-parameter-definition id="__2">
+      <display-name id="__4">UCM Document Name</display-name>
+      <name id="__3">docName</name>
+      <value>#{pageFlowScope.docName}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <input-parameter-definition id="__12">
+      <name id="__11">deptId</name>
+      <value>#{pageFlowScope.deptId}</value>
+      <class>oracle.jbo.domain.Number</class>
+    </input-parameter-definition>
+    <view id="ucmContent">
+      <page>/WEB-INF/com/virtual7/ucmContent/view/ucmContent.jsff</page>
+    </view>
+    <method-call id="selectDocument">
+      <method>#{bindings.selectDocument.execute}</method>
+      <outcome id="__5">
+        <fixed-outcome>selectDocument</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="SetCurrentRowWithKeyValue">
+      <method>#{bindings.setCurrentRowWithKeyValue.execute}</method>
+      <outcome id="__13">
+        <fixed-outcome>setCurrentRowWithKeyValue</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__6">
+      <from-activity-id id="__7">selectDocument</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__9">selectDocument</from-outcome>
+        <to-activity-id id="__8">SetCurrentRowWithKeyValue</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__14">
+      <from-activity-id id="__15">SetCurrentRowWithKeyValue</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome id="__17">setCurrentRowWithKeyValue</from-outcome>
+        <to-activity-id id="__16">ucmContent</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
