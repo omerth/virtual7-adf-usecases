@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="Model" default="deploy" basedir=".">
+	<property file="../../build.properties" />
+	<property name="oracle.jdeveloper.workspace.path" location="../ApplicationExceptionHandler.jws" />
+	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
+	<target name="deploy" description="Deploy JDeveloper profiles">
+		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
+		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />
+		<ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}" ora:buildscript="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-build.xml" ora:statuslog="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-statuslog.xml">
+			<ora:deploy>
+				<ora:parameter name="clean" value="true" />
+				<ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}" />
+				<ora:parameter name="project" value="${ant.project.name}" />
+				<ora:parameter name="profile" value="*" />
+			</ora:deploy>
+		</ora:ojdeploy>
+	</target>
+
+	<target name="cloneProject">
+		<property name="replace.token1" value="${ant.project.name}" />
+		<property name="replace.token2" value="exceptionHandler" />
+
+		<input message="What is the equivalent for ${replace.token1}?" addproperty="do.token1" defaultvalue="${replace.token1}" />
+		<input message="What is the equivalent for ${replace.token2}?" addproperty="do.token2" defaultvalue="${replace.token2}" />
+
+
+
+		<mkdir dir="../${do.token1}" />
+		<copy todir="../${do.token1}" overwrite="true" verbose="true">
+			<fileset dir="." />
+			<filtermapper>
+				<replacestring from="${replace.token1}" to="${do.token1}" />
+				<replacestring from="${replace.token2}" to="${do.token2}" />
+			</filtermapper>
+		</copy>
+		<replace dir="../${do.token1}">
+			<replacefilter token="${replace.token1}" value="${do.token1}" />
+			<replacefilter token="${replace.token2}" value="${do.token2}" />
+		</replace>
+	</target>
+</project>
