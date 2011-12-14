@@ -16,57 +16,73 @@
             <af:inputText label="Job Title" id="itJobName" value="#{pageFlowScope.filterJobTitle}"/>
             <af:inputText label="Department Name" id="itDepartmentName" autoSubmit="false"
                           value="#{pageFlowScope.filterDepartmentName}"/>
+            <af:selectBooleanCheckbox label="History" id="sbc1" value="#{pageFlowScope.filterIncludeHistory}"/>
           </af:panelFormLayout>
         </af:panelBox>
         <af:panelGroupLayout id="pgl2" layout="horizontal" styleClass="AFStretchWidth">
           <af:panelBox id="pb2" showDisclosure="false" styleClass="AFStretchWidth">
             <f:facet name="toolbar"/>
-            <af:table value="#{bindings.EmployeesView.collectionModel}" var="row"
+            <af:table styleClass="AFStretchWidth" value="#{bindings.EmployeesView.collectionModel}" var="row"
                       rows="#{bindings.EmployeesView.rangeSize}"
                       emptyText="#{bindings.EmployeesView.viewable ? 'No data to display.' : 'Access Denied.'}"
                       fetchSize="#{bindings.EmployeesView.rangeSize}" rowBandingInterval="0"
                       selectedRowKeys="#{bindings.EmployeesView.collectionModel.selectedRow}"
                       selectionListener="#{bindings.EmployeesView.collectionModel.makeCurrent}" rowSelection="single"
-                      id="t1" width="464">
-              <af:column sortProperty="EmployeeId" sortable="true"
+                      id="t1" columnStretching="multiple">
+              <af:column sortProperty="EmployeeId" sortable="true" width="75"
                          headerText="#{bindings.EmployeesView.hints.EmployeeId.label}" id="c3">
                 <af:outputText value="#{row.EmployeeId}" id="ot1">
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesView.hints.EmployeeId.format}"/>
-                  
                 </af:outputText>
               </af:column>
-              <af:column sortProperty="FirstName" sortable="true"
+              <af:column sortProperty="FirstName" sortable="true" width="50%"
                          headerText="#{bindings.EmployeesView.hints.FirstName.label}" id="c2">
                 <af:outputText value="#{row.FirstName}" id="ot3"/>
               </af:column>
-              <af:column sortProperty="LastName" sortable="true"
+              <af:column sortProperty="LastName" sortable="true" width="50%"
                          headerText="#{bindings.EmployeesView.hints.LastName.label}" id="c1">
                 <af:outputText value="#{row.LastName}" id="ot2"/>
               </af:column>
               <af:column id="c5" width="50px">
                 <af:commandButton action="details" text="Details" id="cb1">
-                    <af:setPropertyListener from="#{row.EmployeeId}" to="#{pageFlowScope.updateEmployeeId}" type="action"/>
+                  <af:setPropertyListener from="#{row.EmployeeId}" to="#{pageFlowScope.updateEmployeeId}"
+                                          type="action"/>
                 </af:commandButton>
               </af:column>
             </af:table>
           </af:panelBox>
           <af:panelBox id="pb3" showDisclosure="false" styleClass="AFStretchWidth">
             <f:facet name="toolbar"/>
-            <af:table value="#{bindings.EmployeesDetailHist1View.collectionModel}" var="row"
-                      rows="#{bindings.EmployeesDetailHist1View.rangeSize}"
-                      emptyText="#{bindings.EmployeesDetailHist1View.viewable ? 'No data to display.' : 'Access Denied.'}"
-                      fetchSize="#{bindings.EmployeesDetailHist1View.rangeSize}" rowBandingInterval="0"
-                      selectedRowKeys="#{bindings.EmployeesDetailHist1View.collectionModel.selectedRow}"
-                      selectionListener="#{bindings.EmployeesDetailHist1View.collectionModel.makeCurrent}"
-                      rowSelection="single" id="t2" styleClass="AFStretchWidth" partialTriggers="::t1" width="287">
-              <af:column sortProperty="LastChangeDate" sortable="true"
-                         headerText="#{bindings.EmployeesDetailHist1View.hints.LastChangeDate.label}" id="c4"
-                         width="200">
+            <af:table value="#{bindings.EmployeesDetailHistView.collectionModel}" var="row"
+                      rows="#{bindings.EmployeesDetailHistView.rangeSize}"
+                      emptyText="#{bindings.EmployeesDetailHistView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.EmployeesDetailHistView.rangeSize}" rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.EmployeesDetailHistView.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.EmployeesDetailHistView.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t2" styleClass="AFStretchWidth" partialTriggers="::t1"
+                      columnStretching="multiple">
+              <af:column sortProperty="LastChangeDate" sortable="false"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.LastChangeDate.label}" id="c4"
+                         width="150px">
                 <af:outputText value="#{row.IsLast == '1' ? '(current version)' : row.LastChangeDate}" id="ot4">
-                  <af:convertDateTime pattern="#{row.IsLast == '1' ? '' : bindings.EmployeesDetailHist1View.hints.LastChangeDate.format}
-
-"/>
+                  <af:convertDateTime pattern="#{row.IsLast == '1' ? '' : bindings.EmployeesDetailHistView.hints.LastChangeDate.format}"/>
                 </af:outputText>
+              </af:column>
+              <af:column sortProperty="FirstName" sortable="false" width="25%"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.FirstName.label}" id="c6">
+                <af:richTextEditor readOnly="true" value="#{row.FirstName}" id="ot13"/>
+              </af:column>
+              <af:column sortProperty="LastNameDiff" sortable="false" width="25%"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.LastNameDiff.label}" id="c7">
+                <af:richTextEditor readOnly="true" value="#{row.bindings.LastNameDiff.inputValue}" id="of1"/>
+              </af:column>
+              <af:column sortProperty="JobTitleDiff" sortable="false" width="25%"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.JobTitleDiff.label}" id="c8">
+                <af:richTextEditor readOnly="true" value="#{row.bindings.JobTitleDiff.inputValue}" id="of2"/>
+              </af:column>
+              <af:column sortProperty="DepartmentNameDiff" sortable="false" width="25%"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.DepartmentNameDiff.label}" id="c9">
+                <af:richTextEditor readOnly="true" value="#{row.bindings.DepartmentNameDiff.inputValue}" id="of3"/>
               </af:column>
             </af:table>
           </af:panelBox>

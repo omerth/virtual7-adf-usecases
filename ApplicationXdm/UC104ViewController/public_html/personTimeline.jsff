@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="bottom"/>
+    <f:facet name="center">
+      <dvt:schedulingGantt id="schedulingGantt1" value="#{bindings.Person.schedulingGanttModel}" var="row"
+                           startTime="#{bindings.MinStartDate.inputValue}" endTime="#{bindings.MaxEndDate.inputValue}">
+        <f:facet name="major">
+          <dvt:timeAxis scale="weeks" id="ta1"/>
+        </f:facet>
+        <f:facet name="minor">
+          <dvt:timeAxis scale="days" id="ta2"/>
+        </f:facet>
+        <f:facet name="nodeStamp">
+          <af:column sortProperty="FirstName" sortable="false" headerText="#{bindings.Person.hints.FirstName.label}"
+                     id="c1">
+            <af:outputText value="#{row.FirstName}" id="ot1"/>
+          </af:column>
+        </f:facet>
+        <af:column sortProperty="LastName" sortable="false" headerText="#{bindings.Person.hints.LastName.label}"
+                   id="c2">
+          <af:outputText value="#{row.LastName}" id="ot2"/>
+        </af:column>
+      </dvt:schedulingGantt>
+    </f:facet>
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top"/>
+  </af:panelStretchLayout>
+</jsp:root>

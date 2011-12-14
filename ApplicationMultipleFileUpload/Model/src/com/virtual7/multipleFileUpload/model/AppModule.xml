@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.60.13"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="4096"/>
+  </DesignTime>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="com.virtual7.multipleFileUpload.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="com.virtual7.multipleFileUpload.model.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.virtual7.multipleFileUpload.model.views.EmpManagerFkLink"
+    SrcViewUsageName="com.virtual7.multipleFileUpload.model.AppModule.EmployeesView1"
+    DstViewUsageName="com.virtual7.multipleFileUpload.model.AppModule.EmployeesView2"
+    Reversed="false"/>
+  <Properties>
+    <CustomProperties>
+      <Property
+        Name="DATA_CONTROL_NAME"
+        Value="AppModuleDataControl"/>
+    </CustomProperties>
+  </Properties>
+  <Remote
+    Name="ServiceInterface"
+    ServerClassName="com.virtual7.multipleFileUpload.model.server.serviceinterface.AppModuleServiceImpl"
+    ServerInterfaceName="com.virtual7.multipleFileUpload.model.common.serviceinterface.AppModuleService">
+    <DesignTime>
+      <Attr Name="_webServiceName" Value="AppModuleService"/>
+      <Attr Name="_targetNameSpace" Value="/com/virtual7/multipleFileUpload/model/common/"/>
+    </DesignTime>
+  </Remote>
+  <ServiceViewUsage
+    ViewUsageName="EmployeesView1">
+    <DesignTime>
+      <Attr Name="_FindOpName" Value="findEmployeesView1"/>
+    </DesignTime>
+  </ServiceViewUsage>
+</AppModule>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="findCriteria"
+          Package="AppModuleServiceDataControl.Types.findEmployeesView1"
+          BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria" isJavaBased="false">
+  <Attribute Name="fetchStart" IsNotNull="true" Type="java.lang.Integer"/>
+  <Attribute Name="fetchSize" IsNotNull="true" Type="java.lang.Integer"/>
+  <Attribute Name="excludeAttribute" IsNotNull="true" Type="java.lang.Boolean"/>
+  <AccessorAttribute id="filter" IsCollection="false"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.filter"/>
+  <AccessorAttribute id="sortOrder" IsCollection="false"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.sortOrder"/>
+  <AccessorAttribute id="findAttribute" IsCollection="true"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.findAttribute"
+                     CollectionBeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria_Operations"/>
+  <AccessorAttribute id="childFindCriteria" IsCollection="true"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.childFindCriteria"
+                     CollectionBeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria_Operations"/>
+</JavaBean>

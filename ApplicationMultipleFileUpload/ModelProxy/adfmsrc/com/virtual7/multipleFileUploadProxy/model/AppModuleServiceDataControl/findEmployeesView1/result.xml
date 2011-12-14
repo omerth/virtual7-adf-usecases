@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="result"
+          Package="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1"
+          BeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1.result"
+          isJavaBased="false">
+  <Attribute Name="EmployeeId" IsUpdateable="0" IsNotNull="false" Type="java.lang.Integer"/>
+  <Attribute Name="FirstName" IsUpdateable="0" IsNotNull="false" Type="java.lang.String"/>
+  <Attribute Name="LastName" IsUpdateable="0" IsNotNull="false" Type="java.lang.String"/>
+  <Attribute Name="Email" IsUpdateable="0" IsNotNull="false" Type="java.lang.String"/>
+  <Attribute Name="PhoneNumber" IsUpdateable="0" IsNotNull="false" Type="java.lang.String"/>
+  <Attribute Name="HireDate" IsUpdateable="0" IsNotNull="false" Type="java.sql.Date"/>
+  <Attribute Name="JobId" IsUpdateable="0" IsNotNull="false" Type="java.lang.String"/>
+  <Attribute Name="Salary" IsUpdateable="0" IsNotNull="false" Type="java.math.BigDecimal"/>
+  <Attribute Name="CommissionPct" IsUpdateable="0" IsNotNull="false" Type="java.math.BigDecimal"/>
+  <Attribute Name="ManagerId" IsUpdateable="0" IsNotNull="false" Type="java.lang.Integer"/>
+  <Attribute Name="DepartmentId" IsUpdateable="0" IsNotNull="false" Type="java.lang.Integer"/>
+  <AccessorAttribute id="ManagerIdEmployeesView" IsCollection="true"
+                     BeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1.result"
+                     CollectionBeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1.result_Operations"/>
+</JavaBean>

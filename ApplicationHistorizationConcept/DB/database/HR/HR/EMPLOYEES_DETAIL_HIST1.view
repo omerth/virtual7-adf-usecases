@@ -1,0 +1,479 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<view xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+  </ID>
+  <name>EMPLOYEES_DETAIL_HIST1</name>
+  <SQLQuery class="oracle.javatools.db.sql.NonDeclarativeSQLQuery">
+    <ID class="oracle.javatools.db.IdentifierBasedID">
+      <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+    </ID>
+    <SQLText>SELECT 
+  CASE
+  WHEN t1.LAST_CHANGE_DATE&gt;=t2.LAST_CHANGE_DATE AND t1.LAST_CHANGE_DATE&gt;=t3.LAST_CHANGE_DATE THEN t1.LAST_CHANGE_DATE
+  WHEN t2.LAST_CHANGE_DATE&gt;=t1.LAST_CHANGE_DATE AND t2.LAST_CHANGE_DATE&gt;=t3.LAST_CHANGE_DATE THEN t2.LAST_CHANGE_DATE
+  ELSE t3.LAST_CHANGE_DATE
+  END LAST_CHANGE_DATE,
+  CASE
+  WHEN t1.e = binary_float_infinity AND t2.e = binary_float_infinity AND t3.e = binary_float_infinity THEN &apos;1&apos;
+  ELSE &apos;0&apos;
+  END IS_LAST,
+  t1.EMPLOYEE_ID,
+  t1.FIRST_NAME,
+  t1.LAST_NAME,
+  t2.JOB_ID,
+  t2.JOB_TITLE,
+  t3.DEPARTMENT_ID,
+  t3.DEPARTMENT_NAME
+FROM
+  EMPLOYEES_HIST1 t1,
+  JOBS_HIST1 t2,
+  DEPARTMENTS_HIST1 t3
+WHERE t1.JOB_ID = t2.JOB_ID
+AND t1.DEPARTMENT_ID = t3.DEPARTMENT_ID
+AND (t1.s=t1.e OR t2.s=t2.e OR (t1.s=t2.s AND t1.e=t2.e) OR (t2.s &lt; t1.e AND t2.e &gt; t1.s) OR (t1.s &lt; t2.e AND t1.e &gt; t2.s))
+AND (t1.s=t1.e OR t3.s=t3.e OR (t1.s=t3.s AND t1.e=t3.e) OR (t3.s &lt; t1.e AND t3.e &gt; t1.s) OR (t1.s &lt; t3.e AND t1.e &gt; t3.s))
+AND (t2.s=t2.e OR t3.s=t3.e OR (t2.s=t3.s AND t2.e=t3.e) OR (t3.s &lt; t2.e AND t3.e &gt; t2.s) OR (t2.s &lt; t3.e AND t2.e &gt; t3.s))
+ORDER BY IS_LAST DESC, LAST_CHANGE_DATE DESC</SQLText>
+    <distinct>false</distinct>
+    <fromObjects>
+      <fromObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">0e67a231-1ac5-44a4-ad32-8eaf9788b475</identifier>
+        </ID>
+        <alias>t1</alias>
+        <expression class="oracle.javatools.db.sql.RelationUsage">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">f48e747d-02ea-492c-be87-fed7f766e360</identifier>
+          </ID>
+          <objectID class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_HIST1</name>
+            <identifier class="java.lang.String">e59e9650-638b-45ef-ae96-1deed3133676</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </objectID>
+        </expression>
+      </fromObject>
+      <fromObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">29fdb1bd-6a34-46f7-977f-86180a34e829</identifier>
+        </ID>
+        <alias>t2</alias>
+        <expression class="oracle.javatools.db.sql.RelationUsage">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">e4dfbe86-a853-42e6-a2e6-87ecf620a98c</identifier>
+          </ID>
+          <objectID class="oracle.javatools.db.IdentifierBasedID">
+            <name>JOBS_HIST1</name>
+            <identifier class="java.lang.String">de9843e4-9a81-464f-a275-0c4626d2180d</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </objectID>
+        </expression>
+      </fromObject>
+      <fromObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">ab4930ca-1f41-4e7d-9181-9ab2eb667ec7</identifier>
+        </ID>
+        <alias>t3</alias>
+        <expression class="oracle.javatools.db.sql.RelationUsage">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">10f34a3c-3ac9-418e-9651-95a551fb93c4</identifier>
+          </ID>
+          <objectID class="oracle.javatools.db.IdentifierBasedID">
+            <name>DEPARTMENTS_HIST1</name>
+            <identifier class="java.lang.String">063fa7cf-de37-45b7-ad8e-5e6d9f82a401</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </objectID>
+        </expression>
+      </fromObject>
+    </fromObjects>
+    <selectObjects>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">b1b87ad4-15e0-4eaa-a991-d939f0a5abda</identifier>
+        </ID>
+        <alias>LAST_CHANGE_DATE</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">8a9ac3e2-05ed-4d63-9edd-5d42429e3c97</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">d4f94fd4-4aee-403d-b1a3-8fcda3b0bf83</identifier>
+        </ID>
+        <alias>IS_LAST</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">66d747d9-07a0-4c10-b716-8fa81ae6d74c</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">c3a035a4-af9c-49db-838e-af9d95f48ce5</identifier>
+        </ID>
+        <alias>EMPLOYEE_ID</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">9ceab04f-ac2b-4391-84fc-9736564fffd7</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">283e8d11-0935-4959-9378-533d50e7a13b</identifier>
+        </ID>
+        <alias>FIRST_NAME</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">c9c80c36-a110-46bb-9ee5-a528ffd679ef</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">f9fe3ceb-1740-4281-9f19-8af9814f4a7b</identifier>
+        </ID>
+        <alias>LAST_NAME</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">f8c1b3d4-5a78-44d4-9b99-7c5fbdf68098</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">e982f020-b675-4e3a-821a-78a384ebce7f</identifier>
+        </ID>
+        <alias>JOB_ID</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">74bd3256-d926-4953-a7ef-761286a757f2</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">fc75978e-f83d-479c-8a42-64855c33950a</identifier>
+        </ID>
+        <alias>JOB_TITLE</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">055f1a31-dc5e-4f91-a4d5-7b4392d2b5c3</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">d3178614-4477-4061-adbe-152b0f4d7125</identifier>
+        </ID>
+        <alias>DEPARTMENT_ID</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">e41e2dca-c189-4185-baf3-e4220644df69</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+      <selectObject>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">115bc64f-576e-49aa-bba5-3c1c0c29ca87</identifier>
+        </ID>
+        <alias>DEPARTMENT_NAME</alias>
+        <expression class="oracle.javatools.db.sql.SimpleSQLFragment">
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">1f0b753b-d337-45e9-86d8-1901bf13d567</identifier>
+          </ID>
+          <SQLText>null</SQLText>
+        </expression>
+        <useAs>false</useAs>
+      </selectObject>
+    </selectObjects>
+    <queryString>SELECT 
+  CASE
+  WHEN t1.LAST_CHANGE_DATE&gt;=t2.LAST_CHANGE_DATE AND t1.LAST_CHANGE_DATE&gt;=t3.LAST_CHANGE_DATE THEN t1.LAST_CHANGE_DATE
+  WHEN t2.LAST_CHANGE_DATE&gt;=t1.LAST_CHANGE_DATE AND t2.LAST_CHANGE_DATE&gt;=t3.LAST_CHANGE_DATE THEN t2.LAST_CHANGE_DATE
+  ELSE t3.LAST_CHANGE_DATE
+  END LAST_CHANGE_DATE,
+  CASE
+  WHEN t1.e = binary_float_infinity AND t2.e = binary_float_infinity AND t3.e = binary_float_infinity THEN &apos;1&apos;
+  ELSE &apos;0&apos;
+  END IS_LAST,
+  t1.EMPLOYEE_ID,
+  t1.FIRST_NAME,
+  t1.LAST_NAME,
+  t2.JOB_ID,
+  t2.JOB_TITLE,
+  t3.DEPARTMENT_ID,
+  t3.DEPARTMENT_NAME
+FROM
+  EMPLOYEES_HIST1 t1,
+  JOBS_HIST1 t2,
+  DEPARTMENTS_HIST1 t3
+WHERE t1.JOB_ID = t2.JOB_ID
+AND t1.DEPARTMENT_ID = t3.DEPARTMENT_ID
+AND (t1.s=t1.e OR t2.s=t2.e OR (t1.s=t2.s AND t1.e=t2.e) OR (t2.s &lt; t1.e AND t2.e &gt; t1.s) OR (t1.s &lt; t2.e AND t1.e &gt; t2.s))
+AND (t1.s=t1.e OR t3.s=t3.e OR (t1.s=t3.s AND t1.e=t3.e) OR (t3.s &lt; t1.e AND t3.e &gt; t1.s) OR (t1.s &lt; t3.e AND t1.e &gt; t3.s))
+AND (t2.s=t2.e OR t3.s=t3.e OR (t2.s=t3.s AND t2.e=t3.e) OR (t3.s &lt; t2.e AND t3.e &gt; t2.s) OR (t2.s &lt; t3.e AND t2.e &gt; t3.s))
+ORDER BY IS_LAST DESC, LAST_CHANGE_DATE DESC</queryString>
+  </SQLQuery>
+  <columns>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c29b0232-020e-47d3-8cb0-7bb128e51d17</identifier>
+      </ID>
+      <name>LAST_CHANGE_DATE</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>LAST_CHANGE_DATE</name>
+        <identifier class="java.lang.String">b1b87ad4-15e0-4eaa-a991-d939f0a5abda</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">fd48c7c4-b33a-48cd-8037-d2ab67987b0e</identifier>
+      </ID>
+      <name>IS_LAST</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>IS_LAST</name>
+        <identifier class="java.lang.String">d4f94fd4-4aee-403d-b1a3-8fcda3b0bf83</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a28c599f-0cb7-466d-aa02-9c953238b45a</identifier>
+      </ID>
+      <name>EMPLOYEE_ID</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>EMPLOYEE_ID</name>
+        <identifier class="java.lang.String">c3a035a4-af9c-49db-838e-af9d95f48ce5</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c9729624-40de-472e-b4da-8d22884440a3</identifier>
+      </ID>
+      <name>FIRST_NAME</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>FIRST_NAME</name>
+        <identifier class="java.lang.String">283e8d11-0935-4959-9378-533d50e7a13b</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7b3fb6a1-9b7c-40b9-a56d-55371a161da5</identifier>
+      </ID>
+      <name>LAST_NAME</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>LAST_NAME</name>
+        <identifier class="java.lang.String">f9fe3ceb-1740-4281-9f19-8af9814f4a7b</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">ade7d026-86c5-4e13-ad52-e18155517a65</identifier>
+      </ID>
+      <name>JOB_ID</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>JOB_ID</name>
+        <identifier class="java.lang.String">e982f020-b675-4e3a-821a-78a384ebce7f</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">71f2e1be-8668-4e55-a21f-c51c985665c7</identifier>
+      </ID>
+      <name>JOB_TITLE</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>JOB_TITLE</name>
+        <identifier class="java.lang.String">fc75978e-f83d-479c-8a42-64855c33950a</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c3f9062b-d5e6-42de-85d1-2c34fd174615</identifier>
+      </ID>
+      <name>DEPARTMENT_ID</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>DEPARTMENT_ID</name>
+        <identifier class="java.lang.String">d3178614-4477-4061-adbe-152b0f4d7125</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+    <column class="oracle.javatools.db.ViewColumn">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">ce81ae03-1a5e-4f24-b597-513baaffc27d</identifier>
+      </ID>
+      <name>DEPARTMENT_NAME</name>
+      <notNull>false</notNull>
+      <selectObjectID class="oracle.javatools.db.IdentifierBasedID">
+        <name>DEPARTMENT_NAME</name>
+        <identifier class="java.lang.String">115bc64f-576e-49aa-bba5-3c1c0c29ca87</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">678a2b47-d83c-405e-8abf-86384c59b5ca</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES_DETAIL_HIST1</name>
+            <identifier class="java.lang.String">62b36b2f-cc1d-4dc3-8161-e58e5284ad09</identifier>
+            <schemaName>HR</schemaName>
+            <type>VIEW</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>SQLQuery</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>SELECT</type>
+      </selectObjectID>
+    </column>
+  </columns>
+  <forceOnCreate>false</forceOnCreate>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">hr</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>EMPLOYEES_DETAIL_HIST1</name>
+        <identifier class="java.math.BigDecimal">74584</identifier>
+        <schemaName>HR</schemaName>
+        <type>VIEW</type>
+      </value>
+    </entry>
+    <entry>
+      <key>Timestamp</key>
+    </entry>
+  </properties>
+  <schema>
+    <name>HR</name>
+  </schema>
+</view>

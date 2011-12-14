@@ -41,6 +41,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.entities.Departments.DepartmentName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="ManagerId"
@@ -167,4 +173,8 @@
       <Item Value="com.virtual7.historizationConcept.model.entities.Departments.ManagerId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.historizationConcept.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

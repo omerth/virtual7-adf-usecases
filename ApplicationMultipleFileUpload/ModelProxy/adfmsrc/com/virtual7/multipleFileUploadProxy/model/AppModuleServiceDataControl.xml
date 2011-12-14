@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="AppModuleServiceDataControl"
+          Package="com.virtual7.multipleFileUploadProxy.model"
+          BeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl" isJavaBased="false">
+  <AccessorAttribute id="findEmployeesView1_parameters" IsCollection="false"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1"/>
+  <MethodAccessor IsCollection="true"
+                  Type="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1"
+                  BeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1"
+                  id="findEmployeesView1" ReturnNodeName="Return"
+                  CollectionBeanClass="com.virtual7.multipleFileUploadProxy.model.AppModuleServiceDataControl.findEmployeesView1_Operations">
+    <ParameterInfo id="findCriteria" Type="java.lang.Object" isStructured="false">
+      <Properties>
+        <Property Name="__SET_INITIAL_VALUE" Value="true"/>
+      </Properties>
+    </ParameterInfo>
+    <ParameterInfo id="findControl" Type="java.lang.Object" isStructured="false">
+      <Properties>
+        <Property Name="__SET_INITIAL_VALUE" Value="true"/>
+      </Properties>
+    </ParameterInfo>
+  </MethodAccessor>
+</JavaBean>

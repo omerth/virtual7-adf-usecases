@@ -4,17 +4,18 @@
                 Package="com.virtual7.historizationConcept.controller" SkipValidation="true">
   <parameters/>
   <executables>
-    <iterator Binds="EmployeesDetailHist1View" RangeSize="25" DataControl="AppModuleDataControl"
-              id="EmployeesDetailHist1ViewIterator" Refresh="never"/>
+    <iterator Binds="EmployeesDetailHistView" RangeSize="25" DataControl="AppModule1DataControl"
+              id="EmployeesDetailHistViewIterator" Refresh="never"/>
   </executables>
   <bindings>
-    <action IterBinding="EmployeesDetailHist1ViewIterator" id="ExecuteWithParams"
-            InstanceName="AppModuleDataControl.EmployeesView" DataControl="AppModuleDataControl"
+    <action IterBinding="EmployeesDetailHistViewIterator" id="ExecuteWithParams"
+            InstanceName="AppModule1DataControl.EmployeesView" DataControl="AppModule1DataControl"
             RequiresUpdateModel="true" Action="executeWithParams">
       <NamedData NDName="filterLastName" NDValue="#{pageFlowScope.filterLastName}" NDType="java.lang.String"/>
       <NamedData NDName="filterDepartmentName" NDValue="#{pageFlowScope.filterDepartmentName}"
                  NDType="java.lang.String"/>
       <NamedData NDName="filterJobTitle" NDValue="#{pageFlowScope.filterJobTitle}" NDType="java.lang.String"/>
+      <NamedData NDName="filterHideHistory" NDValue="#{pageFlowScope.filterIncludeHistory ? '%' : '1'}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

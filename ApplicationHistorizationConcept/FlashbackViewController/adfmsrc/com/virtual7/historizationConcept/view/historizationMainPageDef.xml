@@ -4,9 +4,9 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeesViewIterator"/>
-    <iterator Binds="EmployeesDetailHist1View" RangeSize="25" DataControl="AppModuleDataControl"
-              id="EmployeesDetailHist1ViewIterator"/>
+    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModule1DataControl" id="EmployeesViewIterator"/>
+    <iterator Binds="EmployeesDetailHistView" RangeSize="25" DataControl="AppModule1DataControl"
+              id="EmployeesDetailHistViewIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="EmployeesViewIterator" id="EmployeesView">
@@ -18,51 +18,56 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="EmployeesDetailHist1ViewIterator" id="EmployeesDetailHist1View">
+    <tree IterBinding="EmployeesDetailHistViewIterator" id="EmployeesDetailHistView">
       <nodeDefinition DefName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist1View"
-                      Name="EmployeesDetailHist1View0">
+                      Name="EmployeesDetailHistView0">
         <AttrNames>
           <Item Value="LastChangeDate"/>
           <Item Value="IsLast"/>
+          <Item Value="FirstName"/>
+          <Item Value="EmployeeId"/>
+          <Item Value="LastNameDiff"/>
+          <Item Value="JobTitleDiff"/>
+          <Item Value="DepartmentNameDiff"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <attributeValues IterBinding="EmployeesDetailHist1ViewIterator" id="LastChangeDate">
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="LastChangeDate">
       <AttrNames>
         <Item Value="LastChangeDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EmployeesDetailHist1ViewIterator" id="EmployeeId">
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="EmployeeId">
       <AttrNames>
         <Item Value="EmployeeId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EmployeesDetailHist1ViewIterator" id="FirstName">
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="FirstName">
       <AttrNames>
         <Item Value="FirstName"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EmployeesDetailHist1ViewIterator" id="LastName">
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="LastName">
       <AttrNames>
         <Item Value="LastName"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EmployeesDetailHist1ViewIterator" id="JobId">
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="JobId">
       <AttrNames>
         <Item Value="JobId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EmployeesDetailHist1ViewIterator" id="JobTitle">
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="JobTitle">
       <AttrNames>
         <Item Value="JobTitle"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EmployeesDetailHist1ViewIterator" id="DepartmentId">
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="DepartmentId">
       <AttrNames>
         <Item Value="DepartmentId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="EmployeesDetailHist1ViewIterator" id="DepartmentName">
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="DepartmentName">
       <AttrNames>
         <Item Value="DepartmentName"/>
       </AttrNames>

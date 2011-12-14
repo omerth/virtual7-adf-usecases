@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="TaskVO"
+  Version="11.1.1.60.13"
+  SelectList="XdmTasks.START_DATE, 
+       XdmTasks.TASK_ID, 
+       XdmTasks.TEXT, 
+       XdmTasks.START_WHERE, 
+       XdmTasks.FLIGHT_NO, 
+       XdmTasks.END_DATE, 
+       XdmTasks.END_WHERE, 
+       XdmTasks.PAX, 
+       XdmTasks.ELEM_KEY, 
+       XdmTasks.REMARKS"
+  FromList="XDM_TASKS XdmTasks"
+  Where="(:pResponsable is null or PERS_ID = :pResponsable) and
+(:pProgramme is null or PROG_ID = :pProgramme) and
+(:pText is null or upper(TEXT) like '%' || upper(:pText) || '%')"
+  OrderBy="start_date"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="com.virtual7.xdm.framework.ViewRowImpl"
+  ComponentClass="com.virtual7.xdm.framework.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.virtual7.xdm.uc008.model.views.TaskVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="pResponsable"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <Variable
+    Name="pText"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pProgramme"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <ViewAccessor
+    Name="ServiceLOV1"
+    ViewObjectName="com.virtual7.xdm.model.views.lov.ServiceLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ElemKey"
+    ListVOName="ServiceLOV1"
+    ListRangeSize="-1"
+    NullValueFlag="none"
+    NullValueId="LOV_ElemKey_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ElemKey"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ElemKey"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Description"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="XdmTasks"
+    Entity="com.virtual7.xdm.model.entities.XdmTasks"/>
+  <ViewAttribute
+    Name="StartDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StartDate"
+    EntityUsage="XdmTasks"
+    AliasName="START_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.virtual7.xdm.uc008.model.views.TaskVO.StartDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.virtual7.xdm.uc008.model.views.TaskVO.StartDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="TaskId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="TaskId"
+    EntityUsage="XdmTasks"
+    AliasName="TASK_ID"/>
+  <ViewAttribute
+    Name="Text"
+    PrecisionRule="true"
+    EntityAttrName="Text"
+    EntityUsage="XdmTasks"
+    AliasName="TEXT"/>
+  <ViewAttribute
+    Name="StartWhere"
+    PrecisionRule="true"
+    EntityAttrName="StartWhere"
+    EntityUsage="XdmTasks"
+    AliasName="START_WHERE"/>
+  <ViewAttribute
+    Name="FlightNo"
+    PrecisionRule="true"
+    EntityAttrName="FlightNo"
+    EntityUsage="XdmTasks"
+    AliasName="FLIGHT_NO"/>
+  <ViewAttribute
+    Name="EndDate"
+    PrecisionRule="true"
+    EntityAttrName="EndDate"
+    EntityUsage="XdmTasks"
+    AliasName="END_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.virtual7.xdm.uc008.model.views.TaskVO.EndDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.virtual7.xdm.uc008.model.views.TaskVO.EndDate_FMT_FORMAT"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="EndWhere"
+    PrecisionRule="true"
+    EntityAttrName="EndWhere"
+    EntityUsage="XdmTasks"
+    AliasName="END_WHERE"/>
+  <ViewAttribute
+    Name="Pax"
+    PrecisionRule="true"
+    EntityAttrName="Pax"
+    EntityUsage="XdmTasks"
+    AliasName="PAX"/>
+  <ViewAttribute
+    Name="ElemKey"
+    PrecisionRule="true"
+    EntityAttrName="ElemKey"
+    EntityUsage="XdmTasks"
+    AliasName="ELEM_KEY"
+    LOVName="LOV_ElemKey">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="XdmTasks"
+    AliasName="REMARKS"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.xdm.uc008.model.UC008ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>
