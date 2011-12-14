@@ -5,6 +5,6 @@
   <parameters/>
   <executables/>
   <bindings>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModule1DataControl"/>
   </bindings>
 </pageDefinition>

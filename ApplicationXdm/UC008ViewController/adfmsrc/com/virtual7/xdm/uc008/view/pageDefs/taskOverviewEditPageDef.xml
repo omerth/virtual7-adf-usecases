@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="taskOverviewEditPageDef"
+                Package="com.virtual7.xdm.uc008.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variableUsage DataControl="UC008ServiceDataControl" Binds="Task1.variablesMap.pResponsable"
+                     Name="ExecuteWithParams_pResponsable" IsQueriable="false"/>
+      <variableUsage DataControl="UC008ServiceDataControl" Binds="Task1.variablesMap.pProgramme"
+                     Name="ExecuteWithParams_pProgramme" IsQueriable="false"/>
+      <variableUsage DataControl="UC008ServiceDataControl" Binds="Task1.variablesMap.pText"
+                     Name="ExecuteWithParams_pText" IsQueriable="false"/>
+    </variableIterator>
+    <iterator Binds="Task1" RangeSize="25" DataControl="UC008ServiceDataControl" id="Task1Iterator"/>
+    <iterator Binds="ProgrammeManagerLOV1" RangeSize="-1" DataControl="XdmLovServicesDataControl"
+              id="ProgrammeManagerLOV1Iterator"/>
+    <iterator Binds="ProgrammeLOV1" RangeSize="-1" DataControl="XdmLovServicesDataControl" id="ProgrammeLOV1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Task1Iterator" id="Task1">
+      <nodeDefinition DefName="com.virtual7.xdm.uc008.model.views.TaskVO" Name="Task10">
+        <AttrNames>
+          <Item Value="StartDate"/>
+          <Item Value="TaskId"/>
+          <Item Value="Text"/>
+          <Item Value="StartWhere"/>
+          <Item Value="FlightNo"/>
+          <Item Value="EndDate"/>
+          <Item Value="EndWhere"/>
+          <Item Value="Pax"/>
+          <Item Value="ElemKey"/>
+          <Item Value="Remarks"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Task1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="pResponsable" NDType="oracle.jbo.domain.Number" NDValue="${bindings.ExecuteWithParams_pResponsable}"/>
+      <NamedData NDName="pText" NDType="java.lang.String" NDValue="${bindings.ExecuteWithParams_pText}"/>
+      <NamedData NDName="pProgramme" NDType="oracle.jbo.domain.Number" NDValue="${bindings.ExecuteWithParams_pProgramme}"/>
+    </action>
+    <list IterBinding="variables" id="pResponsable" DTSupportsMRU="true" StaticList="false"
+          ListIter="ProgrammeManagerLOV1Iterator"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pResponsable"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="PersId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="FirstName"/>
+        <Item Value="LastName"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="variables" id="pProgramme" DTSupportsMRU="true" StaticList="false"
+          ListIter="ProgrammeLOV1Iterator"
+          NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+          NullValueFlag="start">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pProgramme"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="ProgId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="variables" id="pText">
+      <AttrNames>
+        <Item Value="ExecuteWithParams_pText"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="UC008ServiceDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="UC008ServiceDataControl"/>
+  </bindings>
+</pageDefinition>

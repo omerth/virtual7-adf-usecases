@@ -1,0 +1,373 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="hr" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="hr" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="sid">
+            <Contents>XE</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="subtype">
+            <Contents>oraJDBC</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>1521</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>localhost</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>hr</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oraDriverType">
+            <Contents>thin</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService" className="oracle.jbo.client.svc.Service" xmlns="">
+      <Factory className="oracle.jbo.client.svc.ServiceFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="serviceInterfaceName">
+            <Contents>com.virtual7.multipleFileUpload.model.common.serviceinterface.AppModuleService</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="serviceEndpointProvider">
+            <Contents>ADFBC</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="jndiName">
+            <Contents>AppModuleServiceBean#com.virtual7.multipleFileUpload.model.common.serviceinterface.AppModuleService</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="jndiFactoryInitial">
+          <Contents>weblogic.jndi.WLInitialContextFactory</Contents>
+       </StringRefAddr>
+       <StringRefAddr addrType="jndiProviderURL">
+           <Contents>t3://localhost:7101</Contents>
+       </StringRefAddr>
+         <StringRefAddr addrType="serviceSchemaName">
+            <Contents>AppModuleService.xsd</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="serviceSchemaLocation">
+            <Contents>com/virtual7/multipleFileUpload/model/common/serviceinterface/</Contents>
+         </StringRefAddr>
+         
+      </RefAddresses>
+   </Reference>
+   <Reference name="AppModuleServiceDataControl" className="oracle.adf.model.connection.webservice.impl.WebServiceConnectionImpl" xmlns="">
+      <Factory className="oracle.adf.model.connection.webservice.api.WebServiceConnectionFactory"/>
+      <RefAddresses>
+         <XmlRefAddr addrType="WebServiceConnection">
+            <Contents>
+               <wsconnection description="http://localhost:7101/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService?wsdl" service="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService">
+                  <model name="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService" xmlns="http://oracle.com/ws/model">
+                     <types xmlns="http://oracle.com/oracle/webservices/mdds">
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/errors/" localPart="ServiceMessage" prefix="tns" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="code" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="message" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="severity" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="detail" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://xmlns.oracle.com/adf/svc/errors/" localPart="ServiceMessage" prefix="tns"/>
+                                 </array>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <enumeration namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="Conjunction" xsdType="string" xmlns="">
+                           <value value="And"/>
+                           <value value="Or"/>
+                           <value value="Not"/>
+                           <value value="AndNot"/>
+                           <value value="OrNot"/>
+                        </enumeration>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="FindControl" prefix="" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="retrieveAllTranslations" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteriaRow" prefix="" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="conjunction" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="Conjunction"/>
+                              </part>
+                              <part name="upperCaseCompare" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="item" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteriaItem" prefix=""/>
+                                 </array>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/errors/" localPart="ServiceErrorMessage" prefix="tns" xmlns="">
+                           <sequence minOccurs="0" maxOccurs="0">
+                              <part name="code" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="message" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="severity" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="detail" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://xmlns.oracle.com/adf/svc/errors/" localPart="ServiceMessage" prefix="tns"/>
+                                 </array>
+                              </part>
+                              <part name="sdoObject" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="anyType"/>
+                              </part>
+                              <part name="exceptionClassName" required="false" namespace="http://xmlns.oracle.com/adf/svc/errors/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="SortAttribute" prefix="" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="name" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="descending" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="FindCriteria" prefix="" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="fetchStart" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="int"/>
+                              </part>
+                              <part name="fetchSize" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="int"/>
+                              </part>
+                              <part name="filter" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteria" prefix=""/>
+                              </part>
+                              <part name="sortOrder" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="SortOrder" prefix=""/>
+                              </part>
+                              <part name="findAttribute" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                 </array>
+                              </part>
+                              <part name="excludeAttribute" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="childFindCriteria" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ChildFindCriteria" prefix=""/>
+                                 </array>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="SortOrder" prefix="" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="sortAttribute" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="SortAttribute" prefix=""/>
+                                 </array>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <simpleType namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="dateTime-Timestamp" xsdType="dateTime" xmlns=""/>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteriaItem" prefix="" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="conjunction" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="Conjunction"/>
+                              </part>
+                              <part name="upperCaseCompare" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="attribute" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="operator" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <choice minOccurs="1" maxOccurs="1">
+                                 <part name="value" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                    <array dimensions="1" type="2">
+                                       <type namespace="http://www.w3.org/2001/XMLSchema" localPart="anySimpleType"/>
+                                    </array>
+                                 </part>
+                                 <part name="nested" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                    <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteria" prefix=""/>
+                                 </part>
+                              </choice>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteria" prefix="" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="conjunction" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="Conjunction"/>
+                              </part>
+                              <part name="group" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteriaRow" prefix=""/>
+                                 </array>
+                              </part>
+                              <part name="nested" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteria" prefix=""/>
+                                 </array>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ChildFindCriteria" prefix="" xmlns="">
+                           <sequence minOccurs="0" maxOccurs="0">
+                              <part name="fetchStart" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="int"/>
+                              </part>
+                              <part name="fetchSize" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="int"/>
+                              </part>
+                              <part name="filter" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="ViewCriteria" prefix=""/>
+                              </part>
+                              <part name="sortOrder" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="SortOrder" prefix=""/>
+                              </part>
+                              <part name="findAttribute" required="false" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                 </array>
+                              </part>
+                              <part name="excludeAttribute" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="boolean"/>
+                              </part>
+                              <part name="childAttrName" required="true" namespace="http://xmlns.oracle.com/adf/svc/types/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <complexType elementQualified="true" namespace="/com/virtual7/multipleFileUpload/model/views/common/" localPart="EmployeesViewSDO" prefix="" xmlns="">
+                           <sequence minOccurs="1" maxOccurs="1">
+                              <part name="EmployeeId" required="false" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="int"/>
+                              </part>
+                              <part name="FirstName" required="false" nillable="true" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="LastName" required="false" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="Email" required="false" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="PhoneNumber" required="false" nillable="true" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="HireDate" required="false" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="dateTime-Timestamp"/>
+                              </part>
+                              <part name="JobId" required="false" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                              </part>
+                              <part name="Salary" required="false" nillable="true" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                              </part>
+                              <part name="CommissionPct" required="false" nillable="true" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="decimal"/>
+                              </part>
+                              <part name="ManagerId" required="false" nillable="true" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="int"/>
+                              </part>
+                              <part name="DepartmentId" required="false" nillable="true" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <type namespace="http://www.w3.org/2001/XMLSchema" localPart="int"/>
+                              </part>
+                              <part name="ManagerIdEmployeesView" required="false" namespace="/com/virtual7/multipleFileUpload/model/views/common/" elementQualified="true">
+                                 <array dimensions="1" type="2">
+                                    <type namespace="/com/virtual7/multipleFileUpload/model/views/common/" localPart="EmployeesViewSDO" prefix=""/>
+                                 </array>
+                              </part>
+                           </sequence>
+                        </complexType>
+                        <types-in-elements/>
+                     </types>
+                     <service name="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService">
+                        <port name="AppModuleServiceSoapHttpPort" binding="{/com/virtual7/multipleFileUpload/model/common/}AppModuleServiceSoapHttp" portType="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService">
+                           <soap addressUrl="http://localhost:7101/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <operation name="findEmployeesView1">
+                              <soap soapAction="/com/virtual7/multipleFileUpload/model/common/findEmployeesView1" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                              <output name="" message="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService_findEmployeesView1Response">
+                                 <message style="2" use="1" soapVersion="1" encodingStyle="" docLitWrapped="true" namespace="/com/virtual7/multipleFileUpload/model/common/types/" localPart="findEmployeesView1Response" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="parameters" required="true" xmlns="">
+                                       <type>
+                                          <complexType elementQualified="true">
+                                             <sequence minOccurs="1" maxOccurs="1">
+                                                <part name="result" required="false" namespace="/com/virtual7/multipleFileUpload/model/common/types/" elementQualified="true">
+                                                   <array dimensions="1" type="2">
+                                                      <type namespace="/com/virtual7/multipleFileUpload/model/views/common/" localPart="EmployeesViewSDO" prefix=""/>
+                                                   </array>
+                                                </part>
+                                             </sequence>
+                                          </complexType>
+                                       </type>
+                                    </part>
+                                 </message>
+                              </output>
+                              <input name="" message="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService_findEmployeesView1">
+                                 <message style="2" use="1" soapVersion="1" encodingStyle="" docLitWrapped="true" namespace="/com/virtual7/multipleFileUpload/model/common/types/" localPart="findEmployeesView1" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="parameters" required="true" xmlns="">
+                                       <type>
+                                          <complexType elementQualified="true">
+                                             <sequence minOccurs="1" maxOccurs="1">
+                                                <part name="findCriteria" required="true" namespace="/com/virtual7/multipleFileUpload/model/common/types/" elementQualified="true">
+                                                   <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="FindCriteria" prefix=""/>
+                                                </part>
+                                                <part name="findControl" required="true" namespace="/com/virtual7/multipleFileUpload/model/common/types/" elementQualified="true">
+                                                   <type namespace="http://xmlns.oracle.com/adf/svc/types/" localPart="FindControl" prefix=""/>
+                                                </part>
+                                             </sequence>
+                                          </complexType>
+                                       </type>
+                                    </part>
+                                 </message>
+                              </input>
+                              <fault name="ServiceException" message="{http://xmlns.oracle.com/adf/svc/errors/}ServiceException">
+                                 <message style="2" use="1" soapVersion="1" encodingStyle="" docLitWrapped="false" namespace="http://schemas.xmlsoap.org/soap/envelope/" localPart="Fault" xmlns="http://oracle.com/oracle/webservices/mdds">
+                                    <part name="fault" required="false" xmlns="">
+                                       <type>
+                                          <complexType elementQualified="true">
+                                             <part name="faultcode" required="false" nillable="true" namespace="http://schemas.xmlsoap.org/soap/envelope/" elementQualified="false">
+                                                <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                             </part>
+                                             <part name="faultstring" required="false" nillable="true" namespace="http://schemas.xmlsoap.org/soap/envelope/" elementQualified="false">
+                                                <type namespace="http://www.w3.org/2001/XMLSchema" localPart="string"/>
+                                             </part>
+                                             <part name="detail" required="false" nillable="true" namespace="http://schemas.xmlsoap.org/soap/envelope/" elementQualified="false">
+                                                <type>
+                                                   <complexType elementQualified="true">
+                                                      <part name="ServiceErrorMessage" required="true" elementQualified="false">
+                                                         <type namespace="http://xmlns.oracle.com/adf/svc/errors/" localPart="ServiceErrorMessage" prefix="tns"/>
+                                                      </part>
+                                                   </complexType>
+                                                </type>
+                                             </part>
+                                          </complexType>
+                                       </type>
+                                    </part>
+                                 </message>
+                              </fault>
+                           </operation>
+                        </port>
+                     </service>
+                  </model>
+               </wsconnection>
+            </Contents>
+         </XmlRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

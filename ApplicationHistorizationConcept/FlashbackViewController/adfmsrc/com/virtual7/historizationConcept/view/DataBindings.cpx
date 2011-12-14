@@ -42,10 +42,10 @@
           path="com.virtual7.historizationConcept.controller.search_historization_search_historization_RollbackPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
-    <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.historizationConcept.model"
+    <BC4JDataControl id="AppModule1DataControl" Package="com.virtual7.historizationConcept.model"
                      FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
                      SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
-                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     SupportsSortCollection="true" Configuration="AppModule1Local" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>

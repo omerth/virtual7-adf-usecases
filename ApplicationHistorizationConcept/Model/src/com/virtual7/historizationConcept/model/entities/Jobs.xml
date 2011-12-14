@@ -40,6 +40,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="35"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.virtual7.historizationConcept.model.entities.Jobs.JobTitle_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="MinSalary"
@@ -144,4 +150,8 @@
       <Item Value="com.virtual7.historizationConcept.model.entities.Jobs.LastChangeUser"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.historizationConcept.model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

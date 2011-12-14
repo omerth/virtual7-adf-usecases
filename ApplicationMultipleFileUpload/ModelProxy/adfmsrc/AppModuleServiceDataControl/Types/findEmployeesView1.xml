@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="findEmployeesView1"
+          Package="AppModuleServiceDataControl.Types" BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1"
+          isJavaBased="false">
+  <AccessorAttribute id="findCriteria" IsCollection="false"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria"/>
+  <AccessorAttribute id="findControl" IsCollection="false"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findControl"/>
+</JavaBean>

@@ -38,6 +38,10 @@
     Name="filterJobTitle"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="filterHideHistory"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="DepartmentsViewAccessor"
     ViewObjectName="com.virtual7.historizationConcept.model.views.DepartmentsView"
@@ -200,6 +204,14 @@
             Name="vcrow3"
             UpperColumns="1">
             <ViewCriteriaItem
+              Name="IsLast"
+              ViewAttribute="IsLast"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=":filterHideHistory"
+              IsBindVarValue="true"
+              Required="Optional"/>
+            <ViewCriteriaItem
               Name="LastName"
               ViewAttribute="LastName"
               Operator="CONTAINS"
@@ -268,6 +280,14 @@
           <ViewCriteriaRow
             Name="vcrow3"
             UpperColumns="1">
+            <ViewCriteriaItem
+              Name="IsLast"
+              ViewAttribute="IsLast"
+              Operator="CONTAINS"
+              Conjunction="AND"
+              Value=":filterHideHistory"
+              IsBindVarValue="true"
+              Required="Optional"/>
             <ViewCriteriaItem
               Name="LastName"
               ViewAttribute="LastName"

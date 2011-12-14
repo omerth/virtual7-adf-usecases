@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="PanelEmployeesSDOView1PageDef"
+                Package="com.virtual7.multipleFileUpload.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator RangeSize="1" Binds="EmployeesSDOView1" DataControl="AppModuleSDODataControl" id="EmployeesSDOView1Iter"/>
+  </executables>
+  <bindings>
+    <attributeValues id="EmployeeId" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="FirstName" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="LastName" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="Email" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="PhoneNumber" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="HireDate" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="HireDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="JobId" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="JobId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="Salary" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="Salary"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="CommissionPct" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="CommissionPct"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="ManagerId" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues id="DepartmentId" IterBinding="EmployeesSDOView1Iter" xmlns="http://xmlns.oracle.com/adfm/jcuimodel">
+      <AttrNames xmlns="http://xmlns.oracle.com/adfm/uimodel">
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
