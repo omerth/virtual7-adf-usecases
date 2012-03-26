@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule3"
+  Version="11.1.1.60.13"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="CurrentUserView"
+    ViewObjectName="com.virtual7.util.model.views.UserView">
+    <ParameterMap>
+      <PIMap Variable="searchFilter">
+        <TransientExpression><![CDATA[adf.context.securityContext.userName]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="queryType">
+        <TransientExpression><![CDATA[3]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="getRoles">
+        <TransientExpression><![CDATA[true]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <ViewUsage
+    Name="UserView"
+    ViewObjectName="com.virtual7.util.model.views.UserView">
+    <ParameterMap>
+      <PIMap Variable="searchFilter">
+        <TransientExpression><![CDATA["*"]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="queryType">
+        <TransientExpression><![CDATA[3]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="getRoles">
+        <TransientExpression><![CDATA[true]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewUsage>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.virtual7.historizationConcept.model.AppModule3_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.historizationConcept.model.ModelBundle"/>
+  </ResourceBundle>
+</AppModule>
