@@ -12,6 +12,7 @@
       <Attr Name="_appModuleNames0" Value="com.virtual7.historizationConcept.model.AppModule1"/>
       <Attr Name="_NamedConnection" Value="hr"/>
       <Attr Name="_appModuleNames1" Value="com.virtual7.historizationConcept.model.AppModule2"/>
+      <Attr Name="_appModuleNames2" Value="com.virtual7.historizationConcept.model.AppModule3"/>
    </DesignTime>
    <Containee
       Name="associations"
@@ -53,4 +54,12 @@
          <Attr Name="_VO" Value="true"/>
       </DesignTime>
    </Containee>
+   <AppContainee
+      Name="virtual7Util_model"
+      FullName="com.virtual7.util.model.virtual7Util_model"
+      ObjectType="JboProject">
+      <DesignTime>
+         <Attr Name="_SourceName" Value="virtual7Util_model.jar"/>
+      </DesignTime>
+   </AppContainee>
 </JboProject>
