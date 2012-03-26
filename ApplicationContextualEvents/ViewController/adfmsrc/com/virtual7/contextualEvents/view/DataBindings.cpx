@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.contextualEvents.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_virtual7_contextualEvents_view_indexPageDef"/>
+    <page path="/firstChild.jsff" usageId="com_virtual7_contextualEvents_view_firstChildPageDef"/>
+    <page path="/secondChild.jsff" usageId="com_virtual7_contextualEvents_view_secondChildPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_contextualEvents_view_indexPageDef" path="com.virtual7.contextualEvents.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_contextualEvents_view_firstChildPageDef"
+          path="com.virtual7.contextualEvents.view.pageDefs.firstChildPageDef"/>
+    <page id="com_virtual7_contextualEvents_view_secondChildPageDef"
+          path="com.virtual7.contextualEvents.view.pageDefs.secondChildPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <dc id="EventHandlers" path="com.virtual7.contextualEvents.view.EventHandlers"/>
+    <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.contextualEvents.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>
