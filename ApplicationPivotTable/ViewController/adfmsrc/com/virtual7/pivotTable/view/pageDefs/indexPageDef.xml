@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.pivotTable.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OrgaPivotVO1" RangeSize="-1" DataControl="AppModuleDataControl" id="OrgaPivotVO1Iterator"/>
+  </executables>
+  <bindings>
+    <pivotTable IterBinding="OrgaPivotVO1Iterator" id="OrgaPivotVO1" xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <item value="PhaseId"/>
+          <data defaultAggregateType="SUM">
+            <item value="PhaseVal"/>
+            <item value="PhaseDesc"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="GroupId"/>
+          <item value="Id"/>
+          <item value="Descr"/>
+          <item value="Val"/>
+        </rows>
+        <pages/>
+      </pivotTableDataMap>
+    </pivotTable>
+  </bindings>
+</pageDefinition>
