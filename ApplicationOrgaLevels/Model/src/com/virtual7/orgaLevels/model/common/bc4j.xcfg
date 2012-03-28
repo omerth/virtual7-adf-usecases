@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.virtual7.orgaLevels.model.AppModule">
+      <AppModuleConfig name="AppModuleLocal" ApplicationName="com.virtual7.orgaLevels.model.AppModule" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.orgaLevels.model.Model">
+         <Security AppModuleJndiName="com.virtual7.orgaLevels.model.AppModule"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModuleShared" ApplicationName="com.virtual7.orgaLevels.model.AppModule" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.orgaLevels.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.virtual7.orgaLevels.model.AppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

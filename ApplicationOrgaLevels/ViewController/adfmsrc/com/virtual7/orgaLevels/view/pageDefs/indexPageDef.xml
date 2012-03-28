@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.orgaLevels.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OrgaViewView2" RangeSize="25" DataControl="AppModuleDataControl" id="OrgaViewView2Iterator"/>
+    <iterator Binds="OrgaViewView3" RangeSize="25" DataControl="AppModuleDataControl" id="OrgaViewView3Iterator"/>
+    <iterator Binds="OrgaViewView4" RangeSize="25" DataControl="AppModuleDataControl" id="OrgaViewView4Iterator"/>
+    <iterator Binds="OrgaViewView5" RangeSize="25" DataControl="AppModuleDataControl" id="OrgaViewView5Iterator"/>
+    <iterator Binds="OrgaViewView6" RangeSize="25" DataControl="AppModuleDataControl" id="OrgaViewView6Iterator"/>
+    <iterator Binds="OrgaViewView1" RangeSize="25" DataControl="AppModuleDataControl" id="OrgaViewView1Iterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="OrgaViewView3Iterator" ListOperMode="navigation" ListIter="OrgaViewView3Iterator"
+          id="OrgaViewView3" DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="ParentId"/>
+        <Item Value="Id"/>
+        <Item Value="Lv"/>
+        <Item Value="Val"/>
+        <Item Value="Descr"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="OrgaViewView4Iterator" ListOperMode="navigation" ListIter="OrgaViewView4Iterator"
+          id="OrgaViewView4" DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="ParentId"/>
+        <Item Value="Id"/>
+        <Item Value="Lv"/>
+        <Item Value="Val"/>
+        <Item Value="Descr"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="OrgaViewView5Iterator" ListOperMode="navigation" ListIter="OrgaViewView5Iterator"
+          id="OrgaViewView5" DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="ParentId"/>
+        <Item Value="Id"/>
+        <Item Value="Lv"/>
+        <Item Value="Val"/>
+        <Item Value="Descr"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="OrgaViewView6Iterator" ListOperMode="navigation" ListIter="OrgaViewView6Iterator"
+          id="OrgaViewView6" DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="ParentId"/>
+        <Item Value="Id"/>
+        <Item Value="Lv"/>
+        <Item Value="Val"/>
+        <Item Value="Descr"/>
+      </AttrNames>
+    </list>
+    <action IterBinding="OrgaViewView2Iterator" id="ExecuteWithParams" InstanceName="AppModuleDataControl.OrgaViewView2"
+            DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="executeWithParams">
+      <NamedData NDName="orgalLevel" NDType="oracle.jbo.domain.Number"/>
+    </action>
+    <list IterBinding="OrgaViewView1Iterator" ListOperMode="navigation" ListIter="OrgaViewView1Iterator"
+          id="OrgaViewView1" DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="ParentId"/>
+        <Item Value="Id"/>
+        <Item Value="Lv"/>
+        <Item Value="Val"/>
+        <Item Value="Descr"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="OrgaViewView2Iterator" ListOperMode="navigation" ListIter="OrgaViewView2Iterator"
+          id="OrgaViewView2" DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="ParentId"/>
+        <Item Value="Id"/>
+        <Item Value="Lv"/>
+        <Item Value="Val"/>
+        <Item Value="Descr"/>
+      </AttrNames>
+    </list>
+  </bindings>
+</pageDefinition>
