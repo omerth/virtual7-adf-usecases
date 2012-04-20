@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl6" layout="vertical">
+        <af:panelGroupLayout id="pgl5" layout="horizontal">
+          <af:panelGroupLayout id="pgl1" layout="vertical"
+                               inlineStyle="border:medium none; border-color:Black; border-style:solid; margin:20px;">
+            <af:outputLabel value="Application Bean Scope" id="ol1"
+                            inlineStyle="color:Black; font-size:large; font-weight:bold;"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:outputText value="#{applicationBean.instanceId}" id="ot1"
+                           inlineStyle="font-size:medium;"/>
+            <af:outputText value="#{applicationBean.currentTime}" id="ot2"
+                           inlineStyle="font-size:medium;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl3" layout="vertical"
+                               inlineStyle="border:medium none; border-color:Black; border-style:solid; margin:20px;">
+            <af:outputLabel value="Session Bean Scope" id="ol2"
+                            inlineStyle="color:Black; font-size:large; font-weight:bold;"/>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:outputText value="#{sessionBean.instanceId}" id="ot4" inlineStyle="font-size:medium;"/>
+            <af:outputText value="#{sessionBean.currentTime}" id="ot3" inlineStyle="font-size:medium;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl4" layout="vertical"
+                               inlineStyle="border:medium none; border-color:Black; border-style:solid; margin:20px;">
+            <af:outputLabel value="PageFlow Bean Scope" id="ol3"
+                            inlineStyle="color:Black; font-size:large; font-weight:bold;"/>
+            <af:spacer width="10" height="10" id="s3"/>
+            <af:outputText value="#{pageFlowScope.pageFlowBean.instanceId}" id="ot5" inlineStyle="font-size:medium;"/>
+            <af:outputText value="#{pageFlowScope.pageFlowBean.currentTime}" id="ot6" inlineStyle="font-size:medium;"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <!--af:image source="/beanScopes.png" id="i1"/-->
+        <af:panelGroupLayout id="pgl2" layout="horizontal">
+          <af:panelGroupLayout id="pgl7" layout="vertical"
+                               inlineStyle="border:medium none; border-color:Black; border-style:solid; margin:20px;">
+            <af:outputLabel value="Request Bean Scope" id="ol4"
+                            inlineStyle="color:Black; font-size:large; font-weight:bold;"/>
+            <af:spacer width="10" height="10" id="s4"/>
+            <af:outputText value="#{requestBean.instanceId}" id="ot7" inlineStyle="font-size:medium;"/>
+            <af:outputText value="#{requestBean.currentTime}" id="ot8" inlineStyle="font-size:medium;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl8" layout="vertical"
+                               inlineStyle="border:medium none; border-color:Black; border-style:solid; margin:20px;">
+            <af:outputLabel value="View Bean Scope" id="ol5"
+                            inlineStyle="color:Black; font-size:large; font-weight:bold;"/>
+            <af:spacer width="10" height="10" id="s5"/>
+            <af:outputText value="#{viewScope.viewBean.instanceId}" id="ot9" inlineStyle="font-size:medium;"/>
+            <af:outputText value="#{viewScope.viewBean.currentTime}" id="ot10" inlineStyle="font-size:medium;"/>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout id="pgl9" layout="vertical"
+                               inlineStyle="border:medium none; border-color:Black; border-style:solid; margin:20px;">
+            <af:outputLabel value="BackingBean Scope" id="ol6"
+                            inlineStyle="color:Black; font-size:large; font-weight:bold;"/>
+            <af:spacer width="10" height="10" id="s6"/>
+            <af:outputText value="#{backingBeanScope.backingBean.instanceId}" id="ot11"
+                           inlineStyle="font-size:medium;"/>
+            <af:outputText value="#{backingBeanScope.backingBean.currentTime}" id="ot12"
+                           inlineStyle="font-size:medium;"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="bottom">
+      <af:panelGroupLayout id="pgl10">
+        <af:commandButton text="Perform Navigation" id="cb1" action="go"/>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>
