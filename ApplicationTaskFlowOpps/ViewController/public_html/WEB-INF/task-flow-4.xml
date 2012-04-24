@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-4">
+    <default-activity id="__1">page5</default-activity>
+    <return-value-definition id="__6">
+      <name id="__7">returnedParam</name>
+      <value>#{pageFlowScope.taskFlow4Bean.param}</value>
+    </return-value-definition>
+    <managed-bean id="__5">
+      <managed-bean-name id="__4">taskFlow4Bean</managed-bean-name>
+      <managed-bean-class id="__2">com.virtual7.taskFlowOpps.view.TaskFlow4Bean</managed-bean-class>
+      <managed-bean-scope id="__3">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <view id="page5">
+      <page>/page5.jsff</page>
+    </view>
+    <task-flow-return id="sendReturnParam">
+      <outcome id="__8">
+        <name>sendReturnParam</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-return id="reroute">
+      <outcome id="__14">
+        <name>reroute</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__9">
+      <from-activity-id id="__10">page5</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome id="__13">sendReturnParam</from-outcome>
+        <to-activity-id id="__11">sendReturnParam</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__16">
+        <from-outcome id="__17">reroute</from-outcome>
+        <to-activity-id id="__15">reroute</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
