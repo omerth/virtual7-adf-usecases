@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="ApplicationTaskFlowOpps" default="cloneApp" basedir=".">
+	<property file="../build.properties" />
+	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
+	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
+	<target name="deploy" description="Deploy JDeveloper profiles">
+
+		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+
+		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
+		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />
+		<ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}" ora:buildscript="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-build.xml" ora:statuslog="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-statuslog.xml">
+			<ora:deploy>
+				<ora:parameter name="clean" value="true" />
+				<ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}" />
+				<ora:parameter name="profile" value="*" />
+			</ora:deploy>
+		</ora:ojdeploy>
+	</target>
+
+	<target name="cloneApp">
+		<property name="replace.token1" value="${ant.project.name}" />
+		<property name="replace.token2" value="taskflowopps" />
+		<property name="replace.token3" value="taskFlowOpps" />
+		<property name="replace.token4" value="TaskFlowOpps" />
+		<property name="replace.token5" value="TASKFLOWOPPS" />
+
+
+		<input message="What is the equivalent for ${replace.token1}?" addproperty="do.token1" defaultvalue="${replace.token1}" />
+		<input message="What is the equivalent for ${replace.token2}?" addproperty="do.token2" defaultvalue="${replace.token2}" />
+		<input message="What is the equivalent for ${replace.token3}?" addproperty="do.token3" defaultvalue="${replace.token3}" />
+		<input message="What is the equivalent for ${replace.token4}?" addproperty="do.token4" defaultvalue="${replace.token4}" />
+		<input message="What is the equivalent for ${replace.token5}?" addproperty="do.token5" defaultvalue="${replace.token5}" />
+
+		<mkdir dir="../${do.token1}" />
+		<copy todir="../${do.token1}" overwrite="true" verbose="true">
+			<fileset dir="." />
+			<filtermapper>
+				<replacestring from="${replace.token1}" to="${do.token1}" />
+				<replacestring from="${replace.token2}" to="${do.token2}" />
+				<replacestring from="${replace.token3}" to="${do.token3}" />
+				<replacestring from="${replace.token4}" to="${do.token4}" />
+				<replacestring from="${replace.token5}" to="${do.token5}" />
+			</filtermapper>
+		</copy>
+		<replace dir="../${do.token1}">
+			<replacefilter token="${replace.token1}" value="${do.token1}" />
+			<replacefilter token="${replace.token2}" value="${do.token2}" />
+			<replacefilter token="${replace.token3}" value="${do.token3}" />
+			<replacefilter token="${replace.token4}" value="${do.token4}" />
+			<replacefilter token="${replace.token5}" value="${do.token5}" />
+		</replace>
+	</target>
+
+</project>
