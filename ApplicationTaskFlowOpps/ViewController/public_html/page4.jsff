@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:outputText value="Sent from page1: #{pageFlowScope.paramFromPage1}" id="ot2"/>
+        <af:commandButton text="Back" id="cb1" action="back"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:outputText value="PAGE 4" id="ot1" inlineStyle="font-size:large;"/>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

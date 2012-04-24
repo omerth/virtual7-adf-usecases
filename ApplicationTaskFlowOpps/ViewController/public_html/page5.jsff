@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:inputText label="Send to page 1" id="ot2" autoSubmit="true"
+                      valueChangeListener="#{pageFlowScope.taskFlow4Bean.onValueChange}"/>
+        <af:commandButton text="Send param to page1" id="cb1" action="sendReturnParam"/>
+        <af:commandButton text="Route through method" id="cb2" action="reroute"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:outputText value="PAGE 5" id="ot1" inlineStyle="font-size:large;"/>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>
