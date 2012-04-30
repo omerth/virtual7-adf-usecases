@@ -17,9 +17,9 @@
       <property
          name="y">313.5459</property>
       <property
-         name="x">362.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">362.0</property>
    </View>
    <TaskFlowReturn
       id="TaskFlowReturn3">
@@ -44,6 +44,6 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">R50,403.0,313.5459,583.0,315.84473,L50</property>
+         name="sdm:polyPoints">R50,403.0,313.1953,583.0,315.84473,L50</property>
    </ControlFlowCase>
 </SDM>
