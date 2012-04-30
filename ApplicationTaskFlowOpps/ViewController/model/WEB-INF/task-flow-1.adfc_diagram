@@ -17,9 +17,9 @@
       <property
          name="y">281.59766</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">504.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <View
       id="View3">
@@ -34,9 +34,9 @@
       <property
          name="y">284.9912</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="x">859.0</property>
+      <property
+         name="pageFragment">true</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -130,7 +130,7 @@
       <property
          name="fromOutcome">sendParam</property>
       <property
-         name="sdm:polyPoints">B39,497.0,339.40988,498.0,581.0342,T44</property>
+         name="sdm:polyPoints">B39,497.0,339.41162,498.0,581.0342,T44</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -140,7 +140,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">T56,505.0,581.0197,504.0,339.39566,B50</property>
+         name="sdm:polyPoints">T56,505.0,581.0197,504.0,339.39737,B50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall14">
@@ -311,9 +311,9 @@
       <property
          name="y">627.14844</property>
       <property
-         name="x">690.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">690.0</property>
    </View>
    <MethodCall
       id="MethodCall31">
@@ -346,7 +346,7 @@
       <property
          name="fromOutcome">back</property>
       <property
-         name="sdm:polyPoints">T50,690.0,572.79785,511.0,338.2158,B61</property>
+         name="sdm:polyPoints">T50,690.0,572.79785,511.0,338.2192,B61</property>
    </ControlFlowCase>
    <WildcardControlFlowRule
       id="WildcardControlFlowRule35">
@@ -370,9 +370,9 @@
       <property
          name="y">721.88477</property>
       <property
-         name="x">963.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">963.0</property>
    </View>
    <ControlFlowCase
       islink="true"
@@ -416,9 +416,9 @@
       <property
          name="y">495.59766</property>
       <property
-         name="x">1111.0</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="x">1111.0</property>
    </View>
    <ControlFlowCase
       islink="true"
