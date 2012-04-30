@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1" inlineStyle="border-style:solid; border-width:medium; border-color:Black;">
+        <af:outputText value="ApplicationSubformSubmit: This is the master form. It has a subform child." id="ot1"
+                       inlineStyle="font-size:medium; color:Black"/>
+        <af:panelGroupLayout id="pgl12" layout="horizontal">
+          <af:subform id="s1" default="true">
+            <af:panelGroupLayout id="pgl10" layout="vertical"
+                                 inlineStyle="border-color:Red; border-style:solid; padding:20px; margin:20px; width:1200px;">
+              <af:outputText value="This is the first subform child: Subform 5. It has 2 subform childern." id="ot6"
+                             inlineStyle="font-size:large; color:Red"/>
+              <af:panelGroupLayout id="pgl9" layout="vertical"
+                                   inlineStyle="border-color:Red; border-style:hidden; padding:20px; margin:20px;">
+                <af:panelGroupLayout id="pgl11" layout="horizontal">
+                  <af:subform id="s2" default="true">
+                    <af:panelGroupLayout id="pgl7" layout="vertical"
+                                         inlineStyle="border-color:Fuchsia; border-style:solid; width:400px; padding:20px; margin:20px;">
+                      <af:outputText value="This is Subform 3, the first child of Subform 5. It has 2 subform children."
+                                     id="ot17" inlineStyle="font-size:medium; color:Fuchsia"/>
+                      <af:subform id="s7" default="true">
+                        <af:panelGroupLayout id="pgl1" layout="vertical" halign="center"
+                                             inlineStyle="border-color:Lime; border-style:solid; width:300px; padding:20px; margin:20px;">
+                          <af:outputText value="This is Subform 1, the first child of Subform 3. It has no children."
+                                         id="ot9" inlineStyle="font-size:small; color:Lime"/>
+                          <af:inputText label="Subform 1 Level 3" id="it1"
+                                        value="#{backingBeanScope.subformBean.input1}"/>
+                          <af:commandButton text="Subform 1 Level 3 CB" id="cb3" partialSubmit="true"/>
+                        </af:panelGroupLayout>
+                      </af:subform>
+                      <af:subform id="s8" default="true">
+                        <af:panelGroupLayout id="pgl5" layout="vertical" halign="center"
+                                             inlineStyle="border-color:Lime; border-style:solid; width:300px; padding:20px; margin:20px;">
+                          <af:outputText value="This is Subform 2, the 2nd child of Subform 3. It has no children."
+                                         id="ot10" inlineStyle="font-size:small; color:Lime"/>
+                          <af:inputText label="Subform 2 Level 3" id="it5"
+                                        value="#{backingBeanScope.subformBean.input2}"/>
+                          <af:commandButton text="Subform 2 Level 3 CB" id="cb5" partialSubmit="true"/>
+                        </af:panelGroupLayout>
+                      </af:subform>
+                      <af:panelGroupLayout id="pgl6" layout="vertical" halign="center"
+                                           inlineStyle="border-color:Aqua; border-style:hidden; width:300px; padding:20px; margin:20px;">
+                        <af:inputText label="Subform 3 Level 2" id="it6"
+                                      value="#{backingBeanScope.subformBean.input3}"/>
+                        <af:commandButton text="Subform 3 Level 2 CB" id="cb6" partialSubmit="true"/>
+                      </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                  </af:subform>
+                  <af:subform id="s3" default="true">
+                    <af:panelGroupLayout id="pgl2" layout="vertical" halign="center"
+                                         inlineStyle="border-color:Fuchsia; border-style:solid; width:500px; padding:20px; margin:20px;">
+                      <af:outputText value="This is Subform 4, the 2nd child of Subform 5. It has 2 TFs an 1 subform as children."
+                                     inlineStyle="font-size:medium; color:Fuchsia" id="ot16"/>
+                      <af:region value="#{bindings.taskflow11.regionModel}" id="r1"
+                                 partialTriggers=":::s2:s7:cb3 :::s2:s8:cb5 :::s2:cb6 ::cb2 :::cb1 ::::cb4"/>
+                      <af:region value="#{bindings.taskflow21.regionModel}" id="r2"
+                                 partialTriggers=":::s2:s7:cb3 :::s2:s8:cb5 :::s2:cb6 ::cb2 :::cb1 ::::cb4"/>
+                      <af:subform id="s4" default="true">
+                        <af:panelGroupLayout id="pgl3" layout="vertical" halign="center"
+                                             inlineStyle="border-style:solid; width:400px; padding:20px; margin:20px; border-color:Maroon;">
+                          <af:outputText value="This is Subform 6, the 3rd child of Subform 4. It has 1 TFs as children."
+                                         inlineStyle="font-size:small; color:Maroon;" id="ot11"/>
+                          <af:region value="#{bindings.taskflow31.regionModel}" id="r3"
+                                     partialTriggers="::::s2:s7:cb3 ::::s2:s8:cb5 ::::s2:cb6 :::cb2 ::::cb1 :::::cb4"/>
+                        </af:panelGroupLayout>
+                      </af:subform>
+                      <af:inputText label="Subform 4 Level 2" id="it2" value="#{backingBeanScope.subformBean.input4}"/>
+                      <af:commandButton text="Subform 4 Level 2 CB" id="cb2" partialSubmit="true"/>
+                    </af:panelGroupLayout>
+                  </af:subform>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+              <af:panelGroupLayout id="pgl4" layout="vertical"
+                                   inlineStyle="border-color:Lime; border-style:hidden; width:300px; padding:20px; margin:20px;">
+                <af:inputText label="Subform 5 Level 1" id="it3" value="#{backingBeanScope.subformBean.input5}"/>
+                <af:commandButton text="Subform 5 Level 1 CB" id="cb1" partialSubmit="true"/>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:subform>
+          <af:panelGroupLayout id="pgl8" layout="vertical" inlineStyle="padding-left:30px; margin-left:30px;">
+            <af:inputText label="Form Level 0" id="it4" value="#{backingBeanScope.subformBean.input6}"/>
+            <af:commandButton text="Form CB" id="cb4"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
