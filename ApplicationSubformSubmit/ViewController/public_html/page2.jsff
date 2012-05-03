@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1" layout="vertical" halign="center"
+                       inlineStyle="border-color:Aqua; border-style:solid; width:400px; padding:20px; margin:20px;">
+    <af:outputText value="This is TF2 - Page 2, the 2nd child of Subform 2. It is a TF with a page containing a subform."
+                   id="ot9" inlineStyle="font-size:small; color:Aqua;"/>
+    <af:subform id="s1" default="true">
+      <af:panelGroupLayout id="pgl2" layout="vertical" halign="center"
+                           inlineStyle="border-color:Purple; border-style:solid; width:300px; padding:20px; margin:20px;">
+        <af:outputText value="This is Subform 7, nested in Page 2." id="ot1"
+                       inlineStyle="font-size:small; color:Purple"/>
+        <af:inputText label="TF1-Pag2" id="it1" value="#{backingBeanScope.subformBean.input8}"/>
+        <af:commandButton text="TF1-Pag2 CB" id="cb3" partialSubmit="true"/>
+      </af:panelGroupLayout>
+    </af:subform>
+  </af:panelGroupLayout>
+</jsp:root>
