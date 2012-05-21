@@ -8,28 +8,16 @@
       <af:form id="f1">
         <af:panelGroupLayout layout="vertical">
           <af:outputText value="ApplicationBcCaching" id="ot1"/>
-          <af:panelStretchLayout id="psl1" inlineStyle="width:456px;" bottomHeight="50px">
-            <f:facet name="bottom">
-              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl2">
-                <af:commandButton text="executeQuery" id="cb1"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery}"
-                                  partialSubmit="true"/>
-                <af:commandButton text="executeQueryDB" id="cb13"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery4}"/>
-                <af:commandButton text="executeQueryEL" id="cb14"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery5}"/>
-                <af:commandButton text="executeQueryVL" id="cb15"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery6}"/>
-                <af:commandButton actionListener="#{bindings.Execute1.execute}" text="Execute1"
-                                  disabled="#{!bindings.Execute1.enabled}" id="cb19"/>
-              </af:panelGroupLayout>
+          <af:panelStretchLayout id="psl1" inlineStyle="border-color:Black; border-style:solid; border-width:medium;"
+                                 styleClass="AFStretchWidth" bottomHeight="50px" topHeight="20px">
+            <f:facet name="top">
+              <af:outputText value="Results from Simple View Object using SQL Query" id="ot6"/>
             </f:facet>
             <f:facet name="center">
               <af:table value="#{bindings.DepartmentVO.collectionModel}" var="row"
                         rows="#{bindings.DepartmentVO.rangeSize}"
                         emptyText="#{bindings.DepartmentVO.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        fetchSize="#{bindings.DepartmentVO.rangeSize}" rowBandingInterval="0" id="t1"
-                        partialTriggers="::cb19">
+                        fetchSize="#{bindings.DepartmentVO.rangeSize}" rowBandingInterval="0" id="t1">
                 <af:column sortProperty="DepartmentId" sortable="false"
                            headerText="#{bindings.DepartmentVO.hints.DepartmentId.label}" id="c4">
                   <af:outputText value="#{row.DepartmentId}" id="ot2">
@@ -55,30 +43,29 @@
                 </af:column>
               </af:table>
             </f:facet>
-          </af:panelStretchLayout>
-          <af:commandButton text="showInConsole" id="cb5"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.showInConsole}"/>
-          <af:commandButton text="insertNewDep" id="cb6"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.insertNewDep}"
-                            partialSubmit="true" partialTriggers="t1 t2"/>
-          <af:commandButton text="updateDep" id="cb7"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.updateDep}" partialSubmit="true"
-                            partialTriggers="t1 t2"/>
-          <af:commandButton text="deleteDep" id="cb8"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.deleteDep}" partialSubmit="true"
-                            partialTriggers="t1 t2"/>
-          <af:panelStretchLayout id="psl2" inlineStyle="width:456px;" bottomHeight="50px">
             <f:facet name="bottom">
-              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl1">
-                <af:commandButton text="executeQueryDB" id="cb2"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery1}"/>
-                <af:commandButton text="executeQueryEL" id="cb3"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery2}"/>
-                <af:commandButton text="executeQueryVL" id="cb4"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery3}"/>
-                <af:commandButton actionListener="#{bindings.Execute2.execute}" text="Execute2"
-                                  disabled="#{!bindings.Execute2.enabled}" id="cb20"/>
+              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl2">
+                <af:commandButton actionListener="#{bindings.vo_printCurrentVOQueryMode.execute}"
+                                  text="vo_printCurrentVOQueryMode"
+                                  disabled="#{!bindings.vo_printCurrentVOQueryMode.enabled}" id="cb1"/>
+                <af:commandButton actionListener="#{bindings.Execute1.execute}" text="DEFAULT Execute on VO" id="cb23"/>
+                <af:commandButton actionListener="#{bindings.vo_executeQueryVOViewRows.execute}"
+                                  text="QUERY_MODE_SCAN_VIEW_ROWS"
+                                  disabled="#{!bindings.vo_executeQueryVOViewRows.enabled}" id="cb13"/>
+                <af:commandButton actionListener="#{bindings.vo_executeQueryVODBTables.execute}"
+                                  text="QUERY_MODE_SCAN_DATABASE_TABLES"
+                                  disabled="#{!bindings.vo_executeQueryVODBTables.enabled}" id="cb14"/>
+                <af:commandButton actionListener="#{bindings.vo_executeQueryVOEntityObjects.execute}"
+                                  text="QUERY_MODE_SCAN_ENTITY_ROWS"
+                                  disabled="#{!bindings.vo_executeQueryVOEntityObjects.enabled}" id="cb15"/>
               </af:panelGroupLayout>
+            </f:facet>
+          </af:panelStretchLayout>
+          <af:panelStretchLayout id="psl2" bottomHeight="50px" topHeight="20px"
+                                 inlineStyle="border-color:Black; border-style:solid; border-width:medium;"
+                                 styleClass="AFStretchWidth">
+            <f:facet name="top">
+              <af:outputText value="Results from View Object based on enetityes" id="ot8"/>
             </f:facet>
             <f:facet name="center">
               <af:table value="#{bindings.DepartmentsEOVO.collectionModel}" var="row"
@@ -138,27 +125,27 @@
                 </af:column>
               </af:table>
             </f:facet>
-          </af:panelStretchLayout>
-          <af:commandButton text="newJDBCshowInConsole" id="cb9"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCshowInConsole}"/>
-          <af:commandButton text="newJDBCinsertNewDep" id="cb10"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCinsertNewDep}"/>
-          <af:commandButton text="newJDBCupdateDep" id="cb11"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCupdateDep}"/>
-          <af:commandButton text="newJDBCdeleteDep" id="cb12"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCdeleteDep}"/>
-          <af:panelStretchLayout id="psl3" inlineStyle="width:456px;">
             <f:facet name="bottom">
-              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl3">
-                <af:commandButton text="executeServiceQuery" id="cb16"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQuery}"/>
-                <af:commandButton text="executeServiceQueryEL" id="cb21"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQueryEL}"/>
-                <af:commandButton text="executeServiceQueryVL" id="cb22"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQueryVL}"/>
-                <af:commandButton actionListener="#{bindings.Execute.execute}" text="Execute"
-                                  disabled="#{!bindings.Execute.enabled}" id="cb18"/>
+              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl1">
+                <af:commandButton actionListener="#{bindings.eo_printCurrentVOQueryMode.execute}"
+                                  text="eo_printCurrentVOQueryMode"
+                                  disabled="#{!bindings.eo_printCurrentVOQueryMode.enabled}" id="cb19"/>
+                <af:commandButton actionListener="#{bindings.Execute2.execute}" text="Default Execute"
+                                  disabled="#{!bindings.Execute2.enabled}" id="cb20"/>
+                <af:commandButton text="executeQueryDB" id="cb2"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery1}"/>
+                <af:commandButton text="executeQueryEL" id="cb3"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery2}"/>
+                <af:commandButton text="executeQueryVL" id="cb4"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery3}"/>
               </af:panelGroupLayout>
+            </f:facet>
+          </af:panelStretchLayout>
+          <af:panelStretchLayout id="psl3" bottomHeight="50px" topHeight="20px"
+                                 inlineStyle="  border-color:Black; border-style:solid; border-width:medium;"
+                                 styleClass="AFStretchWidth">
+            <f:facet name="top">
+              <af:outputText value="Results from View Object based on entity based on WS" id="ot10"/>
             </f:facet>
             <f:facet name="center">
               <af:table value="#{bindings.DepartmentservicevoView.collectionModel}" var="row"
@@ -218,7 +205,55 @@
                 </af:column>
               </af:table>
             </f:facet>
+            <f:facet name="bottom">
+              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl3">
+                <af:commandButton actionListener="#{bindings.so_printCurrentVOQueryMode.execute}"
+                                  text="so_printCurrentVOQueryMode"
+                                  disabled="#{!bindings.so_printCurrentVOQueryMode.enabled}" id="cb24"/>
+                <af:commandButton actionListener="#{bindings.Execute.execute}" text="Default execute query"
+                                  disabled="#{!bindings.Execute.enabled}" id="cb18"/>
+                <af:commandButton text="executeServiceQuery" id="cb16"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQuery}"/>
+                <af:commandButton text="executeServiceQueryEL" id="cb21"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQueryEL}"/>
+                <af:commandButton text="executeServiceQueryVL" id="cb22"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQueryVL}"/>
+              </af:panelGroupLayout>
+            </f:facet>
           </af:panelStretchLayout>
+          <af:panelGroupLayout layout="vertical" id="pgl4"
+                               inlineStyle="border-color:Black; border-style:solid; border-width:medium;"
+                               styleClass="AFStretchWidth">
+            <af:outputText value="Data using same JDBC connection as the application module" id="ot7"/>
+            <af:panelGroupLayout layout="horizontal" id="pgl5">
+              <af:commandButton text="showInConsole" id="cb5"
+                                actionListener="#{backingBeanScope.ActionListnerManageBean.showInConsole}"/>
+              <af:commandButton text="insertNewDep" id="cb6"
+                                actionListener="#{backingBeanScope.ActionListnerManageBean.insertNewDep}"
+                                partialSubmit="true" partialTriggers="t1 t2"/>
+              <af:commandButton text="updateDep" id="cb7"
+                                actionListener="#{backingBeanScope.ActionListnerManageBean.updateDep}"
+                                partialSubmit="true" partialTriggers="t1 t2"/>
+              <af:commandButton text="deleteDep" id="cb8"
+                                actionListener="#{backingBeanScope.ActionListnerManageBean.deleteDep}"
+                                partialSubmit="true" partialTriggers="t1 t2"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout layout="vertical" id="pgl6"
+                               inlineStyle="border-color:Black; border-style:solid; border-width:medium;"
+                               styleClass="AFStretchWidth">
+            <af:outputText value="Data using new JDBC connection created using driver" id="ot9"/>
+            <af:panelGroupLayout layout="horizontal" id="pgl7">
+              <af:commandButton text="newJDBCshowInConsole" id="cb9"
+                                actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCshowInConsole}"/>
+              <af:commandButton text="newJDBCinsertNewDep" id="cb10"
+                                actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCinsertNewDep}"/>
+              <af:commandButton text="newJDBCupdateDep" id="cb11"
+                                actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCupdateDep}"/>
+              <af:commandButton text="newJDBCdeleteDep" id="cb12"
+                                actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCdeleteDep}"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
           <af:commandButton text="showInConsoleFromService" id="cb17"
                             actionListener="#{backingBeanScope.ActionListnerManageBean.readAndPrintDepartmentFromService}"/>
         </af:panelGroupLayout>

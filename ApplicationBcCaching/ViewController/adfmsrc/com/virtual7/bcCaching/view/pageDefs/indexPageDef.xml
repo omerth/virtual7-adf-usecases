@@ -6,7 +6,7 @@
     <variableIterator id="variables"/>
     <iterator Binds="DepartmentsEOVO" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentsEOVOIterator"/>
     <iterator Binds="DepartmentVO" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentVOIterator"/>
-    <iterator Binds="DepartmentservicevoView" RangeSize="25" DataControl="AppModuleDataControl"
+    <iterator Binds="DepartmentservicevoView" RangeSize="-1" DataControl="AppModuleDataControl"
               id="DepartmentservicevoViewIterator"/>
   </executables>
   <bindings>
@@ -83,7 +83,7 @@
     <action IterBinding="DepartmentservicevoViewIterator" id="Execute" RequiresUpdateModel="true"
             Action="iteratorExecute"/>
     <tree IterBinding="DepartmentVOIterator" id="DepartmentVO">
-      <nodeDefinition DefName="com.virtual7.bcCaching.model.views.DepartmentVO">
+      <nodeDefinition DefName="com.virtual7.bcCaching.model.views.DepartmentVO" Name="DepartmentVO0">
         <AttrNames>
           <Item Value="DepartmentId"/>
           <Item Value="DepartmentName"/>
@@ -93,7 +93,8 @@
       </nodeDefinition>
     </tree>
     <tree IterBinding="DepartmentservicevoViewIterator" id="DepartmentservicevoView">
-      <nodeDefinition DefName="com.virtual7.bcCaching.model.views.DepartmentservicevoView">
+      <nodeDefinition DefName="com.virtual7.bcCaching.model.views.DepartmentservicevoView"
+                      Name="DepartmentservicevoView0">
         <AttrNames>
           <Item Value="DepartmentId"/>
           <Item Value="DepartmentName"/>
@@ -102,5 +103,23 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <methodAction id="vo_printCurrentVOQueryMode" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_printCurrentVOQueryMode" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="vo_executeQueryVOViewRows" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_executeQueryVOViewRows" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="vo_executeQueryVODBTables" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_executeQueryVODBTables" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="vo_executeQueryVOEntityObjects" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_executeQueryVOEntityObjects" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_printCurrentVOQueryMode" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_printCurrentVOQueryMode" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_printCurrentVOQueryMode" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_printCurrentVOQueryMode" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
   </bindings>
 </pageDefinition>

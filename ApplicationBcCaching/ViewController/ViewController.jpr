@@ -295,7 +295,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../KomRepp/komrep_apps/komRepPP/core/komRepPP_model/BcCachingService_Common.jar.library"/>
+            <value n="id" v="BcCachingService_Common.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -351,11 +351,18 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../ApplicationBcCachingService/Model/deploy/BcCachingService_Common.jar" jar-entry=""/>
+                  <url path="../../_libs/BcCachingService_Common.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="BcCachingService_Common.jar"/>
                <value n="id" v="BcCachingService_Common.jar"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library2"/>
+               <value n="id" v="Library2"/>
             </hash>
          </list>
       </hash>
@@ -461,7 +468,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../KomRepp/komrep_apps/komRepPP/core/komRepPP_model/BcCachingService_Common.jar.library"/>
+            <value n="id" v="BcCachingService_Common.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -555,6 +562,17 @@
             <value n="runInEditor" v="true"/>
             <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@project@../../../virtual7Util/_libs/virtual7Util_view.jar!/META-INF/v7CompLib.tld"/>
+            <value n="URI" v="/v7ComponentLib"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="v7CompLib 1.0 Tag Libraries"/>
+            <value n="name" v="v7CompLib"/>
+            <value n="prefix" v="v7"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../../_libs/virtual7Util_view.jar!/META-INF/v7CompLib.tld"/>
             <value n="URI" v="/v7ComponentLib"/>
             <value n="version" v="1.0"/>
          </hash>

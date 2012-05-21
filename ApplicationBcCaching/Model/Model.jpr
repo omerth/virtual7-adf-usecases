@@ -226,7 +226,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../KomRepp/komrep_apps/komRepPP/core/komRepPP_model/BcCachingService_Common.jar.library"/>
+            <value n="id" v="BcCachingService_Common.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -234,11 +234,19 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../../virtual7Util/_libs/virtual7Util_model.jar" jar-entry=""/>
+                  <url path="../../_libs/virtual7Util_model.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
                <value n="id" v="ADF Library"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../_libs/BcCachingService_Common.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="BcCachingService_Common.jar"/>
+               <value n="id" v="BcCachingService_Common.jar"/>
             </hash>
          </list>
       </hash>
@@ -304,7 +312,7 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../KomRepp/komrep_apps/komRepPP/core/komRepPP_model/BcCachingService_Common.jar.library"/>
+            <value n="id" v="BcCachingService_Common.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

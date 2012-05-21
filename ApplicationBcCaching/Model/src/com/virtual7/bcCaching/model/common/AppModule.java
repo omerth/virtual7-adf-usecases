@@ -43,4 +43,16 @@ public interface AppModule extends ApplicationModule {
     void deleteDepartmentNewJDBC();
 
     void deleteDepartment();
+
+    void vo_printCurrentVOQueryMode();
+
+    void vo_executeQueryVOViewRows();
+
+    void vo_executeQueryVOEntityObjects();
+
+    void vo_executeQueryVODBTables();
+
+    void so_printCurrentVOQueryMode();
+
+    void eo_printCurrentVOQueryMode();
 }

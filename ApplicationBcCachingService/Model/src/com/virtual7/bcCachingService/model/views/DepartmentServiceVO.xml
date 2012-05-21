@@ -16,7 +16,8 @@
   UseGlueCode="false"
   SdoGen="true"
   SdoName="DepartmentServiceVOSDO"
-  SdoNameSpace="/com/virtual7/bcCachingService/model/views/common/">
+  SdoNameSpace="/com/virtual7/bcCachingService/model/views/common/"
+  OrderBy="DepartmentServiceEO.DEPARTMENT_ID">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
   </DesignTime>

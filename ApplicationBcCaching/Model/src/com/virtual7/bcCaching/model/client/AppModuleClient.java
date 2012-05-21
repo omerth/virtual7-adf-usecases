@@ -16,6 +16,7 @@ public class AppModuleClient extends ApplicationModuleImpl implements AppModule 
     public AppModuleClient() {
     }
 
+
     public void updateDepartmentNewJDBC() {
         Object _ret = this.riInvokeExportedMethod(this,"updateDepartmentNewJDBC",null,null);
         return;
@@ -108,6 +109,36 @@ public class AppModuleClient extends ApplicationModuleImpl implements AppModule 
 
     public void deleteDepartment() {
         Object _ret = this.riInvokeExportedMethod(this,"deleteDepartment",null,null);
+        return;
+    }
+
+    public void vo_printCurrentVOQueryMode() {
+        Object _ret = this.riInvokeExportedMethod(this,"vo_printCurrentVOQueryMode",null,null);
+        return;
+    }
+
+    public void vo_executeQueryVOViewRows() {
+        Object _ret = this.riInvokeExportedMethod(this,"vo_executeQueryVOViewRows",null,null);
+        return;
+    }
+
+    public void vo_executeQueryVOEntityObjects() {
+        Object _ret = this.riInvokeExportedMethod(this,"vo_executeQueryVOEntityObjects",null,null);
+        return;
+    }
+
+    public void vo_executeQueryVODBTables() {
+        Object _ret = this.riInvokeExportedMethod(this,"vo_executeQueryVODBTables",null,null);
+        return;
+    }
+
+    public void so_printCurrentVOQueryMode() {
+        Object _ret = this.riInvokeExportedMethod(this,"so_printCurrentVOQueryMode",null,null);
+        return;
+    }
+
+    public void eo_printCurrentVOQueryMode() {
+        Object _ret = this.riInvokeExportedMethod(this,"eo_printCurrentVOQueryMode",null,null);
         return;
     }
 }

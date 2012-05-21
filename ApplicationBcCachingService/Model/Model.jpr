@@ -113,41 +113,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ApplicationBcCachingService_Model">
-            <value n="adflib-connectionDetails" v="false"/>
-            <value n="adflib-nonReusablesError" v="false"/>
-            <hash n="archiveOptions">
-               <value n="hasManifest" v="true"/>
-            </hash>
-            <hash n="fileGroups">
-               <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="2"/>
-                        </hash>
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Project Output"/>
-                     <hash n="filters">
-                        <list n="rules"/>
-                     </hash>
-                     <value n="internalName" v="project-output"/>
-                     <value n="type" v="1"/>
-                  </hash>
-               </list>
-            </hash>
-            <url n="jarURL" path="../../_libs/ApplicationBcCachingService_Model.jar"/>
-            <hash n="libraryDependencies">
-               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
-            </hash>
-            <hash n="LibraryDependencies"/>
-            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="ApplicationBcCachingService_Model"/>
-         </hash>
-         <hash n="BcCachingService">
+         <hash n="bcProfile1_BCCaching">
             <url n="bcApplication" path="src/com/virtual7/bcCachingService/model/Model.jpx"/>
             <hash n="commonProfile">
                <hash n="archiveOptions">
@@ -173,16 +139,16 @@
                                  <value n="type" v="1"/>
                               </hash>
                               <hash>
-                                 <value n="pattern" v="com/virtual7/bcCachingService/model/common/serviceinterface/*"/>
-                              </hash>
-                              <hash>
-                                 <value n="pattern" v="com/virtual7/bcCachingService/model/common/*"/>
-                              </hash>
-                              <hash>
                                  <value n="pattern" v="com/virtual7/bcCachingService/model/entities/common/serviceinterface/*"/>
                               </hash>
                               <hash>
                                  <value n="pattern" v="com/virtual7/bcCachingService/model/entities/common/*"/>
+                              </hash>
+                              <hash>
+                                 <value n="pattern" v="com/virtual7/bcCachingService/model/common/serviceinterface/*"/>
+                              </hash>
+                              <hash>
+                                 <value n="pattern" v="com/virtual7/bcCachingService/model/common/*"/>
                               </hash>
                               <hash>
                                  <value n="pattern" v="com/virtual7/bcCachingService/model/views/common/serviceinterface/*"/>
@@ -298,14 +264,14 @@
                      </hash>
                   </list>
                </hash>
-               <url n="jarURL" path="deploy/BcCachingService_Common.jar"/>
+               <url n="jarURL" path="../../_libs/BcCachingService_Common.jar"/>
                <hash n="libraryDependencies">
                   <value n="IncludeLibrariesFromOtherContainers" v="true"/>
                </hash>
                <value n="profileClass" v="oracle.jdeveloper.deploy.jar.ArchiveProfile"/>
-               <value n="profileName" v="BcCachingService_Common"/>
+               <value n="profileName" v="bcProfile1_BCCaching_Common"/>
             </hash>
-            <url n="commonProfileURL" path="Model.jpr" ref="BcCachingService_Common"/>
+            <url n="commonProfileURL" path="Model.jpr" ref="bcProfile1_BCCaching_Common"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
@@ -314,17 +280,18 @@
                   <value n="hasManifest" v="true"/>
                </hash>
                <value n="containedProfile" v="true"/>
+               <value n="defaultConnection" v="eapt02_vm_local"/>
                <hash n="dependencies">
                   <list n="dependencyList">
                      <hash>
                         <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
                         <url n="ownerURL" path="Model.jpr"/>
-                        <value n="profileName" v="BcCachingService_Common"/>
+                        <value n="profileName" v="bcProfile1_BCCaching_Common"/>
                      </hash>
                   </list>
                </hash>
-               <url n="earURL" path="deploy/BcCachingService_MiddleTier.ear"/>
-               <value n="enterpriseAppName" v="BcCachingService_MiddleTier"/>
+               <url n="earURL" path="deploy/bcProfile1_BCCaching_MiddleTier.ear"/>
+               <value n="enterpriseAppName" v="bcProfile1_BCCaching_MiddleTier"/>
                <hash n="fileGroups">
                   <list n="groups">
                      <hash>
@@ -361,13 +328,6 @@
                                  <value n="pattern" v="com/virtual7/bcCachingService/model/views/**"/>
                               </hash>
                               <hash>
-                                 <value n="pattern" v="com/virtual7/bcCachingService/model/entities/client/**"/>
-                                 <value n="type" v="1"/>
-                              </hash>
-                              <hash>
-                                 <value n="pattern" v="com/virtual7/bcCachingService/model/entities/**"/>
-                              </hash>
-                              <hash>
                                  <value n="pattern" v="com/virtual7/bcCachingService/model/client/**"/>
                                  <value n="type" v="1"/>
                               </hash>
@@ -387,6 +347,13 @@
                               </hash>
                               <hash>
                                  <value n="pattern" v="com/virtual7/bcCachingService/model/**"/>
+                              </hash>
+                              <hash>
+                                 <value n="pattern" v="com/virtual7/bcCachingService/model/entities/client/**"/>
+                                 <value n="type" v="1"/>
+                              </hash>
+                              <hash>
+                                 <value n="pattern" v="com/virtual7/bcCachingService/model/entities/**"/>
                               </hash>
                               <hash>
                                  <value n="pattern" v="WEB-INF/temp/**"/>
@@ -470,24 +437,23 @@
                      </hash>
                   </list>
                </hash>
-               <url n="jarURL" path="deploy/BcCachingService_MiddleTier.jar"/>
+               <url n="jarURL" path="deploy/bcProfile1_BCCaching_MiddleTier.jar"/>
                <hash n="libraryDependencies">
                   <value n="IncludeLibrariesFromOtherContainers" v="true"/>
                </hash>
                <value n="profileClass" v="oracle.jdeveloper.deploy.ejb.EjbProfile"/>
-               <value n="profileName" v="BcCachingService_MiddleTier"/>
+               <value n="profileName" v="bcProfile1_BCCaching_MiddleTier"/>
                <hash n="properties">
                   <value n="JboService" v="true"/>
                </hash>
             </hash>
-            <url n="mtProfileURL" path="Model.jpr" ref="BcCachingService_MiddleTier"/>
+            <url n="mtProfileURL" path="Model.jpr" ref="bcProfile1_BCCaching_MiddleTier"/>
             <value n="profileClass" v="oracle.jbo.dt.jdevx.deployment.JbdSDOProfile"/>
-            <value n="profileName" v="BcCachingService"/>
+            <value n="profileName" v="bcProfile1_BCCaching"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="ApplicationBcCachingService_Model"/>
-         <string v="BcCachingService"/>
+         <string v="bcProfile1_BCCaching"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">

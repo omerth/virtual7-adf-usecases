@@ -118,5 +118,35 @@
       <Return
         Type="void"/>
     </Method>
+    <Method
+      Name="vo_printCurrentVOQueryMode">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="vo_executeQueryVOViewRows">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="vo_executeQueryVOEntityObjects">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="vo_executeQueryVODBTables">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="so_printCurrentVOQueryMode">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="eo_printCurrentVOQueryMode">
+      <Return
+        Type="void"/>
+    </Method>
   </ClientInterface>
 </AppModule>

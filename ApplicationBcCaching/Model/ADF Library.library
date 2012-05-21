@@ -2,7 +2,7 @@
 <JLibraryNode nselem="JLibraryNode" class="oracle.jdeveloper.library.JLibraryNode" deployedByDefault="true" xmlns="http://xmlns.oracle.com/jdeveloper/110000jlibrarynode">
    <classPath>
       <entries>
-         <Item path="../../../virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+         <Item path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
       </entries>
    </classPath>
    <docPath>
@@ -11,8 +11,6 @@
    <locked>false</locked>
    <name>ADF Library</name>
    <sourcePath>
-      <entries>
-         <Item path="../../../virtual7Util/_libs/virtual7Util_view_src.jar" jar-entry=""/>
-      </entries>
+      <entries class="[Ljava.net.URL;"/>
    </sourcePath>
 </JLibraryNode>

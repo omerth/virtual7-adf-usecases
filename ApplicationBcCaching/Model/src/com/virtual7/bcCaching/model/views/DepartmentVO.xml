@@ -10,7 +10,8 @@
   PageIterMode="Full"
   UseGlueCode="false"
   FetchMode="FETCH_ALL"
-  RangeSize="-1">
+  RangeSize="-1"
+  OrderBy='"DEPARTMENT_ID"'>
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
