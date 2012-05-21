@@ -1,0 +1,92 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/com/virtual7/bcCachingService/model/common/types/"
+     xmlns:tns="/com/virtual7/bcCachingService/model/common/types/" xmlns:ns0="/com/virtual7/bcCachingService/model/views/common/"
+     xmlns:ns1="http://xmlns.oracle.com/adf/svc/types/">
+    <import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="classpath:/META-INF/wsdl/BC4JService.xsd"/>
+    <import namespace="/com/virtual7/bcCachingService/model/views/common/" schemaLocation="../../views/common/DepartmentServiceVOSDO.xsd"/>
+    <element name="createDepartmentServiceVO">
+        <complexType>
+            <sequence>
+                <element name="departmentServiceVO" type="ns0:DepartmentServiceVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="createDepartmentServiceVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DepartmentServiceVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="updateDepartmentServiceVO">
+        <complexType>
+            <sequence>
+                <element name="departmentServiceVO" type="ns0:DepartmentServiceVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="updateDepartmentServiceVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DepartmentServiceVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="deleteDepartmentServiceVO">
+        <complexType>
+            <sequence>
+                <element name="departmentServiceVO" type="ns0:DepartmentServiceVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="deleteDepartmentServiceVOResponse">
+        <complexType>
+            <sequence/>
+        </complexType>
+    </element>
+    <element name="mergeDepartmentServiceVO">
+        <complexType>
+            <sequence>
+                <element name="departmentServiceVO" type="ns0:DepartmentServiceVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="mergeDepartmentServiceVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DepartmentServiceVOSDO"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findDepartmentServiceVO">
+        <complexType>
+            <sequence>
+                <element name="findCriteria" type="ns1:FindCriteria"/>
+                <element name="findControl" type="ns1:FindControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findDepartmentServiceVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DepartmentServiceVOSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processDepartmentServiceVO">
+        <complexType>
+            <sequence>
+                <element name="changeOperation" type="string"/>
+                <element name="departmentServiceVO" type="ns0:DepartmentServiceVOSDO" minOccurs="0"
+                     maxOccurs="unbounded"/>
+                <element name="processControl" type="ns1:ProcessControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="processDepartmentServiceVOResponse">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns0:DepartmentServiceVOSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>
