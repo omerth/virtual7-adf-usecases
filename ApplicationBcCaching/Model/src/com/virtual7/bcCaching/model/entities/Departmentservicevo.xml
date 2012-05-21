@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Departmentservicevo"
+  Version="11.1.1.60.13"
+  DBObjectType="table"
+  AliasName="Departmentservicevo"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <DataSource
+    DataSourceClass="oracle.jbo.datasource.svc.SIEODataSourceImpl"
+    Type="ServiceInterface">
+    <ServiceInterface
+      ServiceName="{/com/virtual7/bcCachingService/model/common/}AppModuleService"
+      SDOName="{/com/virtual7/bcCachingService/model/views/common/}DepartmentServiceVOSDO"
+      SVIName="DepartmentServiceVO"
+      CreateOpName="createDepartmentServiceVO"
+      UpdateOpName="updateDepartmentServiceVO"
+      DeleteOpName="deleteDepartmentServiceVO"
+      FindOpName="findDepartmentServiceVO"
+      ProcessOpName="processDepartmentServiceVO"/>
+  </DataSource>
+  <Attribute
+    Name="DepartmentId"
+    ColumnName="DepartmentId"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    PrimaryKey="true"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="DepartmentName"
+    Precision="255"
+    ColumnName="DepartmentName"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="ManagerId"
+    ColumnName="ManagerId"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="LocationId"
+    ColumnName="LocationId"
+    SQLType="NUMERIC"
+    Type="java.lang.Integer"
+    ColumnType="NUMBER"
+    RetrievedOnUpdate="true"
+    RetrievedOnInsert="true"/>
+</Entity>
