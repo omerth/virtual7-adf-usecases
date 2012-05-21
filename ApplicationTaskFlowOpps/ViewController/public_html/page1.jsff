@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:commandButton text="Navigate to Page 2" id="cb1" action="go"/>
+        <af:spacer height="10px" id="s1"/>
+        <af:commandButton text="Start task-flow-2" id="cb2" action="goToPage3"/>
+        <af:spacer height="10px" id="s2"/>
+        <af:commandButton text="Send param to taskflow 3" id="cb3" action="sendParam"/>
+        <af:spacer height="10px" id="s3"/>
+        <af:commandButton text="Go to taskflow 4" id="cb4" action="goPage5"/>
+        <af:outputText value="From page 5: #{pageFlowScope.returnedParamByTF4}" id="ot2"/>
+        <af:spacer height="10px" id="s4"/>
+        <af:commandButton text="Throw exception" id="cb5" action="throwException"/>
+        <af:spacer height="10px" id="s5"/>
+        <af:commandButton text="Go wild!" id="cb6" action="onlyWildOnesGetHere"/>
+        <af:spacer height="10px" id="s6"/>
+        <af:commandButton text="Go to parent page" id="cb7" action="parentView"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:outputText value="PAGE 1" id="ot1" inlineStyle="font-size:large;"/>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

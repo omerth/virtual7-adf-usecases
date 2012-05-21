@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1">
+    <af:outputText value="#{pageFlowScope.contentManagedBean.dummyText}" id="ot1"/>
+    <af:commandButton text="Back" id="cb1" action="back"/>
+  </af:panelGroupLayout>
+</jsp:root>

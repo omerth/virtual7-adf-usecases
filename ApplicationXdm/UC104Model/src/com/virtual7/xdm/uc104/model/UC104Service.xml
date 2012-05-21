@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="UC104Service"
+  Version="11.1.1.60.13"
+  ComponentClass="com.virtual7.xdm.framework.ApplicationModuleImpl"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="Person"
+    ViewObjectName="com.virtual7.xdm.uc104.model.views.PersonsVO"/>
+  <ViewUsage
+    Name="Task"
+    ViewObjectName="com.virtual7.xdm.uc104.model.views.TasksVO"/>
+  <ViewUsage
+    Name="MinMaxDate"
+    ViewObjectName="com.virtual7.xdm.uc104.model.views.MinMaxDateVO"/>
+  <ViewLinkUsage
+    Name="XdmPersTaskFkLink1"
+    ViewLinkObjectName="com.virtual7.xdm.uc104.model.views.PersTaskFkLink"
+    SrcViewUsageName="com.virtual7.xdm.uc104.model.UC104Service.Person"
+    DstViewUsageName="com.virtual7.xdm.uc104.model.UC104Service.Task"
+    Reversed="false"/>
+</AppModule>

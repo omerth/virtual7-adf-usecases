@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adf-settings xmlns="http://xmlns.oracle.com/adf/settings"
+              xmlns:wap="http://xmlns.oracle.com/adf/share/http/config" >
+  <wap:adf-web-config xmlns="http://xmlns.oracle.com/adf/share/http/config">
+    <web-app-root rootName="ApplicationPhaseListener_ViewController" />
+  </wap:adf-web-config>
+  <adfc-controller-config xmlns="http://xmlns.oracle.com/adf/controller/config">
+       <lifecycle>
+         <phase-listener>
+            <listener-id>MyGlobalPhaseListener</listener-id>
+            <class>com.virtual7.phaseListener.view.MyGlobalPhaseListener</class>        
+         </phase-listener>
+      </lifecycle>
+   </adfc-controller-config> 
+</adf-settings>

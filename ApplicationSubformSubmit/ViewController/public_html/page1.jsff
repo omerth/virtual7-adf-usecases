@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:panelGroupLayout id="pgl1" layout="vertical" halign="center"
+                         inlineStyle="border-color:Aqua; border-style:solid; width:300px; padding:20px; margin:20px;">
+        <af:outputText value="This is TF 1 - Page 1, the first child of Subform 2. It is a simple TF placed as a region."
+                       id="ot9" inlineStyle="font-size:small; color:Aqua"/>
+        <af:inputText label="TF1-Pag1" id="it1" value="#{backingBeanScope.subformBean.input7}"/>
+        <af:commandButton text="TF1-Pag1 CB" id="cb3" partialSubmit="true"/>
+    </af:panelGroupLayout>
+</jsp:root>

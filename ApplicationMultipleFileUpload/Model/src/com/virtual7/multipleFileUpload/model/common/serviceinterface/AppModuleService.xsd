@@ -1,0 +1,21 @@
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="/com/virtual7/multipleFileUpload/model/common/types/"
+     xmlns:tns="/com/virtual7/multipleFileUpload/model/common/types/" xmlns:ns0="http://xmlns.oracle.com/adf/svc/types/"
+     xmlns:ns1="/com/virtual7/multipleFileUpload/model/views/common/">
+    <import namespace="/com/virtual7/multipleFileUpload/model/views/common/" schemaLocation="../../views/common/EmployeesViewSDO.xsd"/>
+    <import namespace="http://xmlns.oracle.com/adf/svc/types/" schemaLocation="classpath:/META-INF/wsdl/BC4JService.xsd"/>
+    <element name="findEmployeesView1">
+        <complexType>
+            <sequence>
+                <element name="findCriteria" type="ns0:FindCriteria"/>
+                <element name="findControl" type="ns0:FindControl"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="findEmployeesView1Response">
+        <complexType>
+            <sequence>
+                <element name="result" type="ns1:EmployeesViewSDO" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

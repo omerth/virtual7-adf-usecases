@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical">
+          <af:outputText value="ApplicationEntityValidation" id="ot1"/>
+          <af:outputText value="TEST" id="ot2"/>
+          <af:table value="#{bindings.EmployeesVO1.collectionModel}" var="row" rows="#{bindings.EmployeesVO1.rangeSize}"
+                    emptyText="#{bindings.EmployeesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.EmployeesVO1.rangeSize}" rowBandingInterval="0" id="t1" width="803"
+                    partialTriggers="::cb1">
+            <af:column sortProperty="Email" sortable="false" headerText="#{bindings.EmployeesVO1.hints.Email.label}"
+                       id="c3">
+              <af:inputText value="#{row.bindings.Email.inputValue}" label="#{bindings.EmployeesVO1.hints.Email.label}"
+                            required="#{bindings.EmployeesVO1.hints.Email.mandatory}"
+                            columns="#{bindings.EmployeesVO1.hints.Email.displayWidth}"
+                            maximumLength="#{bindings.EmployeesVO1.hints.Email.precision}"
+                            shortDesc="#{bindings.EmployeesVO1.hints.Email.tooltip}" id="it2" partialTriggers="::cb1">
+                <f:validator binding="#{row.bindings.Email.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="FirstName" sortable="false"
+                       headerText="#{bindings.EmployeesVO1.hints.FirstName.label}" id="c2">
+              <af:inputText value="#{row.bindings.FirstName.inputValue}"
+                            label="#{bindings.EmployeesVO1.hints.FirstName.label}"
+                            required="#{bindings.EmployeesVO1.hints.FirstName.mandatory}"
+                            columns="#{bindings.EmployeesVO1.hints.FirstName.displayWidth}"
+                            maximumLength="#{bindings.EmployeesVO1.hints.FirstName.precision}"
+                            shortDesc="#{bindings.EmployeesVO1.hints.FirstName.tooltip}" id="it4">
+                <f:validator binding="#{row.bindings.FirstName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="LastName" sortable="false"
+                       headerText="#{bindings.EmployeesVO1.hints.LastName.label}" id="c4">
+              <af:inputText value="#{row.bindings.LastName.inputValue}"
+                            label="#{bindings.EmployeesVO1.hints.LastName.label}"
+                            required="#{bindings.EmployeesVO1.hints.LastName.mandatory}"
+                            columns="#{bindings.EmployeesVO1.hints.LastName.displayWidth}"
+                            maximumLength="#{bindings.EmployeesVO1.hints.LastName.precision}"
+                            shortDesc="#{bindings.EmployeesVO1.hints.LastName.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.LastName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="emailsec" sortable="false"
+                       headerText="#{bindings.EmployeesVO1.hints.emailsec.label}" id="c1">
+              <af:inputText value="#{row.bindings.emailsec.inputValue}"
+                            label="#{bindings.EmployeesVO1.hints.emailsec.label}"
+                            required="#{bindings.EmployeesVO1.hints.emailsec.mandatory}"
+                            columns="#{bindings.EmployeesVO1.hints.emailsec.displayWidth}"
+                            maximumLength="#{bindings.EmployeesVO1.hints.emailsec.precision}"
+                            shortDesc="#{bindings.EmployeesVO1.hints.emailsec.tooltip}" id="it1"
+                            partialTriggers="::cb1">
+                <f:validator binding="#{row.bindings.emailsec.validator}"/>
+              </af:inputText>
+            </af:column>
+          </af:table>
+          <af:commandButton text="Commit" id="cb1"
+                            actionListener="#{backingBeanScope.PostChangeBean.commitChangeListner}"/>
+          <af:commandButton text="PostChanges" id="cb2"
+                            actionListener="#{backingBeanScope.PostChangeBean.emailChangeListener}"/>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:preferred-managed-bean-name:-->
+</jsp:root>

@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.virtual7.multipleFileUpload.model.AppModule">
+      <AppModuleConfig name="AppModuleLocal" DeployPlatform="LOCAL" jbo.project="com.virtual7.multipleFileUpload.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.multipleFileUpload.model.AppModule">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.multipleFileUpload.model.AppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.virtual7.multipleFileUpload.model.Model" name="AppModuleShared" ApplicationName="com.virtual7.multipleFileUpload.model.AppModule">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.multipleFileUpload.model.AppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModuleService" ApplicationName="com.virtual7.multipleFileUpload.model.AppModule" DeployPlatform="SI" jbo.project="com.virtual7.multipleFileUpload.model.Model">
+         <AM-Pooling jbo.ampool.resetnontransactionalstate="true"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.multipleFileUpload.model.AppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

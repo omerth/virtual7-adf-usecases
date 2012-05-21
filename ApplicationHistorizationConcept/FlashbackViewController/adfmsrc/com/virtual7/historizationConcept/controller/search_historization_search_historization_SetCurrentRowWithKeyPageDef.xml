@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13"
+                id="search_historization_search_historization_SetCurrentRowWithKeyPageDef"
+                Package="com.virtual7.historizationConcept.controller" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModule1DataControl" id="EmployeesViewIterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="EmployeesViewIterator" id="setCurrentRowWithKeyValue" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKeyValue">
+      <NamedData NDName="rowKey" NDValue="#{pageFlowScope.updateEmployeeId}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="secondChildPageDef"
+                Package="com.virtual7.contextualEvents.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Type="java.lang.String" Name="handleEmailEvent_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.handleEmailEvent.result}"/>
+      <variable Type="java.lang.String" Name="handleLastNamePayload_Return" IsQueriable="false" IsUpdateable="0"
+                DefaultValue="${bindings.handleLastNamePayload.result}"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="handleEmailEvent" InstanceName="EventHandlers.dataProvider" DataControl="EventHandlers"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="handleEmailEvent"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.EventHandlers.methodResults.handleEmailEvent_EventHandlers_dataProvider_handleEmailEvent_result">
+      <NamedData NDName="emailPayload" NDType="java.lang.Object"/>
+    </methodAction>
+    <methodAction id="handleLastNamePayload" InstanceName="EventHandlers.dataProvider" DataControl="EventHandlers"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="handleLastNamePayload"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.EventHandlers.methodResults.handleLastNamePayload_EventHandlers_dataProvider_handleLastNamePayload_result">
+      <NamedData NDName="lastNamePayload" NDType="java.lang.Object"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="Return">
+      <AttrNames>
+        <Item Value="handleEmailEvent_Return"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="variables" id="Return1">
+      <AttrNames>
+        <Item Value="handleLastNamePayload_Return"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

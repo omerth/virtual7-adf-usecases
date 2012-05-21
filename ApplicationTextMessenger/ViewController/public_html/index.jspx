@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:table value="#{bindings.MessagesView1.collectionModel}" var="row"
+                  rows="#{bindings.MessagesView1.rangeSize}"
+                  emptyText="#{bindings.MessagesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.MessagesView1.rangeSize}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.MessagesView1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.MessagesView1.collectionModel.makeCurrent}"
+                  rowSelection="single" id="t1"
+                  partialTriggers="::cb1 ::cb2 ::cb3 ::cb4 ::it1">
+          <af:column sortProperty="Id" sortable="true"
+                     headerText="#{bindings.MessagesView1.hints.Id.label}"
+                     id="c2">
+            <af:outputText value="#{row.Id}" id="ot2"/>
+          </af:column>
+          <af:column sortProperty="Content" sortable="true"
+                     headerText="#{bindings.MessagesView1.hints.Content.label}"
+                     id="c1">
+            <af:outputText value="#{row.Content}" id="ot1"/>
+          </af:column>
+        </af:table>
+        <af:panelFormLayout id="pfl1" partialTriggers="t1">
+          <af:inputText value="#{bindings.Content.inputValue}"
+                        label="#{bindings.Content.hints.label}"
+                        required="#{bindings.Content.hints.mandatory}"
+                        columns="#{bindings.Content.hints.displayWidth}"
+                        maximumLength="#{bindings.Content.hints.precision}"
+                        shortDesc="#{bindings.Content.hints.tooltip}" id="it1" autoSubmit="true">
+            <f:validator binding="#{bindings.Content.validator}"/>
+          </af:inputText>
+          <f:facet name="footer">
+            <af:panelGroupLayout id="g1" layout="horizontal">
+              <af:commandButton text="Save" id="cb1" partialSubmit="true"
+                                actionListener="#{bindings.Commit.execute}"
+                                />
+              <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                text="Create"
+                                disabled="#{!bindings.CreateInsert.enabled}" partialSubmit="true"
+                                id="cb2"/>
+              <af:commandButton actionListener="#{bindings.Delete.execute}" partialSubmit="true"
+                                text="Delete"
+                                disabled="#{!bindings.Delete.enabled}"
+                                id="cb3"/>
+              <af:commandButton actionListener="#{bindings.Rollback.execute}" partialSubmit="true"
+                                text="Cancel"
+                                immediate="true" id="cb4">
+                <af:resetActionListener/>
+              </af:commandButton>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelFormLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

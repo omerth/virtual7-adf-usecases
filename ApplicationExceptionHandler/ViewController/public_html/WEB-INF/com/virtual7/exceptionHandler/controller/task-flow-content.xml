@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-content">
+    <default-activity id="__4">content-page</default-activity>
+    <managed-bean id="__15">
+      <managed-bean-name id="__14">contentManagedBean</managed-bean-name>
+      <managed-bean-class id="__13">com.virtual7.exceptionHandler.view.managed.ContentManagedBean</managed-bean-class>
+      <managed-bean-scope id="__16">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__51">
+      <managed-bean-name id="__50">sessionManagedBean</managed-bean-name>
+      <managed-bean-class id="__53">com.virtual7.exceptionHandler.view.managed.SessionManagedBean</managed-bean-class>
+      <managed-bean-scope id="__52">session</managed-bean-scope>
+    </managed-bean>
+    <view id="content-page">
+      <page>/WEB-INF/com/virtual7/exceptionHandler/view/content-page.jsff</page>
+    </view>
+    <method-call id="modelMethod">
+      <method>#{bindings.methodThatGenerateException.execute}</method>
+      <outcome id="__1">
+        <fixed-outcome>ok</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="managedBeanMethod">
+      <method>#{pageFlowScope.contentManagedBean.generateException}</method>
+      <outcome id="__17">
+        <fixed-outcome>ok</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="pageWithErrorsFromModel">
+      <page>/WEB-INF/com/virtual7/exceptionHandler/view/pageWithErrorsFromModel.jsff</page>
+    </view>
+    <view id="pageWithErrorsFromBackingBean">
+      <page>/WEB-INF/com/virtual7/exceptionHandler/view/pageWithErrorsFromBackingBean.jsff</page>
+    </view>
+    <view id="pageWithHandledErrorsFromBackingBean">
+      <page>/WEB-INF/com/virtual7/exceptionHandler/view/pageWithHandledErrorsFromBackingBean.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">content-page</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__7">modelMethod</from-outcome>
+        <to-activity-id id="__6">modelMethod</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__19">
+        <from-outcome id="__20">backingBeanMethod</from-outcome>
+        <to-activity-id id="__18">managedBeanMethod</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__30">
+        <from-outcome id="__32">modelPage</from-outcome>
+        <to-activity-id id="__31">pageWithErrorsFromModel</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome id="__36">backingBeanPage</from-outcome>
+        <to-activity-id id="__34">pageWithErrorsFromBackingBean</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__42">
+        <from-outcome id="__44">backingBeanPageHandled</from-outcome>
+        <to-activity-id id="__43">pageWithHandledErrorsFromBackingBean</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">modelMethod</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome id="__10">ok</from-outcome>
+        <to-activity-id id="__11">content-page</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__22">managedBeanMethod</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome id="__24">ok</from-outcome>
+        <to-activity-id id="__23">content-page</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__26">
+      <from-activity-id id="__27">pageWithErrorsFromModel</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome id="__33">back</from-outcome>
+        <to-activity-id id="__29">content-page</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__37">
+      <from-activity-id id="__38">pageWithErrorsFromBackingBean</from-activity-id>
+      <control-flow-case id="__40">
+        <from-outcome id="__41">back</from-outcome>
+        <to-activity-id id="__39">content-page</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__45">
+      <from-activity-id id="__46">pageWithHandledErrorsFromBackingBean</from-activity-id>
+      <control-flow-case id="__48">
+        <from-outcome id="__49">back</from-outcome>
+        <to-activity-id id="__47">content-page</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

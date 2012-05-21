@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="top">
+            <af:panelGroupLayout id="pgl1">
+              <af:commandButton text="Reset Session" actionListener="#{IndexManagedBean.resetSession}" id="cb1"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="center">
+            <af:panelDashboard id="pd1" columns="5" rowHeight="300px">
+              <af:region value="#{bindings.taskflowcountries11.regionModel}" id="r1"/>
+              <af:region value="#{bindings.taskflowcountries21.regionModel}" id="r2"/>
+              <af:region value="#{bindings.taskflowcountries31.regionModel}" id="r3"/>
+              <af:region value="#{bindings.taskflowcountries41.regionModel}" id="r4"/>
+              <af:region value="#{bindings.taskflowcountries51.regionModel}" id="r5"/>
+            </af:panelDashboard>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelLabelAndMessage label="Email Changed:" id="plam1">
+      <af:outputText value="#{bindings.Return.inputValue}" id="ot1"/>
+    </af:panelLabelAndMessage>
+    <af:panelLabelAndMessage label="Last Name Changed:" id="plam2">
+      <af:outputText value="#{bindings.Return1.inputValue}" id="ot2"/>
+    </af:panelLabelAndMessage>
+  </af:panelGroupLayout>
+</jsp:root>

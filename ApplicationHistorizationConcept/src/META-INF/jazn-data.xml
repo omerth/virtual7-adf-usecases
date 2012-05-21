@@ -1,0 +1,24 @@
+<?xml version = '1.0' encoding = 'UTF-8' standalone = 'yes'?>
+<jazn-data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/jazn-data-11_0.xsd">
+  <jazn-realm default="jazn.com">
+    <realm>
+      <name>jazn.com</name>
+      <users>
+        <user>
+          <name>tester</name>
+          <display-name>tester</display-name>
+          <description>welcome1</description>
+          <credentials>{903}4UlYdxc4/rj9xp+rl9xShB2mHZf1Uax4</credentials>
+        </user>
+        <user>
+          <name>tester2</name>
+          <display-name>tester2</display-name>
+          <email>tester@test.com</email>
+          <description>welcome1</description>
+          <credentials>{903}Mkvv8qEJgPdJrAKyne5P+A+Imd35YgfA</credentials>
+        </user>
+      </users>
+    </realm>
+  </jazn-realm>
+</jazn-data>

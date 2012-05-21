@@ -1,0 +1,1 @@
+add managed beans here

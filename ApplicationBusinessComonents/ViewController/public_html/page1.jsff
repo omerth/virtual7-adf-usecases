@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1">
+        <af:selectOneRadio label="Manger list type:" id="sor1" value="#{bindings.RadioValue.inputValue}"
+                           autoSubmit="true" valueChangeListener="#{pageFlowScope.radioBean.radioChanged}">
+          <af:selectItem label="Manager Name" value="0" id="si2"/>
+          <af:selectItem label="Manager Email" value="1" id="si3"/>
+        </af:selectOneRadio>
+        <af:panelFormLayout id="pfl1">
+          <af:selectOneChoice value="#{bindings.ManagerId.inputValue}" label="#{bindings.ManagerId.label}"
+                              required="#{bindings.ManagerId.hints.mandatory}"
+                              shortDesc="#{bindings.ManagerId.hints.tooltip}" id="soc2"
+                              binding="#{pageFlowScope.radioBean.list}">
+            <f:selectItems value="#{bindings.ManagerId.items}" id="si4"/>
+          </af:selectOneChoice>
+          <f:facet name="footer"/>
+        </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

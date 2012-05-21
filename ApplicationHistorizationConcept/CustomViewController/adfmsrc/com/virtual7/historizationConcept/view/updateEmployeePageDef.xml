@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="updateEmployeePageDef"
+                Package="com.virtual7.historizationConcept.view">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModule2DataControl" id="EmployeesViewIterator"/>
+    <iterator Binds="DepartmentsView" RangeSize="25" DataControl="AppModule2DataControl" id="DepartmentsViewIterator"/>
+    <iterator Binds="JobsView" RangeSize="25" DataControl="AppModule2DataControl" id="JobsViewIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EmployeesViewIterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesViewIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesViewIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="JobsViewIterator" id="JobTitle">
+      <AttrNames>
+        <Item Value="JobTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsViewIterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="EmployeesViewIterator" StaticList="false" Uses="LOV_DepartmentId" id="DepartmentId"
+          DTSupportsMRU="true"/>
+  </bindings>
+</pageDefinition>

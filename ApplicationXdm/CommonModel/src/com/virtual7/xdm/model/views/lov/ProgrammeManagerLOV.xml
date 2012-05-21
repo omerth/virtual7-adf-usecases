@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ProgrammeManagerLOV"
+  Version="11.1.1.60.13"
+  SelectList="XdmPersons.FIRST_NAME, 
+       XdmPersons.PERS_ID, 
+       XdmPersons.INITIALS, 
+       XdmPersons.LAST_NAME"
+  FromList="XDM_PERSONS XdmPersons"
+  Where="programme_manager_yn = 'Y'"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="com.virtual7.xdm.framework.ViewRowImpl"
+  ComponentClass="com.virtual7.xdm.framework.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.virtual7.xdm.model.views.lov.ProgrammeLOV_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="XdmPersons"
+    Entity="com.virtual7.xdm.model.entities.XdmPersons"
+    ReadOnly="true"
+    DeleteParticipant="false"/>
+  <ViewAttribute
+    Name="FirstName"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="XdmPersons"
+    AliasName="FIRST_NAME"/>
+  <ViewAttribute
+    Name="PersId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="PersId"
+    EntityUsage="XdmPersons"
+    AliasName="PERS_ID"/>
+  <ViewAttribute
+    Name="Initials"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Initials"
+    EntityUsage="XdmPersons"
+    AliasName="INITIALS"/>
+  <ViewAttribute
+    Name="LastName"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="XdmPersons"
+    AliasName="LAST_NAME"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.xdm.model.CommonModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

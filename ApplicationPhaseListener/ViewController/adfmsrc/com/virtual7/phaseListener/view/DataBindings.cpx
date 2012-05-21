@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.phaseListener.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_virtual7_phaseListener_view_indexPageDef"/>
+    <page path="/page1.jsff" usageId="com_virtual7_phaseListener_view_page1PageDef"/>
+    <page path="/index2.jspx" usageId="com_virtual7_phaseListener_view_index2PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_phaseListener_view_indexPageDef" path="com.virtual7.phaseListener.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_phaseListener_view_page1PageDef"
+          path="com.virtual7.phaseListener.view.pageDefs.page1PageDef"/>
+    <page id="com_virtual7_phaseListener_view_index2PageDef"
+          path="com.virtual7.phaseListener.view.pageDefs.index2PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.phaseListener.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppModuleDataControl1" Package="com.virtual7.phaseListener.model.views"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

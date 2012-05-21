@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-5">
+    <default-activity id="__1">childView</default-activity>
+    <view id="childView">
+      <page>/childView.jsff</page>
+    </view>
+    <parent-action id="parentAction1">
+      <parent-outcome>throwException</parent-outcome>
+    </parent-action>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">childView</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">callParent</from-outcome>
+        <to-activity-id id="__5">parentAction1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

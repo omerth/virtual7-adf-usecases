@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.phaseListener.view.pageDefs"
+                ControllerClass="com.virtual7.phaseListener.view.MyPagePhaseListener">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="taskflow11" taskFlowId="/WEB-INF/task-flow-1.xml#task-flow-1" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <iterator Binds="EmployeesView1_1" RangeSize="25" DataControl="AppModuleDataControl1"
+              id="EmployeesView1_1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesView1_1Iterator" id="EmployeesView1_1">
+      <nodeDefinition DefName="com.virtual7.phaseListener.model.views.EmployeesView1" Name="EmployeesView1_10">
+        <AttrNames>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="HireDate"/>
+          <Item Value="Salary"/>
+          <Item Value="CommissionPct"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl1"/>
+  </bindings>
+</pageDefinition>

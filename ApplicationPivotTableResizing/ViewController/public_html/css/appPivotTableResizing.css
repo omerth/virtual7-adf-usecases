@@ -1,0 +1,49 @@
+
+
+af|dvt-pivotTable::corner, af|dvt-pivotTable::row-header {
+    width: 70% !important;
+}
+
+af|dvt-pivotTable::block-table, af|dvt-pivotTable::row-header-block {
+    width: 100% !important;
+}
+
+af|dvt-pivotTable::databody, af|dvt-pivotTable::column-header {
+    left: 70% !important;
+    width: 30% !important;
+    right: 0px !important;
+}
+
+af|dvt-pivotTable::databody-scroller {
+    left: 70% !important;
+    width: 30% !important;
+    right: 0px !important;
+    /*visibility: hidden !important;*/
+}
+
+/*af|dvt-pivotTable::block-table {
+    width: 300px !important;
+}*/
+
+af|dvt-pivotTable::column-header-scrollbar-spacer {
+    /*height: 100% !important;*/
+    /*width: 0px !important;*/
+}
+
+af|dvt-pivotTable::row-header-scrollbar-spacer {
+    width: 70% !important;
+}
+
+/*af|dvt-pivotTable::row-sizing-cell {
+    padding: 0px !important;
+    size: 0px !important;
+}
+
+af|dvt-pivotTable::column-sizing-cell {
+    padding: 0px !important;
+    size: 0px !important;
+}*/
+
+/*af|dvt-pivotTable {
+    height: auto !important;
+}*/
