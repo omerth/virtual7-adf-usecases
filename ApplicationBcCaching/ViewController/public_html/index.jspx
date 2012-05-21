@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical">
+          <af:outputText value="ApplicationBcCaching" id="ot1"/>
+          <af:panelStretchLayout id="psl1" inlineStyle="width:456px;" bottomHeight="50px">
+            <f:facet name="bottom">
+              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl2">
+                <af:commandButton text="executeQuery" id="cb1"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery}"
+                                  partialSubmit="true"/>
+                <af:commandButton text="executeQueryDB" id="cb13"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery4}"/>
+                <af:commandButton text="executeQueryEL" id="cb14"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery5}"/>
+                <af:commandButton text="executeQueryVL" id="cb15"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery6}"/>
+                <af:commandButton actionListener="#{bindings.Execute1.execute}" text="Execute1"
+                                  disabled="#{!bindings.Execute1.enabled}" id="cb19"/>
+              </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="center">
+              <af:table value="#{bindings.DepartmentVO.collectionModel}" var="row"
+                        rows="#{bindings.DepartmentVO.rangeSize}"
+                        emptyText="#{bindings.DepartmentVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.DepartmentVO.rangeSize}" rowBandingInterval="0" id="t1"
+                        partialTriggers="::cb19">
+                <af:column sortProperty="DepartmentId" sortable="false"
+                           headerText="#{bindings.DepartmentVO.hints.DepartmentId.label}" id="c4">
+                  <af:outputText value="#{row.DepartmentId}" id="ot2">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DepartmentVO.hints.DepartmentId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="DepartmentName" sortable="false"
+                           headerText="#{bindings.DepartmentVO.hints.DepartmentName.label}" id="c3">
+                  <af:outputText value="#{row.DepartmentName}" id="ot5"/>
+                </af:column>
+                <af:column sortProperty="ManagerId" sortable="false"
+                           headerText="#{bindings.DepartmentVO.hints.ManagerId.label}" id="c2">
+                  <af:outputText value="#{row.ManagerId}" id="ot4">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentVO.hints.ManagerId.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="LocationId" sortable="false"
+                           headerText="#{bindings.DepartmentVO.hints.LocationId.label}" id="c1">
+                  <af:outputText value="#{row.LocationId}" id="ot3">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentVO.hints.LocationId.format}"/>
+                  </af:outputText>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </af:panelStretchLayout>
+          <af:commandButton text="showInConsole" id="cb5"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.showInConsole}"/>
+          <af:commandButton text="insertNewDep" id="cb6"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.insertNewDep}"
+                            partialSubmit="true" partialTriggers="t1 t2"/>
+          <af:commandButton text="updateDep" id="cb7"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.updateDep}" partialSubmit="true"
+                            partialTriggers="t1 t2"/>
+          <af:commandButton text="deleteDep" id="cb8"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.deleteDep}" partialSubmit="true"
+                            partialTriggers="t1 t2"/>
+          <af:panelStretchLayout id="psl2" inlineStyle="width:456px;" bottomHeight="50px">
+            <f:facet name="bottom">
+              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl1">
+                <af:commandButton text="executeQueryDB" id="cb2"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery1}"/>
+                <af:commandButton text="executeQueryEL" id="cb3"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery2}"/>
+                <af:commandButton text="executeQueryVL" id="cb4"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery3}"/>
+                <af:commandButton actionListener="#{bindings.Execute2.execute}" text="Execute2"
+                                  disabled="#{!bindings.Execute2.enabled}" id="cb20"/>
+              </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="center">
+              <af:table value="#{bindings.DepartmentsEOVO.collectionModel}" var="row"
+                        rows="#{bindings.DepartmentsEOVO.rangeSize}"
+                        emptyText="#{bindings.DepartmentsEOVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.DepartmentsEOVO.rangeSize}" rowBandingInterval="0" id="t2"
+                        immediate="true" partialTriggers="::cb6 ::cb7 ::cb8 ::cb20">
+                <af:column sortProperty="DepartmentId" sortable="false"
+                           headerText="#{bindings.DepartmentsEOVO.hints.DepartmentId.label}" id="c7">
+                  <af:inputText value="#{row.bindings.DepartmentId.inputValue}"
+                                label="#{bindings.DepartmentsEOVO.hints.DepartmentId.label}"
+                                required="#{bindings.DepartmentsEOVO.hints.DepartmentId.mandatory}"
+                                columns="#{bindings.DepartmentsEOVO.hints.DepartmentId.displayWidth}"
+                                maximumLength="#{bindings.DepartmentsEOVO.hints.DepartmentId.precision}"
+                                shortDesc="#{bindings.DepartmentsEOVO.hints.DepartmentId.tooltip}" id="it7">
+                    <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DepartmentsEOVO.hints.DepartmentId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="DepartmentName" sortable="false"
+                           headerText="#{bindings.DepartmentsEOVO.hints.DepartmentName.label}" id="c8">
+                  <af:inputText value="#{row.bindings.DepartmentName.inputValue}"
+                                label="#{bindings.DepartmentsEOVO.hints.DepartmentName.label}"
+                                required="#{bindings.DepartmentsEOVO.hints.DepartmentName.mandatory}"
+                                columns="#{bindings.DepartmentsEOVO.hints.DepartmentName.displayWidth}"
+                                maximumLength="#{bindings.DepartmentsEOVO.hints.DepartmentName.precision}"
+                                shortDesc="#{bindings.DepartmentsEOVO.hints.DepartmentName.tooltip}" id="it5">
+                    <f:validator binding="#{row.bindings.DepartmentName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="ManagerId" sortable="false"
+                           headerText="#{bindings.DepartmentsEOVO.hints.ManagerId.label}" id="c5">
+                  <af:inputText value="#{row.bindings.ManagerId.inputValue}"
+                                label="#{bindings.DepartmentsEOVO.hints.ManagerId.label}"
+                                required="#{bindings.DepartmentsEOVO.hints.ManagerId.mandatory}"
+                                columns="#{bindings.DepartmentsEOVO.hints.ManagerId.displayWidth}"
+                                maximumLength="#{bindings.DepartmentsEOVO.hints.ManagerId.precision}"
+                                shortDesc="#{bindings.DepartmentsEOVO.hints.ManagerId.tooltip}" id="it6">
+                    <f:validator binding="#{row.bindings.ManagerId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DepartmentsEOVO.hints.ManagerId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="LocationId" sortable="false"
+                           headerText="#{bindings.DepartmentsEOVO.hints.LocationId.label}" id="c6">
+                  <af:inputText value="#{row.bindings.LocationId.inputValue}"
+                                label="#{bindings.DepartmentsEOVO.hints.LocationId.label}"
+                                required="#{bindings.DepartmentsEOVO.hints.LocationId.mandatory}"
+                                columns="#{bindings.DepartmentsEOVO.hints.LocationId.displayWidth}"
+                                maximumLength="#{bindings.DepartmentsEOVO.hints.LocationId.precision}"
+                                shortDesc="#{bindings.DepartmentsEOVO.hints.LocationId.tooltip}" id="it8">
+                    <f:validator binding="#{row.bindings.LocationId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DepartmentsEOVO.hints.LocationId.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </af:panelStretchLayout>
+          <af:commandButton text="newJDBCshowInConsole" id="cb9"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCshowInConsole}"/>
+          <af:commandButton text="newJDBCinsertNewDep" id="cb10"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCinsertNewDep}"/>
+          <af:commandButton text="newJDBCupdateDep" id="cb11"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCupdateDep}"/>
+          <af:commandButton text="newJDBCdeleteDep" id="cb12"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCdeleteDep}"/>
+          <af:panelStretchLayout id="psl3" inlineStyle="width:456px;">
+            <f:facet name="bottom">
+              <af:panelGroupLayout layout="horizontal" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl3">
+                <af:commandButton text="executeServiceQuery" id="cb16"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQuery}"/>
+                <af:commandButton text="executeServiceQueryEL" id="cb21"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQueryEL}"/>
+                <af:commandButton text="executeServiceQueryVL" id="cb22"
+                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQueryVL}"/>
+                <af:commandButton actionListener="#{bindings.Execute.execute}" text="Execute"
+                                  disabled="#{!bindings.Execute.enabled}" id="cb18"/>
+              </af:panelGroupLayout>
+            </f:facet>
+            <f:facet name="center">
+              <af:table value="#{bindings.DepartmentservicevoView.collectionModel}" var="row"
+                        rows="#{bindings.DepartmentservicevoView.rangeSize}"
+                        emptyText="#{bindings.DepartmentservicevoView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.DepartmentservicevoView.rangeSize}" rowBandingInterval="0" id="t3"
+                        partialTriggers="::cb18">
+                <af:column sortProperty="DepartmentId" sortable="false"
+                           headerText="#{bindings.DepartmentservicevoView.hints.DepartmentId.label}" id="c11">
+                  <af:inputText value="#{row.bindings.DepartmentId.inputValue}"
+                                label="#{bindings.DepartmentservicevoView.hints.DepartmentId.label}"
+                                required="#{bindings.DepartmentservicevoView.hints.DepartmentId.mandatory}"
+                                columns="#{bindings.DepartmentservicevoView.hints.DepartmentId.displayWidth}"
+                                maximumLength="#{bindings.DepartmentservicevoView.hints.DepartmentId.precision}"
+                                shortDesc="#{bindings.DepartmentservicevoView.hints.DepartmentId.tooltip}" id="it2">
+                    <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DepartmentservicevoView.hints.DepartmentId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="DepartmentName" sortable="false"
+                           headerText="#{bindings.DepartmentservicevoView.hints.DepartmentName.label}" id="c12">
+                  <af:inputText value="#{row.bindings.DepartmentName.inputValue}"
+                                label="#{bindings.DepartmentservicevoView.hints.DepartmentName.label}"
+                                required="#{bindings.DepartmentservicevoView.hints.DepartmentName.mandatory}"
+                                columns="#{bindings.DepartmentservicevoView.hints.DepartmentName.displayWidth}"
+                                maximumLength="#{bindings.DepartmentservicevoView.hints.DepartmentName.precision}"
+                                shortDesc="#{bindings.DepartmentservicevoView.hints.DepartmentName.tooltip}" id="it4">
+                    <f:validator binding="#{row.bindings.DepartmentName.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="ManagerId" sortable="false"
+                           headerText="#{bindings.DepartmentservicevoView.hints.ManagerId.label}" id="c10">
+                  <af:inputText value="#{row.bindings.ManagerId.inputValue}"
+                                label="#{bindings.DepartmentservicevoView.hints.ManagerId.label}"
+                                required="#{bindings.DepartmentservicevoView.hints.ManagerId.mandatory}"
+                                columns="#{bindings.DepartmentservicevoView.hints.ManagerId.displayWidth}"
+                                maximumLength="#{bindings.DepartmentservicevoView.hints.ManagerId.precision}"
+                                shortDesc="#{bindings.DepartmentservicevoView.hints.ManagerId.tooltip}" id="it1">
+                    <f:validator binding="#{row.bindings.ManagerId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DepartmentservicevoView.hints.ManagerId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="LocationId" sortable="false"
+                           headerText="#{bindings.DepartmentservicevoView.hints.LocationId.label}" id="c9">
+                  <af:inputText value="#{row.bindings.LocationId.inputValue}"
+                                label="#{bindings.DepartmentservicevoView.hints.LocationId.label}"
+                                required="#{bindings.DepartmentservicevoView.hints.LocationId.mandatory}"
+                                columns="#{bindings.DepartmentservicevoView.hints.LocationId.displayWidth}"
+                                maximumLength="#{bindings.DepartmentservicevoView.hints.LocationId.precision}"
+                                shortDesc="#{bindings.DepartmentservicevoView.hints.LocationId.tooltip}" id="it3">
+                    <f:validator binding="#{row.bindings.LocationId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.DepartmentservicevoView.hints.LocationId.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </f:facet>
+          </af:panelStretchLayout>
+          <af:commandButton text="showInConsoleFromService" id="cb17"
+                            actionListener="#{backingBeanScope.ActionListnerManageBean.readAndPrintDepartmentFromService}"/>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
