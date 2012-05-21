@@ -29,6 +29,51 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public AppModuleImpl() {
     }
 
+    // Simple View Object related methods.
+
+    public void vo_printCurrentVOQueryMode() {
+        System.out.println("Query mode for the DepartmentsVO is:" + this.getDepartmentVO().getQueryMode());
+    }
+
+    public void vo_executeQueryVOViewRows() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentVO();
+        
+        // Get default
+        
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_VIEW_ROWS);
+        viewObjImpl.executeQuery();
+        
+        // Reset to default
+    }
+
+    public void vo_executeQueryVODBTables() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentVO();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
+        viewObjImpl.executeQuery();
+    }
+
+    public void vo_executeQueryVOEntityObjects() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentVO();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_ENTITY_ROWS);
+        viewObjImpl.executeQuery();
+    }
+
+    // View Object based on entityes related methods.
+
+    public void eo_printCurrentVOQueryMode() {
+        System.out.println("Query mode for the DepartmentsEOVO is:" + this.getDepartmentsEOVO().getQueryMode());
+    }
+
+    // TODO: Add other 3 methods
+
+    // View Object based on Entity Object with Web Service related methods.
+
+    public void so_printCurrentVOQueryMode() {
+        System.out.println("Query mode for the tepartmentservicevoView is:" +
+                           this.getDepartmentservicevoView().getQueryMode());
+    }
+
+    // TODO: Add other 3 methods.
 
     /**
      * Container's getter for DepartmentsEOVO.
@@ -158,6 +203,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
             }
         }
     }
+
 
     public void executeQuery() {
         ViewObjectImpl viewObjImpl = this.getDepartmentVO();
