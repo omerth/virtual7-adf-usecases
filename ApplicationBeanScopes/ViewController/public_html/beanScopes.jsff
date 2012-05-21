@@ -3,7 +3,7 @@
           xmlns:f="http://java.sun.com/jsf/core">
   <af:panelStretchLayout id="psl1">
     <f:facet name="center">
-      <af:panelGroupLayout id="pgl6" layout="vertical">
+      <af:panelGroupLayout id="pgl6" layout="scroll">
         <af:panelGroupLayout id="pgl5" layout="horizontal">
           <af:panelGroupLayout id="pgl1" layout="vertical"
                                inlineStyle="border:medium none; border-color:Black; border-style:solid; margin:20px;">
