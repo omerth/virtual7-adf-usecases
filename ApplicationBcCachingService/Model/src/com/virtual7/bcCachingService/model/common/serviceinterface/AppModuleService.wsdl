@@ -1,0 +1,171 @@
+<wsdl:definitions
+     name="AppModuleService"
+     targetNamespace="/com/virtual7/bcCachingService/model/common/"
+     xmlns:errors="http://xmlns.oracle.com/adf/svc/errors/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="/com/virtual7/bcCachingService/model/common/"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:types="/com/virtual7/bcCachingService/model/common/types/"
+    >
+    <wsdl:import namespace="http://xmlns.oracle.com/adf/svc/errors/" location="classpath:/META-INF/wsdl/ServiceException.wsdl"/>
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema">
+            <import namespace="/com/virtual7/bcCachingService/model/common/types/" schemaLocation="AppModuleService.xsd"/>
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="AppModuleService_createDepartmentServiceVO">
+        <wsdl:part name="parameters" element="types:createDepartmentServiceVO"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_createDepartmentServiceVOResponse">
+        <wsdl:part name="parameters" element="types:createDepartmentServiceVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_updateDepartmentServiceVO">
+        <wsdl:part name="parameters" element="types:updateDepartmentServiceVO"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_updateDepartmentServiceVOResponse">
+        <wsdl:part name="parameters" element="types:updateDepartmentServiceVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_deleteDepartmentServiceVO">
+        <wsdl:part name="parameters" element="types:deleteDepartmentServiceVO"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_deleteDepartmentServiceVOResponse">
+        <wsdl:part name="parameters" element="types:deleteDepartmentServiceVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_mergeDepartmentServiceVO">
+        <wsdl:part name="parameters" element="types:mergeDepartmentServiceVO"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_mergeDepartmentServiceVOResponse">
+        <wsdl:part name="parameters" element="types:mergeDepartmentServiceVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_findDepartmentServiceVO">
+        <wsdl:part name="parameters" element="types:findDepartmentServiceVO"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_findDepartmentServiceVOResponse">
+        <wsdl:part name="parameters" element="types:findDepartmentServiceVOResponse"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_processDepartmentServiceVO">
+        <wsdl:part name="parameters" element="types:processDepartmentServiceVO"/>
+    </wsdl:message>
+    <wsdl:message name="AppModuleService_processDepartmentServiceVOResponse">
+        <wsdl:part name="parameters" element="types:processDepartmentServiceVOResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="AppModuleService">
+        <wsdl:documentation>
+            <ViewInstance xmlns="http://xmlns.oracle.com/adf/svc/metadata/" Name="DepartmentServiceVO"
+                 xmlns:ns0="/com/virtual7/bcCachingService/model/views/common/" SDOName="ns0:DepartmentServiceVOSDO"
+                 CreateOpName="createDepartmentServiceVO" UpdateOpName="updateDepartmentServiceVO"
+                 DeleteOpName="deleteDepartmentServiceVO" MergeOpName="mergeDepartmentServiceVO"
+                 FindOpName="findDepartmentServiceVO" ProcessOpName="processDepartmentServiceVO"/>
+        </wsdl:documentation>
+        <wsdl:operation name="createDepartmentServiceVO">
+            <wsdl:input message="tns:AppModuleService_createDepartmentServiceVO"/>
+            <wsdl:output message="tns:AppModuleService_createDepartmentServiceVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateDepartmentServiceVO">
+            <wsdl:input message="tns:AppModuleService_updateDepartmentServiceVO"/>
+            <wsdl:output message="tns:AppModuleService_updateDepartmentServiceVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="deleteDepartmentServiceVO">
+            <wsdl:input message="tns:AppModuleService_deleteDepartmentServiceVO"/>
+            <wsdl:output message="tns:AppModuleService_deleteDepartmentServiceVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="mergeDepartmentServiceVO">
+            <wsdl:input message="tns:AppModuleService_mergeDepartmentServiceVO"/>
+            <wsdl:output message="tns:AppModuleService_mergeDepartmentServiceVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="findDepartmentServiceVO">
+            <wsdl:input message="tns:AppModuleService_findDepartmentServiceVO"/>
+            <wsdl:output message="tns:AppModuleService_findDepartmentServiceVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+        <wsdl:operation name="processDepartmentServiceVO">
+            <wsdl:input message="tns:AppModuleService_processDepartmentServiceVO"/>
+            <wsdl:output message="tns:AppModuleService_processDepartmentServiceVOResponse"/>
+            <wsdl:fault name="ServiceException" message="errors:ServiceException"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AppModuleServiceSoapHttp" type="tns:AppModuleService">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="createDepartmentServiceVO">
+            <soap:operation soapAction="/com/virtual7/bcCachingService/model/common/createDepartmentServiceVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="updateDepartmentServiceVO">
+            <soap:operation soapAction="/com/virtual7/bcCachingService/model/common/updateDepartmentServiceVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="deleteDepartmentServiceVO">
+            <soap:operation soapAction="/com/virtual7/bcCachingService/model/common/deleteDepartmentServiceVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="mergeDepartmentServiceVO">
+            <soap:operation soapAction="/com/virtual7/bcCachingService/model/common/mergeDepartmentServiceVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="findDepartmentServiceVO">
+            <soap:operation soapAction="/com/virtual7/bcCachingService/model/common/findDepartmentServiceVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+        <wsdl:operation name="processDepartmentServiceVO">
+            <soap:operation soapAction="/com/virtual7/bcCachingService/model/common/processDepartmentServiceVO"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="ServiceException">
+                <soap:fault name="ServiceException" use="literal" encodingStyle=""/>
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="AppModuleService">
+        <wsdl:port name="AppModuleServiceSoapHttpPort" binding="tns:AppModuleServiceSoapHttp">
+            <soap:address location="http://localhost:7101/ApplicationBcCachingService-Model-context-root/AppModuleService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
