@@ -17,41 +17,6 @@ public class AppModuleClient extends ApplicationModuleImpl implements AppModule 
     }
 
 
-    public void updateDepartmentNewJDBC() {
-        Object _ret = this.riInvokeExportedMethod(this,"updateDepartmentNewJDBC",null,null);
-        return;
-    }
-
-    public void updateDepartment() {
-        Object _ret = this.riInvokeExportedMethod(this,"updateDepartment",null,null);
-        return;
-    }
-
-    public void readAndPrintDepartmentService() {
-        Object _ret = this.riInvokeExportedMethod(this,"readAndPrintDepartmentService",null,null);
-        return;
-    }
-
-    public void readAndPrintDepartmentNewJDBC() {
-        Object _ret = this.riInvokeExportedMethod(this,"readAndPrintDepartmentNewJDBC",null,null);
-        return;
-    }
-
-    public void readAndPrintDepartment() {
-        Object _ret = this.riInvokeExportedMethod(this,"readAndPrintDepartment",null,null);
-        return;
-    }
-
-    public void insertNewDepartmentNewJDBC() {
-        Object _ret = this.riInvokeExportedMethod(this,"insertNewDepartmentNewJDBC",null,null);
-        return;
-    }
-
-    public void insertNewDepartment() {
-        Object _ret = this.riInvokeExportedMethod(this,"insertNewDepartment",null,null);
-        return;
-    }
-
     public void executeServiceQueryVL() {
         Object _ret = this.riInvokeExportedMethod(this,"executeServiceQueryVL",null,null);
         return;
@@ -102,15 +67,12 @@ public class AppModuleClient extends ApplicationModuleImpl implements AppModule 
         return;
     }
 
-    public void deleteDepartmentNewJDBC() {
-        Object _ret = this.riInvokeExportedMethod(this,"deleteDepartmentNewJDBC",null,null);
+
+    public void readAndPrintDepartmentService() {
+        Object _ret = this.riInvokeExportedMethod(this,"readAndPrintDepartmentService",null,null);
         return;
     }
 
-    public void deleteDepartment() {
-        Object _ret = this.riInvokeExportedMethod(this,"deleteDepartment",null,null);
-        return;
-    }
 
     public void vo_printCurrentVOQueryMode() {
         Object _ret = this.riInvokeExportedMethod(this,"vo_printCurrentVOQueryMode",null,null);
@@ -132,13 +94,118 @@ public class AppModuleClient extends ApplicationModuleImpl implements AppModule 
         return;
     }
 
+    public void vo_clearViewObjectCache() {
+        Object _ret = this.riInvokeExportedMethod(this,"vo_clearViewObjectCache",null,null);
+        return;
+    }
+
+    public void updateDepartmentNewJDBC() {
+        Object _ret = this.riInvokeExportedMethod(this,"updateDepartmentNewJDBC",null,null);
+        return;
+    }
+
+    public void updateDepartment() {
+        Object _ret = this.riInvokeExportedMethod(this,"updateDepartment",null,null);
+        return;
+    }
+
+    public void so_readAndPrintDepartmentService() {
+        Object _ret = this.riInvokeExportedMethod(this,"so_readAndPrintDepartmentService",null,null);
+        return;
+    }
+
     public void so_printCurrentVOQueryMode() {
         Object _ret = this.riInvokeExportedMethod(this,"so_printCurrentVOQueryMode",null,null);
         return;
     }
 
+    public void so_executeQuerySOVOViewRows() {
+        Object _ret = this.riInvokeExportedMethod(this,"so_executeQuerySOVOViewRows",null,null);
+        return;
+    }
+
+    public void so_executeQuerySOVOEntityObject() {
+        Object _ret = this.riInvokeExportedMethod(this,"so_executeQuerySOVOEntityObject",null,null);
+        return;
+    }
+
+    public void so_executeQuerySOVODBTables() {
+        Object _ret = this.riInvokeExportedMethod(this,"so_executeQuerySOVODBTables",null,null);
+        return;
+    }
+
+    public void so_cleareEntityCache() {
+        Object _ret = this.riInvokeExportedMethod(this,"so_cleareEntityCache",null,null);
+        return;
+    }
+
+    public void so_clearViewObjectCache() {
+        Object _ret = this.riInvokeExportedMethod(this,"so_clearViewObjectCache",null,null);
+        return;
+    }
+
+    public void readAndPrintDepartmentNewJDBC() {
+        Object _ret = this.riInvokeExportedMethod(this,"readAndPrintDepartmentNewJDBC",null,null);
+        return;
+    }
+
+    public void readAndPrintDepartment() {
+        Object _ret = this.riInvokeExportedMethod(this,"readAndPrintDepartment",null,null);
+        return;
+    }
+
+    public void postChangesAction() {
+        Object _ret = this.riInvokeExportedMethod(this,"postChangesAction",null,null);
+        return;
+    }
+
+    public void insertNewDepartmentNewJDBC() {
+        Object _ret = this.riInvokeExportedMethod(this,"insertNewDepartmentNewJDBC",null,null);
+        return;
+    }
+
+    public void insertNewDepartment() {
+        Object _ret = this.riInvokeExportedMethod(this,"insertNewDepartment",null,null);
+        return;
+    }
+
     public void eo_printCurrentVOQueryMode() {
         Object _ret = this.riInvokeExportedMethod(this,"eo_printCurrentVOQueryMode",null,null);
+        return;
+    }
+
+    public void eo_executeQueryEOVOViewRows() {
+        Object _ret = this.riInvokeExportedMethod(this,"eo_executeQueryEOVOViewRows",null,null);
+        return;
+    }
+
+    public void eo_executeQueryEOVOEntityObject() {
+        Object _ret = this.riInvokeExportedMethod(this,"eo_executeQueryEOVOEntityObject",null,null);
+        return;
+    }
+
+    public void eo_executeQueryEOVODBTables() {
+        Object _ret = this.riInvokeExportedMethod(this,"eo_executeQueryEOVODBTables",null,null);
+        return;
+    }
+
+    public void eo_cleareEntityCache() {
+        Object _ret = this.riInvokeExportedMethod(this,"eo_cleareEntityCache",null,null);
+        return;
+    }
+
+    public void eo_clearViewObjectCache() {
+        Object _ret = this.riInvokeExportedMethod(this,"eo_clearViewObjectCache",null,null);
+        return;
+    }
+
+    public void deleteDepartmentNewJDBC() {
+        Object _ret = this.riInvokeExportedMethod(this,"deleteDepartmentNewJDBC",null,null);
+        return;
+    }
+
+    public void deleteDepartment() {
+        Object _ret = this.riInvokeExportedMethod(this,"deleteDepartment",null,null);
         return;
     }
 }
