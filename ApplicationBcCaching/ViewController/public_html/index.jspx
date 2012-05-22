@@ -246,16 +246,13 @@
             <af:outputText value="Data using same JDBC connection as the application module" id="ot7"/>
             <af:panelGroupLayout layout="horizontal" id="pgl5">
               <af:commandButton text="showInConsole" id="cb5"
-                                actionListener="#{backingBeanScope.ActionListnerManageBean.showInConsole}"/>
-              <af:commandButton text="insertNewDep" id="cb6"
-                                actionListener="#{backingBeanScope.ActionListnerManageBean.insertNewDep}"
-                                partialSubmit="true" partialTriggers="t1 t2"/>
-              <af:commandButton text="updateDep" id="cb7"
-                                actionListener="#{backingBeanScope.ActionListnerManageBean.updateDep}"
-                                partialSubmit="true" partialTriggers="t1 t2"/>
-              <af:commandButton text="deleteDep" id="cb8"
-                                actionListener="#{backingBeanScope.ActionListnerManageBean.deleteDep}"
-                                partialSubmit="true" partialTriggers="t1 t2"/>
+                                actionListener="#{bindings.readAndPrintDepartment.execute}"/>
+              <af:commandButton text="insertNewDep" id="cb6" partialSubmit="true" partialTriggers="t1 t2"
+                                actionListener="#{bindings.insertNewDepartment.execute}"/>
+              <af:commandButton actionListener="#{bindings.updateDepartment.execute}" text="updateDep"
+                                partialSubmit="true" partialTriggers="t1 t2" id="cb7"/>
+              <af:commandButton actionListener="#{bindings.deleteDepartment.execute}" text="deleteDep"
+                                partialSubmit="true" partialTriggers="t1 t2" id="cb8"/>
             </af:panelGroupLayout>
           </af:panelGroupLayout>
           <af:panelGroupLayout layout="vertical" id="pgl6"
@@ -263,18 +260,18 @@
                                styleClass="AFStretchWidth">
             <af:outputText value="Data using new JDBC connection created using driver" id="ot9"/>
             <af:panelGroupLayout layout="horizontal" id="pgl7">
-              <af:commandButton text="newJDBCshowInConsole" id="cb9"
-                                actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCshowInConsole}"/>
+              <af:commandButton text="readAndPrintDepartmentNewJDBC" id="cb9"
+                                actionListener="#{bindings.readAndPrintDepartmentNewJDBC.execute}"/>
               <af:commandButton text="newJDBCinsertNewDep" id="cb10"
-                                actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCinsertNewDep}"/>
+                                actionListener="#{bindings.insertNewDepartmentNewJDBC.execute}"/>
               <af:commandButton text="newJDBCupdateDep" id="cb11"
-                                actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCupdateDep}"/>
+                                actionListener="#{bindings.updateDepartmentNewJDBC.execute}"/>
               <af:commandButton text="newJDBCdeleteDep" id="cb12"
-                                actionListener="#{backingBeanScope.ActionListnerManageBean.newJDBCdeleteDep}"/>
+                                actionListener="#{bindings.deleteDepartmentNewJDBC.execute}"/>
             </af:panelGroupLayout>
           </af:panelGroupLayout>
           <af:commandButton text="showInConsoleFromService" id="cb17"
-                            actionListener="#{backingBeanScope.ActionListnerManageBean.readAndPrintDepartmentFromService}"/>
+                            actionListener="#{bindings.so_readAndPrintDepartmentService.execute}"/>
           <af:panelGroupLayout id="pgl8" inlineStyle="width:402px; height:41px;" layout="horizontal">
             <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" id="cb25"/>
             <af:commandButton actionListener="#{bindings.postChangesAction.execute}" text="postChangesAction"
