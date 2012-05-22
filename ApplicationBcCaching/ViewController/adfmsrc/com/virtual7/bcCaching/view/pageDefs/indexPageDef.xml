@@ -158,5 +158,8 @@
     <methodAction id="vo_clearViewObjectCache" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="vo_clearViewObjectCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_readAndPrintDepartmentService" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_readAndPrintDepartmentService" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="AppModuleDataControl.dataProvider"/>
   </bindings>
 </pageDefinition>
