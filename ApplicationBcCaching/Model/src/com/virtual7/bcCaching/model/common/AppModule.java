@@ -10,7 +10,6 @@ public interface AppModule extends ApplicationModule {
 
     void updateDepartment();
 
-    void readAndPrintDepartmentService();
 
     void readAndPrintDepartmentNewJDBC();
 
@@ -20,25 +19,6 @@ public interface AppModule extends ApplicationModule {
 
     void insertNewDepartment();
 
-    void executeServiceQueryVL();
-
-    void executeServiceQueryEL();
-
-    void executeServiceQuery();
-
-    void executeQuery6();
-
-    void executeQuery5();
-
-    void executeQuery4();
-
-    void executeQuery3();
-
-    void executeQuery2();
-
-    void executeQuery1();
-
-    void executeQuery();
 
     void deleteDepartmentNewJDBC();
 
@@ -55,4 +35,30 @@ public interface AppModule extends ApplicationModule {
     void so_printCurrentVOQueryMode();
 
     void eo_printCurrentVOQueryMode();
+
+    void so_executeQuerySOVOViewRows();
+
+    void so_executeQuerySOVOEntityObject();
+
+    void so_executeQuerySOVODBTables();
+
+    void eo_executeQueryEOVOViewRows();
+
+    void eo_executeQueryEOVOEntityObject();
+
+    void eo_executeQueryEOVODBTables();
+
+    void so_readAndPrintDepartmentService();
+
+    void postChangesAction();
+
+    void so_cleareEntityCache();
+
+    void so_clearViewObjectCache();
+
+    void eo_cleareEntityCache();
+
+    void eo_clearViewObjectCache();
+
+    void vo_clearViewObjectCache();
 }

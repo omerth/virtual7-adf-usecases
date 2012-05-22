@@ -34,11 +34,6 @@
         Type="void"/>
     </Method>
     <Method
-      Name="readAndPrintDepartmentService">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
       Name="readAndPrintDepartmentNewJDBC">
       <Return
         Type="void"/>
@@ -55,56 +50,6 @@
     </Method>
     <Method
       Name="insertNewDepartment">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeServiceQueryVL">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeServiceQueryEL">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeServiceQuery">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeQuery6">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeQuery5">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeQuery4">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeQuery3">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeQuery2">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeQuery1">
-      <Return
-        Type="void"/>
-    </Method>
-    <Method
-      Name="executeQuery">
       <Return
         Type="void"/>
     </Method>
@@ -145,6 +90,71 @@
     </Method>
     <Method
       Name="eo_printCurrentVOQueryMode">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="so_executeQuerySOVOViewRows">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="so_executeQuerySOVOEntityObject">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="so_executeQuerySOVODBTables">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="eo_executeQueryEOVOViewRows">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="eo_executeQueryEOVOEntityObject">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="eo_executeQueryEOVODBTables">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="so_readAndPrintDepartmentService">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="postChangesAction">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="so_cleareEntityCache">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="so_clearViewObjectCache">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="eo_cleareEntityCache">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="eo_clearViewObjectCache">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="vo_clearViewObjectCache">
       <Return
         Type="void"/>
     </Method>

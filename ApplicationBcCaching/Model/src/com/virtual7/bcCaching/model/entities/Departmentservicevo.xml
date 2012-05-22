@@ -5,12 +5,14 @@
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Departmentservicevo"
   Version="11.1.1.60.13"
-  DBObjectType="table"
   AliasName="Departmentservicevo"
   BindingStyle="OracleName"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  RowClass="com.virtual7.bcCaching.model.entities.DepartmentservicevoImpl">
   <DesignTime>
     <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
   </DesignTime>
   <DataSource
     DataSourceClass="oracle.jbo.datasource.svc.SIEODataSourceImpl"

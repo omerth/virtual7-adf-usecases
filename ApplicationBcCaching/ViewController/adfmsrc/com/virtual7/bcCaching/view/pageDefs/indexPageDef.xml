@@ -121,5 +121,42 @@
     <methodAction id="so_printCurrentVOQueryMode" RequiresUpdateModel="true" Action="invokeMethod"
                   MethodName="so_printCurrentVOQueryMode" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_executeQueryEOVOViewRows" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_executeQueryEOVOViewRows" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_executeQueryEOVODBTables" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_executeQueryEOVODBTables" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_executeQueryEOVOEntityObject" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_executeQueryEOVOEntityObject" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_executeQuerySOVOViewRows" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_executeQuerySOVOViewRows" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_executeQuerySOVODBTables" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_executeQuerySOVODBTables" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_executeQuerySOVOEntityObject" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_executeQuerySOVOEntityObject" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="AppModuleDataControl.dataProvider"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <methodAction id="postChangesAction" RequiresUpdateModel="true" Action="invokeMethod" MethodName="postChangesAction"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_cleareEntityCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_cleareEntityCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_clearViewObjectCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_clearViewObjectCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_cleareEntityCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_cleareEntityCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_clearViewObjectCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_clearViewObjectCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="vo_clearViewObjectCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_clearViewObjectCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
   </bindings>
 </pageDefinition>

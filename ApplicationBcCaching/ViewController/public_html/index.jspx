@@ -58,10 +58,13 @@
                 <af:commandButton actionListener="#{bindings.vo_executeQueryVOEntityObjects.execute}"
                                   text="QUERY_MODE_SCAN_ENTITY_ROWS"
                                   disabled="#{!bindings.vo_executeQueryVOEntityObjects.enabled}" id="cb15"/>
+                <af:commandButton actionListener="#{bindings.vo_clearViewObjectCache.execute}"
+                                  text="vo_clearViewObjectCache" disabled="#{!bindings.vo_clearViewObjectCache.enabled}"
+                                  id="cb31"/>
               </af:panelGroupLayout>
             </f:facet>
           </af:panelStretchLayout>
-          <af:panelStretchLayout id="psl2" bottomHeight="50px" topHeight="20px"
+          <af:panelStretchLayout id="psl2" bottomHeight="47px" topHeight="20px"
                                  inlineStyle="border-color:Black; border-style:solid; border-width:medium;"
                                  styleClass="AFStretchWidth">
             <f:facet name="top">
@@ -130,14 +133,22 @@
                 <af:commandButton actionListener="#{bindings.eo_printCurrentVOQueryMode.execute}"
                                   text="eo_printCurrentVOQueryMode"
                                   disabled="#{!bindings.eo_printCurrentVOQueryMode.enabled}" id="cb19"/>
-                <af:commandButton actionListener="#{bindings.Execute2.execute}" text="Default Execute"
+                <af:commandButton actionListener="#{bindings.Execute2.execute}" text="DEFAULT Execute on EOVO"
                                   disabled="#{!bindings.Execute2.enabled}" id="cb20"/>
-                <af:commandButton text="executeQueryDB" id="cb2"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery1}"/>
-                <af:commandButton text="executeQueryEL" id="cb3"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery2}"/>
-                <af:commandButton text="executeQueryVL" id="cb4"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeQuery3}"/>
+                <af:commandButton actionListener="#{bindings.eo_executeQueryEOVOViewRows.execute}"
+                                  text="QUERY_MODE_SCAN_VIEW_ROWS"
+                                  disabled="#{!bindings.eo_executeQueryEOVOViewRows.enabled}" id="cb2"/>
+                <af:commandButton actionListener="#{bindings.eo_executeQueryEOVODBTables.execute}"
+                                  text="QUERY_MODE_SCAN_DATABASE_TABLES"
+                                  disabled="#{!bindings.eo_executeQueryEOVODBTables.enabled}" id="cb3"/>
+                <af:commandButton actionListener="#{bindings.eo_executeQueryEOVOEntityObject.execute}"
+                                  text="QUERY_MODE_SCAN_ENTITY_ROWS"
+                                  disabled="#{!bindings.eo_executeQueryEOVOEntityObject.enabled}" id="cb4"/>
+                <af:commandButton actionListener="#{bindings.eo_cleareEntityCache.execute}" text="eo_cleareEntityCache"
+                                  disabled="#{!bindings.eo_cleareEntityCache.enabled}" id="cb27"/>
+                <af:commandButton actionListener="#{bindings.eo_clearViewObjectCache.execute}"
+                                  text="eo_clearViewObjectCache" disabled="#{!bindings.eo_clearViewObjectCache.enabled}"
+                                  id="cb28"/>
               </af:panelGroupLayout>
             </f:facet>
           </af:panelStretchLayout>
@@ -212,12 +223,20 @@
                                   disabled="#{!bindings.so_printCurrentVOQueryMode.enabled}" id="cb24"/>
                 <af:commandButton actionListener="#{bindings.Execute.execute}" text="Default execute query"
                                   disabled="#{!bindings.Execute.enabled}" id="cb18"/>
-                <af:commandButton text="executeServiceQuery" id="cb16"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQuery}"/>
-                <af:commandButton text="executeServiceQueryEL" id="cb21"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQueryEL}"/>
-                <af:commandButton text="executeServiceQueryVL" id="cb22"
-                                  actionListener="#{backingBeanScope.ActionListnerManageBean.executeServiceQueryVL}"/>
+                <af:commandButton actionListener="#{bindings.so_executeQuerySOVOViewRows.execute}"
+                                  text="QUERY_MODE_SCAN_VIEW_ROWS"
+                                  disabled="#{!bindings.so_executeQuerySOVOViewRows.enabled}" id="cb16"/>
+                <af:commandButton actionListener="#{bindings.so_executeQuerySOVODBTables.execute}"
+                                  text="QUERY_MODE_SCAN_DATABASE_TABLES"
+                                  disabled="#{!bindings.so_executeQuerySOVODBTables.enabled}" id="cb21"/>
+                <af:commandButton actionListener="#{bindings.so_executeQuerySOVOEntityObject.execute}"
+                                  text="QUERY_MODE_SCAN_ENTITY_ROWS"
+                                  disabled="#{!bindings.so_executeQuerySOVOEntityObject.enabled}" id="cb22"/>
+                <af:commandButton actionListener="#{bindings.so_cleareEntityCache.execute}" text="so_cleareEntityCache"
+                                  disabled="#{!bindings.so_cleareEntityCache.enabled}" id="cb29"/>
+                <af:commandButton actionListener="#{bindings.so_clearViewObjectCache.execute}"
+                                  text="so_clearViewObjectCache" disabled="#{!bindings.so_clearViewObjectCache.enabled}"
+                                  id="cb30"/>
               </af:panelGroupLayout>
             </f:facet>
           </af:panelStretchLayout>
@@ -256,6 +275,11 @@
           </af:panelGroupLayout>
           <af:commandButton text="showInConsoleFromService" id="cb17"
                             actionListener="#{backingBeanScope.ActionListnerManageBean.readAndPrintDepartmentFromService}"/>
+          <af:panelGroupLayout id="pgl8" inlineStyle="width:402px; height:41px;" layout="horizontal">
+            <af:commandButton actionListener="#{bindings.Commit.execute}" text="Commit" id="cb25"/>
+            <af:commandButton actionListener="#{bindings.postChangesAction.execute}" text="postChangesAction"
+                              id="cb26"/>
+          </af:panelGroupLayout>
         </af:panelGroupLayout>
       </af:form>
     </af:document>

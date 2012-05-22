@@ -3,6 +3,9 @@ package com.virtual7.bcCaching.model;
 
 import com.virtual7.bcCaching.model.common.AppModule;
 
+import com.virtual7.bcCaching.model.entities.DepartmentservicevoImpl;
+import com.virtual7.util.model.BCUtils;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,10 +13,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import oracle.jbo.Row;
+import oracle.jbo.Transaction;
 import oracle.jbo.ViewObject;
 import oracle.jbo.server.ApplicationModuleImpl;
 import oracle.jbo.server.DSViewObjectImpl;
 import oracle.jbo.server.ViewObjectImpl;
+import oracle.jbo.server.ViewRowImpl;
 
 
 // ---------------------------------------------------------------------
@@ -37,13 +42,10 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
     public void vo_executeQueryVOViewRows() {
         ViewObjectImpl viewObjImpl = this.getDepartmentVO();
-        
-        // Get default
-        
+        viewObjImpl.getQueryMode();
         viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_VIEW_ROWS);
         viewObjImpl.executeQuery();
-        
-        // Reset to default
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
     }
 
     public void vo_executeQueryVODBTables() {
@@ -54,8 +56,15 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
 
     public void vo_executeQueryVOEntityObjects() {
         ViewObjectImpl viewObjImpl = this.getDepartmentVO();
+        viewObjImpl.getQueryMode();
         viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_ENTITY_ROWS);
         viewObjImpl.executeQuery();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
+    }
+
+    public void vo_clearViewObjectCache() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentVO();
+        viewObjImpl.clearCache();
     }
 
     // View Object based on entityes related methods.
@@ -64,7 +73,36 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         System.out.println("Query mode for the DepartmentsEOVO is:" + this.getDepartmentsEOVO().getQueryMode());
     }
 
-    // TODO: Add other 3 methods
+    public void eo_executeQueryEOVOViewRows() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentsEOVO();
+        viewObjImpl.getQueryMode();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_VIEW_ROWS);
+        viewObjImpl.executeQuery();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
+    }
+
+    public void eo_executeQueryEOVODBTables() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentsEOVO();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
+        viewObjImpl.executeQuery();
+    }
+
+    public void eo_executeQueryEOVOEntityObject() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentsEOVO();
+        viewObjImpl.getQueryMode();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_ENTITY_ROWS);
+        viewObjImpl.executeQuery();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
+    }
+
+    public void eo_cleareEntityCache() {
+        this.getTransaction().clearEntityCache("com.virtual7.bcCaching.model.entities.DepartmentsEO");
+    }
+
+    public void eo_clearViewObjectCache() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentsEOVO();
+        viewObjImpl.clearCache();
+    }
 
     // View Object based on Entity Object with Web Service related methods.
 
@@ -73,15 +111,51 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
                            this.getDepartmentservicevoView().getQueryMode());
     }
 
-    // TODO: Add other 3 methods.
-
-    /**
-     * Container's getter for DepartmentsEOVO.
-     * @return DepartmentsEOVO
-     */
-    public ViewObjectImpl getDepartmentsEOVO() {
-        return (ViewObjectImpl)findViewObject("DepartmentsEOVO");
+    public void so_executeQuerySOVOViewRows() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
+        viewObjImpl.getQueryMode();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_VIEW_ROWS);
+        viewObjImpl.executeQuery();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
     }
+
+    public void so_executeQuerySOVODBTables() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
+        viewObjImpl.executeQuery();
+    }
+
+    public void so_executeQuerySOVOEntityObject() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
+        viewObjImpl.getQueryMode();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_ENTITY_ROWS);
+        viewObjImpl.executeQuery();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
+    }
+
+    public void so_readAndPrintDepartmentService() {
+        DSViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
+        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
+        viewObjImpl.getRangeSize();
+        viewObjImpl.setRangeSize(30);
+        viewObjImpl.executeQuery();
+        Row[] rows = viewObjImpl.getAllRowsInRange();
+        for (Row row : rows) {
+            System.out.println(row.getAttribute(0) + " --- " + row.getAttribute(1) + " --- " + row.getAttribute(2) +
+                               " --- " + row.getAttribute(3));
+        }
+    }
+
+    public void so_cleareEntityCache() {
+        this.getTransaction().clearEntityCache("com.virtual7.bcCaching.model.entities.Departmentservicevo");
+    }
+
+    public void so_clearViewObjectCache() {
+        ViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
+        viewObjImpl.clearCache();
+    }
+
+    //Method for insert/update/delete and read for current JDBC connection
 
     public void readAndPrintDepartment() {
         Connection conn = null;
@@ -178,7 +252,8 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
     public void updateDepartment() {
         Connection conn = null;
         Statement stm = null;
-        String query = "update departments set department_name = 'TestingEdit' where department_id = 1";
+        String query =
+            "update departments set department_name = 'TestingEdit_" + System.currentTimeMillis() + "' " + "where department_id = 1";
         try {
             stm = this.getDBTransaction().createStatement(1);
             conn = stm.getConnection();
@@ -204,92 +279,7 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
 
-
-    public void executeQuery() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentVO();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES | ViewObject.QUERY_MODE_SCAN_ENTITY_ROWS);
-        viewObjImpl.executeQuery();
-    }
-
-    public void executeQuery1() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentsEOVO();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-        viewObjImpl.executeQuery();
-    }
-
-    public void executeQuery2() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentsEOVO();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_ENTITY_ROWS);
-        viewObjImpl.executeQuery();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-    }
-
-    public void executeQuery3() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentsEOVO();
-        viewObjImpl.getQueryMode();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_VIEW_ROWS);
-        viewObjImpl.executeQuery();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-    }
-
-    public void executeQuery4() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentVO();
-        viewObjImpl.getQueryMode();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-        viewObjImpl.executeQuery();
-    }
-
-    public void executeQuery5() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentVO();
-        viewObjImpl.getQueryMode();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_ENTITY_ROWS);
-        viewObjImpl.executeQuery();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-    }
-
-    public void executeQuery6() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentVO();
-        viewObjImpl.getQueryMode();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_VIEW_ROWS);
-        viewObjImpl.executeQuery();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-    }
-
-    public void executeServiceQuery() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
-        viewObjImpl.setRangeSize(30);
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-        viewObjImpl.executeQuery();
-    }
-
-    public void executeServiceQueryEL() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
-        viewObjImpl.setRangeSize(30);
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_ENTITY_ROWS);
-        viewObjImpl.executeQuery();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-    }
-
-    public void executeServiceQueryVL() {
-        ViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
-        viewObjImpl.setRangeSize(30);
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_VIEW_ROWS);
-        viewObjImpl.executeQuery();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-    }
-
-    public void readAndPrintDepartmentService() {
-        DSViewObjectImpl viewObjImpl = this.getDepartmentservicevoView();
-        viewObjImpl.setQueryMode(ViewObject.QUERY_MODE_SCAN_DATABASE_TABLES);
-        viewObjImpl.getRangeSize();
-        viewObjImpl.setRangeSize(30);
-        viewObjImpl.executeQuery();
-        Row[] rows = viewObjImpl.getAllRowsInRange();
-        for (Row row : rows) {
-            System.out.println(row.getAttribute(0) + " --- " + row.getAttribute(1) + " --- " + row.getAttribute(2) +
-                               " --- " + row.getAttribute(3));
-        }
-    }
+    //Method for insert/update/delete and read for new JDBC connection
 
     public void readAndPrintDepartmentNewJDBC() {
         Connection conn = null;
@@ -390,7 +380,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         Connection conn = null;
         String jdbcString = "jdbc:oracle:thin:@localhost:1521:XE";
         Statement stm = null;
-        String query = "update departments set department_name = 'TestingEditJDBC' where department_id = 2";
+        String query =
+            "update departments set department_name = 'TestingEditJDBC_" + System.currentTimeMillis() + "' " +
+            "where department_id = 2";
         try {
             conn = DriverManager.getConnection(jdbcString, "hr", "hr");
             stm = conn.createStatement();
@@ -416,6 +408,9 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
     }
 
+    public void postChangesAction() {
+        this.getDBTransaction().postChanges();
+    }
 
     /**
      * Container's getter for DepartmentVO.
@@ -423,6 +418,14 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
      */
     public ViewObjectImpl getDepartmentVO() {
         return (ViewObjectImpl)findViewObject("DepartmentVO");
+    }
+
+    /**
+     * Container's getter for DepartmentsEOVO.
+     * @return DepartmentsEOVO
+     */
+    public ViewObjectImpl getDepartmentsEOVO() {
+        return (ViewObjectImpl)findViewObject("DepartmentsEOVO");
     }
 
     /**
