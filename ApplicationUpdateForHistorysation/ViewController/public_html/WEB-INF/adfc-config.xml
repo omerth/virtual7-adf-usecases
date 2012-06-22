@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="index">
+    <page>/index.jspx</page>
+  </view>
+  <method-call id="Execute">
+    <method>#{bindings.Execute.execute}</method>
+    <outcome id="__5">
+      <fixed-outcome>Execute</fixed-outcome>
+    </outcome>
+  </method-call>
+  <control-flow-rule id="__6">
+    <from-activity-id id="__7">index</from-activity-id>
+    <control-flow-case id="__9">
+      <from-outcome id="__10">executeQuery</from-outcome>
+      <to-activity-id id="__8">Execute</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__16">
+    <from-activity-id id="__17">Execute</from-activity-id>
+    <control-flow-case id="__18">
+      <from-outcome id="__20">Execute</from-outcome>
+      <to-activity-id id="__19">index</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+</adfc-config>
