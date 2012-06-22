@@ -1,0 +1,155 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical">
+          <af:outputText value="ApplicationUpdateForHistorysation" id="ot1"/>
+          <af:table value="#{bindings.DepartmentsVO.collectionModel}" var="row"
+                    rows="#{bindings.DepartmentsVO.rangeSize}"
+                    emptyText="#{bindings.DepartmentsVO.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.DepartmentsVO.rangeSize}" rowBandingInterval="0"
+                    selectedRowKeys="#{bindings.DepartmentsVO.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.DepartmentsVO.collectionModel.makeCurrent}" rowSelection="single"
+                    id="t1" width="657" partialTriggers="::cb3 ::cb5 ::cb4 ::cb1">
+            <af:column sortProperty="DepartmentId" sortable="false"
+                       headerText="#{bindings.DepartmentsVO.hints.DepartmentId.label}" id="c3">
+              <af:inputText value="#{row.bindings.DepartmentId.inputValue}"
+                            label="#{bindings.DepartmentsVO.hints.DepartmentId.label}"
+                            required="#{bindings.DepartmentsVO.hints.DepartmentId.mandatory}"
+                            columns="#{bindings.DepartmentsVO.hints.DepartmentId.displayWidth}"
+                            maximumLength="#{bindings.DepartmentsVO.hints.DepartmentId.precision}"
+                            shortDesc="#{bindings.DepartmentsVO.hints.DepartmentId.tooltip}" id="it5" readOnly="true">
+                <f:validator binding="#{row.bindings.DepartmentId.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="DepartmentName" sortable="false"
+                       headerText="#{bindings.DepartmentsVO.hints.DepartmentName.label}" id="c2">
+              <af:inputText value="#{row.bindings.DepartmentName.inputValue}"
+                            label="#{bindings.DepartmentsVO.hints.DepartmentName.label}"
+                            required="#{bindings.DepartmentsVO.hints.DepartmentName.mandatory}"
+                            columns="#{bindings.DepartmentsVO.hints.DepartmentName.displayWidth}"
+                            maximumLength="#{bindings.DepartmentsVO.hints.DepartmentName.precision}"
+                            shortDesc="#{bindings.DepartmentsVO.hints.DepartmentName.tooltip}" id="it1">
+                <f:validator binding="#{row.bindings.DepartmentName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="ManagerId" sortable="false"
+                       headerText="#{bindings.DepartmentsVO.hints.ManagerId.label}" id="c6">
+              <af:inputText value="#{row.bindings.ManagerId.inputValue}"
+                            label="#{bindings.DepartmentsVO.hints.ManagerId.label}"
+                            required="#{bindings.DepartmentsVO.hints.ManagerId.mandatory}"
+                            columns="#{bindings.DepartmentsVO.hints.ManagerId.displayWidth}"
+                            maximumLength="#{bindings.DepartmentsVO.hints.ManagerId.precision}"
+                            shortDesc="#{bindings.DepartmentsVO.hints.ManagerId.tooltip}" id="it3">
+                <f:validator binding="#{row.bindings.ManagerId.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentsVO.hints.ManagerId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="LocationId" sortable="false"
+                       headerText="#{bindings.DepartmentsVO.hints.LocationId.label}" id="c5">
+              <af:inputText value="#{row.bindings.LocationId.inputValue}"
+                            label="#{bindings.DepartmentsVO.hints.LocationId.label}"
+                            required="#{bindings.DepartmentsVO.hints.LocationId.mandatory}"
+                            columns="#{bindings.DepartmentsVO.hints.LocationId.displayWidth}"
+                            maximumLength="#{bindings.DepartmentsVO.hints.LocationId.precision}"
+                            shortDesc="#{bindings.DepartmentsVO.hints.LocationId.tooltip}" id="it2">
+                <f:validator binding="#{row.bindings.LocationId.validator}"/>
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentsVO.hints.LocationId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="IsCurrentVersion" sortable="false"
+                       headerText="#{bindings.DepartmentsVO.hints.IsCurrentVersion.label}" id="c4">
+              <af:inputText value="#{row.bindings.IsCurrentVersion.inputValue}"
+                            label="#{bindings.DepartmentsVO.hints.IsCurrentVersion.label}"
+                            required="#{bindings.DepartmentsVO.hints.IsCurrentVersion.mandatory}"
+                            columns="#{bindings.DepartmentsVO.hints.IsCurrentVersion.displayWidth}"
+                            maximumLength="#{bindings.DepartmentsVO.hints.IsCurrentVersion.precision}"
+                            shortDesc="#{bindings.DepartmentsVO.hints.IsCurrentVersion.tooltip}" id="it4">
+                <f:validator binding="#{row.bindings.IsCurrentVersion.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.DepartmentsVO.hints.IsCurrentVersion.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="CreationDate" sortable="false"
+                       headerText="#{bindings.DepartmentsVO.hints.CreationDate.label}" id="c1">
+              <af:inputDate value="#{row.bindings.CreationDate.inputValue}"
+                            label="#{bindings.DepartmentsVO.hints.CreationDate.label}"
+                            required="#{bindings.DepartmentsVO.hints.CreationDate.mandatory}"
+                            shortDesc="#{bindings.DepartmentsVO.hints.CreationDate.tooltip}" id="id1">
+                <f:validator binding="#{row.bindings.CreationDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.DepartmentsVO.hints.CreationDate.format}"/>
+              </af:inputDate>
+            </af:column>
+          </af:table>
+          <af:panelFormLayout id="pfl1">
+            <af:inputText value="#{bindings.DepartmentId.inputValue}" label="#{bindings.DepartmentId.hints.label}"
+                          required="#{bindings.DepartmentId.hints.mandatory}"
+                          columns="#{bindings.DepartmentId.hints.displayWidth}"
+                          maximumLength="#{bindings.DepartmentId.hints.precision}"
+                          shortDesc="#{bindings.DepartmentId.hints.tooltip}" id="it8" readOnly="true">
+              <f:validator binding="#{bindings.DepartmentId.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.DepartmentName.inputValue}" label="#{bindings.DepartmentName.hints.label}"
+                          required="#{bindings.DepartmentName.hints.mandatory}"
+                          columns="#{bindings.DepartmentName.hints.displayWidth}"
+                          maximumLength="#{bindings.DepartmentName.hints.precision}"
+                          shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it7">
+              <f:validator binding="#{bindings.DepartmentName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.ManagerId.inputValue}" label="#{bindings.ManagerId.hints.label}"
+                          required="#{bindings.ManagerId.hints.mandatory}"
+                          columns="#{bindings.ManagerId.hints.displayWidth}"
+                          maximumLength="#{bindings.ManagerId.hints.precision}"
+                          shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it9">
+              <f:validator binding="#{bindings.ManagerId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LocationId.inputValue}" label="#{bindings.LocationId.hints.label}"
+                          required="#{bindings.LocationId.hints.mandatory}"
+                          columns="#{bindings.LocationId.hints.displayWidth}"
+                          maximumLength="#{bindings.LocationId.hints.precision}"
+                          shortDesc="#{bindings.LocationId.hints.tooltip}" id="it10">
+              <f:validator binding="#{bindings.LocationId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.LocationId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.IsCurrentVersion.inputValue}"
+                          label="#{bindings.IsCurrentVersion.hints.label}"
+                          required="#{bindings.IsCurrentVersion.hints.mandatory}"
+                          columns="#{bindings.IsCurrentVersion.hints.displayWidth}"
+                          maximumLength="#{bindings.IsCurrentVersion.hints.precision}"
+                          shortDesc="#{bindings.IsCurrentVersion.hints.tooltip}" id="it6">
+              <f:validator binding="#{bindings.IsCurrentVersion.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.IsCurrentVersion.format}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.CreationDate.inputValue}" label="#{bindings.CreationDate.hints.label}"
+                          required="#{bindings.CreationDate.hints.mandatory}"
+                          shortDesc="#{bindings.CreationDate.hints.tooltip}" id="id2">
+              <f:validator binding="#{bindings.CreationDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CreationDate.format}"/>
+            </af:inputDate>
+            <f:facet name="footer">
+              <af:panelGroupLayout layout="vertical" id="pgl2">
+                <af:panelGroupLayout layout="horizontal" id="pgl1">
+                  <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                                    disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb3"/>
+                  <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb5"/>
+                  <af:commandButton actionListener="#{bindings.Next.execute}" text="Next"
+                                    disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="cb4"/>
+                  <af:commandButton actionListener="#{bindings.Last.execute}" text="Last"
+                                    disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="cb1"/>
+                </af:panelGroupLayout>
+                <af:commandButton text="Submit" id="cb2" actionListener="#{bindings.Commit.execute}"
+                                  action="executeQuery"/>
+              </af:panelGroupLayout>
+            </f:facet>
+          </af:panelFormLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

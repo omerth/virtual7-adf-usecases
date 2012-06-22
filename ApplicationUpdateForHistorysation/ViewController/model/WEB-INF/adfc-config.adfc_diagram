@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">index</property>
+      <property
+         name="page">/index.jspx</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>index&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">175.18945</property>
+      <property
+         name="x">212.5</property>
+   </View>
+   <MethodCall
+      id="MethodCall3">
+      <property
+         name="activityId">Execute</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Execute&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">179.44824</property>
+      <property
+         name="x">623.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="MethodCall3">
+      <property
+         name="fromOutcome">executeQuery</property>
+      <property
+         name="sdm:polyPoints">R46,253.5453,171.33887,582.5,175.59766,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="MethodCall3"
+      to="View2">
+      <property
+         name="fromOutcome">Execute</property>
+      <property
+         name="sdm:polyPoints">L54,582.4547,182.59766,253.5,178.33887,R54</property>
+   </ControlFlowCase>
+</SDM>
