@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AptitudeView"
+  Version="11.1.1.60.13"
+  SelectList="Aptitude.ID, 
+       Aptitude.NAME"
+  FromList="APTITUDE Aptitude"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="model.views.AptitudeViewRowImpl"
+  ComponentClass="model.views.AptitudeViewImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Aptitude"
+    Entity="model.entities.Aptitude"/>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="Aptitude"
+    AliasName="ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="Name"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="Aptitude"
+    AliasName="NAME"/>
+  <ViewLinkAccessor
+    Name="EmployeestoaptitudeView"
+    ViewLink="model.views.links.EmployeestoaptitudeAptitFk1Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DepartmentsToAptitude"
+    ViewLink="model.views.links.AptitudeToDepartmentsToAptitudeFkLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

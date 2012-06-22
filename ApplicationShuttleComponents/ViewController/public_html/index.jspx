@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <af:panelGroupLayout id="pgl1" layout="scroll">
+              <af:table value="#{bindings.AptitudeView1.collectionModel}" var="row"
+                        rows="#{bindings.AptitudeView1.rangeSize}"
+                        emptyText="#{bindings.AptitudeView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.AptitudeView1.rangeSize}" rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.AptitudeView1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.AptitudeView1.collectionModel.makeCurrent}" rowSelection="single"
+                        id="t1">
+                <af:column sortProperty="Id" sortable="false" headerText="#{bindings.AptitudeView1.hints.Id.label}"
+                           id="c2">
+                  <af:outputText value="#{row.Id}" id="ot2">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.AptitudeView1.hints.Id.format}"/>
+                  </af:outputText>
+                </af:column>
+                <af:column sortProperty="Name" sortable="false" headerText="#{bindings.AptitudeView1.hints.Name.label}"
+                           id="c1">
+                  <af:outputText value="#{row.Name}" id="ot1"/>
+                </af:column>
+              </af:table>
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:selectOneListbox value="#{bindings.DepartmentsView1.inputValue}" autoSubmit="true"
+                                     required="#{bindings.DepartmentsView1.hints.mandatory}"
+                                     shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="sol1"
+                                     binding="#{pageFlowScope.shuttleBean.deptList}">
+                  <f:selectItems value="#{bindings.DepartmentsView1.items}" id="si1"/>
+                </af:selectOneListbox>
+                <af:selectOneListbox value="#{bindings.EmployeesView2.inputValue}" autoSubmit="true"
+                                     required="#{bindings.EmployeesView2.hints.mandatory}"
+                                     shortDesc="#{bindings.EmployeesView2.hints.tooltip}" id="sol2"
+                                     partialTriggers="sol1" binding="#{pageFlowScope.shuttleBean.empList}">
+                  <f:selectItems value="#{bindings.EmployeesView2.items}" id="si2"/>
+                </af:selectOneListbox>
+                <af:panelGroupLayout id="pgl3" layout="vertical">
+                  <af:commandButton actionListener="#{pageFlowScope.shuttleBean.shuttleRight}" 
+                                    shortDesc="shuttle right" 
+                                    disabled="#{!bindings.createInsert.enabled}" id="cb1" partialSubmit="true"
+                                    icon="/images/shuttleright.png">
+                    <!--f:actionListener type="view.ShuttleBean"/-->
+                  </af:commandButton>
+                  <af:commandButton  id="cb3" shortDesc="shuttle left" 
+                                    actionListener="#{pageFlowScope.shuttleBean.shuttleLeft}" partialSubmit="true"
+                                    icon="/images/shuttleleft.png"/>
+                </af:panelGroupLayout>
+                <af:treeTable value="#{bindings.DepartmentsToAptitude1.treeModel}" var="node"
+                              selectionListener="#{bindings.DepartmentsToAptitude1.treeModel.makeCurrent}"
+                              rowSelection="single" id="tt1" partialTriggers="::t1 ::cb1"
+                              binding="#{pageFlowScope.shuttleBean.treeTable1}">
+                  <af:column id="c5">
+                    <af:outputText value="#{node.FirstName} #{node.LastName}" id="ot6"/>
+                  </af:column>
+                  <f:facet name="nodeStamp">
+                    <af:column id="c3">
+                      <af:outputText value="#{node.DepartmentName}" id="ot5"/>
+                    </af:column>
+                  </f:facet>
+                  <f:facet name="pathStamp">
+                    <af:outputText value="#{node}" id="ot4"/>
+                  </f:facet>
+                </af:treeTable>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
