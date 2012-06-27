@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <af:panelGroupLayout id="pgl1" layout="scroll">
+              <af:table value="#{bindings.AptitudeView1.collectionModel}" var="row"
+                        rows="#{bindings.AptitudeView1.rangeSize}"
+                        emptyText="#{bindings.AptitudeView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.AptitudeView1.rangeSize}" rowBandingInterval="0"
+                        selectedRowKeys="#{bindings.AptitudeView1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.AptitudeView1.collectionModel.makeCurrent}" rowSelection="single"
+                        id="t1">
+                <af:column sortProperty="Id" sortable="false" headerText="#{bindings.AptitudeView1.hints.Id.label}"
+                           id="c1">
+                  <af:outputText value="#{row.Id}" id="ot2"/>
+                </af:column>
+                <af:column sortProperty="Name" sortable="false" headerText="#{bindings.AptitudeView1.hints.Name.label}"
+                           id="c2">
+                  <af:outputText value="#{row.Name}" id="ot1"/>
+                </af:column>
+              </af:table>
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <af:selectOneListbox value="#{bindings.DepartmentsView1.inputValue}"
+                                     label="#{bindings.DepartmentsView1.label}"
+                                     required="#{bindings.DepartmentsView1.hints.mandatory}"
+                                     autoSubmit="true"
+                                     shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="sol1">
+                  <f:selectItems value="#{bindings.DepartmentsView1.items}" id="si1"/>
+                </af:selectOneListbox>
+                <af:selectOneListbox value="#{bindings.EmployeesView1.inputValue}"
+                                     label="#{bindings.EmployeesView1.label}"
+                                     autoSubmit="true"
+                                     required="#{bindings.EmployeesView1.hints.mandatory}"
+                                     shortDesc="#{bindings.EmployeesView1.hints.tooltip}" id="sol2"
+                                     partialTriggers="sol1">
+                  <!--f:selectItems value="#{pageFlowScope.shuttleBean.visibleEmployees}" id="si2"/-->
+                  <f:selectItems value="#{bindings.EmployeesView1.items}" id="si2"/>
+                </af:selectOneListbox>
+                <af:panelGroupLayout id="pgl3" layout="vertical">
+                  <af:commandButton text="commandButton 1" id="cb1"
+                                    actionListener="#{pageFlowScope.shuttleBean.addEmployee}"
+                                    partialSubmit="true"/>
+                  <af:commandButton text="commandButton 2" id="cb2"
+                                    actionListener="#{pageFlowScope.shuttleBean.removeEmployee}"/>
+                  <af:commandButton text="commandButton 3" id="cb3"
+                                    actionListener="#{pageFlowScope.shuttleBean.addAllEmployees}"
+                                    partialSubmit="true"/>
+                  <af:commandButton text="commandButton 4" id="cb4"
+                                    actionListener="#{pageFlowScope.shuttleBean.removeAllEmployees}"
+                                    partialSubmit="true"/>
+                </af:panelGroupLayout>
+                <af:table value="#{bindings.EmployeesToAptitudeView1.collectionModel}" var="row"
+                          rows="#{bindings.EmployeesToAptitudeView1.rangeSize}"
+                          emptyText="#{bindings.EmployeesToAptitudeView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.EmployeesToAptitudeView1.rangeSize}" rowBandingInterval="0"
+                          selectionListener="#{bindings.EmployeesToAptitudeView1.collectionModel.makeCurrent}"
+                          rowSelection="multiple" id="t2" binding="#{pageFlowScope.shuttleBean.emptToAptTable}"
+                          partialTriggers="::t1">
+                  <af:column sortProperty="DepartmentName" sortable="false"
+                             headerText="#{bindings.EmployeesToAptitudeView1.hints.DepartmentName.label}" id="c4">
+                    <af:outputText value="#{row.DepartmentName}" id="ot4"
+                                    rendered="#{!compareWithPreviousRowBean['DepartmentName']}"/>
+                  </af:column>
+                  <af:column sortProperty="FirstName" sortable="false"
+                             headerText="#{bindings.EmployeesToAptitudeView1.hints.FirstName.label}" id="c5">
+                    <af:outputText value="#{row.FirstName}" id="ot5"/>
+                  </af:column>
+                  <af:column sortProperty="LastName" sortable="false"
+                             headerText="#{bindings.EmployeesToAptitudeView1.hints.LastName.label}" id="c3">
+                    <af:outputText value="#{row.LastName}" id="ot3"/>
+                  </af:column>
+                </af:table>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
