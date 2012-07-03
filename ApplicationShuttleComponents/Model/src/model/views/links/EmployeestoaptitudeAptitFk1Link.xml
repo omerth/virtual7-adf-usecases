@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeestoaptitudeAptitFk1Link"
+  Version="11.1.1.60.13"
+  EntityAssociation="model.entities.associations.EmployeestoaptitudeAptitFk1Assoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="AptitudeView"
+    Cardinality="1"
+    Owner="model.views.AptitudeView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="AptitudeView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_accessor" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.AptitudeView.Id"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EmployeestoaptitudeView"
+    Cardinality="-1"
+    Owner="model.views.EmployeestoaptitudeView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeestoaptitudeView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.EmployeestoaptitudeView.Aptitudeid"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

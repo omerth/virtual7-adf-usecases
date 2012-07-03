@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.60.13"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="AptitudeView1"
+    ViewObjectName="model.views.AptitudeView"/>
+  <ViewUsage
+    Name="DepartmentsView1"
+    ViewObjectName="model.views.DepartmentsView">
+    <ViewCriteriaUsage
+      Name="DeptsLogicalDelete"
+      FullName="model.views.DepartmentsView.DeptsLogicalDelete"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="model.views.EmployeesView">
+    <ViewCriteriaUsage
+      Name="LogicalDeletedVC"
+      FullName="model.views.EmployeesView.LogicalDeletedVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="EmployeestoaptitudeView1"
+    ViewObjectName="model.views.EmployeestoaptitudeView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="model.views.EmployeesView">
+    <ViewCriteriaUsage
+      Name="LogicalDeletedVC"
+      FullName="model.views.EmployeesView.LogicalDeletedVC"/>
+  </ViewUsage>
+  <ViewUsage
+    Name="DepartmentsToAptitude1"
+    ViewObjectName="model.views.DepartmentsToAptitude"/>
+  <ViewUsage
+    Name="EmployeestoaptitudeView2"
+    ViewObjectName="model.views.EmployeestoaptitudeView"/>
+  <ViewLinkUsage
+    Name="EmpDeptFkLink1"
+    ViewLinkObjectName="model.views.links.EmpDeptFkLink"
+    SrcViewUsageName="model.views.AppModule.DepartmentsView1"
+    DstViewUsageName="model.views.AppModule.EmployeesView2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AptitudeToDepartmentsToAptitudeFkLink1"
+    ViewLinkObjectName="model.views.links.AptitudeToDepartmentsToAptitudeFkLink"
+    SrcViewUsageName="model.views.AppModule.AptitudeView1"
+    DstViewUsageName="model.views.AppModule.DepartmentsToAptitude1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="DepartmentsToAptitude_EmployeesToAptitudeFkLink1"
+    ViewLinkObjectName="model.views.links.DepartmentsToAptitude_EmployeesToAptitudeFkLink"
+    SrcViewUsageName="model.views.AppModule.DepartmentsToAptitude1"
+    DstViewUsageName="model.views.AppModule.EmployeestoaptitudeView2"
+    Reversed="false"/>
+</AppModule>

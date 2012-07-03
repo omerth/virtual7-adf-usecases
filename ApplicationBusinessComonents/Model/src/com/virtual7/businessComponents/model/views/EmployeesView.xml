@@ -8,11 +8,23 @@
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  UseGlueCode="false">
+  UseGlueCode="false"
+  FetchMode="FETCH_AS_NEEDED">
   <DesignTime>
-    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
+  <Variable
+    Name="LName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="FNInitial"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="HDate"
+    Kind="viewcriteria"
+    Type="java.sql.Date"/>
   <SQLQuery>
     <![CDATA[SELECT Employees.EMPLOYEE_ID,
        Employees.FIRST_NAME,
@@ -201,6 +213,86 @@ FROM EMPLOYEES Employees]]>
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewCriteria
+    Name="EmployeesNameViewCriteria"
+    ViewObjectName="com.virtual7.businessComponents.model.views.EmployeesView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow5"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="FirstName"
+        ViewAttribute="FirstName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":FNInitial"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="LastName"
+        ViewAttribute="LastName"
+        Operator="STARTSWITH"
+        Conjunction="OR"
+        Value=":HDate"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="EmployeesHDateViewCriteria"
+    ViewObjectName="com.virtual7.businessComponents.model.views.EmployeesView"
+    Conjunction="AND">
+    <Properties>
+      <CustomProperties>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="vcrow18"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="HireDate"
+        ViewAttribute="HireDate"
+        Operator="="
+        Conjunction="AND"
+        Value=":HDate"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <AttrArray Name="KeyAttributes">
     <Item Value="EmployeeId"/>
   </AttrArray>
