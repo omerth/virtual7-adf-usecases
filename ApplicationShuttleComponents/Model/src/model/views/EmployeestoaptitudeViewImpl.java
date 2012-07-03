@@ -23,8 +23,8 @@ public class EmployeestoaptitudeViewImpl extends ViewObjectImpl implements Emplo
            nvp.setAttribute("EmployeeId", empId);
            nvp.setAttribute("Aptitudeid", aptId);
            EmployeestoaptitudeViewRowImpl newRow = (EmployeestoaptitudeViewRowImpl) this.createAndInitRow(nvp);
-           this.executeQuery();
+//           this.executeQuery();
            this.getDefaultRowSet().insertRow(newRow);
-           this.getApplicationModule().getTransaction().commit();
+           //this.getApplicationModule().getTransaction().commit();
        }
 }

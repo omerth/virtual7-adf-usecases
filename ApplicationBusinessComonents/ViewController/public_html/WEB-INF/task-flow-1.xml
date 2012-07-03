@@ -10,6 +10,9 @@
     <view id="page1">
       <page>/page1.jsff</page>
     </view>
+    <view id="page2">
+      <page>/page2.jsff</page>
+    </view>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

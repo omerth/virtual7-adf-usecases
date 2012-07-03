@@ -29,7 +29,7 @@
       <Item Value="ManagerId"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="ManagerId"/>
+      <Item Value="EmployeeId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="FirstName"/>
@@ -48,7 +48,7 @@
       <Item Value="ManagerId"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
-      <Item Value="ManagerId"/>
+      <Item Value="EmployeeId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Email"/>
@@ -126,4 +126,9 @@
     <RecalcCondition><![CDATA[false]]></RecalcCondition>
     <TransientExpression><![CDATA[return '0']]></TransientExpression>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="EmployeesView1"
+    ViewLink="com.virtual7.businessComponents.model.views.links.EmpDepartaments"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

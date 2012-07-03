@@ -9,7 +9,8 @@
   CustomQuery="true"
   PageIterMode="Full"
   UseGlueCode="false"
-  RowClass="model.views.DepartmentsToAptitudeRowImpl">
+  RowClass="model.views.DepartmentsToAptitudeRowImpl"
+  OrderBy="department_name">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
     <Attr Name="_codeGenFlag2" Value="Access"/>

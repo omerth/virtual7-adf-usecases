@@ -30,7 +30,8 @@
                                      label="#{bindings.DepartmentsView1.label}"
                                      required="#{bindings.DepartmentsView1.hints.mandatory}"
                                      autoSubmit="true"
-                                     shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="sol1">
+                                     shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="sol1"
+                                     partialTriggers="t1">
                   <f:selectItems value="#{bindings.DepartmentsView1.items}" id="si1"/>
                 </af:selectOneListbox>
                 <af:selectOneListbox value="#{bindings.EmployeesView1.inputValue}"
@@ -38,22 +39,27 @@
                                      autoSubmit="true"
                                      required="#{bindings.EmployeesView1.hints.mandatory}"
                                      shortDesc="#{bindings.EmployeesView1.hints.tooltip}" id="sol2"
-                                     partialTriggers="sol1">
-                  <!--f:selectItems value="#{pageFlowScope.shuttleBean.visibleEmployees}" id="si2"/-->
-                  <f:selectItems value="#{bindings.EmployeesView1.items}" id="si2"/>
+                                     partialTriggers="sol1 t1" binding="#{pageFlowScope.shuttleBean.empsListbox}">
+                  <f:selectItems value="#{pageFlowScope.shuttleBean.visibleEmployees}" id="si2"/>
+                  <!--f:selectItems value="#{bindings.EmployeesView1.items}" id="si2"/-->
                 </af:selectOneListbox>
                 <af:panelGroupLayout id="pgl3" layout="vertical">
-                  <af:commandButton text="commandButton 1" id="cb1"
+                  <af:commandButton id="cb1"
+                                    shortDesc="shuttleRight"
                                     actionListener="#{pageFlowScope.shuttleBean.addEmployee}"
-                                    partialSubmit="true"/>
-                  <af:commandButton text="commandButton 2" id="cb2"
-                                    actionListener="#{pageFlowScope.shuttleBean.removeEmployee}"/>
-                  <af:commandButton text="commandButton 3" id="cb3"
+                                    partialSubmit="true" icon="/images/shuttleright.png"/>
+                  <af:commandButton id="cb2"
+                                    shortDesc="shuttleLeft"
+                                    actionListener="#{pageFlowScope.shuttleBean.removeEmployee}"
+                                    icon="/images/shuttleleft.png"/>
+                  <af:commandButton id="cb3"
+                                    shortDesc="shuttleAllRight"
                                     actionListener="#{pageFlowScope.shuttleBean.addAllEmployees}"
-                                    partialSubmit="true"/>
-                  <af:commandButton text="commandButton 4" id="cb4"
+                                    partialSubmit="true" icon="/images/shuttlerightall.png"/>
+                  <af:commandButton id="cb4"
+                                    shortDesc="shuttleAllLeft"
                                     actionListener="#{pageFlowScope.shuttleBean.removeAllEmployees}"
-                                    partialSubmit="true"/>
+                                    partialSubmit="true" icon="/images/shuttleleftall.png"/>
                 </af:panelGroupLayout>
                 <af:table value="#{bindings.EmployeesToAptitudeView1.collectionModel}" var="row"
                           rows="#{bindings.EmployeesToAptitudeView1.rangeSize}"

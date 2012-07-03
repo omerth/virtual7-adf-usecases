@@ -15,6 +15,14 @@
       <Attr Name="_jbo.TypeMapEntries" Value="Java"/>
    </DesignTime>
    <Containee
+      Name="associations"
+      PackageName="com.virtual7.businessComponents.model.entities.associations"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
       Name="entities"
       PackageName="com.virtual7.businessComponents.model.entities"
       ObjectType="JboPackage">
@@ -28,6 +36,14 @@
       ObjectType="JboPackage">
       <DesignTime>
          <Attr Name="_AM" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="links"
+      PackageName="com.virtual7.businessComponents.model.views.links"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VL" Value="true"/>
       </DesignTime>
    </Containee>
    <Containee
