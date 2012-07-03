@@ -98,6 +98,16 @@ public class EmployeestoaptitudeViewRowImpl extends ViewRowImpl {
                 obj.setAttributeInternal(index(), value);
             }
         }
+        ,
+        DepartmentsToAptitude {
+            public Object get(EmployeestoaptitudeViewRowImpl obj) {
+                return obj.getDepartmentsToAptitude();
+            }
+
+            public void put(EmployeestoaptitudeViewRowImpl obj, Object value) {
+                obj.setAttributeInternal(index(), value);
+            }
+        }
         ;
         private static AttributesEnum[] vals = null;
         private static int firstIndex = 0;
@@ -126,6 +136,7 @@ public class EmployeestoaptitudeViewRowImpl extends ViewRowImpl {
         }
     }
 
+
     public static final int ID = AttributesEnum.Id.index();
     public static final int APTITUDEID = AttributesEnum.Aptitudeid.index();
     public static final int EMPLOYEEID = AttributesEnum.EmployeeId.index();
@@ -134,6 +145,7 @@ public class EmployeestoaptitudeViewRowImpl extends ViewRowImpl {
     public static final int FIRSTNAME = AttributesEnum.FirstName.index();
     public static final int LASTNAME = AttributesEnum.LastName.index();
     public static final int APTITUDEVIEW = AttributesEnum.AptitudeView.index();
+    public static final int DEPARTMENTSTOAPTITUDE = AttributesEnum.DepartmentsToAptitude.index();
 
     /**
      * This is the default constructor (do not remove).
@@ -281,6 +293,20 @@ public class EmployeestoaptitudeViewRowImpl extends ViewRowImpl {
      */
     public void setAptitudeView(Row value) {
         setAttributeInternal(APTITUDEVIEW, value);
+    }
+
+    /**
+     * Gets the associated <code>Row</code> using master-detail link DepartmentsToAptitude.
+     */
+    public Row getDepartmentsToAptitude() {
+        return (Row)getAttributeInternal(DEPARTMENTSTOAPTITUDE);
+    }
+
+    /**
+     * Sets the master-detail link DepartmentsToAptitude between this object and <code>value</code>.
+     */
+    public void setDepartmentsToAptitude(Row value) {
+        setAttributeInternal(DEPARTMENTSTOAPTITUDE, value);
     }
 
     /**

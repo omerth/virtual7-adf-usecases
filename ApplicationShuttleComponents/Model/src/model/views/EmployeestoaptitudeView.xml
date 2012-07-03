@@ -105,6 +105,25 @@
     Type="oracle.jbo.Row"
     Reversed="true"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DepartmentsToAptitude"
+    ViewLink="model.views.links.DepartmentsToAptitude_EmployeesToAptitudeFkLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ClientInterface>
+    <Method
+      Name="createInsert">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="empId"
+        Type="oracle.jbo.domain.Number"/>
+      <Parameter
+        Name="aptId"
+        Type="oracle.jbo.domain.Number"/>
+    </Method>
+  </ClientInterface>
   <ClientInterface>
     <Method
       Name="createInsert">

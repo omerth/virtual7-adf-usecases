@@ -81,6 +81,8 @@ public class DepartmentsToAptitudeRowImpl extends ViewRowImpl {
             return vals;
         }
     }
+
+
     public static final int APTITUDEID = AttributesEnum.Aptitudeid.index();
     public static final int DEPARTMENTID = AttributesEnum.DepartmentId.index();
     public static final int DEPARTMENTNAME = AttributesEnum.DepartmentName.index();

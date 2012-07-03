@@ -3,41 +3,37 @@
 <!---->
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="EmployeesView"
+  Name="EmpHierarchy"
   Version="11.1.1.60.13"
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
-  UseGlueCode="false"
-  FetchMode="FETCH_AS_NEEDED">
+  UseGlueCode="false">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
   <Variable
-    Name="LName"
+    Name="Levels"
     Kind="viewcriteria"
-    Type="java.lang.String"/>
+    Type="java.math.BigDecimal"/>
   <Variable
-    Name="FNInitial"
+    Name="ManagerIDVar"
     Kind="viewcriteria"
-    Type="java.lang.String"/>
-  <Variable
-    Name="HDate"
-    Kind="viewcriteria"
-    Type="java.sql.Date"/>
+    Type="java.math.BigDecimal"/>
+  <ViewAccessor
+    Name="EmpHierarchy1"
+    ViewObjectName="com.virtual7.businessComponents.model.views.EmpHierarchy">
+    <ViewCriteriaUsage
+      Name="EmpHierarchyCriteria"
+      FullName="com.virtual7.businessComponents.model.views.EmpHierarchy.EmpHierarchyCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="Levels">
+        <TransientExpression><![CDATA[1]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <SQLQuery>
-    <![CDATA[SELECT Employees.EMPLOYEE_ID,
-       Employees.FIRST_NAME,
-       Employees.LAST_NAME,
-       Employees.EMAIL,
-       Employees.PHONE_NUMBER,
-       Employees.HIRE_DATE,
-       Employees.JOB_ID,
-       Employees.SALARY,
-       Employees.COMMISSION_PCT,
-       Employees.MANAGER_ID,
-       Employees.DEPARTMENT_ID
-FROM EMPLOYEES Employees]]>
+    <![CDATA[select * from emp_hierarchy]]>
   </SQLQuery>
   <ViewAttribute
     Name="EmployeeId"
@@ -45,13 +41,11 @@ FROM EMPLOYEES Employees]]>
     IsPersistent="false"
     IsNotNull="true"
     PrecisionRule="true"
-    Precision="6"
-    Scale="0"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
+    Type="java.lang.Integer"
+    ColumnType="INTEGER"
     AliasName="EMPLOYEE_ID"
     Expression="EMPLOYEE_ID"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
@@ -88,94 +82,16 @@ FROM EMPLOYEES Employees]]>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="Email"
-    IsUpdateable="false"
-    IsPersistent="false"
-    IsNotNull="true"
-    PrecisionRule="true"
-    Precision="25"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="EMAIL"
-    Expression="EMAIL"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="25"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="PhoneNumber"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="20"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="PHONE_NUMBER"
-    Expression="PHONE_NUMBER"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="20"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="HireDate"
-    IsUpdateable="false"
-    IsPersistent="false"
-    IsNotNull="true"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Date"
-    ColumnType="DATE"
-    AliasName="HIRE_DATE"
-    Expression="HIRE_DATE"
-    SQLType="DATE">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="7"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="JobId"
-    IsUpdateable="false"
-    IsPersistent="false"
-    IsNotNull="true"
-    PrecisionRule="true"
-    Precision="10"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="JOB_ID"
-    Expression="JOB_ID"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="10"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
     Name="Salary"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="8"
     Scale="2"
-    Type="oracle.jbo.domain.Number"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     AliasName="SALARY"
     Expression="SALARY"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="22"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="CommissionPct"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="2"
-    Scale="2"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="COMMISSION_PCT"
-    Expression="COMMISSION_PCT"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
@@ -188,34 +104,32 @@ FROM EMPLOYEES Employees]]>
     PrecisionRule="true"
     Precision="6"
     Scale="0"
-    Type="oracle.jbo.domain.Number"
+    Type="java.lang.Integer"
     ColumnType="NUMBER"
     AliasName="MANAGER_ID"
     Expression="MANAGER_ID"
-    SQLType="NUMERIC">
+    SQLType="INTEGER">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </ViewAttribute>
   <ViewAttribute
-    Name="DepartmentId"
+    Name="Lvl"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="4"
-    Scale="0"
-    Type="oracle.jbo.domain.Number"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    AliasName="DEPARTMENT_ID"
-    Expression="DEPARTMENT_ID"
+    AliasName="LVL"
+    Expression="LVL"
     SQLType="NUMERIC">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="22"/>
     </DesignTime>
   </ViewAttribute>
   <ViewCriteria
-    Name="EmployeesNameViewCriteria"
-    ViewObjectName="com.virtual7.businessComponents.model.views.EmployeesView"
+    Name="EmpHierarchyCriteria"
+    ViewObjectName="com.virtual7.businessComponents.model.views.EmpHierarchy"
     Conjunction="AND">
     <Properties>
       <CustomProperties>
@@ -237,29 +151,21 @@ FROM EMPLOYEES Employees]]>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="vcrow5"
+      Name="vcrow11"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="FirstName"
-        ViewAttribute="FirstName"
-        Operator="STARTSWITH"
+        Name="Lvl"
+        ViewAttribute="Lvl"
+        Operator="="
         Conjunction="AND"
-        Value=":FNInitial"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="LastName"
-        ViewAttribute="LastName"
-        Operator="STARTSWITH"
-        Conjunction="OR"
-        Value=":HDate"
-        IsBindVarValue="true"
-        Required="Optional"/>
+        Required="Optional"
+        Value=":Levels"
+        IsBindVarValue="true"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria
-    Name="EmployeesHDateViewCriteria"
-    ViewObjectName="com.virtual7.businessComponents.model.views.EmployeesView"
+    Name="EmpHierarchyCriteria1"
+    ViewObjectName="com.virtual7.businessComponents.model.views.EmpHierarchy"
     Conjunction="AND">
     <Properties>
       <CustomProperties>
@@ -281,19 +187,29 @@ FROM EMPLOYEES Employees]]>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
-      Name="vcrow18"
+      Name="vcrow85"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="HireDate"
-        ViewAttribute="HireDate"
+        Name="EmpHierarchyCriteria1_vcrow85_EmployeeId"
+        ViewAttribute="EmployeeId"
         Operator="="
         Conjunction="AND"
-        Value=":HDate"
+        Value=":ManagerIDVar"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Lvl"
+        ViewAttribute="Lvl"
+        Operator="="
+        Conjunction="AND"
+        Value=":Levels"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
-  <AttrArray Name="KeyAttributes">
-    <Item Value="EmployeeId"/>
-  </AttrArray>
+  <ViewLinkAccessor
+    Name="ManagerIdEmpHierarchy"
+    ViewLink="com.virtual7.businessComponents.model.views.links.EmpHierVL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

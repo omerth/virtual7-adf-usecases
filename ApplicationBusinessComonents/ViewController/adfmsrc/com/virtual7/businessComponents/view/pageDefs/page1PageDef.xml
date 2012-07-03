@@ -13,7 +13,7 @@
       </AttrNames>
     </attributeValues>
     <tree IterBinding="DepartmentsView1Iterator" id="DepartmentsView1">
-      <nodeDefinition DefName="com.virtual7.businessComponents.model.views.DepartmentsView">
+      <nodeDefinition DefName="com.virtual7.businessComponents.model.views.DepartmentsView" Name="DepartmentsView10">
         <AttrNames>
           <Item Value="DepartmentId"/>
           <Item Value="DepartmentName"/>

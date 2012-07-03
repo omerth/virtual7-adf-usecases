@@ -3,7 +3,7 @@
 <!---->
 <ViewLink
   xmlns="http://xmlns.oracle.com/bc4j"
-  Name="DepartmentsToAptitude_EmployeesToAptitudeFkLink"
+  Name="EmpDepartaments"
   Version="11.1.1.60.13">
   <DesignTime>
     <Attr Name="_isCodegen" Value="true"/>
@@ -11,39 +11,36 @@
   <Properties>
     <SchemaBasedProperties>
       <LABEL
-        ResId="model.views.links.DepartmentsToAptitude_EmployeesToAptitudeFkLink_LABEL"/>
+        ResId="com.virtual7.businessComponents.model.views.links.EmpDepartaments_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
   <ViewLinkDefEnd
-    Name="DepartmentsToAptitude"
+    Name="DepartmentsView"
     Cardinality="1"
-    Owner="model.views.DepartmentsToAptitude"
+    Owner="com.virtual7.businessComponents.model.views.DepartmentsView"
     Source="true">
     <DesignTime>
-      <Attr Name="_finderName" Value="DepartmentsToAptitude"/>
+      <Attr Name="_finderName" Value="DepartmentsView"/>
       <Attr Name="_isUpdateable" Value="true"/>
-      <Attr Name="_accessor" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.views.DepartmentsToAptitude.DepartmentId"/>
-      <Item Value="model.views.DepartmentsToAptitude.Aptitudeid"/>
+      <Item Value="com.virtual7.businessComponents.model.views.DepartmentsView.DepartmentId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ViewLinkDefEnd
-    Name="EmployeestoaptitudeView"
+    Name="EmployeesView1"
     Cardinality="-1"
-    Owner="model.views.EmployeestoaptitudeView">
+    Owner="com.virtual7.businessComponents.model.views.EmployeesView">
     <DesignTime>
-      <Attr Name="_finderName" Value="EmployeestoaptitudeView"/>
+      <Attr Name="_finderName" Value="EmployeesView1"/>
       <Attr Name="_isUpdateable" Value="true"/>
     </DesignTime>
     <AttrArray Name="Attributes">
-      <Item Value="model.views.EmployeestoaptitudeView.DepartmentId"/>
-      <Item Value="model.views.EmployeestoaptitudeView.Aptitudeid"/>
+      <Item Value="com.virtual7.businessComponents.model.views.EmployeesView.DepartmentId"/>
     </AttrArray>
   </ViewLinkDefEnd>
   <ResourceBundle>
     <PropertiesBundle
-      PropertiesFile="model.ModelBundle"/>
+      PropertiesFile="com.virtual7.businessComponents.model.ModelBundle"/>
   </ResourceBundle>
 </ViewLink>

@@ -9,7 +9,8 @@
        Departments.DEPARTMENT_NAME, 
        Departments.MANAGER_ID, 
        Departments.LOCATION_ID, 
-       Departments.DELETED"
+       Departments.DELETED, 
+       (EMPL_NAME) AS VIEW_ATTR"
   FromList="DEPARTMENTS Departments"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -57,6 +58,17 @@
     EntityAttrName="Deleted"
     EntityUsage="Departments"
     AliasName="DELETED"/>
+  <ViewAttribute
+    Name="ViewAttr"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    Expression="EMPL_NAME"
+    SQLType="VARCHAR"/>
   <ViewCriteria
     Name="DeptsLogicalDelete"
     ViewObjectName="model.views.DepartmentsView"

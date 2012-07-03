@@ -41,14 +41,12 @@
                   <f:selectItems value="#{bindings.EmployeesView2.items}" id="si2"/>
                 </af:selectOneListbox>
                 <af:panelGroupLayout id="pgl3" layout="vertical">
-                  <af:commandButton actionListener="#{pageFlowScope.shuttleBean.shuttleRight}" 
+                  <af:commandButton actionListener="#{pageFlowScope.shuttleBean.addEmployeeToTree}" 
                                     shortDesc="shuttle right" 
                                     disabled="#{!bindings.createInsert.enabled}" id="cb1" partialSubmit="true"
-                                    icon="/images/shuttleright.png">
-                    <!--f:actionListener type="view.ShuttleBean"/-->
-                  </af:commandButton>
+                                    icon="/images/shuttleright.png"/>
                   <af:commandButton  id="cb3" shortDesc="shuttle left" 
-                                    actionListener="#{pageFlowScope.shuttleBean.shuttleLeft}" partialSubmit="true"
+                                    actionListener="#{pageFlowScope.shuttleBean.removeEmployeeFromTree}" partialSubmit="true"
                                     icon="/images/shuttleleft.png"/>
                 </af:panelGroupLayout>
                 <af:treeTable value="#{bindings.DepartmentsToAptitude1.treeModel}" var="node"
