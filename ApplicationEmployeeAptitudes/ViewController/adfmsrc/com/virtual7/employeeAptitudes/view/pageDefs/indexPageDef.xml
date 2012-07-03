@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.employeeAptitudes.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AptitudeView1" RangeSize="25" DataControl="AppModuleDataControl" id="AptitudeView1Iterator"/>
+    <iterator Binds="DepartmentsView1" RangeSize="-1" DataControl="AppModuleDataControl" id="DepartmentsView1Iterator"/>
+    <iterator Binds="EmployeesView1" RangeSize="-1" DataControl="AppModuleDataControl" id="EmployeesView1Iterator"/>
+    <iterator Binds="EmployeesToAptitudeView1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="EmployeesToAptitudeView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AptitudeView1Iterator" id="AptitudeView1">
+      <nodeDefinition DefName="com.virtual7.employeeAptitudes.model.views.AptitudeView" Name="AptitudeView10">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="DepartmentsView1Iterator" ListOperMode="navigation" ListIter="DepartmentsView1Iterator"
+          id="DepartmentsView1" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="EmployeesView1Iterator" ListOperMode="navigation" ListIter="EmployeesView1Iterator"
+          id="EmployeesView1" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="FirstName"/>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="EmployeesToAptitudeView1Iterator" id="EmployeesToAptitudeView1">
+      <nodeDefinition DefName="com.virtual7.employeeAptitudes.model.views.EmployeesToAptitudeView"
+                      Name="EmployeesToAptitudeView10">
+        <AttrNames>
+          <Item Value="DepartmentName"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="EmployeesToAptitudeView1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="EmployeeId" NDValue="#{bindings.EmployeesView1Iterator.currentRow.employeeId.value}"
+                 NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="AptitudeId" NDValue="#{bindings.AptitudeView1Iterator.currentRow.id.value}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </action>
+    <attributeValues IterBinding="EmployeesToAptitudeView1Iterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AptitudeView1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="Id"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpManagerFkLink"
+  Version="11.1.1.60.13"
+  EntityAssociation="com.virtual7.businessComponents.model.entities.associations.EmpManagerFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="ManagerIdEmployeesWithCriteriasView"
+    Cardinality="1"
+    Owner="com.virtual7.businessComponents.model.views.EmployeesWithCriteriasView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="ManagerIdEmployeesWithCriteriasView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.businessComponents.model.views.EmployeesWithCriteriasView.EmployeeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EmployeesWithCriteriasView"
+    Cardinality="-1"
+    Owner="com.virtual7.businessComponents.model.views.EmployeesWithCriteriasView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeesWithCriteriasView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.virtual7.businessComponents.model.views.EmployeesWithCriteriasView.ManagerId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>
