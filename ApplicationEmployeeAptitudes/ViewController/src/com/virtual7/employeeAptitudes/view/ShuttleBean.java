@@ -20,15 +20,18 @@ import javax.faces.event.ActionEvent;
 
 import javax.faces.model.SelectItem;
 
+import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCIteratorBinding;
 
 import oracle.adf.view.rich.component.rich.data.RichTable;
 
 
+import oracle.adf.view.rich.component.rich.input.RichSelectManyListbox;
 import oracle.adf.view.rich.component.rich.input.RichSelectOneListbox;
 
 import oracle.adfinternal.view.faces.model.binding.FacesCtrlListBinding;
 
+import oracle.binding.BindingContainer;
 import oracle.binding.OperationBinding;
 
 import oracle.jbo.Key;
@@ -38,11 +41,14 @@ import oracle.jbo.RowSet;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.domain.Number;
 
+import oracle.jbo.uicli.binding.JUCtrlListBinding;
+
 import org.apache.myfaces.trinidad.model.RowKeySet;
 
 public class ShuttleBean {
     private RichTable emptToAptTable;
     private RichSelectOneListbox empsListbox;
+    private RichSelectManyListbox selectManyEmployees;
 
     public ShuttleBean() {
         super();
@@ -54,16 +60,40 @@ public class ShuttleBean {
 
     public void addEmployee(ActionEvent actionEvent) {
         if (getVisibleEmployees().size() != 0) {
-            //create new row in employees to aptitude, initialize with employee id, aptitude id, department id
-            OperationBinding createInsert = ADFUtils.findOperation("CreateWithParams");
-            createInsert.execute();
+            //get the selected rows indices
+            BindingContext bctx = BindingContext.getCurrent();
+            BindingContainer bindings = bctx.getCurrentBindingsEntry();
+            JUCtrlListBinding list = (JUCtrlListBinding)bindings.get("EmployeesView1");
+            int[] indices = list.getSelectedIndices(); 
 
-            //insert the row and refresh iterator
-            DCIteratorBinding empToApt = ADFUtils.findIterator("EmployeesToAptitudeView1Iterator");
-            empToApt.executeQuery();
+            DCIteratorBinding emp = ADFUtils.findIterator("EmployeesView1Iterator");
+            RowSetIterator empIterator = emp.getRowSetIterator();
+            
+            for (int i = 0; i < indices.length; i++) {
+                Row row = list.getRowAtRangeIndex(indices[i]);
+                empIterator.setCurrentRow(row);
+                OperationBinding createInsert = ADFUtils.findOperation("CreateWithParams");
+                createInsert.execute();
+            }
+
+            //refresh iterator
+            emp.executeQuery();
             ADFUtils.addPartialTarget(getEmptToAptTable());
         }
     }
+
+//    public void addEmployee(ActionEvent actionEvent) {
+//        if (getVisibleEmployees().size() != 0) {
+//            //create new row in employees to aptitude, initialize with employee id, aptitude id, department id
+//            OperationBinding createInsert = ADFUtils.findOperation("CreateWithParams");
+//            createInsert.execute();
+//
+//            //insert the row and refresh iterator
+//            DCIteratorBinding empToApt = ADFUtils.findIterator("EmployeesToAptitudeView1Iterator");
+//            empToApt.executeQuery();
+//            ADFUtils.addPartialTarget(getEmptToAptTable());
+//        }
+//    }
 
     public void removeEmployee(ActionEvent actionEvent) {
         //get the key values for the selected rows
@@ -84,6 +114,7 @@ public class ShuttleBean {
         //refresh the table
         empToApt.executeQuery();
         ADFUtils.addPartialTarget(getEmptToAptTable());
+        ADFUtils.addPartialTarget(getSelectManyEmployees());
     }
 
     public void addAllEmployees(ActionEvent actionEvent) {
@@ -101,10 +132,10 @@ public class ShuttleBean {
 
                 //get the current row from employees and if it is in the emp to apt table set the flag to true
                 for (int j = 0; j < empToAptRows.length; j++) {
-                    if (((EmployeesViewRowImpl) currentRow).getEmployeeId().getSequenceNumber().intValue() ==
-                        ((EmployeesToAptitudeViewRowImpl) empToAptRows[j]).getEmployeeId().intValue()) {
+                    if (((EmployeesViewRowImpl)currentRow).getEmployeeId().getSequenceNumber().intValue() ==
+                        ((EmployeesToAptitudeViewRowImpl)empToAptRows[j]).getEmployeeId().intValue()) {
                         isInEmpToApt = true;
-                    } 
+                    }
                 }
                 if (!isInEmpToApt) {
                     OperationBinding createInsert = ADFUtils.findOperation("CreateWithParams");
@@ -128,11 +159,10 @@ public class ShuttleBean {
             }
         }
         ADFUtils.addPartialTarget(getEmptToAptTable());
+        ADFUtils.addPartialTarget(getSelectManyEmployees());
     }
 
     public List<SelectItem> getVisibleEmployees() {
-        List<SelectItem> remainingEmployees = new ArrayList<SelectItem>();
-
         //get the list of employees
         FacesCtrlListBinding empListBinding =
             (FacesCtrlListBinding)JSFUtils.resolveExpression("#{bindings.EmployeesView1}");
@@ -143,6 +173,7 @@ public class ShuttleBean {
         Row[] empToAptRows = empToApt.getAllRowsInRange();
 
         //store the employees list in a local variable
+        List<SelectItem> remainingEmployees = new ArrayList<SelectItem>();
         remainingEmployees.addAll(empItems);
         Iterator<SelectItem> iter = remainingEmployees.iterator();
 
@@ -159,7 +190,7 @@ public class ShuttleBean {
             }
         }
 
-        ADFUtils.addPartialTarget(getEmpsListbox());
+        ADFUtils.addPartialTarget(getSelectManyEmployees());
         return remainingEmployees;
     }
 
@@ -178,5 +209,13 @@ public class ShuttleBean {
 
     public RichSelectOneListbox getEmpsListbox() {
         return empsListbox;
+    }
+
+    public void setSelectManyEmployees(RichSelectManyListbox selectManyEmployees) {
+        this.selectManyEmployees = selectManyEmployees;
+    }
+
+    public RichSelectManyListbox getSelectManyEmployees() {
+        return selectManyEmployees;
     }
 }

@@ -34,15 +34,20 @@
                                      partialTriggers="t1">
                   <f:selectItems value="#{bindings.DepartmentsView1.items}" id="si1"/>
                 </af:selectOneListbox>
-                <af:selectOneListbox value="#{bindings.EmployeesView1.inputValue}"
+                <af:selectManyListbox value="#{bindings.EmployeesView1.inputValue}"
+                                      label="#{bindings.EmployeesView1.label}" id="sml1"
+                                      autoSubmit="true" partialTriggers="sol1 t1"
+                                      binding="#{pageFlowScope.shuttleBean.selectManyEmployees}">
+                  <f:selectItems value="#{pageFlowScope.shuttleBean.visibleEmployees}" id="si3"/>
+                </af:selectManyListbox>
+                <!--af:selectOneListbox value="#{bindings.EmployeesView1.inputValue}"
                                      label="#{bindings.EmployeesView1.label}"
                                      autoSubmit="true"
                                      required="#{bindings.EmployeesView1.hints.mandatory}"
                                      shortDesc="#{bindings.EmployeesView1.hints.tooltip}" id="sol2"
                                      partialTriggers="sol1 t1" binding="#{pageFlowScope.shuttleBean.empsListbox}">
                   <f:selectItems value="#{pageFlowScope.shuttleBean.visibleEmployees}" id="si2"/>
-                  <!--f:selectItems value="#{bindings.EmployeesView1.items}" id="si2"/-->
-                </af:selectOneListbox>
+                </af:selectOneListbox-->
                 <af:panelGroupLayout id="pgl3" layout="vertical">
                   <af:commandButton id="cb1"
                                     shortDesc="shuttleRight"
@@ -50,6 +55,7 @@
                                     partialSubmit="true" icon="/images/shuttleright.png"/>
                   <af:commandButton id="cb2"
                                     shortDesc="shuttleLeft"
+                                    partialSubmit="true"
                                     actionListener="#{pageFlowScope.shuttleBean.removeEmployee}"
                                     icon="/images/shuttleleft.png"/>
                   <af:commandButton id="cb3"
