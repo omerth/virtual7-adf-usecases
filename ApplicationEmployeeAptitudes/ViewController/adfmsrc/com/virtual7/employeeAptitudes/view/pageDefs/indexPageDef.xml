@@ -25,12 +25,15 @@
         <Item Value="DepartmentName"/>
       </AttrNames>
     </list>
-    <list IterBinding="EmployeesView1Iterator" ListOperMode="navigation" ListIter="EmployeesView1Iterator"
+    <list IterBinding="EmployeesView1Iterator" ListOperMode="multiSelect" ListIter="EmployeesView1Iterator"
           id="EmployeesView1" DTSupportsMRU="false">
       <AttrNames>
-        <Item Value="FirstName"/>
         <Item Value="LastName"/>
       </AttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="FirstName"/>
+        <Item Value="LastName"/>
+      </ListDisplayAttrNames>
     </list>
     <tree IterBinding="EmployeesToAptitudeView1Iterator" id="EmployeesToAptitudeView1">
       <nodeDefinition DefName="com.virtual7.employeeAptitudes.model.views.EmployeesToAptitudeView"
