@@ -1,4 +1,4 @@
-package com.virtual7.employeeAptitudes.view;
+package com.virtual7.employeeAptitudes.view.managed;
 
 import com.virtual7.employeeAptitudes.model.views.AptitudeViewRowImpl;
 import com.virtual7.employeeAptitudes.model.views.DepartmentsViewRowImpl;
@@ -41,6 +41,8 @@ import oracle.jbo.RowSet;
 import oracle.jbo.RowSetIterator;
 import oracle.jbo.domain.Number;
 
+import oracle.jbo.uicli.binding.JUCtrlHierBinding;
+import oracle.jbo.uicli.binding.JUCtrlHierNodeBinding;
 import oracle.jbo.uicli.binding.JUCtrlListBinding;
 
 import org.apache.myfaces.trinidad.model.RowKeySet;
@@ -64,57 +66,63 @@ public class ShuttleBean {
             BindingContext bctx = BindingContext.getCurrent();
             BindingContainer bindings = bctx.getCurrentBindingsEntry();
             JUCtrlListBinding list = (JUCtrlListBinding)bindings.get("EmployeesView1");
-            int[] indices = list.getSelectedIndices(); 
+            int[] indices = list.getSelectedIndices();
 
             DCIteratorBinding emp = ADFUtils.findIterator("EmployeesView1Iterator");
             RowSetIterator empIterator = emp.getRowSetIterator();
-            
+
             for (int i = 0; i < indices.length; i++) {
                 Row row = list.getRowAtRangeIndex(indices[i]);
                 empIterator.setCurrentRow(row);
+                
                 OperationBinding createInsert = ADFUtils.findOperation("CreateWithParams");
                 createInsert.execute();
             }
 
             //refresh iterator
-            emp.executeQuery();
+            DCIteratorBinding empToApt = ADFUtils.findIterator("EmployeesToAptitudeView1Iterator");
+            empToApt.executeQuery();
             ADFUtils.addPartialTarget(getEmptToAptTable());
         }
     }
 
-//    public void addEmployee(ActionEvent actionEvent) {
-//        if (getVisibleEmployees().size() != 0) {
-//            //create new row in employees to aptitude, initialize with employee id, aptitude id, department id
-//            OperationBinding createInsert = ADFUtils.findOperation("CreateWithParams");
-//            createInsert.execute();
-//
-//            //insert the row and refresh iterator
-//            DCIteratorBinding empToApt = ADFUtils.findIterator("EmployeesToAptitudeView1Iterator");
-//            empToApt.executeQuery();
-//            ADFUtils.addPartialTarget(getEmptToAptTable());
-//        }
-//    }
+    //    public void addEmployee(ActionEvent actionEvent) {
+    //        if (getVisibleEmployees().size() != 0) {
+    //            //create new row in employees to aptitude, initialize with employee id, aptitude id, department id
+    //            OperationBinding createInsert = ADFUtils.findOperation("CreateWithParams");
+    //            createInsert.execute();
+    //
+    //            //insert the row and refresh iterator
+    //            DCIteratorBinding empToApt = ADFUtils.findIterator("EmployeesToAptitudeView1Iterator");
+    //            empToApt.executeQuery();
+    //            ADFUtils.addPartialTarget(getEmptToAptTable());
+    //        }
+    //    }
 
     public void removeEmployee(ActionEvent actionEvent) {
         //get the key values for the selected rows
         RowKeySet selectedRows = getEmptToAptTable().getSelectedRowKeys();
         Iterator selRowsiterator = selectedRows.iterator();
 
-        //get the employees to aptitude iterator binding and row set iterator
-        DCIteratorBinding empToApt = ADFUtils.findIterator("EmployeesToAptitudeView1Iterator");
-        RowSetIterator empToAptIterator = empToApt.getRowSetIterator();
+        if (selectedRows.size() > 0) {
+            //get the employees to aptitude iterator binding and row set iterator
+            DCIteratorBinding empToApt = ADFUtils.findIterator("EmployeesToAptitudeView1Iterator");
+            RowSetIterator empToAptIterator = empToApt.getRowSetIterator();
 
-        while (selRowsiterator.hasNext()) {
-            //get the key value from the selected rows
-            Key key = (Key)((List)selRowsiterator.next()).get(0);
-            //find the row corresponding to the key in the table and remove it
-            Row row = empToAptIterator.getRow(key);
-            row.remove();
+            while (selRowsiterator.hasNext()) {
+                //get the key value from the selected rows
+                Key key = (Key)((List)selRowsiterator.next()).get(0);
+                //find the row corresponding to the key in the table and remove it
+                Row row = empToAptIterator.getRow(key);
+                if (row != null) {
+                    row.remove();
+                }
+            }
+            //refresh the table
+            empToApt.executeQuery();
+            ADFUtils.addPartialTarget(getEmptToAptTable());
+            ADFUtils.addPartialTarget(getSelectManyEmployees());
         }
-        //refresh the table
-        empToApt.executeQuery();
-        ADFUtils.addPartialTarget(getEmptToAptTable());
-        ADFUtils.addPartialTarget(getSelectManyEmployees());
     }
 
     public void addAllEmployees(ActionEvent actionEvent) {
@@ -153,9 +161,11 @@ public class ShuttleBean {
         DCIteratorBinding empToApt = ADFUtils.findIterator("EmployeesToAptitudeView1Iterator");
         Row[] empToAptRows = empToApt.getAllRowsInRange();
 
-        if (empToAptRows.length != 0) {
+        if (empToAptRows.length > 0) {
             for (int i = 0; i < empToAptRows.length; i++) {
-                empToAptRows[i].remove();
+                if (empToAptRows[i] != null) {
+                    empToAptRows[i].remove();
+                }
             }
         }
         ADFUtils.addPartialTarget(getEmptToAptTable());
@@ -217,5 +227,38 @@ public class ShuttleBean {
 
     public RichSelectManyListbox getSelectManyEmployees() {
         return selectManyEmployees;
+    }
+    
+    public boolean isSame() {
+        String attrName = "DepartmentName";
+        boolean isSame = false;
+        // get the currently processed row, using row expression #{row}
+        JUCtrlHierNodeBinding row = (JUCtrlHierNodeBinding)JSFUtils.resolveExpression("#{row}");
+        JUCtrlHierBinding tableBinding = row.getHierBinding();
+        
+        int rowRangeIndex = row.getViewObject().getRangeIndexOf(row.getRow());
+        Object currentAttrValue = row.getRow().getAttribute(attrName);
+        
+        if (rowRangeIndex > 0) {
+            Object previousAttrValue = tableBinding.getAttributeFromRow(rowRangeIndex - 1, attrName);
+            isSame = currentAttrValue != null && currentAttrValue.equals(previousAttrValue);
+        } else if (tableBinding.getRangeStart() > 0) {
+            // previous row is in previous range, we create separate rowset iterator,
+            // so we can change the range start without messing up the table rendering which uses
+            // the default rowset iterator
+            int absoluteIndexPreviousRow = tableBinding.getRangeStart() - 1;
+            RowSetIterator rsi = null;
+            try {
+                rsi = tableBinding.getViewObject().getRowSet().createRowSetIterator(null);
+                rsi.setRangeStart(absoluteIndexPreviousRow);
+                Row previousRow = rsi.getRowAtRangeIndex(0);
+                Object previousAttrValue = previousRow.getAttribute(attrName);
+                isSame = currentAttrValue != null && currentAttrValue.equals(previousAttrValue);
+            } finally {
+                rsi.closeRowSetIterator();
+            }
+        }
+        
+        return isSame;
     }
 }
