@@ -31,13 +31,14 @@
                                      required="#{bindings.DepartmentsView1.hints.mandatory}"
                                      autoSubmit="true"
                                      shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="sol1"
-                                     partialTriggers="t1">
+                                     partialTriggers="t1" simple="true">
                   <f:selectItems value="#{bindings.DepartmentsView1.items}" id="si1"/>
                 </af:selectOneListbox>
                 <af:selectManyListbox value="#{bindings.EmployeesView1.inputValue}"
                                       label="#{bindings.EmployeesView1.label}" id="sml1"
                                       autoSubmit="true" partialTriggers="sol1 t1"
-                                      binding="#{pageFlowScope.shuttleBean.selectManyEmployees}">
+                                      binding="#{pageFlowScope.shuttleBean.selectManyEmployees}"
+                                      selectAllVisible="false" simple="true">
                   <f:selectItems value="#{pageFlowScope.shuttleBean.visibleEmployees}" id="si3"/>
                 </af:selectManyListbox>
                 <!--af:selectOneListbox value="#{bindings.EmployeesView1.inputValue}"
@@ -77,7 +78,7 @@
                   <af:column sortProperty="DepartmentName" sortable="false"
                              headerText="#{bindings.EmployeesToAptitudeView1.hints.DepartmentName.label}" id="c4">
                     <af:outputText value="#{row.DepartmentName}" id="ot4"
-                                    rendered="#{!compareWithPreviousRowBean['DepartmentName']}"/>
+                                    rendered="#{!pageFlowScope.shuttleBean.same}"/>
                   </af:column>
                   <af:column sortProperty="FirstName" sortable="false"
                              headerText="#{bindings.EmployeesToAptitudeView1.hints.FirstName.label}" id="c5">

@@ -1,4 +1,4 @@
-package com.virtual7.employeeAptitudes.view;
+package com.virtual7.employeeAptitudes.view.managed;
 
 import java.util.HashMap;
 
