@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical">
+          <af:outputText value="ApplicationDinamicPivotTable" id="ot1"/>
+          <af:outputLabel value="1 : is the EmployeesPivotTable1" id="ol1"/>
+          <af:outputLabel value="2 : is the EmployeesPivotTable11" id="ol2"/>
+          <af:outputLabel value="3 : is the EmployeesPivotTable12" id="ol3"/>
+          <af:outputLabel value="any other value : is the EmployeesPivotTable3" id="ol4"/>
+          <af:inputText label="Choose PivotTable" id="it1" value="#{pageFlowScope.SelectPivotTableBean.selPivTb}"
+                        autoSubmit="true" immediate="true"/>
+          <af:commandButton text="RenderPivot" id="cb1" partialSubmit="true" immediate="true"
+                            actionListener="#{pageFlowScope.SelectPivotTableBean.refreshSwitcher}"/>
+          <af:switcher id="s1" defaultFacet="default" facetName="#{pageFlowScope.SelectPivotTableBean.selPivTb}">
+            <f:facet name="1">
+              <dvt:pivotTable id="pivotTable1" value="#{bindings.EmployeesView1.pivotTableModel}"
+                              modelName="pivotTable1Model" binding="#{pageFlowScope.SelectPivotTableBean.pivotTable1}"/>
+            </f:facet>
+            <f:facet name="2">
+              <dvt:pivotTable id="pivotTable2" value="#{bindings.EmployeesView11.pivotTableModel}"
+                              binding="#{pageFlowScope.SelectPivotTableBean.pivotTable2}"/>
+            </f:facet>
+            <f:facet name="default">
+              <dvt:pivotTable id="pivotTable3"
+                              value="#{pageFlowScope.SelectPivotTableBean.selPivTb == 3 ? bindings.EmployeesView12.pivotTableModel : bindings.EmployeesView13.pivotTableModel}"
+                              binding="#{pageFlowScope.SelectPivotTableBean.pivotTable3}"/>
+            </f:facet>
+          </af:switcher>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
