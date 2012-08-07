@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="index">
+    <page>/index.jspx</page>
+  </view>
+  <managed-bean id="__2">
+    <managed-bean-name id="__1">pivotBean</managed-bean-name>
+    <managed-bean-class id="__3">com.virtual7.programaticPivotTableBinding.view.managed.PivotBean</managed-bean-class>
+    <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__8">
+    <managed-bean-name id="__6">pivotAjustableBean</managed-bean-name>
+    <managed-bean-class id="__7">com.virtual7.programaticPivotTableBinding.view.managed.ajustable.PivotAdjustableBean</managed-bean-class>
+    <managed-bean-scope id="__5">pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__11">
+    <managed-bean-name id="__12">myPivotBean</managed-bean-name>
+    <managed-bean-class id="__10">com.virtual7.programaticPivotTableBinding.view.managed.myTable.MyPivotBean</managed-bean-class>
+    <managed-bean-scope id="__9">pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

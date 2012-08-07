@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.61.92" id="indexPageDef"
+                Package="com.virtual7.programaticPivotTableBinding.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesView1" RangeSize="-1" DataControl="AppModuleDataControl" id="EmployeesView1Iterator"/>
+  </executables>
+  <bindings>
+    <pivotTable IterBinding="EmployeesView1Iterator" id="EmployeesView1" xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true" defaultAggregateType="SUM">
+            <item value="Salary"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="DepartmentId"/>
+          <item value="LastName"/>
+        </rows>
+        <pages/>
+      </pivotTableDataMap>
+    </pivotTable>
+    <pivotTable IterBinding="EmployeesView1Iterator" id="EmployeesView11" xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true" defaultAggregateType="SUM">
+            <item value="Salary"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="JobId"/>
+          <item value="LastName"/>
+        </rows>
+        <pages/>
+      </pivotTableDataMap>
+    </pivotTable>
+    <tree IterBinding="EmployeesView1Iterator" id="EmployeesView12">
+      <nodeDefinition DefName="com.virtual7.programaticPivotTableBinding.model.views.EmployeesView"
+                      Name="EmployeesView120">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="HireDate"/>
+          <Item Value="JobId"/>
+          <Item Value="Salary"/>
+          <Item Value="CommissionPct"/>
+          <Item Value="ManagerId"/>
+          <Item Value="DepartmentId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <pivotTable IterBinding="EmployeesView1Iterator" id="EmployeesView13" xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true">
+            <item value="Salary"/>
+          </data>
+          <item value="FirstName"/>
+          <item value="LastName"/>
+        </columns>
+        <rows>
+          <item value="DepartmentId"/>
+          <item value="JobId"/>
+        </rows>
+        <pages/>
+      </pivotTableDataMap>
+    </pivotTable>
+  </bindings>
+</pageDefinition>

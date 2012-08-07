@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f2">
+        <af:messages id="m1"/>
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <af:panelGroupLayout id="pgl1" layout="scroll">
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <dvt:pivotTable id="pivotTable3" value="#{bindings.EmployeesView13.pivotTableModel}"/>
+                <dvt:pivotTable id="pivotTable1" value="#{bindings.EmployeesView1.pivotTableModel}" summary="demo"/>
+                <af:spacer width="20" height="10" id="s1"/>
+                <dvt:pivotTable id="pivotTable2" value="#{bindings.EmployeesView11.pivotTableModel}" summary="demo"/>
+                <af:spacer width="25" height="10" id="s7"/>
+                <dvt:pivotTable id="pt2" summary="demo" value="#{pageFlowScope.myPivotBean.dataModel}"
+                                partialTriggers="::sor1"/>
+                <af:selectOneRadio id="sor1" valueChangeListener="#{pageFlowScope.myPivotBean.valueChanged}"
+                                   autoSubmit="true" value="0">
+                  <af:selectItem label="Department" value="0" id="si2"/>
+                  <af:selectItem label="Job" value="1" id="si1"/>
+                  <af:selectItem label="Dept With Sum" value="2" id="si3"/>
+                  <af:selectItem label="Job With Sum" value="3" id="si4"/>
+                </af:selectOneRadio>
+              </af:panelGroupLayout>
+              <af:spacer width="10" height="20" id="s2"/>
+              <af:panelGroupLayout id="pgl3" layout="horizontal">
+                <dvt:pivotTable id="pt1" summary="demo" value="#{pageFlowScope.pivotBean.dataModel}"/>
+                <af:spacer width="25" height="10" id="s6"/>
+                <dvt:pivotTable id="goodPT" summary="demo" contentDelivery="immediate"
+                                value="#{pageFlowScope.pivotAjustableBean.dataModel}"
+                                partialTriggers="::shapeChangeButton" inlineStyle="width: 600px;"/>
+                <af:spacer width="25" height="10" id="s5"/>
+                <af:panelGroupLayout layout="vertical" id="pgl4">
+                  <f:facet name="separator">
+                    <af:spacer height="3px" id="s3"/>
+                  </f:facet>
+                  <af:inputText id="rowCountInputText" value="#{pageFlowScope.pivotAjustableBean.rowCount}"
+                                label="Row Count" contentStyle="width:35px"
+                                shortDesc="Type to change the number of rows in the pivot table."
+                                partialTriggers="shapeChangeButton"/>
+                  <af:inputText id="columnCountInputText" value="#{pageFlowScope.pivotAjustableBean.columnCount}"
+                                label="Column Count" contentStyle="width:35px"
+                                shortDesc="Type to change the number of columns in the pivot table."
+                                partialTriggers="shapeChangeButton"/>
+                  <af:inputText id="rowEdgeLayerCountInputText"
+                                value="#{pageFlowScope.pivotAjustableBean.rowEdgeLayerCount}"
+                                label="Row Edge Layer Count" contentStyle="width:35px"
+                                shortDesc="Type to change the number of layers on the row edge of the pivot table."
+                                partialTriggers="shapeChangeButton"/>
+                  <af:inputText id="columnEdgeLayerCountInputText"
+                                value="#{pageFlowScope.pivotAjustableBean.columnEdgeLayerCount}"
+                                label="Column Edge Layer Count" contentStyle="width:35px"
+                                shortDesc="Type to change the number of layers on the column edge of the pivot table."
+                                partialTriggers="shapeChangeButton"/>
+                  <af:inputText id="rowEdgeBranchingFactorInputText"
+                                value="#{pageFlowScope.pivotAjustableBean.rowEdgeBranchingFactor}"
+                                label="Row Edge Branching Factor" contentStyle="width:35px"
+                                shortDesc="Type to change the number of child members of each parent member on the row edge."
+                                partialTriggers="shapeChangeButton"/>
+                  <af:inputText id="columnEdgeBranchingFactorInputText"
+                                value="#{pageFlowScope.pivotAjustableBean.columnEdgeBranchingFactor}"
+                                label="Column Edge Branching Factor" contentStyle="width:35px"
+                                shortDesc="Type to change the number of child members of each parent member on the column edge."
+                                partialTriggers="shapeChangeButton"/>
+                  <af:commandButton id="shapeChangeButton" text="Adjust Shape"
+                                    actionListener="#{pageFlowScope.pivotAjustableBean.handleShapeChange}"
+                                    partialSubmit="true"/>
+                  <af:spacer height="25px" id="s4"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="top"/>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
