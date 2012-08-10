@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.61.92" id="programaticVOPageDef"
+                Package="com.virtual7.programaticPivotTableBinding.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesPivotedVO" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="EmployeesPivotedVOIterator"/>
+    <iterator id="DynamicVO1Iterator" Binds="DynamicVO1" DataControl="AppModuleDataControl" RangeSize="25"/>
+  </executables>
+  <bindings>
+    <pivotTable IterBinding="EmployeesPivotedVOIterator" id="EmployeesPivotedVO"
+                xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <item value="ColName"/>
+        </columns>
+        <rows>
+          <item value="DepartmentId"/>
+          <item value="JobId"/>
+        </rows>
+        <pages>
+          <data aggregateDuplicates="true" defaultAggregateType="SUM">
+            <item value="ColVal"/>
+          </data>
+        </pages>
+      </pivotTableDataMap>
+    </pivotTable>
+    <methodAction id="changeDynamicQuerry" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="changeDynamicQuerry" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider">
+      <NamedData NDName="querry" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="center">
+            <af:panelGroupLayout id="pgl1" layout="scroll">
+              <dvt:pivotTable id="pivotTable1" value="#{bindings.EmployeesPivotedVO.pivotTableModel}"
+                              inlineStyle="width: 800px;"/>
+              <!--<af:commandButton text="commandButton 1" id="cb2"
+                                actionListener="#{pageFlowScope.myPivotBean.generateVO}"/>-->
+              <af:panelGroupLayout id="pgl2" layout="horizontal">
+                <dvt:pivotTable id="pt2" summary="demo" value="#{pageFlowScope.myPivotBean.dynamicDataModel}"
+                                partialTriggers="::sor1"/>
+                <af:selectOneRadio id="sor1" valueChangeListener="#{pageFlowScope.myPivotBean.dynamicValueChanged}"
+                                   autoSubmit="true" value="0">
+                  <af:selectItem label="Department" value="0" id="si2"/>
+                  <af:selectItem label="Job" value="1" id="si1"/>
+                  <af:selectItem label="Dept With Sum" value="2" id="si3"/>
+                  <af:selectItem label="Job With Sum" value="3" id="si4"/>
+                </af:selectOneRadio>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="top"/>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
