@@ -308,6 +308,10 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Dvt-databinding-dt-core.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -319,13 +323,33 @@
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
                <value n="id" v="ADF Library"/>
+               <list n="sourcePath">
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view_src.jar" jar-entry=""/>
+               </list>
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-databinding-dt-core.jar" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-databindings.jar" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-faces.jar" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-facesbindings.jar" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-jclient.jar" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-trinidad.jar" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-utils.jar" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.model_11.1.1/adfm.jar" jar-entry=""/>
                </list>
-               <value n="description" v="Library1"/>
-               <value n="id" v="Library1"/>
+               <value n="description" v="Dvt-databinding-dt-core.jar"/>
+               <value n="id" v="Dvt-databinding-dt-core.jar"/>
+               <list n="sourcePath">
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-databinding-dt-core.src.zip" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-databindings.src.zip" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-faces.src.zip" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-facesbindings.src.zip" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-jclient.src.zip" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-trinidad.src.zip" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.view_11.1.1/dvt-utils.src.zip" jar-entry=""/>
+                  <url path="../../../../../../Middleware1116/oracle_common/modules/oracle.adf.model_11.1.1/adfm.src.zip" jar-entry=""/>
+               </list>
             </hash>
          </list>
       </hash>
@@ -454,6 +478,10 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="Dvt-databinding-dt-core.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.config.JProjectPaths">
@@ -504,17 +532,6 @@
             <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view_11.1.1/dvt-faces.jar!/META-INF/bi.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
             <value n="version" v="1.1"/>
-         </hash>
-         <hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="libraries" v="v7CompLib 1.0 Tag Libraries"/>
-            <value n="name" v="v7CompLib"/>
-            <value n="prefix" v="v7"/>
-            <value n="runInEditor" v="true"/>
-            <value n="showInPalette" v="true"/>
-            <value n="tldURL" v="@project@../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar!/META-INF/v7CompLib.tld"/>
-            <value n="URI" v="/v7ComponentLib"/>
-            <value n="version" v="1.0"/>
          </hash>
       </list>
    </hash>
