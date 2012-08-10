@@ -289,6 +289,10 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
+            <value n="id" v="ADF Common Web Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
             <value n="id" v="Oracle XML Parser v2"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -341,6 +345,48 @@
                </list>
                <value n="description" v="Library1"/>
                <value n="id" v="Library1"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library2"/>
+               <value n="id" v="Library2"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library3"/>
+               <value n="id" v="Library3"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library4"/>
+               <value n="id" v="Library4"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library5"/>
+               <value n="id" v="Library5"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library6"/>
+               <value n="id" v="Library6"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library7"/>
+               <value n="id" v="Library7"/>
             </hash>
          </list>
       </hash>
@@ -435,6 +481,10 @@
          </hash>
          <hash>
             <value n="id" v="Resource Bundle Variable Resolver"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Common Web Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>

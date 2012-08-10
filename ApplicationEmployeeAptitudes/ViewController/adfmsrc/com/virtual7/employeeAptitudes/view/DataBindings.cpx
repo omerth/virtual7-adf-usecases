@@ -3,10 +3,13 @@
              SeparateXMLFiles="false" Package="com.virtual7.employeeAptitudes.view" ClientType="Generic">
   <pageMap>
     <page path="/index.jspx" usageId="com_virtual7_employeeAptitudes_view_indexPageDef"/>
+    <page path="/componentTest.jspx" usageId="com_virtual7_employeeAptitudes_view_componentTestPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_virtual7_employeeAptitudes_view_indexPageDef"
           path="com.virtual7.employeeAptitudes.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_employeeAptitudes_view_componentTestPageDef"
+          path="com.virtual7.employeeAptitudes.view.pageDefs.componentTestPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.employeeAptitudes.model.views"

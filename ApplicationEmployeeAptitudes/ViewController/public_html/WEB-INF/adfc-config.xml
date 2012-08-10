@@ -13,4 +13,9 @@
     <managed-bean-class id="__7">com.virtual7.employeeAptitudes.view.managed.CompareWithPreviousRowBean</managed-bean-class>
     <managed-bean-scope id="__5">request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name id="__11">iV7ShuttleBeanImpl</managed-bean-name>
+    <managed-bean-class id="__12">com.virtual7.employeeAptitudes.view.IV7ShuttleBeanImpl</managed-bean-class>
+    <managed-bean-scope id="__10">pageFlow</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

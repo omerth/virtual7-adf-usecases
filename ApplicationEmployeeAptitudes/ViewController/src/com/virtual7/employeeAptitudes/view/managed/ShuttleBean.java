@@ -18,6 +18,7 @@ import java.util.Set;
 
 import javax.faces.event.ActionEvent;
 
+import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 
 import oracle.adf.model.BindingContext;
@@ -260,5 +261,12 @@ public class ShuttleBean {
         }
         
         return isSame;
+    }
+
+    public void onDepartmentChange(ValueChangeEvent valueChangeEvent) {
+        // Add event code here...
+        JUCtrlListBinding list = (JUCtrlListBinding) JSFUtils.resolveExpression("#{bindings.EmployeesView1}");
+        int[] i = list.getSelectedIndices();
+        list.setSelectedIndices(new int[] {});
     }
 }

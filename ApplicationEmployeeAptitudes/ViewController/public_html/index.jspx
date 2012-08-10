@@ -9,6 +9,8 @@
         <af:panelStretchLayout id="psl1">
           <f:facet name="center">
             <af:panelGroupLayout id="pgl1" layout="scroll">
+              <af:inputText label="Label 1" id="it1"/>
+              <af:outputLabel value="outputLabel1" id="ol1"/>
               <af:table value="#{bindings.AptitudeView1.collectionModel}" var="row"
                         rows="#{bindings.AptitudeView1.rangeSize}"
                         emptyText="#{bindings.AptitudeView1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -31,7 +33,9 @@
                                      required="#{bindings.DepartmentsView1.hints.mandatory}"
                                      autoSubmit="true"
                                      shortDesc="#{bindings.DepartmentsView1.hints.tooltip}" id="sol1"
-                                     partialTriggers="t1" simple="true">
+                                     partialTriggers="t1" simple="true"
+                                     valueChangeListener="#{pageFlowScope.shuttleBean.onDepartmentChange}"
+                                     >
                   <f:selectItems value="#{bindings.DepartmentsView1.items}" id="si1"/>
                 </af:selectOneListbox>
                 <af:selectManyListbox value="#{bindings.EmployeesView1.inputValue}"
@@ -40,6 +44,7 @@
                                       binding="#{pageFlowScope.shuttleBean.selectManyEmployees}"
                                       selectAllVisible="false" simple="true">
                   <f:selectItems value="#{pageFlowScope.shuttleBean.visibleEmployees}" id="si3"/>
+                  <!--f:selectItems value="#{bindings.EmployeesView1.items}" id="si3"/-->
                 </af:selectManyListbox>
                 <!--af:selectOneListbox value="#{bindings.EmployeesView1.inputValue}"
                                      label="#{bindings.EmployeesView1.label}"
@@ -74,7 +79,8 @@
                           fetchSize="#{bindings.EmployeesToAptitudeView1.rangeSize}" rowBandingInterval="0"
                           selectionListener="#{bindings.EmployeesToAptitudeView1.collectionModel.makeCurrent}"
                           rowSelection="multiple" id="t2" binding="#{pageFlowScope.shuttleBean.emptToAptTable}"
-                          partialTriggers="::t1">
+                          partialTriggers="::t1" horizontalGridVisible="false" verticalGridVisible="false"
+                          styleClass="AFStrtchWidth">
                   <af:column sortProperty="DepartmentName" sortable="false"
                              headerText="#{bindings.EmployeesToAptitudeView1.hints.DepartmentName.label}" id="c4">
                     <af:outputText value="#{row.DepartmentName}" id="ot4"
@@ -82,7 +88,7 @@
                   </af:column>
                   <af:column sortProperty="FirstName" sortable="false"
                              headerText="#{bindings.EmployeesToAptitudeView1.hints.FirstName.label}" id="c5">
-                    <af:outputText value="#{row.FirstName}" id="ot5"/>
+                    <af:outputText value="#{row['FirstName']}" id="ot5"/>
                   </af:column>
                   <af:column sortProperty="LastName" sortable="false"
                              headerText="#{bindings.EmployeesToAptitudeView1.hints.LastName.label}" id="c3">
