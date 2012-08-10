@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="index">
+    <page>/index.jspx</page>
+  </view>
+  <managed-bean id="__3">
+    <managed-bean-name id="__1">SelectPivotTableBean</managed-bean-name>
+    <managed-bean-class id="__4">com.virtual7.dinamicPivotTable.view.managed.SelectPivotTableBean</managed-bean-class>
+    <managed-bean-scope id="__2">pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>
