@@ -11,8 +11,8 @@
           <f:facet name="center">
             <af:panelGroupLayout id="pgl1" layout="scroll">
               <af:panelGroupLayout id="pgl2" layout="horizontal">
-                <dvt:pivotTable id="pivotTable3" value="#{bindings.EmployeesView13.pivotTableModel}"/>
-                <dvt:pivotTable id="pivotTable1" value="#{bindings.EmployeesView1.pivotTableModel}" summary="demo"/>
+                <dvt:pivotTable id="pivotTable1" value="#{bindings.EmployeesView1.pivotTableModel}" summary="demo"
+                                binding="#{pageFlowScope.myPivotBean.pivotTable}"/>
                 <af:spacer width="20" height="10" id="s1"/>
                 <dvt:pivotTable id="pivotTable2" value="#{bindings.EmployeesView11.pivotTableModel}" summary="demo"/>
                 <af:spacer width="25" height="10" id="s7"/>
@@ -29,6 +29,7 @@
               <af:spacer width="10" height="20" id="s2"/>
               <af:panelGroupLayout id="pgl3" layout="horizontal">
                 <dvt:pivotTable id="pt1" summary="demo" value="#{pageFlowScope.pivotBean.dataModel}"/>
+                <!--<af:commandButton text="commandButton 1" id="cb1" actionListener="#{pageFlowScope.myPivotBean.generateVO}"/>-->
                 <af:spacer width="25" height="10" id="s6"/>
                 <dvt:pivotTable id="goodPT" summary="demo" contentDelivery="immediate"
                                 value="#{pageFlowScope.pivotAjustableBean.dataModel}"

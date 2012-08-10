@@ -5,7 +5,7 @@
   </view>
   <managed-bean id="__2">
     <managed-bean-name id="__1">pivotBean</managed-bean-name>
-    <managed-bean-class id="__3">com.virtual7.programaticPivotTableBinding.view.managed.PivotBean</managed-bean-class>
+    <managed-bean-class id="__3">com.virtual7.programaticPivotTableBinding.view.managed.normal.PivotBean</managed-bean-class>
     <managed-bean-scope id="__4">pageFlow</managed-bean-scope>
   </managed-bean>
   <managed-bean id="__8">

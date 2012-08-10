@@ -1,12 +1,12 @@
 package com.virtual7.programaticPivotTableBinding.view.managed.myTable;
 
-import com.virtual7.programaticPivotTableBinding.view.managed.BaseProjectionImpl;
-import com.virtual7.programaticPivotTableBinding.view.managed.FilterSpec;
-import com.virtual7.programaticPivotTableBinding.view.managed.MemberInterfaceImpl;
-import com.virtual7.programaticPivotTableBinding.view.managed.PivotBean;
-import com.virtual7.programaticPivotTableBinding.view.managed.PivotModel;
+import com.virtual7.programaticPivotTableBinding.view.managed.normal.BaseProjectionImpl;
+import com.virtual7.programaticPivotTableBinding.view.managed.normal.FilterSpec;
+import com.virtual7.programaticPivotTableBinding.view.managed.normal.MemberInterfaceImpl;
+import com.virtual7.programaticPivotTableBinding.view.managed.normal.PivotBean;
+import com.virtual7.programaticPivotTableBinding.view.managed.normal.PivotModel;
 
-import com.virtual7.programaticPivotTableBinding.view.managed.RowsetDataSource;
+import com.virtual7.programaticPivotTableBinding.view.managed.normal.RowsetDataSource;
 
 import com.virtual7.programaticPivotTableBinding.view.managed.ajustable.FakeDataSource;
 
@@ -226,6 +226,7 @@ public class MyPivotModel extends PivotTableModel {
           RowsetDataSource rs = new RowsetDataSource();
           rs.setFilterSpecs(filterSpecs);
           rs.setData(rowsetData);
+          //rs.setData(ADFUtils.findIterator("EmployeesView1Iterator"));
           rs.setColumns(columnNames);
           rs.setDataAttributes(dataAttributes);
           AggSpec[][] specs = new AggSpec[aggSpecs.size()][];
@@ -235,8 +236,11 @@ public class MyPivotModel extends PivotTableModel {
           rs.setColumnLayout(colLayout);
           rs.setRowLayout(rowLayout);
           setDataSource(rs);
+          
+          
     }
 
+    //loadData() with parameters, simpler implementation but does not work when sums need to be displayed
     public void loadData(String[] columnNames, ArrayList<String> colLayout, ArrayList<String> rowLayout,
                          ArrayList<String> dataAttributes, Object[][] rowsetData,
                          HashMap<String, FilterSpec> filterSpecs) {

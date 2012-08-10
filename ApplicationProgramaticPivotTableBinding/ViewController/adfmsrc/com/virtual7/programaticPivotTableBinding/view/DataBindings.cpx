@@ -7,10 +7,13 @@
   </definitionFactories>
   <pageMap>
     <page path="/index.jspx" usageId="com_virtual7_programaticPivotTableBinding_view_indexPageDef"/>
+    <page path="/programaticVO.jspx" usageId="com_virtual7_programaticPivotTableBinding_view_programaticVOPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_virtual7_programaticPivotTableBinding_view_indexPageDef"
           path="com.virtual7.programaticPivotTableBinding.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_programaticPivotTableBinding_view_programaticVOPageDef"
+          path="com.virtual7.programaticPivotTableBinding.view.pageDefs.programaticVOPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.programaticPivotTableBinding.model.views"
