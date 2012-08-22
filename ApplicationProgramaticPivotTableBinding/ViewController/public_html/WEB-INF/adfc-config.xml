@@ -18,4 +18,9 @@
     <managed-bean-class id="__10">com.virtual7.programaticPivotTableBinding.view.managed.myTable.MyPivotBean</managed-bean-class>
     <managed-bean-scope id="__9">pageFlow</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__13">
+    <managed-bean-name id="__15">testDynMB</managed-bean-name>
+    <managed-bean-class id="__16">com.virtual7.programaticPivotTableBinding.view.managed.testdyn.TestDynMB</managed-bean-class>
+    <managed-bean-scope id="__14">session</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="scroll">
+          <dvt:pivotTable id="pivotTable1" value="#{bindings.EmployeesView1.pivotTableModel}"
+                          styleClass="AFStretchWidth" binding="#{testDynMB.pivotTable}"/>
+          <af:panelGroupLayout layout="horizontal" id="pgl2">
+            <af:commandButton text="New binding" id="cb1" actionListener="#{testDynMB.onClickNewBinding}"/>
+            <af:spacer width="10px" height="10px" id="s1"/>
+            <af:commandButton text="Old binding" id="cb2" actionListener="#{testDynMB.onClickOldBinding}"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

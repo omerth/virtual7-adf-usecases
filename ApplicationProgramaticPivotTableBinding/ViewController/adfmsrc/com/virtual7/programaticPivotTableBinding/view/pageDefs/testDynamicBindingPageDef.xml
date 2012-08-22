@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.61.92" id="testDynamicBindingPageDef"
+                Package="com.virtual7.programaticPivotTableBinding.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesView1" RangeSize="-1" DataControl="AppModuleDataControl" id="EmployeesView1Iterator"/>
+  </executables>
+  <bindings>
+    <pivotTable IterBinding="EmployeesView1Iterator" id="EmployeesView1" xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true">
+            <item value="Salary"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="DepartmentId"/>
+          <item value="JobId"/>
+        </rows>
+        <pages/>
+      </pivotTableDataMap>
+    </pivotTable>
+    <methodAction id="changeDynamicQuerry" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="changeDynamicQuerry" IsViewObjectMethod="false">
+      <NamedData NDName="querry" NDType="java.lang.String"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>
