@@ -6,7 +6,6 @@
          <Item path="../../_libs/commons-discovery-0.2.jar" jar-entry=""/>
          <Item path="../../_libs/commons-email-1.0.jar" jar-entry=""/>
          <Item path="../../_libs/wsdl4j-1.5.1.jar" jar-entry=""/>
-         <Item path="../../_libs/virtual7Util_model.jar" jar-entry=""/>
       </entries>
    </classPath>
    <docPath/>
