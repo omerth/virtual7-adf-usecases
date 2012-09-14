@@ -26,12 +26,25 @@
   <ViewUsage
     Name="DynamicVO1"
     ViewObjectName="com.virtual7.programaticPivotTableBinding.model.views.DynamicVO"/>
+  <ViewUsage
+    Name="NullHeaderValuesVOPivotTable"
+    ViewObjectName="com.virtual7.programaticPivotTableBinding.model.views.NullHeaderValuesVO"/>
   <ViewLinkUsage
     Name="EmpManagerFkLink1"
     ViewLinkObjectName="com.virtual7.programaticPivotTableBinding.model.views.links.EmpManagerFkLink"
     SrcViewUsageName="com.virtual7.programaticPivotTableBinding.model.views.AppModule.EmployeesView1"
     DstViewUsageName="com.virtual7.programaticPivotTableBinding.model.views.AppModule.EmployeesView2"
     Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="changeDynamicQuerry">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="querry"
+        Type="java.lang.String"/>
+    </Method>
+  </ClientInterface>
   <ClientInterface>
     <Method
       Name="changeDynamicQuerry">

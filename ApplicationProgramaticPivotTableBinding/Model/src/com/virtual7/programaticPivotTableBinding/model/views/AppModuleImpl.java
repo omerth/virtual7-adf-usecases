@@ -70,4 +70,12 @@ public class AppModuleImpl extends ApplicationModuleImpl implements AppModule {
         }
         return (ViewObjectImpl)findViewObject("DynamicVO1");
     }
+
+    /**
+     * Container's getter for NullHeaderValuesVO1.
+     * @return NullHeaderValuesVO1
+     */
+    public ViewObjectImpl getNullHeaderValuesVOPivotTable() {
+        return (ViewObjectImpl)findViewObject("NullHeaderValuesVOPivotTable");
+    }
 }
