@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.61.92" id="nullValuesHeadderPageDef"
+                Package="com.virtual7.programaticPivotTableBinding.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NullHeaderValuesVOPivotTable" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="NullHeaderValuesVOPivotTableIterator"/>
+  </executables>
+  <bindings>
+    <pivotTable IterBinding="NullHeaderValuesVOPivotTableIterator" id="NullHeaderValuesVOPivotTable"
+                xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true" defaultAggregateType="SUM">
+            <item value="Salary"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="CommissionPct"/>
+        </rows>
+        <pages/>
+        <drills type="INSERT"/>
+        <hierarchies>
+          <item value="CommissionPct" location="BEFORE">
+            <child value="FirstName" label="FirstName"/>
+          </item>
+          <item value="FirstName" location="BEFORE">
+            <child value="Rownum" label="Rownum"/>
+          </item>
+        </hierarchies>
+      </pivotTableDataMap>
+    </pivotTable>
+    <pivotTable IterBinding="NullHeaderValuesVOPivotTableIterator" id="NullHeaderValuesVOPivotTable1"
+                xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <pivotTableDataMap>
+        <columns>
+          <data aggregateDuplicates="true" defaultAggregateType="SUM">
+            <item value="Salary"/>
+          </data>
+        </columns>
+        <rows>
+          <item value="FirstName"/>
+        </rows>
+        <pages/>
+        <drills type="INSERT"/>
+        <hierarchies>
+          <item value="FirstName" location="BEFORE">
+            <child value="CommissionPct" label="CommissionPct"/>
+          </item>
+          <item value="CommissionPct" location="BEFORE">
+            <child value="Rownum" label="Rownum"/>
+          </item>
+        </hierarchies>
+      </pivotTableDataMap>
+    </pivotTable>
+  </bindings>
+</pageDefinition>
