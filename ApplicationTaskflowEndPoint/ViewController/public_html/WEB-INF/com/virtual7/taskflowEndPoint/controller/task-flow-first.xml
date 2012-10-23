@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-first">
+    <default-activity id="__1">firstTab</default-activity>
+    <transaction id="__5">
+      <new-transaction/>
+    </transaction>
+    <data-control-scope id="__3">
+      <isolated/>
+    </data-control-scope>
+    <task-flow-reentry id="__4">
+      <reentry-allowed/>
+    </task-flow-reentry>
+    <view id="firstTab">
+      <page>/WEB-INF/com/virtual7/taskflowEndPoint/view/firstTab.jsff</page>
+    </view>
+    <method-call id="doSomething">
+      <method>#{bindings.doSomething.execute}</method>
+      <outcome id="__6">
+        <fixed-outcome>doSomething</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">firstTab</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">firstRegionAction</from-outcome>
+        <to-activity-id id="__9">doSomething</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
