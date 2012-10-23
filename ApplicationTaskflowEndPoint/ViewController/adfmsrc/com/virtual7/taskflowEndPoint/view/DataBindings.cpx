@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.taskflowEndPoint.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_virtual7_taskflowEndPoint_view_indexPageDef"/>
+    <page path="/WEB-INF/com/virtual7/taskflowEndPoint/view/firstTab.jsff"
+          usageId="com_virtual7_taskflowEndPoint_view_firstTabPageDef"/>
+    <page path="/WEB-INF/com/virtual7/taskflowEndPoint/view/secondTab.jsff"
+          usageId="com_virtual7_taskflowEndPoint_view_secondTabPageDef"/>
+    <page path="/WEB-INF/com/virtual7/taskflowEndPoint/controller/task-flow-first.xml#task-flow-first@doSomething"
+          usageId="com_virtual7_taskflowEndPoint_view_task_flow_first_task_flow_first_doSomethingPageDef"/>
+    <page path="/WEB-INF/com/virtual7/taskflowEndPoint/controller/task-flow-second.xml#task-flow-second@doSomeOtherThing"
+          usageId="com_virtual7_taskflowEndPoint_view_task_flow_second_task_flow_second_doSomeOtherThingPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_taskflowEndPoint_view_indexPageDef"
+          path="com.virtual7.taskflowEndPoint.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_taskflowEndPoint_view_firstTabPageDef"
+          path="com.virtual7.taskflowEndPoint.view.firstTabPageDef"/>
+    <page id="com_virtual7_taskflowEndPoint_view_secondTabPageDef"
+          path="com.virtual7.taskflowEndPoint.view.secondTabPageDef"/>
+    <page id="com_virtual7_taskflowEndPoint_view_task_flow_first_task_flow_first_doSomethingPageDef"
+          path="com.virtual7.taskflowEndPoint.controller.task_flow_first_task_flow_first_doSomethingPageDef"/>
+    <page id="com_virtual7_taskflowEndPoint_view_task_flow_second_task_flow_second_doSomeOtherThingPageDef"
+          path="com.virtual7.taskflowEndPoint.controller.task_flow_second_task_flow_second_doSomeOtherThingPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="TaskflowEndPointAppModuleDataControl" Package="com.virtual7.taskflowEndPoint.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="TaskflowEndPointAppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

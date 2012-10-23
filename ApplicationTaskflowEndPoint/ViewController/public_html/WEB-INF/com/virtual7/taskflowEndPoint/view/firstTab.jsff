@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1">
+          <af:panelFormLayout id="pfl1">
+            <af:inputText value="#{bindings.LastName.inputValue}" label="#{bindings.LastName.hints.label}"
+                          required="#{bindings.LastName.hints.mandatory}" autoSubmit="true"
+                          columns="#{bindings.LastName.hints.displayWidth}"
+                          maximumLength="#{bindings.LastName.hints.precision}"
+                          shortDesc="#{bindings.LastName.hints.tooltip}" id="it1">
+              <f:validator binding="#{bindings.LastName.validator}"/>
+            </af:inputText>
+            <f:facet name="footer">
+              <af:panelGroupLayout layout="vertical" id="pgl3">
+                <af:panelGroupLayout layout="horizontal" id="pgl2">
+                  <af:commandButton actionListener="#{bindings.First.execute}" text="First"
+                                    disabled="#{!bindings.First.enabled}" partialSubmit="true" id="cb5"/>
+                  <af:commandButton actionListener="#{bindings.Previous.execute}" text="Previous"
+                                    disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="cb1"/>
+                  <af:commandButton actionListener="#{bindings.Next.execute}" text="Next"
+                                    disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="cb3"/>
+                  <af:commandButton actionListener="#{bindings.Last.execute}" text="Last"
+                                    disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="cb2"/>
+                </af:panelGroupLayout>
+                <af:commandButton text="Submit" id="cb4" actionListener="#{bindings.Commit.execute}" action="doSomething"/>
+              </af:panelGroupLayout>
+            </f:facet>
+          </af:panelFormLayout>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>
