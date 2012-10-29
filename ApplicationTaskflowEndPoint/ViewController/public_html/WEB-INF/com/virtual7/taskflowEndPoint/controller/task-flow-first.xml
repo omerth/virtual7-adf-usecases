@@ -17,14 +17,27 @@
     <method-call id="doSomething">
       <method>#{bindings.doSomething.execute}</method>
       <outcome id="__6">
-        <fixed-outcome>doSomething</fixed-outcome>
+        <fixed-outcome>return</fixed-outcome>
       </outcome>
     </method-call>
+    <task-flow-return id="exitTF1">
+      <outcome id="__2">
+        <name>exitTF1</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
     <control-flow-rule id="__7">
       <from-activity-id id="__8">firstTab</from-activity-id>
       <control-flow-case id="__10">
         <from-outcome id="__11">firstRegionAction</from-outcome>
         <to-activity-id id="__9">doSomething</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">doSomething</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__15">return</from-outcome>
+        <to-activity-id id="__14">exitTF1</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
