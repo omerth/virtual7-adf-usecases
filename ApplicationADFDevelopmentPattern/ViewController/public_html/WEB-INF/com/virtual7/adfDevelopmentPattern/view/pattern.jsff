@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="scroll">
+        <af:panelGroupLayout id="pgl2">
+          <af:selectOneChoice value="#{pageFlowScope.adfPatternFilterContext.departmentId}" label="Departments"
+                              autoSubmit="true" unselectedLabel="All Departments"
+                              shortDesc="#{bindings.DepartmentsLOV.hints.tooltip}"
+                              valueChangeListener="#{backingBeanScope.adfPatternBackingBean.employeesLOVValueChanged}"
+                              id="soc1">
+            <f:selectItems value="#{backingBeanScope.adfPatternBackingBean.departmentsList}" id="si1"/>
+          </af:selectOneChoice>
+          <af:commandButton text="Save" id="cb1" partialSubmit="true"
+                            actionListener="#{backingBeanScope.adfPatternBackingBean.saveActionListener}"/>
+          <af:commandButton text="Cancel" id="cb2" immediate="true" partialSubmit="true"
+                            actionListener="#{backingBeanScope.adfPatternBackingBean.cancelActionListener}">
+          </af:commandButton>
+        </af:panelGroupLayout>
+        <af:table value="#{bindings.EmployeesTable.collectionModel}" var="row" rowSelection="single" width="500px;"
+                  rows="#{bindings.EmployeesTable.rangeSize}" partialTriggers="::soc1 ::cb1 ::cb2 ::cb3"
+                  emptyText="#{bindings.EmployeesTable.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  fetchSize="#{bindings.EmployeesTable.rangeSize}" rowBandingInterval="0" id="t1">
+          <af:column sortProperty="EmployeeId" sortable="false"
+                     headerText="#{bindings.EmployeesTable.hints.EmployeeId.label}" id="c3">
+            <af:inputText value="#{row.bindings.EmployeeId.inputValue}" readOnly="true"
+                          label="#{bindings.EmployeesTable.hints.EmployeeId.label}"
+                          required="#{bindings.EmployeesTable.hints.EmployeeId.mandatory}"
+                          columns="#{bindings.EmployeesTable.hints.EmployeeId.displayWidth}"
+                          maximumLength="#{bindings.EmployeesTable.hints.EmployeeId.precision}"
+                          shortDesc="#{bindings.EmployeesTable.hints.EmployeeId.tooltip}" id="it3">
+              <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="FirstName" sortable="false"
+                     headerText="#{bindings.EmployeesTable.hints.FirstName.label}" id="c2">
+            <af:inputText value="#{row.bindings.FirstName.inputValue}" autoSubmit="true"
+                          label="#{bindings.EmployeesTable.hints.FirstName.label}"
+                          required="#{bindings.EmployeesTable.hints.FirstName.mandatory}"
+                          columns="#{bindings.EmployeesTable.hints.FirstName.displayWidth}"
+                          maximumLength="#{bindings.EmployeesTable.hints.FirstName.precision}"
+                          shortDesc="#{bindings.EmployeesTable.hints.FirstName.tooltip}" id="it4">
+              <f:validator binding="#{row.bindings.FirstName.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="LastName" sortable="false"
+                     headerText="#{bindings.EmployeesTable.hints.LastName.label}" id="c1">
+            <af:inputText value="#{row.bindings.LastName.inputValue}" autoSubmit="true"
+                          label="#{bindings.EmployeesTable.hints.LastName.label}"
+                          required="#{bindings.EmployeesTable.hints.LastName.mandatory}"
+                          columns="#{bindings.EmployeesTable.hints.LastName.displayWidth}"
+                          maximumLength="#{bindings.EmployeesTable.hints.LastName.precision}"
+                          shortDesc="#{bindings.EmployeesTable.hints.LastName.tooltip}" id="it2">
+              <f:validator binding="#{row.bindings.LastName.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column sortProperty="Email" sortable="false" headerText="#{bindings.EmployeesTable.hints.Email.label}"
+                     id="c4">
+            <af:inputText value="#{row.bindings.Email.inputValue}" label="#{bindings.EmployeesTable.hints.Email.label}"
+                          required="#{bindings.EmployeesTable.hints.Email.mandatory}" autoSubmit="true"
+                          columns="#{bindings.EmployeesTable.hints.Email.displayWidth}"
+                          maximumLength="#{bindings.EmployeesTable.hints.Email.precision}"
+                          shortDesc="#{bindings.EmployeesTable.hints.Email.tooltip}" id="it1">
+              <f:validator binding="#{row.bindings.Email.validator}"/>
+            </af:inputText>
+          </af:column>
+        </af:table>
+        <af:commandButton text="Add Employee" id="cb3" partialSubmit="true"
+                          actionListener="#{backingBeanScope.adfPatternBackingBean.addEmployeeActionListener}"/>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>
