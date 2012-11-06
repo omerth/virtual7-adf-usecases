@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ADFPatternAM"
+  Version="11.1.1.60.13"
+  ClearCacheOnRollback="true"
+  ComponentInterface="com.virtual7.adfDevelopmentPattern.model.common.ADFPatternAM"
+  ClientProxyName="com.virtual7.adfDevelopmentPattern.model.client.ADFPatternAMClient"
+  ComponentClass="com.virtual7.adfDevelopmentPattern.model.ADFPatternAMImpl">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_superClassName" Value="com.virtual7.util.model.BaseAppModuleImpl"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.virtual7.adfDevelopmentPattern.model.ADFPatternAM_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="DepartmentsLOV"
+    ViewObjectName="com.virtual7.adfDevelopmentPattern.model.views.DepartmentsLOV"/>
+  <ViewUsage
+    Name="EmployeesTable"
+    ViewObjectName="com.virtual7.adfDevelopmentPattern.model.views.EmployeesVO">
+    <ViewCriteriaUsage
+      Name="FilterByDepartments"
+      FullName="com.virtual7.adfDevelopmentPattern.model.views.EmployeesVO.FilterByDepartments"/>
+  </ViewUsage>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.adfDevelopmentPattern.model.ModelBundle"/>
+  </ResourceBundle>
+  <ClientInterface>
+    <Method
+      Name="filterDataModel">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="filterContext"
+        Type="com.virtual7.util.model.context.AFilterContext"/>
+    </Method>
+    <Method
+      Name="changeDataModel">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="changeContext"
+        Type="com.virtual7.util.model.context.AChangeContext"/>
+      <Parameter
+        Name="filterContext"
+        Type="com.virtual7.util.model.context.AFilterContext"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

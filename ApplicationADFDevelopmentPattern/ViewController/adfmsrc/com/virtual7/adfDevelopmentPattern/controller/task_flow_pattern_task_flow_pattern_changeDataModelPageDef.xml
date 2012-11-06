@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13"
+                id="task_flow_pattern_task_flow_pattern_changeDataModelPageDef"
+                Package="com.virtual7.adfDevelopmentPattern.controller" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <methodAction id="changeDataModel" RequiresUpdateModel="true" Action="invokeMethod" MethodName="changeDataModel"
+                  IsViewObjectMethod="false" DataControl="ADFPatternAMDataControl"
+                  InstanceName="ADFPatternAMDataControl.dataProvider">
+      <NamedData NDName="changeContext" NDValue="#{pageFlowScope.adfPatternChangeContext}"
+                 NDType="com.virtual7.util.model.context.AChangeContext"/>
+      <NamedData NDName="filterContext" NDValue="#{pageFlowScope.adfPatternFilterContext}"
+                 NDType="com.virtual7.util.model.context.AFilterContext"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>
