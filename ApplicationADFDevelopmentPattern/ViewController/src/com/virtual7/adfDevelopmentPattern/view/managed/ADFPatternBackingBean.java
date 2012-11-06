@@ -4,10 +4,7 @@ package com.virtual7.adfDevelopmentPattern.view.managed;
 import com.virtual7.adfDevelopmentPattern.model.ADFPatternOperationFactory;
 import com.virtual7.adfDevelopmentPattern.model.context.ADFPatternChangeContext;
 import com.virtual7.adfDevelopmentPattern.model.context.ADFPatternFilterContext;
-
-
 import com.virtual7.util.view.ADFUtils;
-
 import com.virtual7.util.view.JSFUtils;
 
 import java.util.List;
@@ -16,11 +13,10 @@ import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 import javax.faces.model.SelectItem;
 
-import oracle.adf.view.rich.component.rich.data.RichTable;
-
 import oracle.adf.view.rich.util.ResetUtils;
 
 import oracle.jbo.domain.Number;
+import oracle.jbo.domain.Timestamp;
 
 
 public class ADFPatternBackingBean {
@@ -72,6 +68,7 @@ public class ADFPatternBackingBean {
         ADFPatternFilterContext filterContext =
             (ADFPatternFilterContext)ADFUtils.getPageFlowScopeVariable("adfPatternFilterContext");
         changeContext.setChanges(new String[] { ADFPatternOperationFactory.ADD_EMPLOYEE });
+        changeContext.setHireDate(new Timestamp(System.currentTimeMillis()));
         filterContext.setFilters(new String[] { ADFPatternOperationFactory.EMPLOYEE_FILTER });
         JSFUtils.navigateToAction("change");
     }

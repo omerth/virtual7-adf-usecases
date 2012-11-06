@@ -1,8 +1,8 @@
 package com.virtual7.adfDevelopmentPattern.model;
 
-import com.virtual7.adfDevelopmentPattern.model.opperations.ADFPatternAddOperation;
+import com.virtual7.adfDevelopmentPattern.model.opperations.EmployeesAddOperation;
 import com.virtual7.adfDevelopmentPattern.model.opperations.CommitOperation;
-import com.virtual7.adfDevelopmentPattern.model.opperations.EmployyesFilterOperation;
+import com.virtual7.adfDevelopmentPattern.model.opperations.EmployeesFilterOperation;
 import com.virtual7.adfDevelopmentPattern.model.opperations.RollbackOperation;
 import com.virtual7.util.model.operations.AOperationFactory;
 
@@ -16,9 +16,9 @@ public class ADFPatternOperationFactory extends AOperationFactory {
 
     public ADFPatternOperationFactory() {
         super(EMPLOYEE_FILTER);
-        registerFilterOperation(EMPLOYEE_FILTER, new EmployyesFilterOperation());
+        registerFilterOperation(EMPLOYEE_FILTER, new EmployeesFilterOperation());
         
-        registerChangeOperation(ADD_EMPLOYEE, new ADFPatternAddOperation());
+        registerChangeOperation(ADD_EMPLOYEE, new EmployeesAddOperation());
         registerChangeOperation(COMMIT, new CommitOperation());
         registerChangeOperation(ROLLBACK, new RollbackOperation());
     }
