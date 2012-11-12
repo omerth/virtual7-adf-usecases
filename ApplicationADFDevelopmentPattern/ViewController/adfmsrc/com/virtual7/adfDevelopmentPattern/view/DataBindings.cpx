@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.adfDevelopmentPattern.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/WEB-INF/com/virtual7/adfDevelopmentPattern/controller/task-flow-pattern.xml#task-flow-pattern@filterDataModel"
+          usageId="com_virtual7_adfDevelopmentPattern_view_task_flow_pattern_task_flow_pattern_filterDataModelPageDef"/>
+    <page path="/WEB-INF/com/virtual7/adfDevelopmentPattern/controller/task-flow-pattern.xml#task-flow-pattern@changeDataModel"
+          usageId="com_virtual7_adfDevelopmentPattern_view_task_flow_pattern_task_flow_pattern_changeDataModelPageDef"/>
+    <page path="/WEB-INF/com/virtual7/adfDevelopmentPattern/view/pattern.jsff"
+          usageId="com_virtual7_adfDevelopmentPattern_view_patternPageDef"/>
+    <page path="/index.jspx" usageId="com_virtual7_adfDevelopmentPattern_view_indexPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_adfDevelopmentPattern_view_task_flow_pattern_task_flow_pattern_filterDataModelPageDef"
+          path="com.virtual7.adfDevelopmentPattern.controller.task_flow_pattern_task_flow_pattern_filterDataModelPageDef"/>
+    <page id="com_virtual7_adfDevelopmentPattern_view_task_flow_pattern_task_flow_pattern_changeDataModelPageDef"
+          path="com.virtual7.adfDevelopmentPattern.controller.task_flow_pattern_task_flow_pattern_changeDataModelPageDef"/>
+    <page id="com_virtual7_adfDevelopmentPattern_view_patternPageDef"
+          path="com.virtual7.adfDevelopmentPattern.view.patternPageDef"/>
+    <page id="com_virtual7_adfDevelopmentPattern_view_indexPageDef"
+          path="com.virtual7.adfDevelopmentPattern.view.pageDefs.indexPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="ADFPatternAMDataControl" Package="com.virtual7.adfDevelopmentPattern.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="ADFPatternAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

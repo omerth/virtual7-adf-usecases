@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-second">
+    <default-activity id="__1">secondTab</default-activity>
+    <transaction id="__6">
+      <new-transaction/>
+    </transaction>
+    <data-control-scope id="__3">
+      <isolated/>
+    </data-control-scope>
+    <task-flow-reentry id="__4">
+      <reentry-allowed/>
+    </task-flow-reentry>
+    <view id="secondTab">
+      <page>/WEB-INF/com/virtual7/taskflowEndPoint/view/secondTab.jsff</page>
+    </view>
+    <method-call id="doSomeOtherThing">
+      <method>#{bindings.doSomeOtherThing.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>return</fixed-outcome>
+      </outcome>
+    </method-call>
+    <task-flow-return id="exitTF2">
+      <outcome id="__11">
+        <name>exitTF2</name>
+        <rollback/>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__5">
+      <from-activity-id id="__7">secondTab</from-activity-id>
+      <control-flow-case id="__8">
+        <from-outcome id="__10">secondRegionAction</from-outcome>
+        <to-activity-id id="__9">doSomeOtherThing</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__12">
+      <from-activity-id id="__13">doSomeOtherThing</from-activity-id>
+      <control-flow-case id="__15">
+        <from-outcome id="__14">return</from-outcome>
+        <to-activity-id id="__16">exitTF2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

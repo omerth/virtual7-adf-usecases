@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.61.92" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.programaticPivotTableBinding.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_virtual7_programaticPivotTableBinding_view_indexPageDef"/>
+    <page path="/programaticVO.jspx" usageId="com_virtual7_programaticPivotTableBinding_view_programaticVOPageDef"/>
+    <page path="/testDynamicBinding.jspx"
+          usageId="com_virtual7_programaticPivotTableBinding_view_testDynamicBindingPageDef"/>
+    <page path="/nullValuesHeadder.jspx"
+          usageId="com_virtual7_programaticPivotTableBinding_view_nullValuesHeadderPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_programaticPivotTableBinding_view_indexPageDef"
+          path="com.virtual7.programaticPivotTableBinding.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_programaticPivotTableBinding_view_programaticVOPageDef"
+          path="com.virtual7.programaticPivotTableBinding.view.pageDefs.programaticVOPageDef"/>
+    <page id="com_virtual7_programaticPivotTableBinding_view_testDynamicBindingPageDef"
+          path="com.virtual7.programaticPivotTableBinding.view.pageDefs.testDynamicBindingPageDef"/>
+    <page id="com_virtual7_programaticPivotTableBinding_view_nullValuesHeadderPageDef"
+          path="com.virtual7.programaticPivotTableBinding.view.pageDefs.nullValuesHeadderPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.programaticPivotTableBinding.model.views"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

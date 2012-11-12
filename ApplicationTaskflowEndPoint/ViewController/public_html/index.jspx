@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelTabbed id="pt1">
+          <af:showDetailItem text="First Tab" id="sdi1"
+                             disclosureListener="#{pageFlowScope.taskflowBean.firstTabDisclosureListener}">
+            <af:region value="#{bindings.taskflowfirst.regionModel}" id="r1"/>
+            <af:setPropertyListener from="TAB1" to="#{pageFlowScope.tabClicked}" type="disclosure"/>
+          </af:showDetailItem>
+          <af:showDetailItem text="Second Tab" id="sdi2"
+                             disclosureListener="#{pageFlowScope.taskflowBean.secondTabDisclosureListener}">
+            <af:region value="#{bindings.taskflowsecond.regionModel}" id="r2"/>
+            <af:setPropertyListener from="TAB2" to="#{pageFlowScope.tabClicked}" type="disclosure"/>
+          </af:showDetailItem>
+        </af:panelTabbed>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

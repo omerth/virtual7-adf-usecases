@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">secondTab</property>
+      <property
+         name="page">/WEB-INF/com/virtual7/taskflowEndPoint/view/secondTab.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>secondTab&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">343.13184</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">356.0</property>
+   </View>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">doSomeOtherThing</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>doSomeOtherThing&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">383.1494</property>
+      <property
+         name="x">674.3623</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View2"
+      to="MethodCall7">
+      <property
+         name="fromOutcome">secondRegionAction</property>
+      <property
+         name="sdm:polyPoints">R50,397.0,342.78125,633.3623,382.79883,L50</property>
+   </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn5">
+      <property
+         name="activityId">exitTF2</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>exitTF2&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  exitTF2&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">306.94824</property>
+      <property
+         name="x">858.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="MethodCall7"
+      to="TaskFlowReturn5">
+      <property
+         name="fromOutcome">return</property>
+      <property
+         name="sdm:polyPoints">R50,715.3623,382.79883,817.0,306.59766,L50</property>
+   </ControlFlowCase>
+</SDM>

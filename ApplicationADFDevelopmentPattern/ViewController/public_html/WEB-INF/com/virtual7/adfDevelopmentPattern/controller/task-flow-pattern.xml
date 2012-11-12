@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-pattern">
+    <default-activity id="__1">filterDataModel</default-activity>
+    <managed-bean id="__7">
+      <managed-bean-name id="__8">adfPatternChangeContext</managed-bean-name>
+      <managed-bean-class id="__6">com.virtual7.adfDevelopmentPattern.model.context.ADFPatternChangeContext</managed-bean-class>
+      <managed-bean-scope id="__9">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__11">
+      <managed-bean-name id="__12">adfPatternFilterContext</managed-bean-name>
+      <managed-bean-class id="__10">com.virtual7.adfDevelopmentPattern.model.context.ADFPatternFilterContext</managed-bean-class>
+      <managed-bean-scope id="__13">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__31">
+      <managed-bean-name id="__33">adfPatternBackingBean</managed-bean-name>
+      <managed-bean-class id="__32">com.virtual7.adfDevelopmentPattern.view.managed.ADFPatternBackingBean</managed-bean-class>
+      <managed-bean-scope id="__30">backingBean</managed-bean-scope>
+    </managed-bean>
+    <view id="pattern">
+      <page>/WEB-INF/com/virtual7/adfDevelopmentPattern/view/pattern.jsff</page>
+    </view>
+    <method-call id="filterDataModel">
+      <method>#{bindings.filterDataModel.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>view</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="changeDataModel">
+      <method>#{bindings.changeDataModel.execute}</method>
+      <outcome id="__3">
+        <fixed-outcome>changeDataModel</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__4">
+      <from-activity-id id="__5">filterDataModel</from-activity-id>
+      <control-flow-case id="__16">
+        <from-outcome id="__14">view</from-outcome>
+        <to-activity-id id="__15">pattern</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__17">
+      <from-activity-id id="__18">pattern</from-activity-id>
+      <control-flow-case id="__20">
+        <from-outcome id="__21">filter</from-outcome>
+        <to-activity-id id="__19">filterDataModel</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__23">
+        <from-outcome id="__24">change</from-outcome>
+        <to-activity-id id="__22">changeDataModel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__25">
+      <from-activity-id id="__26">changeDataModel</from-activity-id>
+      <control-flow-case id="__28">
+        <from-outcome id="__27">changeDataModel</from-outcome>
+        <to-activity-id id="__29">filterDataModel</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.taskflowEndPoint.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="taskflowfirst"
+              taskFlowId="/WEB-INF/com/virtual7/taskflowEndPoint/controller/task-flow-first.xml#task-flow-first" xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              activation="conditional"
+              active="#{pageFlowScope.tabClicked == 'TAB1' || pageFlowScope.tabClicked == null}"/>
+    <taskFlow id="taskflowsecond"
+              taskFlowId="/WEB-INF/com/virtual7/taskflowEndPoint/controller/task-flow-second.xml#task-flow-second" xmlns="http://xmlns.oracle.com/adf/controller/binding"
+              active="#{pageFlowScope.tabClicked == 'TAB2'}" activation="conditional"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

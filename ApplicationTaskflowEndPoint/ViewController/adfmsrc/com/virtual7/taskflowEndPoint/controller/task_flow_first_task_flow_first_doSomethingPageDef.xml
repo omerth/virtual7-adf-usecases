@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13"
+                id="task_flow_first_task_flow_first_doSomethingPageDef"
+                Package="com.virtual7.taskflowEndPoint.controller" SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="doSomething" RequiresUpdateModel="true" Action="invokeMethod" MethodName="doSomething"
+            IsViewObjectMethod="false" DataControl="TaskflowEndPointAppModuleDataControl"
+            InstanceName="TaskflowEndPointAppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

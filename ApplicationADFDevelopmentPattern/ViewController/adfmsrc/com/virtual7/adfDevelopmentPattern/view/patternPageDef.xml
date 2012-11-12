@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="patternPageDef"
+                Package="com.virtual7.adfDevelopmentPattern.view">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentsLOV" RangeSize="25" DataControl="ADFPatternAMDataControl" id="DepartmentsLOVIterator"/>
+    <iterator Binds="EmployeesTable" RangeSize="25" DataControl="ADFPatternAMDataControl" id="EmployeesTableIterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="DepartmentsLOVIterator" ListOperMode="navigation" ListIter="DepartmentsLOVIterator"
+          id="DepartmentsLOV" DTSupportsMRU="true">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </list>
+    <tree IterBinding="EmployeesTableIterator" id="EmployeesTable">
+      <nodeDefinition DefName="com.virtual7.adfDevelopmentPattern.model.views.EmployeesVO" Name="EmployeesTable0">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+          <Item Value="Email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
