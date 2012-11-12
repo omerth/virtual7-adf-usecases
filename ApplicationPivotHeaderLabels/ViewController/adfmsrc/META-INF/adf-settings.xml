@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adf-settings xmlns="http://xmlns.oracle.com/adf/settings">
+    <adf-controller-config xmlns="http://xmlns.oracle.com/adf/controller/config">
+        <lifecycle>
+            <phase-listener>
+                <listener-id>MyPhaseListener</listener-id>
+                <class>com.virtual7.pivotHeaderLabels.view.managed.MyPhaseListener</class>
+            </phase-listener>
+        </lifecycle>
+    </adf-controller-config>
+</adf-settings>

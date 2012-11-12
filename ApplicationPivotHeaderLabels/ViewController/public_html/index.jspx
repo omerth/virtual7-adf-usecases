@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <f:facet name="metaContainer">
+        <af:group>
+          <af:resource type="javascript" source="/js/jquery-1.8.2.js"/>
+        </af:group>
+      </f:facet>
+      <af:form id="f1">
+        <af:resource type="javascript">
+          function insertLabels(event) {
+              doInitLabels();
+          }
+          function doInitLabels() {
+              alert('here');
+              var pivot = AdfPage.PAGE.findComponent("pivotTable1");
+              //var x = $("#"+pivot.getClientId() + "\\:\\:RowHeader");
+              var staticCols = document.getElementById(pivot.getClientId() + "::RowHeader");
+              initLabels(staticCols.style.width);
+              staticCols.addEventListener("scroll", scrolListener, false);
+          }
+
+          function scrolListener(e) {
+              var labels = document.getElementById("pgl2");
+              labels.scrollLeft = e.target.scrollLeft;
+          }
+
+          function initLabels(w) {
+              var labelsADF = AdfPage.PAGE.findComponent("pgl2");
+              var labels = document.getElementById(labelsADF.getClientId());
+              labels.style.width = w;
+              labels.style.display = "block";
+          }
+        </af:resource>
+        <af:panelGroupLayout id="pgl3">
+          <af:panelGroupLayout id="pgl2" layout="vertical" styleClass="PanelLabels" clientComponent="true">
+            <af:panelGroupLayout layout="horizontal" id="pgl4">
+              <af:outputLabel value="test1" styleClass="LabelStyle" id="ol1"/>
+              <af:outputLabel value="test2" styleClass="LabelStyle" id="ol2"/>
+              <af:outputLabel value="test3" styleClass="LabelStyle" id="ol3"/>
+              <af:outputLabel value="test4" styleClass="LabelStyle" id="ol4"/>
+              <af:outputLabel value="test5" styleClass="LabelStyle" id="ol5"/>
+              <af:outputLabel value="test6" styleClass="LabelStyle" id="ol6"/>
+              <af:outputLabel value="test7" styleClass="LabelStyle" id="ol7"/>
+              <af:outputLabel value="test8" styleClass="LabelStyle" id="ol8"/>
+              <af:outputLabel value="test9" styleClass="LabelStyle" id="ol9"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+          <af:panelGroupLayout layout="scroll" id="pgl1" styleClass="PanelGroupLayouts" clientComponent="true">
+            <dvt:pivotTable id="pivotTable1" value="#{bindings.EmployeesView1.pivotTableModel}" styleClass="PivotTables"
+                            sizing="auto" pivotEnabled="false" inlineStyle="width: 600px;"
+                            binding="#{backingBeanScope.managedBean.pivotTable}"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:commandButton text="commandButton 1" id="cb2"/>
+        <af:outputText id="cb1" value="insert">
+          <af:clientListener method="insertLabels" type="click"/>
+        </af:outputText>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
