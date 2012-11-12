@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="firstTabPageDef"
+                Package="com.virtual7.taskflowEndPoint.view">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesVO" RangeSize="25" DataControl="TaskflowEndPointAppModuleDataControl"
+              id="EmployeesVOIterator" ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EmployeesVOIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="EmployeesVOIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="EmployeesVOIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="EmployeesVOIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="EmployeesVOIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="TaskflowEndPointAppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.virtual7.adfDevelopmentPattern.model.ADFPatternAM">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.virtual7.adfDevelopmentPattern.model.Model" name="ADFPatternAMLocal" ApplicationName="com.virtual7.adfDevelopmentPattern.model.ADFPatternAM">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.adfDevelopmentPattern.model.ADFPatternAM"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="ADFPatternAMShared" ApplicationName="com.virtual7.adfDevelopmentPattern.model.ADFPatternAM" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.adfDevelopmentPattern.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.virtual7.adfDevelopmentPattern.model.ADFPatternAM"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>
