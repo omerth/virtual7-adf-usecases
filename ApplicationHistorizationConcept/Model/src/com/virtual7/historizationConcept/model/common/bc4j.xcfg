@@ -1,0 +1,38 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.virtual7.historizationConcept.model.AppModule1">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.virtual7.historizationConcept.model.Model" name="AppModule1Local" ApplicationName="com.virtual7.historizationConcept.model.AppModule1">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.historizationConcept.model.AppModule1"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.virtual7.historizationConcept.model.Model" name="AppModule1Shared" ApplicationName="com.virtual7.historizationConcept.model.AppModule1">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.historizationConcept.model.AppModule1"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="com.virtual7.historizationConcept.model.AppModule2">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.virtual7.historizationConcept.model.Model" name="AppModule2Local" ApplicationName="com.virtual7.historizationConcept.model.AppModule2">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.historizationConcept.model.AppModule2"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.virtual7.historizationConcept.model.Model" name="AppModule2Shared" ApplicationName="com.virtual7.historizationConcept.model.AppModule2">
+         <AM-Pooling jbo.ampool.dynamicjdbccredentials="false" jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1" jbo.ampool.resetnontransactionalstate="false"/>
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.historizationConcept.model.AppModule2"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="com.virtual7.historizationConcept.model.AppModule3">
+      <AppModuleConfig name="AppModule3Local" ApplicationName="com.virtual7.historizationConcept.model.AppModule3" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.historizationConcept.model.Model">
+         <Security AppModuleJndiName="com.virtual7.historizationConcept.model.AppModule3"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModule3Shared" ApplicationName="com.virtual7.historizationConcept.model.AppModule3" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.historizationConcept.model.Model">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.virtual7.historizationConcept.model.AppModule3"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

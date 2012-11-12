@@ -1,0 +1,820 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">87d30fa4-ae21-4647-a10d-4a74c6295746</identifier>
+  </ID>
+  <name>DEPARTMENTS</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7fa5467f-a72d-444d-87a3-0d6459333a36</identifier>
+      </ID>
+      <name>DEPARTMENT_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">a4ac5408-9fcf-40b8-95a4-b5fc55a34da0</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">4</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>DEPARTMENT_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>DEPARTMENTS</name>
+                  <identifier class="java.math.BigDecimal">12095</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Primary key column of departments table.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DEPARTMENT_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">e984dbb9-485b-4313-89c9-590418f76df2</identifier>
+      </ID>
+      <name>DEPARTMENT_NAME</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">072e7e6d-a5d7-4978-ace8-2bcb440709b0</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">30</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>DEPARTMENT_NAME</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>DEPARTMENTS</name>
+                  <identifier class="java.math.BigDecimal">12095</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">A not null column that shows name of a department. Administration,
+Marketing, Purchasing, Human Resources, Shipping, IT, Executive, Public
+Relations, Sales, Finance, and Accounting. </value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DEPARTMENT_NAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">8a35e2b9-bda0-4e3f-a5be-abb08d4b4829</identifier>
+      </ID>
+      <name>MANAGER_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">92be5c66-80f2-4098-9fe5-21480d561b4e</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">6</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>MANAGER_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>DEPARTMENTS</name>
+                  <identifier class="java.math.BigDecimal">12095</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Manager_id of a department. Foreign key to employee_id column of employees table. The manager_id column of the employee table references this column.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>MANAGER_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">f99295be-3343-4d33-96e3-0631d2520470</identifier>
+      </ID>
+      <name>LOCATION_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">cc1e4ab4-f8f7-4731-a929-db6c9084b351</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">4</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>LOCATION_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>DEPARTMENTS</name>
+                  <identifier class="java.math.BigDecimal">12095</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Location id where a department is located. Foreign key to location_id column of locations table.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LOCATION_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">33484d2d-c7a8-49f6-a27d-1110fbad5c56</identifier>
+      </ID>
+      <name>IS_CURRENT_VERSION</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">135a373b-f897-406e-83a1-b6c79b9d47c2</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">1</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>IS_CURRENT_VERSION</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>DEPARTMENTS</name>
+                  <identifier class="java.math.BigDecimal">12095</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>IS_CURRENT_VERSION</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">bd119abb-9c79-437e-840c-7f7f9a809c33</identifier>
+      </ID>
+      <name>CREATION_DATE</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">2dfb4820-3146-4430-a77e-cd6073cf64b9</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>DATE</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>CREATION_DATE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>DEPARTMENTS</name>
+                  <identifier class="java.math.BigDecimal">12095</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>CREATION_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">ed34811e-a2e8-427e-8232-9282b4e38807</identifier>
+      </ID>
+      <name>DEPT_NAME_NN</name>
+      <checkConditionFragment class="oracle.javatools.db.sql.WhereObject">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">0f8c5f86-ca5e-44ce-9784-6248f011ce4b</identifier>
+        </ID>
+        <arguments>
+          <argument class="oracle.javatools.db.sql.Comparison">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">5c767bf9-9eb0-4bcc-bd12-b11928f06a82</identifier>
+            </ID>
+            <comparator>44</comparator>
+            <leftExpression class="oracle.javatools.db.sql.ColumnUsage">
+              <ID class="oracle.javatools.db.IdentifierBasedID">
+                <identifier class="java.lang.String">605b23fc-4d68-4996-8a0e-cc7d31ba7595</identifier>
+              </ID>
+              <objectID class="oracle.javatools.db.IdentifierBasedID">
+                <name>DEPARTMENT_NAME</name>
+                <identifier class="java.lang.String">e984dbb9-485b-4313-89c9-590418f76df2</identifier>
+                <parent class="oracle.javatools.db.IdentifierBasedID">
+                  <name>DEPARTMENTS</name>
+                  <identifier class="java.lang.String">87d30fa4-ae21-4647-a10d-4a74c6295746</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <schemaName>HR</schemaName>
+                <type>COLUMN</type>
+              </objectID>
+              <outerJoin>false</outerJoin>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>DEPT_NAME_NN</name>
+                          <parent class="oracle.javatools.db.ReferenceID">
+                            <name>DEPARTMENTS</name>
+                            <identifier class="java.math.BigDecimal">12095</identifier>
+                            <schemaName>HR</schemaName>
+                            <type>TABLE</type>
+                          </parent>
+                          <subType>CheckConstraint</subType>
+                          <type>CONSTRAINT</type>
+                        </parent>
+                        <type>WHERE</type>
+                      </parent>
+                      <type>SQLFragment</type>
+                    </parent>
+                    <type>SQLFragment</type>
+                  </value>
+                </entry>
+              </properties>
+              <qualified>false</qualified>
+            </leftExpression>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>DEPT_NAME_NN</name>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>DEPARTMENTS</name>
+                        <identifier class="java.math.BigDecimal">12095</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <subType>CheckConstraint</subType>
+                      <type>CONSTRAINT</type>
+                    </parent>
+                    <type>WHERE</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+          </argument>
+        </arguments>
+        <operator>372</operator>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>DEPT_NAME_NN</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>DEPARTMENTS</name>
+                  <identifier class="java.math.BigDecimal">12095</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <subType>CheckConstraint</subType>
+                <type>CONSTRAINT</type>
+              </parent>
+              <type>WHERE</type>
+            </value>
+          </entry>
+        </properties>
+      </checkConditionFragment>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DEPT_NAME_NN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>CheckConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">4f8872d0-2b48-4150-9184-c59c984e67c6</identifier>
+      </ID>
+      <name>DEPT_LOC_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>LOCATION_ID</name>
+          <identifier class="java.lang.String">f99295be-3343-4d33-96e3-0631d2520470</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>DEPARTMENTS</name>
+            <identifier class="java.lang.String">87d30fa4-ae21-4647-a10d-4a74c6295746</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DEPT_LOC_FK</name>
+            <childObjectNames>
+              <childObjectName>LOCATION_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.ReferenceID">
+        <name>LOC_ID_PK</name>
+        <childObjectNames>
+          <childObjectName>LOCATION_ID</childObjectName>
+        </childObjectNames>
+        <parent class="oracle.javatools.db.ReferenceID">
+          <name>LOCATIONS</name>
+          <identifier class="java.math.BigDecimal">12092</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <subType>PKConstraint</subType>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">5fac0405-50b2-4609-8c57-6b5f972a3dc2</identifier>
+      </ID>
+      <name>DEPT_MGR_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>MANAGER_ID</name>
+          <identifier class="java.lang.String">8a35e2b9-bda0-4e3f-a5be-abb08d4b4829</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>DEPARTMENTS</name>
+            <identifier class="java.lang.String">87d30fa4-ae21-4647-a10d-4a74c6295746</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DEPT_MGR_FK</name>
+            <childObjectNames>
+              <childObjectName>MANAGER_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.ReferenceID">
+        <name>EMP_EMP_ID_PK</name>
+        <childObjectNames>
+          <childObjectName>EMPLOYEE_ID</childObjectName>
+        </childObjectNames>
+        <parent class="oracle.javatools.db.ReferenceID">
+          <name>EMPLOYEES</name>
+          <identifier class="java.math.BigDecimal">12100</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <subType>PKConstraint</subType>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">f23c0f72-8c5c-4972-9139-eeb06904efdf</identifier>
+      </ID>
+      <name>DEPT_ID_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>DEPARTMENT_ID</name>
+          <identifier class="java.lang.String">7fa5467f-a72d-444d-87a3-0d6459333a36</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>DEPARTMENTS</name>
+            <identifier class="java.lang.String">87d30fa4-ae21-4647-a10d-4a74c6295746</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DEPT_ID_PK</name>
+            <childObjectNames>
+              <childObjectName>DEPARTMENT_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">a5ba5ffb-8aca-4071-8b73-afc3457aadc8</identifier>
+      </ID>
+      <name>DEPT_LOCATION_IX</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">bd935cde-6902-4921-87d0-b7883f679ce3</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">23e3fe48-d570-49a1-97ff-e7050c726369</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>LOCATION_ID</name>
+              <identifier class="java.lang.String">f99295be-3343-4d33-96e3-0631d2520470</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>DEPARTMENTS</name>
+                <identifier class="java.lang.String">87d30fa4-ae21-4647-a10d-4a74c6295746</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>DEPT_LOCATION_IX</name>
+                      <identifier class="java.lang.Integer">12111</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>DEPARTMENTS</name>
+                        <identifier class="java.math.BigDecimal">12095</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>HR</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>DEPT_LOCATION_IX</name>
+                  <identifier class="java.lang.Integer">12111</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>DEPARTMENTS</name>
+                    <identifier class="java.math.BigDecimal">12095</identifier>
+                    <schemaName>HR</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>HR</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DEPT_LOCATION_IX</name>
+            <identifier class="java.lang.Integer">12111</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>DEPARTMENTS</name>
+              <identifier class="java.math.BigDecimal">12095</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>HR</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">1adfcc25-01a1-4e75-8db9-b6cfce6dbdf9</identifier>
+            </ID>
+            <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>true</logging>
+            <maxExtent>2147483645</maxExtent>
+            <minExtent>1</minExtent>
+            <percentFree>10</percentFree>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>DEPT_LOCATION_IX</name>
+                    <identifier class="java.lang.Integer">12111</identifier>
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>DEPARTMENTS</name>
+                      <identifier class="java.math.BigDecimal">12095</identifier>
+                      <schemaName>HR</schemaName>
+                      <type>TABLE</type>
+                    </parent>
+                    <schemaName>HR</schemaName>
+                    <type>INDEX</type>
+                  </parent>
+                  <type>OracleStorageProperties</type>
+                </value>
+              </entry>
+            </properties>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>USERS</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+        <entry>
+          <key>Timestamp</key>
+        </entry>
+      </properties>
+      <schema>
+        <name>HR</name>
+      </schema>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">Departments table that shows details of departments where employees
+work. Contains 27 rows; references with locations, employees, and job_history tables.</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">hrLocalHost</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>DEPARTMENTS</name>
+        <identifier class="java.math.BigDecimal">12095</identifier>
+        <schemaName>HR</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+    <entry>
+      <key>Timestamp</key>
+    </entry>
+  </properties>
+  <schema>
+    <name>HR</name>
+  </schema>
+</table>

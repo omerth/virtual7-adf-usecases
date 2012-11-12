@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+<JboProject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="Model"
+   Version="11.1.1.60.13"
+   SeparateXMLFiles="true"
+   PackageName="com.virtual7.historizationConcept.model">
+   <DesignTime>
+      <Attr Name="_jprName" Value="../../../../../Model.jpr"/>
+      <Attr Name="_appModuleNames0" Value="com.virtual7.historizationConcept.model.AppModule1"/>
+      <Attr Name="_NamedConnection" Value="hr"/>
+      <Attr Name="_appModuleNames1" Value="com.virtual7.historizationConcept.model.AppModule2"/>
+      <Attr Name="_appModuleNames2" Value="com.virtual7.historizationConcept.model.AppModule3"/>
+   </DesignTime>
+   <Containee
+      Name="associations"
+      PackageName="com.virtual7.historizationConcept.model.entities.associations"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="entities"
+      PackageName="com.virtual7.historizationConcept.model.entities"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="model"
+      ObjectType="JboPackage"
+      PackageName="com.virtual7.historizationConcept.model">
+      <DesignTime>
+         <Attr Name="_AM" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="links"
+      PackageName="com.virtual7.historizationConcept.model.views.links"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VL" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="views"
+      PackageName="com.virtual7.historizationConcept.model.views"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <AppContainee
+      Name="virtual7Util_model"
+      FullName="com.virtual7.util.model.virtual7Util_model"
+      ObjectType="JboProject">
+      <DesignTime>
+         <Attr Name="_SourceName" Value="virtual7Util_model.jar"/>
+      </DesignTime>
+   </AppContainee>
+</JboProject>

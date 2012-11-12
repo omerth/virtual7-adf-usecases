@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="vertical">
+        <af:panelBox id="pb1" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:panelFormLayout id="pfl1">
+            <f:facet name="footer">
+              <af:commandButton text="Search" id="cbSearch" action="search"/>
+            </f:facet>
+            <af:inputText label="First Name" id="itFirstName" value="#{pageFlowScope.filterFirstName}"
+                          rendered="false"/>
+            <af:inputText label="Last Name" id="itLastName" value="#{pageFlowScope.filterLastName}"/>
+            <af:inputText label="Job Title" id="itJobName" value="#{pageFlowScope.filterJobTitle}"/>
+            <af:inputText label="Department Name" id="itDepartmentName" autoSubmit="false"
+                          value="#{pageFlowScope.filterDepartmentName}"/>
+            <af:selectBooleanCheckbox label="History" id="sbc1" value="#{pageFlowScope.filterIncludeHistory}"/>
+          </af:panelFormLayout>
+        </af:panelBox>
+        <af:panelGroupLayout id="pgl2" layout="horizontal" styleClass="AFStretchWidth">
+          <af:panelBox id="pb2" showDisclosure="false" styleClass="AFStretchWidth">
+            <f:facet name="toolbar"/>
+            <af:table styleClass="AFStretchWidth" value="#{bindings.EmployeesView.collectionModel}" var="row"
+                      rows="#{bindings.EmployeesView.rangeSize}"
+                      emptyText="#{bindings.EmployeesView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.EmployeesView.rangeSize}" rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.EmployeesView.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.EmployeesView.collectionModel.makeCurrent}" rowSelection="single"
+                      id="t1" columnStretching="multiple">
+              <af:column sortProperty="EmployeeId" sortable="true" width="75"
+                         headerText="#{bindings.EmployeesView.hints.EmployeeId.label}" id="c3">
+                <af:outputText value="#{row.EmployeeId}" id="ot1">
+                  <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeesView.hints.EmployeeId.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="FirstName" sortable="true" width="50%"
+                         headerText="#{bindings.EmployeesView.hints.FirstName.label}" id="c2">
+                <af:outputText value="#{row.FirstName}" id="ot3"/>
+              </af:column>
+              <af:column sortProperty="LastName" sortable="true" width="50%"
+                         headerText="#{bindings.EmployeesView.hints.LastName.label}" id="c1">
+                <af:outputText value="#{row.LastName}" id="ot2"/>
+              </af:column>
+              <af:column id="c5" width="50px">
+                <af:commandButton action="details" text="Details" id="cb1">
+                  <af:setPropertyListener from="#{row.EmployeeId}" to="#{pageFlowScope.updateEmployeeId}"
+                                          type="action"/>
+                </af:commandButton>
+              </af:column>
+            </af:table>
+          </af:panelBox>
+          <af:panelBox id="pb3" showDisclosure="false" styleClass="AFStretchWidth">
+            <f:facet name="toolbar"/>
+            <af:table value="#{bindings.EmployeesDetailHistView.collectionModel}" var="row"
+                      rows="#{bindings.EmployeesDetailHistView.rangeSize}"
+                      emptyText="#{bindings.EmployeesDetailHistView.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      fetchSize="#{bindings.EmployeesDetailHistView.rangeSize}" rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.EmployeesDetailHistView.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.EmployeesDetailHistView.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t2" styleClass="AFStretchWidth" partialTriggers="::t1"
+                      columnStretching="multiple">
+              <af:column sortProperty="LastChangeDate" sortable="false"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.LastChangeDate.label}" id="c4"
+                         width="150px">
+                <af:outputText value="#{row.IsLast == '1' ? '(current version)' : row.LastChangeDate}" id="ot4">
+                  <af:convertDateTime pattern="#{row.IsLast == '1' ? '' : bindings.EmployeesDetailHistView.hints.LastChangeDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="FirstName" sortable="false" width="25%"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.FirstName.label}" id="c6">
+                <af:richTextEditor readOnly="true" value="#{row.FirstName}" id="ot13"/>
+              </af:column>
+              <af:column sortProperty="LastNameDiff" sortable="false" width="25%"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.LastNameDiff.label}" id="c7">
+                <af:richTextEditor readOnly="true" value="#{row.bindings.LastNameDiff.inputValue}" id="of1"/>
+              </af:column>
+              <af:column sortProperty="JobTitleDiff" sortable="false" width="25%"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.JobTitleDiff.label}" id="c8">
+                <af:richTextEditor readOnly="true" value="#{row.bindings.JobTitleDiff.inputValue}" id="of2"/>
+              </af:column>
+              <af:column sortProperty="DepartmentNameDiff" sortable="false" width="25%"
+                         headerText="#{bindings.EmployeesDetailHistView.hints.DepartmentNameDiff.label}" id="c9">
+                <af:richTextEditor readOnly="true" value="#{row.bindings.DepartmentNameDiff.inputValue}" id="of3"/>
+              </af:column>
+            </af:table>
+          </af:panelBox>
+        </af:panelGroupLayout>
+        <af:panelBox id="pb4" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:panelFormLayout id="pfl2" rows="4" partialTriggers="t2">
+            <af:panelLabelAndMessage label="#{bindings.LastChangeDate.hints.label}" id="plam6">
+              <af:outputText value="#{bindings.LastChangeDate.inputValue}" id="ot6">
+                <af:convertDateTime pattern="#{bindings.LastChangeDate.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.EmployeeId.hints.label}" id="plam7">
+              <af:outputText value="#{bindings.EmployeeId.inputValue}" id="ot7">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.FirstName.hints.label}" id="plam3">
+              <af:outputText value="#{bindings.FirstName.inputValue}" id="ot5"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.LastName.hints.label}" id="plam8">
+              <af:outputText value="#{bindings.LastName.inputValue}" id="ot11"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.JobId.hints.label}" id="plam1">
+              <af:outputText value="#{bindings.JobId.inputValue}" id="ot12"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.JobTitle.hints.label}" id="plam4">
+              <af:outputText value="#{bindings.JobTitle.inputValue}" id="ot8"/>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.DepartmentId.hints.label}" id="plam5">
+              <af:outputText value="#{bindings.DepartmentId.inputValue}" id="ot9">
+                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId.format}"/>
+              </af:outputText>
+            </af:panelLabelAndMessage>
+            <af:panelLabelAndMessage label="#{bindings.DepartmentName.hints.label}" id="plam2">
+              <af:outputText value="#{bindings.DepartmentName.inputValue}" id="ot10"/>
+            </af:panelLabelAndMessage>
+          </af:panelFormLayout>
+        </af:panelBox>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

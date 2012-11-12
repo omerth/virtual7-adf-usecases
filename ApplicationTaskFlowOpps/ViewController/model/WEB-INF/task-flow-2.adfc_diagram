@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">page3</property>
+      <property
+         name="page">/page3.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>page3&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">245.79297</property>
+      <property
+         name="x">320.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <TaskFlowReturn
+      id="TaskFlowReturn3">
+      <property
+         name="activityId">returnPage1</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>returnPage1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  returnPage1&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">142.94824</property>
+      <property
+         name="x">615.0</property>
+   </TaskFlowReturn>
+   <TaskFlowReturn
+      id="TaskFlowReturn4">
+      <property
+         name="activityId">returnPage2</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>returnPage2&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  returnPage2&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">327.94824</property>
+      <property
+         name="x">609.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View2"
+      to="TaskFlowReturn3">
+      <property
+         name="fromOutcome">retPag1</property>
+      <property
+         name="sdm:polyPoints">R46,361.0,241.94238,574.0,142.59766,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="TaskFlowReturn4">
+      <property
+         name="fromOutcome">retPag2</property>
+      <property
+         name="sdm:polyPoints">R54,361.0,248.94238,568.0,327.59766,L50</property>
+   </ControlFlowCase>
+</SDM>

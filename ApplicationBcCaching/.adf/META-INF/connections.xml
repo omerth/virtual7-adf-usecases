@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<References xmlns="http://xmlns.oracle.com/adf/jndi">
+   <Reference name="{/com/virtual7/bcCachingService/model/common/}AppModuleService" className="oracle.jbo.client.svc.Service" xmlns="">
+      <Factory className="oracle.jbo.client.svc.ServiceFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="serviceInterfaceName">
+            <Contents>com.virtual7.bcCachingService.model.common.serviceinterface.AppModuleService</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="serviceEndpointProvider">
+            <Contents>ADFBC</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="jndiName">
+            <Contents>AppModuleServiceBean#com.virtual7.bcCachingService.model.common.serviceinterface.AppModuleService</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="jndiFactoryInitial">
+            <Contents>weblogic.jndi.WLInitialContextFactory</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="jndiProviderURL">
+            <Contents>t3://localhost:7101</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="serviceSchemaName">
+            <Contents>AppModuleService.xsd</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="serviceSchemaLocation">
+            <Contents>com/virtual7/bcCachingService/model/common/serviceinterface/</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+   <Reference name="u_apps_utilities" className="oracle.jdeveloper.db.adapter.DatabaseProvider" partial="true" manageInOracleEnterpriseManager="true" deployable="true" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+   </Reference>
+   <Reference name="hr" className="oracle.jdeveloper.db.adapter.DatabaseProvider" credentialStoreKey="hr" xmlns="">
+      <Factory className="oracle.jdeveloper.db.adapter.DatabaseProviderFactory"/>
+      <RefAddresses>
+         <StringRefAddr addrType="sid">
+            <Contents>XE</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="subtype">
+            <Contents>oraJDBC</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="port">
+            <Contents>1521</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="hostname">
+            <Contents>localhost</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="user">
+            <Contents>hr</Contents>
+         </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
+         <StringRefAddr addrType="DeployPassword">
+            <Contents>true</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="oraDriverType">
+            <Contents>thin</Contents>
+         </StringRefAddr>
+      </RefAddresses>
+   </Reference>
+</References>

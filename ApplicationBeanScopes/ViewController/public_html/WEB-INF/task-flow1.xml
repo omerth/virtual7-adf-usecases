@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow1">
+    <default-activity id="__25">beanScopes</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__4">applicationBean</managed-bean-name>
+      <managed-bean-class id="__1">com.virtual7.beanScopes.view.ApplicationBean</managed-bean-class>
+      <managed-bean-scope id="__2">application</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__8">
+      <managed-bean-name id="__6">backingBean</managed-bean-name>
+      <managed-bean-class id="__5">com.virtual7.beanScopes.view.BackingBean</managed-bean-class>
+      <managed-bean-scope id="__7">backingBean</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__11">
+      <managed-bean-name id="__9">pageFlowBean</managed-bean-name>
+      <managed-bean-class id="__12">com.virtual7.beanScopes.view.PageFlowBean</managed-bean-class>
+      <managed-bean-scope id="__10">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__16">
+      <managed-bean-name id="__14">requestBean</managed-bean-name>
+      <managed-bean-class id="__13">com.virtual7.beanScopes.view.RequestBean</managed-bean-class>
+      <managed-bean-scope id="__15">request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__19">
+      <managed-bean-name id="__20">sessionBean</managed-bean-name>
+      <managed-bean-class id="__18">com.virtual7.beanScopes.view.SessionBean</managed-bean-class>
+      <managed-bean-scope id="__17">session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__22">
+      <managed-bean-name id="__21">viewBean</managed-bean-name>
+      <managed-bean-class id="__23">com.virtual7.beanScopes.view.ViewBean</managed-bean-class>
+      <managed-bean-scope id="__24">view</managed-bean-scope>
+    </managed-bean>
+    <view id="beanScopes">
+      <page>/beanScopes.jsff</page>
+    </view>
+    <view id="navBeanScope">
+      <page>/navBeanScope.jsff</page>
+    </view>
+    <control-flow-rule id="__26">
+      <from-activity-id id="__27">beanScopes</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome id="__30">go</from-outcome>
+        <to-activity-id id="__28">navBeanScope</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id id="__32">navBeanScope</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome id="__35">back</from-outcome>
+        <to-activity-id id="__33">beanScopes</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

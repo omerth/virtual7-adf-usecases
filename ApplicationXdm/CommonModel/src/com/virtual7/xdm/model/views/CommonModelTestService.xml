@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CommonModelTestService"
+  Version="11.1.1.60.13"
+  ComponentClass="com.virtual7.xdm.framework.ApplicationModuleImpl"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.virtual7.xdm.model.views.CommonModelTestService_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="XdmElements1"
+    ViewObjectName="com.virtual7.xdm.model.views.XdmElementsDefaultVO"/>
+  <ViewUsage
+    Name="XdmPersons1"
+    ViewObjectName="com.virtual7.xdm.model.views.XdmPersonsDefaultVO"/>
+  <ViewUsage
+    Name="XdmProgrammes1"
+    ViewObjectName="com.virtual7.xdm.model.views.XdmProgrammesDefaultVO"/>
+  <ViewUsage
+    Name="XdmTasks1"
+    ViewObjectName="com.virtual7.xdm.model.views.XdmTasksDefaultVO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.xdm.model.CommonModelBundle"/>
+  </ResourceBundle>
+</AppModule>

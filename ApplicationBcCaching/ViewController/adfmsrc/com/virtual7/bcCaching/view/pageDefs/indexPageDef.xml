@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.bcCaching.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentsEOVO" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentsEOVOIterator"/>
+    <iterator Binds="DepartmentVO" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentVOIterator"/>
+    <iterator Binds="DepartmentservicevoView" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="DepartmentservicevoViewIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentsEOVOIterator" id="DepartmentsEOVO">
+      <nodeDefinition DefName="com.virtual7.bcCaching.model.views.DepartmentsEOVO" Name="DepartmentsEOVO0">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="readAndPrintDepartment" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="readAndPrintDepartment" IsViewObjectMethod="false"
+                  ReturnName="data.AppModuleDataControl.methodResults.readAndPrintDepartment_AppModuleDataControl_dataProvider_readAndPrintDepartment_result"/>
+    <methodAction id="insertNewDepartment" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="insertNewDepartment" IsViewObjectMethod="false"/>
+    <methodAction id="deleteDepartment" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="deleteDepartment" IsViewObjectMethod="false"/>
+    <methodAction id="updateDepartment" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateDepartment" IsViewObjectMethod="false"/>
+    <methodAction id="executeQuery" InstanceName="AppModuleDataControl.dataProvider" DataControl="AppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="executeQuery"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="executeQuery1" InstanceName="AppModuleDataControl.dataProvider" DataControl="AppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="executeQuery1"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="executeQuery2" InstanceName="AppModuleDataControl.dataProvider" DataControl="AppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="executeQuery2"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="executeQuery3" InstanceName="AppModuleDataControl.dataProvider" DataControl="AppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="executeQuery3"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="deleteDepartmentNewJDBC" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="deleteDepartmentNewJDBC" IsViewObjectMethod="false"/>
+    <methodAction id="insertNewDepartmentNewJDBC" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="insertNewDepartmentNewJDBC" IsViewObjectMethod="false"/>
+    <methodAction id="readAndPrintDepartmentNewJDBC" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="readAndPrintDepartmentNewJDBC" IsViewObjectMethod="false"/>
+    <methodAction id="updateDepartmentNewJDBC" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="updateDepartmentNewJDBC" IsViewObjectMethod="false"/>
+    <methodAction id="executeQuery4" InstanceName="AppModuleDataControl.dataProvider" DataControl="AppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="executeQuery4"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="executeQuery5" InstanceName="AppModuleDataControl.dataProvider" DataControl="AppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="executeQuery5"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="executeQuery6" InstanceName="AppModuleDataControl.dataProvider" DataControl="AppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="executeQuery6"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="executeServiceQuery" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeServiceQuery" IsViewObjectMethod="false"/>
+    <methodAction id="readAndPrintDepartmentService" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="readAndPrintDepartmentService" IsViewObjectMethod="false"/>
+    <action IterBinding="DepartmentsEOVOIterator" id="Execute2" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <methodAction id="executeServiceQueryEL" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeServiceQueryEL" IsViewObjectMethod="false"/>
+    <methodAction id="executeServiceQueryVL" InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="executeServiceQueryVL" IsViewObjectMethod="false"/>
+    <action IterBinding="DepartmentVOIterator" id="Execute1" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="DepartmentservicevoViewIterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <tree IterBinding="DepartmentVOIterator" id="DepartmentVO">
+      <nodeDefinition DefName="com.virtual7.bcCaching.model.views.DepartmentVO" Name="DepartmentVO0">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DepartmentservicevoViewIterator" id="DepartmentservicevoView">
+      <nodeDefinition DefName="com.virtual7.bcCaching.model.views.DepartmentservicevoView"
+                      Name="DepartmentservicevoView0">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="vo_printCurrentVOQueryMode" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_printCurrentVOQueryMode" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="vo_executeQueryVOViewRows" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_executeQueryVOViewRows" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="vo_executeQueryVODBTables" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_executeQueryVODBTables" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="vo_executeQueryVOEntityObjects" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_executeQueryVOEntityObjects" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_printCurrentVOQueryMode" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_printCurrentVOQueryMode" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_printCurrentVOQueryMode" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_printCurrentVOQueryMode" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_executeQueryEOVOViewRows" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_executeQueryEOVOViewRows" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_executeQueryEOVODBTables" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_executeQueryEOVODBTables" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_executeQueryEOVOEntityObject" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_executeQueryEOVOEntityObject" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_executeQuerySOVOViewRows" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_executeQuerySOVOViewRows" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_executeQuerySOVODBTables" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_executeQuerySOVODBTables" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_executeQuerySOVOEntityObject" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_executeQuerySOVOEntityObject" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="AppModuleDataControl.dataProvider"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <methodAction id="postChangesAction" RequiresUpdateModel="true" Action="invokeMethod" MethodName="postChangesAction"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_cleareEntityCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_cleareEntityCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="eo_clearViewObjectCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="eo_clearViewObjectCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_cleareEntityCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_cleareEntityCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_clearViewObjectCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_clearViewObjectCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="vo_clearViewObjectCache" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="vo_clearViewObjectCache" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="so_readAndPrintDepartmentService" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="so_readAndPrintDepartmentService" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl" InstanceName="AppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.ucmContent.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="taskflowucmContent1"
+              taskFlowId="/WEB-INF/com/virtual7/ucmContent/controller/task-flow-ucmContent.xml#task-flow-ucmContent"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="docName" value="doc1"/>
+        <parameter id="deptId" xmlns="http://xmlns.oracle.com/adfm/uimodel" value="10"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="taskflowucmContent2"
+              taskFlowId="/WEB-INF/com/virtual7/ucmContent/controller/task-flow-ucmContent.xml#task-flow-ucmContent"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="docName" value="doc2"/>
+        <parameter id="deptId" value="20"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings/>
+</pageDefinition>

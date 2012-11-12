@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeestoaptitudeView"
+  Version="11.1.1.60.13"
+  SelectList="Employeestoaptitude.ID, 
+       Employeestoaptitude.APTITUDEID, 
+       Employeestoaptitude.EMPLOYEEID, 
+       Employees.DEPARTMENT_ID, 
+       Employees.EMPLOYEE_ID AS EMPLOYEE_ID1, 
+       Employees.FIRST_NAME, 
+       Employees.LAST_NAME"
+  FromList="EMPLOYEESTOAPTITUDE Employeestoaptitude, EMPLOYEES Employees"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  ComponentClass="model.views.EmployeestoaptitudeViewImpl"
+  ComponentInterface="model.views.common.EmployeestoaptitudeView"
+  ClientProxyName="model.views.client.EmployeestoaptitudeViewClient"
+  Where="Employeestoaptitude.EMPLOYEEID = Employees.EMPLOYEE_ID(+)"
+  RowClass="model.views.EmployeestoaptitudeViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Employeestoaptitude"
+    Entity="model.entities.Employeestoaptitude"/>
+  <EntityUsage
+    Name="Employees"
+    Entity="model.entities.Employees"
+    Association="model.entities.associations.EmployeestoaptitudeEmploFk1Assoc"
+    AssociationEnd="model.entities.associations.EmployeestoaptitudeEmploFk1Assoc.Employees"
+    SourceUsage="model.views.EmployeestoaptitudeView.Employeestoaptitude"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="LEFT OUTER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="model.entities.Employeestoaptitude.EmployeeId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="model.entities.Employees.EmployeeId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="Id"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="Employeestoaptitude"
+    AliasName="ID"
+    IsUpdateable="while_insert"/>
+  <ViewAttribute
+    Name="Aptitudeid"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Aptitudeid"
+    EntityUsage="Employeestoaptitude"
+    AliasName="APTITUDEID"/>
+  <ViewAttribute
+    Name="EmployeeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmployeeId"
+    EntityUsage="Employeestoaptitude"
+    AliasName="EMPLOYEEID"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="Employees"
+    AliasName="DEPARTMENT_ID"/>
+  <ViewAttribute
+    Name="EmployeeId1"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="EmployeeId"
+    EntityUsage="Employees"
+    AliasName="EMPLOYEE_ID1"/>
+  <ViewAttribute
+    Name="FirstName"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="Employees"
+    AliasName="FIRST_NAME"/>
+  <ViewAttribute
+    Name="LastName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="Employees"
+    AliasName="LAST_NAME"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Id"/>
+  </AttrArray>
+  <ViewLinkAccessor
+    Name="AptitudeView"
+    ViewLink="model.views.links.EmployeestoaptitudeAptitFk1Link"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="DepartmentsToAptitude"
+    ViewLink="model.views.links.DepartmentsToAptitude_EmployeesToAptitudeFkLink"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+  <ClientInterface>
+    <Method
+      Name="createInsert">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="empId"
+        Type="oracle.jbo.domain.Number"/>
+      <Parameter
+        Name="aptId"
+        Type="oracle.jbo.domain.Number"/>
+    </Method>
+  </ClientInterface>
+  <ClientInterface>
+    <Method
+      Name="createInsert">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="empId"
+        Type="oracle.jbo.domain.Number"/>
+      <Parameter
+        Name="aptId"
+        Type="oracle.jbo.domain.Number"/>
+    </Method>
+  </ClientInterface>
+</ViewObject>

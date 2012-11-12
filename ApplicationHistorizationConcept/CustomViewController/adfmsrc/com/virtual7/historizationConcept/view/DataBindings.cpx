@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.historizationConcept.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_virtual7_historizationConcept_view_indexPageDef"/>
+    <page path="/WEB-INF/com/virtual7/historizationConcept/view/historizationMain.jsff"
+          usageId="com_virtual7_historizationConcept_view_historizationMainPageDef"/>
+    <page path="/WEB-INF/com/virtual7/historizationConcept/controller/search-historization.xml#search-historization@filterEmployeesView"
+          usageId="com_virtual7_historizationConcept_view_search_historization_search_historization_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/com/virtual7/historizationConcept/controller/search-historization.xml#search-historization@filterEmployeesDetailHistView"
+          usageId="com_virtual7_historizationConcept_view_search_historization_search_historization_ExecutePageDef"/>
+    <page path="/WEB-INF/com/virtual7/historizationConcept/controller/search-historization.xml#search-historization@setSelectedEmployee"
+          usageId="com_virtual7_historizationConcept_view_search_historization_search_historization_SetCurrentRowWithKeyPageDef"/>
+    <page path="/WEB-INF/com/virtual7/historizationConcept/view/updateEmployee.jsff"
+          usageId="com_virtual7_historizationConcept_view_updateEmployeePageDef"/>
+    <page path="/WEB-INF/com/virtual7/historizationConcept/controller/search-historization.xml#search-historization@Commit"
+          usageId="com_virtual7_historizationConcept_view_search_historization_search_historization_CommitPageDef"/>
+    <page path="/WEB-INF/com/virtual7/historizationConcept/controller/search-historization.xml#search-historization@Rollback"
+          usageId="com_virtual7_historizationConcept_view_search_historization_search_historization_RollbackPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_historizationConcept_view_indexPageDef"
+          path="com.virtual7.historizationConcept.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_historizationConcept_view_historizationMainPageDef"
+          path="com.virtual7.historizationConcept.view.historizationMainPageDef"/>
+    <page id="com_virtual7_historizationConcept_view_search_historization_search_historization_ExecuteWithParamsPageDef"
+          path="com.virtual7.historizationConcept.controller.search_historization_search_historization_filterEmployeesViewPageDef"/>
+    <page id="com_virtual7_historizationConcept_view_search_historization_search_historization_ExecutePageDef"
+          path="com.virtual7.historizationConcept.controller.search_historization_search_historization_filterEmployeesDetailHistViewPageDef"/>
+    <page id="com_virtual7_historizationConcept_view_search_historization_search_historization_SetCurrentRowWithKeyPageDef"
+          path="com.virtual7.historizationConcept.controller.search_historization_search_historization_SetCurrentRowWithKeyPageDef"/>
+    <page id="com_virtual7_historizationConcept_view_updateEmployeePageDef"
+          path="com.virtual7.historizationConcept.view.updateEmployeePageDef"/>
+    <page id="com_virtual7_historizationConcept_view_search_historization_search_historization_CommitPageDef"
+          path="com.virtual7.historizationConcept.controller.search_historization_search_historization_CommitPageDef"/>
+    <page id="com_virtual7_historizationConcept_view_search_historization_search_historization_RollbackPageDef"
+          path="com.virtual7.historizationConcept.controller.search_historization_search_historization_RollbackPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModule2DataControl" Package="com.virtual7.historizationConcept.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModule2Local" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

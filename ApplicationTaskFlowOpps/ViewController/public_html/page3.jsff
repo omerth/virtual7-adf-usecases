@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:commandButton text="Return to Page1" id="cb1" action="retPag1"/>
+        <af:commandButton text="Return to Page2" id="cb2" action="retPag2"/>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="top">
+      <af:outputText value="PAGE 3" id="ot1" inlineStyle="font-size:large;"/>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

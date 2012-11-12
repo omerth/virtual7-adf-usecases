@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeesToAptitudeView"
+  Version="11.1.1.60.13"
+  SelectList="EmployeesToAptitudeEO.APTITUDE_ID, 
+       EmployeesToAptitudeEO.EMPLOYEE_ID, 
+       EmployeesToAptitudeEO.ID, 
+       Employees.FIRST_NAME, 
+       Employees.LAST_NAME, 
+       Employees.EMPLOYEE_ID AS EMPLOYEE_ID1, 
+       DepartmentsEO.DEPARTMENT_NAME, 
+       DepartmentsEO.DEPARTMENT_ID"
+  FromList="EMPLOYEESTOAPTITUDE EmployeesToAptitudeEO, EMPLOYEES Employees, DEPARTMENTS DepartmentsEO"
+  Where="(EmployeesToAptitudeEO.EMPLOYEE_ID = Employees.EMPLOYEE_ID) AND (Employees.DEPARTMENT_ID = DepartmentsEO.DEPARTMENT_ID)"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="com.virtual7.employeeAptitudes.model.views.EmployeesToAptitudeViewRowImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.virtual7.employeeAptitudes.model.views.EmployeesToAptitudeView_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="EmployeesToAptitudeEO"
+    Entity="com.virtual7.employeeAptitudes.model.entities.EmployeesToAptitudeEO"/>
+  <EntityUsage
+    Name="Employees"
+    Entity="com.virtual7.employeeAptitudes.model.entities.Employees"
+    SourceUsage="com.virtual7.employeeAptitudes.model.views.EmployeesToAptitudeView.EmployeesToAptitudeEO"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    Association="com.virtual7.employeeAptitudes.model.entities.associations.EmployeestoaptitudeEmploFk1Assoc"
+    AssociationEnd="com.virtual7.employeeAptitudes.model.entities.associations.EmployeestoaptitudeEmploFk1Assoc.Employees"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.virtual7.employeeAptitudes.model.entities.EmployeesToAptitudeEO.EmployeeId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.virtual7.employeeAptitudes.model.entities.Employees.EmployeeId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <EntityUsage
+    Name="DepartmentsEO"
+    Entity="com.virtual7.employeeAptitudes.model.entities.DepartmentsEO"
+    Association="com.virtual7.employeeAptitudes.model.entities.associations.EmployeesDepartmentsFkAssoc"
+    AssociationEnd="com.virtual7.employeeAptitudes.model.entities.associations.EmployeesDepartmentsFkAssoc.DepartmentsEO2"
+    SourceUsage="com.virtual7.employeeAptitudes.model.views.EmployeesToAptitudeView.Employees"
+    ReadOnly="true"
+    Reference="true"
+    DeleteParticipant="false"
+    JoinType="INNER JOIN">
+    <DesignTime>
+      <AttrArray Name="_srcAttributes">
+        <Item Value="com.virtual7.employeeAptitudes.model.entities.Employees.DepartmentId"/>
+      </AttrArray>
+      <AttrArray Name="_dstAttributes">
+        <Item Value="com.virtual7.employeeAptitudes.model.entities.DepartmentsEO.DepartmentId"/>
+      </AttrArray>
+    </DesignTime>
+  </EntityUsage>
+  <ViewAttribute
+    Name="AptitudeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AptitudeId"
+    EntityUsage="EmployeesToAptitudeEO"
+    AliasName="APTITUDE_ID"/>
+  <ViewAttribute
+    Name="EmployeeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmployeeId"
+    EntityUsage="EmployeesToAptitudeEO"
+    AliasName="EMPLOYEE_ID"/>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="EmployeesToAptitudeEO"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="FirstName"
+    PrecisionRule="true"
+    EntityAttrName="FirstName"
+    EntityUsage="Employees"
+    AliasName="FIRST_NAME"/>
+  <ViewAttribute
+    Name="LastName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="Employees"
+    AliasName="LAST_NAME"/>
+  <ViewAttribute
+    Name="EmployeeId1"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="EmployeeId"
+    EntityUsage="Employees"
+    AliasName="EMPLOYEE_ID1"/>
+  <ViewAttribute
+    Name="DepartmentName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentName"
+    EntityUsage="DepartmentsEO"
+    AliasName="DEPARTMENT_NAME"/>
+  <ViewAttribute
+    Name="DepartmentId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="DepartmentId"
+    EntityUsage="DepartmentsEO"
+    AliasName="DEPARTMENT_ID"/>
+  <AttrArray Name="KeyAttributes">
+    <Item Value="Id"/>
+  </AttrArray>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.employeeAptitudes.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

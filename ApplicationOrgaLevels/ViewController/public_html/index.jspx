@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelGroupLayout layout="vertical">
+              <af:outputText value="OrgaLevelsPoc" id="ot1"/>
+          <af:panelGroupLayout id="pgl1" layout="horizontal">
+            <af:selectOneChoice value="#{bindings.OrgaViewView1.inputValue}" label="Lvl1"
+                                required="#{bindings.OrgaViewView1.hints.mandatory}"
+                                shortDesc="#{bindings.OrgaViewView1.hints.tooltip}" id="soc1" autoSubmit="true">
+              <f:selectItems value="#{bindings.OrgaViewView1.items}" id="si1"/>
+            </af:selectOneChoice>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:selectOneChoice value="#{bindings.OrgaViewView2.inputValue}" label="Lvl2"
+                                required="#{bindings.OrgaViewView2.hints.mandatory}"
+                                shortDesc="#{bindings.OrgaViewView2.hints.tooltip}" id="soc2" autoSubmit="true"
+                                partialTriggers="soc1">
+              <f:selectItems value="#{bindings.OrgaViewView2.items}" id="si2"/>
+            </af:selectOneChoice>
+            <af:spacer width="10" height="10" id="s2"/>
+            <af:selectOneChoice label="Lvl3"
+                                required="#{bindings.OrgaViewView3.hints.mandatory}"
+                                shortDesc="#{bindings.OrgaViewView3.hints.tooltip}" id="soc3" partialTriggers="soc2"
+                                autoSubmit="true" value="#{bindings.OrgaViewView3.inputValue}">
+              <f:selectItems value="#{bindings.OrgaViewView3.items}" id="si3"/>
+            </af:selectOneChoice>
+            <af:spacer width="10" height="10" id="s3"/>
+            <af:selectOneChoice label="Lvl4"
+                                required="#{bindings.OrgaViewView4.hints.mandatory}"
+                                shortDesc="#{bindings.OrgaViewView4.hints.tooltip}" id="soc4" partialTriggers="soc3"
+                                autoSubmit="true" value="#{bindings.OrgaViewView4.inputValue}">
+              <f:selectItems value="#{bindings.OrgaViewView4.items}" id="si4"/>
+            </af:selectOneChoice>
+            <af:spacer width="10" height="10" id="s4"/>
+            <af:selectOneChoice label="Lvl5"
+                                required="#{bindings.OrgaViewView5.hints.mandatory}"
+                                shortDesc="#{bindings.OrgaViewView5.hints.tooltip}" id="soc5" partialTriggers="soc4"
+                                autoSubmit="true"
+                                value="#{bindings.OrgaViewView5.inputValue}"
+                                visible="#{bindings.OrgaViewView5.currentRow.id ne bindings.OrgaViewView5.currentRow.parentId}">
+              <f:selectItems value="#{bindings.OrgaViewView5.items}" id="si5"/>
+            </af:selectOneChoice>
+            <af:spacer width="10" height="10" id="s5"/>
+            <af:selectOneChoice label="Lvl6"
+                                required="#{bindings.OrgaViewView6.hints.mandatory}"
+                                shortDesc="#{bindings.OrgaViewView6.hints.tooltip}" id="soc6" partialTriggers="soc5"
+                                value="#{bindings.OrgaViewView6.inputValue}" autoSubmit="true"
+                                visible="#{bindings.OrgaViewView6.currentRow.id ne bindings.OrgaViewView6.currentRow.parentId}">
+              <f:selectItems value="#{bindings.OrgaViewView6.items}" id="si6"/>
+            </af:selectOneChoice>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

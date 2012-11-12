@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">beanScopes</property>
+      <property
+         name="page">/beanScopes.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>beanScopes&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">287.29883</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">383.0</property>
+   </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">navBeanScope</property>
+      <property
+         name="page">/navBeanScope.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>navBeanScope&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">282.14355</property>
+      <property
+         name="x">594.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">go</property>
+      <property
+         name="sdm:polyPoints">R46,424.0,283.44824,552.8601,278.29297,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">L54,553.0,285.29297,424.1398,290.44824,R54</property>
+   </ControlFlowCase>
+</SDM>

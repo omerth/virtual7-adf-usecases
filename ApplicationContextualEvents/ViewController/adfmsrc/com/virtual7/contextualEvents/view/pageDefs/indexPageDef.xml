@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.contextualEvents.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="firstregion1" taskFlowId="/WEB-INF/first-region.xml#first-region" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="secondregion1" taskFlowId="/WEB-INF/second-region.xml#second-region" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+  <eventMap xmlns="http://xmlns.oracle.com/adfm/contextualEvent">
+    <event name="emailChange">
+      <producer region="*">
+        <consumer region="secondregion1" handler="secondChildPageDef.handleEmailEvent" handleCondition="">
+          <parameters>
+            <parameter name="emailPayload" value="#{payLoad}"/>
+          </parameters>
+        </consumer>
+      </producer>
+    </event>
+    <event name="lastNameChangedEvent">
+      <producer region="*">
+        <consumer region="secondregion1" handler="secondChildPageDef.handleLastNamePayload" handleCondition="">
+          <parameters>
+            <parameter name="lastNamePayload" value="#{payLoad}"/>
+          </parameters>
+        </consumer>
+      </producer>
+    </event>
+  </eventMap>
+</pageDefinition>

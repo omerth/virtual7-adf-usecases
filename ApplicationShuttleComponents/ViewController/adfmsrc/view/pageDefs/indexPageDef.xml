@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="AptitudeView1" RangeSize="25" DataControl="AppModuleDataControl" id="AptitudeView1Iterator"/>
+    <iterator Binds="DepartmentsView1" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentsView1Iterator"/>
+    <iterator Binds="EmployeesView2" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeesView2Iterator"/>
+    <iterator Binds="EmployeestoaptitudeView1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="EmployeestoaptitudeView1Iterator"/>
+    <iterator Binds="DepartmentsToAptitude1" RangeSize="25" DataControl="AppModuleDataControl"
+              id="DepartmentsToAptitude1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="AptitudeView1Iterator" id="AptitudeView1">
+      <nodeDefinition DefName="model.views.AptitudeView" Name="AptitudeView10">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="Name"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="DepartmentsView1Iterator" ListOperMode="navigation" ListIter="DepartmentsView1Iterator"
+          id="DepartmentsView1" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </list>
+    <list IterBinding="EmployeesView2Iterator" ListOperMode="navigation" ListIter="EmployeesView2Iterator"
+          id="EmployeesView2" DTSupportsMRU="false">
+      <AttrNames>
+        <Item Value="FirstName"/>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </list>
+    <methodAction id="createInsert" RequiresUpdateModel="true" Action="invokeMethod" MethodName="createInsert"
+                  IsViewObjectMethod="true" DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.EmployeestoaptitudeView1"
+                  IterBinding="EmployeestoaptitudeView1Iterator">
+      <NamedData NDName="empId" NDValue="#{pageFlowScope.shuttleBean.empId}" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="aptId" NDValue="#{pageFlowScope.shuttleBean.aptId}" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <tree IterBinding="DepartmentsToAptitude1Iterator" id="DepartmentsToAptitude1">
+      <nodeDefinition DefName="model.views.DepartmentsToAptitude" Name="DepartmentsToAptitude10">
+        <AttrNames>
+          <Item Value="DepartmentName"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="EmployeestoaptitudeView"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="model.views.EmployeestoaptitudeView" Name="DepartmentsToAptitude11">
+        <AttrNames>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+  </bindings>
+</pageDefinition>

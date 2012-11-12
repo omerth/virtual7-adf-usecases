@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="XdmProgrammesDefaultVO"
+  Version="11.1.1.60.13"
+  SelectList="XdmProgrammes.PROG_ID, 
+       XdmProgrammes.EV_KEY, 
+       XdmProgrammes.NAME, 
+       XdmProgrammes.OWNER"
+  FromList="XDM_PROGRAMMES XdmProgrammes"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="com.virtual7.xdm.framework.ViewRowImpl"
+  ComponentClass="com.virtual7.xdm.framework.ViewObjectImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="XdmProgrammes"
+    Entity="com.virtual7.xdm.model.entities.XdmProgrammes"/>
+  <ViewAttribute
+    Name="ProgId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProgId"
+    EntityUsage="XdmProgrammes"
+    AliasName="PROG_ID"/>
+  <ViewAttribute
+    Name="EvKey"
+    PrecisionRule="true"
+    EntityAttrName="EvKey"
+    EntityUsage="XdmProgrammes"
+    AliasName="EV_KEY"/>
+  <ViewAttribute
+    Name="Name"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="XdmProgrammes"
+    AliasName="NAME"/>
+  <ViewAttribute
+    Name="Owner"
+    PrecisionRule="true"
+    EntityAttrName="Owner"
+    EntityUsage="XdmProgrammes"
+    AliasName="OWNER"/>
+</ViewObject>

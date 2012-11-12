@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OrgaGroupVO"
+  Version="11.1.1.60.13"
+  SelectList="OrgaViewWithGroup.DESCR, 
+       OrgaViewWithGroup.GROUP_DESC, 
+       OrgaViewWithGroup.GROUP_ID, 
+       OrgaViewWithGroup.ID, 
+       OrgaViewWithGroup.VAL"
+  FromList="ORGA_VIEW_WITH_GROUP OrgaViewWithGroup"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.virtual7.pivotTable.model.views.OrgaGroupVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="OrgaViewWithGroup"
+    Entity="com.virtual7.pivotTable.model.entities.OrgaViewWithGroup"/>
+  <ViewAttribute
+    Name="Descr"
+    PrecisionRule="true"
+    EntityAttrName="Descr"
+    EntityUsage="OrgaViewWithGroup"
+    AliasName="DESCR"/>
+  <ViewAttribute
+    Name="GroupDesc"
+    PrecisionRule="true"
+    EntityAttrName="GroupDesc"
+    EntityUsage="OrgaViewWithGroup"
+    AliasName="GROUP_DESC"/>
+  <ViewAttribute
+    Name="GroupId"
+    PrecisionRule="true"
+    EntityAttrName="GroupId"
+    EntityUsage="OrgaViewWithGroup"
+    AliasName="GROUP_ID"/>
+  <ViewAttribute
+    Name="Id"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="OrgaViewWithGroup"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="Val"
+    PrecisionRule="true"
+    EntityAttrName="Val"
+    EntityUsage="OrgaViewWithGroup"
+    AliasName="VAL"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.pivotTable.model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

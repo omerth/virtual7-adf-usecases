@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="wldeploy" basedir=".">
+	<path id="wls.classpath">
+		<pathelement path="${wls.home}/server/lib/weblogic.jar" />
+		<pathelement path="${wls.home}/server/lib/xqrl.jar" />
+	</path>
+	<taskdef name="wldeploy_int" classpathref="wls.classpath" classname="weblogic.ant.taskdefs.management.WLDeploy" />
+
+	<macrodef name="wldeploy-deploy-shared">
+		<attribute name="name" />
+		<attribute name="source" />
+		<sequential>
+			<wldeploy_int library="true" action="redeploy" user="${wls.user}" password="${wls.password}" adminurl="${wls.adminurl}" targets="${wls.targets}" debug="true" verbose="true" upload="true" name="@{name}" source="@{source}" remote="true" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldeploy-deploy">
+		<attribute name="name" />
+		<attribute name="source" />
+		<sequential>
+			<wldeploy_int action="deploy" user="${wls.user}" password="${wls.password}" adminurl="${wls.adminurl}" targets="${wls.targets}" debug="true" verbose="true" upload="true" name="@{name}" source="@{source}" remote="true" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldeploy-stop">
+		<attribute name="name" />
+		<sequential>
+			<wldeploy_int action="stop" user="${wls.user}" password="${wls.password}" adminurl="${wls.adminurl}" targets="${wls.targets}" debug="true" verbose="true" name="@{name}" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldeploy-undeploy">
+		<attribute name="name" />
+		<sequential>
+			<wldeploy_int action="undeploy" user="${wls.user}" password="${wls.password}" adminurl="${wls.adminurl}" targets="${wls.targets}" debug="true" verbose="true" name="@{name}" allversions="true" />
+		</sequential>
+	</macrodef>
+
+</project>

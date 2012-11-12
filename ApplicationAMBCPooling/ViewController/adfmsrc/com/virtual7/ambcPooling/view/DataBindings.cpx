@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.60.13" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.ambcPooling.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_virtual7_ambcPooling_view_indexPageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPooling/view/countries1.jsff" usageId="com_virtual7_ambcPooling_view_countries1PageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPooling/view/countries2.jsff" usageId="com_virtual7_ambcPooling_view_countries2PageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPooling/view/countries3.jsff" usageId="com_virtual7_ambcPooling_view_countries3PageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPooling/view/countries4.jsff" usageId="com_virtual7_ambcPooling_view_countries4PageDef"/>
+    <page path="/WEB-INF/com/virtual7/ambcPooling/view/countries5.jsff" usageId="com_virtual7_ambcPooling_view_countries5PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_ambcPooling_view_indexPageDef" path="com.virtual7.ambcPooling.view.pageDefs.indexPageDef"/>
+    <page id="com_virtual7_ambcPooling_view_countries1PageDef" path="com.virtual7.ambcPooling.view.countries1PageDef"/>
+    <page id="com_virtual7_ambcPooling_view_countries2PageDef" path="com.virtual7.ambcPooling.view.countries2PageDef"/>
+    <page id="com_virtual7_ambcPooling_view_countries3PageDef" path="com.virtual7.ambcPooling.view.countries3PageDef"/>
+    <page id="com_virtual7_ambcPooling_view_countries4PageDef" path="com.virtual7.ambcPooling.view.countries4PageDef"/>
+    <page id="com_virtual7_ambcPooling_view_countries5PageDef" path="com.virtual7.ambcPooling.view.countries5PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModule1DataControl" Package="com.virtual7.ambcPooling.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModule1Local" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppModule2DataControl" Package="com.virtual7.ambcPooling.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModule2Local" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppModule3DataControl" Package="com.virtual7.ambcPooling.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModule3Local" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppModule4DataControl" Package="com.virtual7.ambcPooling.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModule4Local" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppModule5DataControl" Package="com.virtual7.ambcPooling.model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModule5Local" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

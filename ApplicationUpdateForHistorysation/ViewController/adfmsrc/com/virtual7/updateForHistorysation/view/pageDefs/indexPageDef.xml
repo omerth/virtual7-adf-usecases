@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.updateForHistorysation.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="DepartmentsVO" RangeSize="25" DataControl="AppModuleDataControl" id="DepartmentsVOIterator"
+              ChangeEventPolicy="ppr"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="DepartmentsVOIterator" id="DepartmentsVO">
+      <nodeDefinition DefName="com.virtual7.updateForHistorysation.model.views.DepartmentsVO" Name="DepartmentsVO0">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="LocationId"/>
+          <Item Value="IsCurrentVersion"/>
+          <Item Value="CreationDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="DepartmentsVOIterator" id="DepartmentId">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsVOIterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsVOIterator" id="ManagerId">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsVOIterator" id="LocationId">
+      <AttrNames>
+        <Item Value="LocationId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsVOIterator" id="IsCurrentVersion">
+      <AttrNames>
+        <Item Value="IsCurrentVersion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="DepartmentsVOIterator" id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="DepartmentsVOIterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="DepartmentsVOIterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="DepartmentsVOIterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="DepartmentsVOIterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppModuleDataControl"/>
+    <methodAction id="insertNewRow" InstanceName="AppModuleDataControl.dataProvider" DataControl="AppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod" MethodName="insertNewRow" IsViewObjectMethod="false">
+      <NamedData NDName="values" NDValue="#{pageFlowScope.HistoryBeain.insertVal}" NDType="java.util.Map"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

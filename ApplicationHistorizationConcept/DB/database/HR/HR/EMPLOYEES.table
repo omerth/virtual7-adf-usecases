@@ -1,0 +1,2388 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+  </ID>
+  <name>EMPLOYEES</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">9827afc3-f46c-49dd-8fd1-01ef3c5bf83e</identifier>
+      </ID>
+      <name>EMPLOYEE_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">3c9cd1c9-e66c-42db-a3d0-77bd1c5aa936</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">6</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EMPLOYEE_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Primary key of employees table.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMPLOYEE_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">de7db1e7-c393-44f3-bc8e-28ccf746556e</identifier>
+      </ID>
+      <name>FIRST_NAME</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">25455874-5435-45df-9003-964ee7e46d70</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>FIRST_NAME</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">First name of the employee. A not null column.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>FIRST_NAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c436b070-2bc7-4218-9876-657c6442ca97</identifier>
+      </ID>
+      <name>LAST_NAME</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">57065919-c9c0-4500-93e9-abc9c2c92668</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">25</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>LAST_NAME</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Last name of the employee. A not null column.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_NAME</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">72bbce0e-0ac8-432d-8f33-7f72883ed755</identifier>
+      </ID>
+      <name>EMAIL</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">40016f1b-3c04-47f3-9153-6c85075a24d2</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">25</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EMAIL</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Email id of the employee</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMAIL</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">97330c44-a5cc-477c-9349-f3e097d46c42</identifier>
+      </ID>
+      <name>PHONE_NUMBER</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">31e1a3b7-d3ff-4838-b67a-65178086cd45</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">20</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>PHONE_NUMBER</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Phone number of the employee; includes country code and area code</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PHONE_NUMBER</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">71515df5-5b10-497d-ac80-a7ab3e84abba</identifier>
+      </ID>
+      <name>HIRE_DATE</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">b4b43fcc-c18c-4687-8cd0-c335c61b31ae</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>DATE</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>HIRE_DATE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Date when the employee started on this job. A not null column.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>HIRE_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">09fc5bde-fbbc-4601-934d-984aee46fa8d</identifier>
+      </ID>
+      <name>JOB_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">349db122-80c8-4839-9873-bb56a8768e88</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>JOB_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Current job of the employee; foreign key to job_id column of the
+jobs table. A not null column.</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>JOB_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c8225205-4550-43d3-8293-5c1ce620821a</identifier>
+      </ID>
+      <name>SALARY</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">7c55057f-4073-46fa-bd9c-5fc6f0e7a4b3</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">8</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">2</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>SALARY</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Monthly salary of the employee. Must be greater
+than zero (enforced by constraint emp_salary_min)</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>SALARY</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">fd0bcba4-08dc-4043-96d2-82142eb442cc</identifier>
+      </ID>
+      <name>COMMISSION_PCT</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">486c737b-63f8-45b7-921d-6a6d6ec5db32</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">2</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">2</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>COMMISSION_PCT</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Commission percentage of the employee; Only employees in sales
+department elgible for commission percentage</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>COMMISSION_PCT</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">7762a5f9-4a64-4e93-89c2-257ef68a027f</identifier>
+      </ID>
+      <name>MANAGER_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">37815f76-35dd-4738-af99-0dcf03ae9b81</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">6</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>MANAGER_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Manager id of the employee; has same domain as manager_id in
+departments table. Foreign key to employee_id column of employees table.
+(useful for reflexive joins and CONNECT BY query)</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>MANAGER_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">32baa44d-14d8-41d0-b03f-e5356035e737</identifier>
+      </ID>
+      <name>DEPARTMENT_ID</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">9f9e5db5-6431-4352-b0d7-11c5b39cb684</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>precision</key>
+            <value class="java.lang.String">4</value>
+          </entry>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">0</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>NUMBER</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>DEPARTMENT_ID</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>Comment</key>
+          <value class="java.lang.String">Department id where employee works; foreign key to department_id
+column of the departments table</value>
+        </entry>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>DEPARTMENT_ID</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">551caa33-e133-4497-b81a-80b6ec1a510f</identifier>
+      </ID>
+      <name>LAST_CHANGE_DATE</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">10a91b7a-ec35-4f0c-8a7d-91eec0e9035e</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+          <typeName>DATE</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>LAST_CHANGE_DATE</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <default class="java.lang.String">(sysdate)</default>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_CHANGE_DATE</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">2309bd81-ba3e-4f42-809e-1eda86b1c735</identifier>
+      </ID>
+      <name>LAST_CHANGE_USER</name>
+      <dataTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">a85e65e6-97e5-465b-abec-8b2006145b0b</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">25</value>
+          </entry>
+          <entry>
+            <key>unit</key>
+            <value class="java.lang.String">BYTE</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+          <typeName>VARCHAR2</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>LAST_CHANGE_USER</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <default class="java.lang.String">(&apos;user&apos;)</default>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>LAST_CHANGE_USER</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">01d3a97c-72a4-4f72-ba90-7620b567bd3a</identifier>
+      </ID>
+      <name>EMP_EMAIL_NN</name>
+      <checkConditionFragment class="oracle.javatools.db.sql.WhereObject">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">0fed9794-d1b6-4efa-a347-5dcd1241fb92</identifier>
+        </ID>
+        <arguments>
+          <argument class="oracle.javatools.db.sql.Comparison">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">73c7749f-44f1-49fe-91c2-0f654e0f33fd</identifier>
+            </ID>
+            <comparator>44</comparator>
+            <leftExpression class="oracle.javatools.db.sql.ColumnUsage">
+              <ID class="oracle.javatools.db.IdentifierBasedID">
+                <identifier class="java.lang.String">5bc017df-7277-4a51-8c28-25677e093c04</identifier>
+              </ID>
+              <objectID class="oracle.javatools.db.IdentifierBasedID">
+                <name>EMAIL</name>
+                <identifier class="java.lang.String">72bbce0e-0ac8-432d-8f33-7f72883ed755</identifier>
+                <parent class="oracle.javatools.db.IdentifierBasedID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <schemaName>HR</schemaName>
+                <type>COLUMN</type>
+              </objectID>
+              <outerJoin>false</outerJoin>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>EMP_EMAIL_NN</name>
+                          <parent class="oracle.javatools.db.ReferenceID">
+                            <name>EMPLOYEES</name>
+                            <identifier class="java.math.BigDecimal">73948</identifier>
+                            <schemaName>HR</schemaName>
+                            <type>TABLE</type>
+                          </parent>
+                          <subType>CheckConstraint</subType>
+                          <type>CONSTRAINT</type>
+                        </parent>
+                        <type>WHERE</type>
+                      </parent>
+                      <type>SQLFragment</type>
+                    </parent>
+                    <type>SQLFragment</type>
+                  </value>
+                </entry>
+              </properties>
+              <qualified>false</qualified>
+            </leftExpression>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_EMAIL_NN</name>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <subType>CheckConstraint</subType>
+                      <type>CONSTRAINT</type>
+                    </parent>
+                    <type>WHERE</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+          </argument>
+        </arguments>
+        <operator>372</operator>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EMP_EMAIL_NN</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <subType>CheckConstraint</subType>
+                <type>CONSTRAINT</type>
+              </parent>
+              <type>WHERE</type>
+            </value>
+          </entry>
+        </properties>
+      </checkConditionFragment>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_EMAIL_NN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>CheckConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">afaf30f8-47f0-49c8-b77a-62efd8d237f3</identifier>
+      </ID>
+      <name>EMP_HIRE_DATE_NN</name>
+      <checkConditionFragment class="oracle.javatools.db.sql.WhereObject">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">58be76a9-a621-4dbc-ba33-bcff53755d0b</identifier>
+        </ID>
+        <arguments>
+          <argument class="oracle.javatools.db.sql.Comparison">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">7e0f5d1e-bb56-4e3e-8854-d9e9122ac835</identifier>
+            </ID>
+            <comparator>44</comparator>
+            <leftExpression class="oracle.javatools.db.sql.ColumnUsage">
+              <ID class="oracle.javatools.db.IdentifierBasedID">
+                <identifier class="java.lang.String">c08bfd32-f49f-49c0-b0e0-acd1fafb399a</identifier>
+              </ID>
+              <objectID class="oracle.javatools.db.IdentifierBasedID">
+                <name>HIRE_DATE</name>
+                <identifier class="java.lang.String">71515df5-5b10-497d-ac80-a7ab3e84abba</identifier>
+                <parent class="oracle.javatools.db.IdentifierBasedID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <schemaName>HR</schemaName>
+                <type>COLUMN</type>
+              </objectID>
+              <outerJoin>false</outerJoin>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>EMP_HIRE_DATE_NN</name>
+                          <parent class="oracle.javatools.db.ReferenceID">
+                            <name>EMPLOYEES</name>
+                            <identifier class="java.math.BigDecimal">73948</identifier>
+                            <schemaName>HR</schemaName>
+                            <type>TABLE</type>
+                          </parent>
+                          <subType>CheckConstraint</subType>
+                          <type>CONSTRAINT</type>
+                        </parent>
+                        <type>WHERE</type>
+                      </parent>
+                      <type>SQLFragment</type>
+                    </parent>
+                    <type>SQLFragment</type>
+                  </value>
+                </entry>
+              </properties>
+              <qualified>false</qualified>
+            </leftExpression>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_HIRE_DATE_NN</name>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <subType>CheckConstraint</subType>
+                      <type>CONSTRAINT</type>
+                    </parent>
+                    <type>WHERE</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+          </argument>
+        </arguments>
+        <operator>372</operator>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EMP_HIRE_DATE_NN</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <subType>CheckConstraint</subType>
+                <type>CONSTRAINT</type>
+              </parent>
+              <type>WHERE</type>
+            </value>
+          </entry>
+        </properties>
+      </checkConditionFragment>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_HIRE_DATE_NN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>CheckConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">72b6152b-895a-4161-bf34-5c9b8c64e06c</identifier>
+      </ID>
+      <name>EMP_JOB_NN</name>
+      <checkConditionFragment class="oracle.javatools.db.sql.WhereObject">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">c4b076be-b37c-49d5-b8f1-aa512a5843a8</identifier>
+        </ID>
+        <arguments>
+          <argument class="oracle.javatools.db.sql.Comparison">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">bf529a38-0a19-4ffb-a997-b40b3193fd25</identifier>
+            </ID>
+            <comparator>44</comparator>
+            <leftExpression class="oracle.javatools.db.sql.ColumnUsage">
+              <ID class="oracle.javatools.db.IdentifierBasedID">
+                <identifier class="java.lang.String">ae1b6921-a134-4995-a87d-2910fc7415bc</identifier>
+              </ID>
+              <objectID class="oracle.javatools.db.IdentifierBasedID">
+                <name>JOB_ID</name>
+                <identifier class="java.lang.String">09fc5bde-fbbc-4601-934d-984aee46fa8d</identifier>
+                <parent class="oracle.javatools.db.IdentifierBasedID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <schemaName>HR</schemaName>
+                <type>COLUMN</type>
+              </objectID>
+              <outerJoin>false</outerJoin>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>EMP_JOB_NN</name>
+                          <parent class="oracle.javatools.db.ReferenceID">
+                            <name>EMPLOYEES</name>
+                            <identifier class="java.math.BigDecimal">73948</identifier>
+                            <schemaName>HR</schemaName>
+                            <type>TABLE</type>
+                          </parent>
+                          <subType>CheckConstraint</subType>
+                          <type>CONSTRAINT</type>
+                        </parent>
+                        <type>WHERE</type>
+                      </parent>
+                      <type>SQLFragment</type>
+                    </parent>
+                    <type>SQLFragment</type>
+                  </value>
+                </entry>
+              </properties>
+              <qualified>false</qualified>
+            </leftExpression>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_JOB_NN</name>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <subType>CheckConstraint</subType>
+                      <type>CONSTRAINT</type>
+                    </parent>
+                    <type>WHERE</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+          </argument>
+        </arguments>
+        <operator>372</operator>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EMP_JOB_NN</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <subType>CheckConstraint</subType>
+                <type>CONSTRAINT</type>
+              </parent>
+              <type>WHERE</type>
+            </value>
+          </entry>
+        </properties>
+      </checkConditionFragment>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_JOB_NN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>CheckConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">f0ae764e-b46d-4f8e-9acb-1dfe63ce7cde</identifier>
+      </ID>
+      <name>EMP_LAST_NAME_NN</name>
+      <checkConditionFragment class="oracle.javatools.db.sql.WhereObject">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">d5cb84c4-656e-4bc9-a892-81435ce48b78</identifier>
+        </ID>
+        <arguments>
+          <argument class="oracle.javatools.db.sql.Comparison">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">fc6cf79b-df8f-4f6b-8e44-7d87ac1e268a</identifier>
+            </ID>
+            <comparator>44</comparator>
+            <leftExpression class="oracle.javatools.db.sql.ColumnUsage">
+              <ID class="oracle.javatools.db.IdentifierBasedID">
+                <identifier class="java.lang.String">b828f017-06af-46fe-9d10-b01c17b13e4c</identifier>
+              </ID>
+              <objectID class="oracle.javatools.db.IdentifierBasedID">
+                <name>LAST_NAME</name>
+                <identifier class="java.lang.String">c436b070-2bc7-4218-9876-657c6442ca97</identifier>
+                <parent class="oracle.javatools.db.IdentifierBasedID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <schemaName>HR</schemaName>
+                <type>COLUMN</type>
+              </objectID>
+              <outerJoin>false</outerJoin>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>EMP_LAST_NAME_NN</name>
+                          <parent class="oracle.javatools.db.ReferenceID">
+                            <name>EMPLOYEES</name>
+                            <identifier class="java.math.BigDecimal">73948</identifier>
+                            <schemaName>HR</schemaName>
+                            <type>TABLE</type>
+                          </parent>
+                          <subType>CheckConstraint</subType>
+                          <type>CONSTRAINT</type>
+                        </parent>
+                        <type>WHERE</type>
+                      </parent>
+                      <type>SQLFragment</type>
+                    </parent>
+                    <type>SQLFragment</type>
+                  </value>
+                </entry>
+              </properties>
+              <qualified>false</qualified>
+            </leftExpression>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_LAST_NAME_NN</name>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <subType>CheckConstraint</subType>
+                      <type>CONSTRAINT</type>
+                    </parent>
+                    <type>WHERE</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+          </argument>
+        </arguments>
+        <operator>372</operator>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EMP_LAST_NAME_NN</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <subType>CheckConstraint</subType>
+                <type>CONSTRAINT</type>
+              </parent>
+              <type>WHERE</type>
+            </value>
+          </entry>
+        </properties>
+      </checkConditionFragment>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_LAST_NAME_NN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>CheckConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+    <constraint class="oracle.javatools.db.CheckConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">93824b61-3620-4d78-bd9f-fbb6e0022327</identifier>
+      </ID>
+      <name>EMP_SALARY_MIN</name>
+      <checkConditionFragment class="oracle.javatools.db.sql.WhereObject">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">657e2720-a957-4a68-a7cc-58b9eab9a64b</identifier>
+        </ID>
+        <arguments>
+          <argument class="oracle.javatools.db.sql.Comparison">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">ff5a8e7f-12ac-4a9f-b7b0-a7cd4814fc35</identifier>
+            </ID>
+            <comparator>1</comparator>
+            <leftExpression class="oracle.javatools.db.sql.ColumnUsage">
+              <ID class="oracle.javatools.db.IdentifierBasedID">
+                <identifier class="java.lang.String">3b5f9e34-bbd1-437a-bcf8-8b4b42ab2e41</identifier>
+              </ID>
+              <objectID class="oracle.javatools.db.IdentifierBasedID">
+                <name>SALARY</name>
+                <identifier class="java.lang.String">c8225205-4550-43d3-8293-5c1ce620821a</identifier>
+                <parent class="oracle.javatools.db.IdentifierBasedID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <schemaName>HR</schemaName>
+                <type>COLUMN</type>
+              </objectID>
+              <outerJoin>false</outerJoin>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>EMP_SALARY_MIN</name>
+                          <parent class="oracle.javatools.db.ReferenceID">
+                            <name>EMPLOYEES</name>
+                            <identifier class="java.math.BigDecimal">73948</identifier>
+                            <schemaName>HR</schemaName>
+                            <type>TABLE</type>
+                          </parent>
+                          <subType>CheckConstraint</subType>
+                          <type>CONSTRAINT</type>
+                        </parent>
+                        <type>WHERE</type>
+                      </parent>
+                      <type>SQLFragment</type>
+                    </parent>
+                    <type>SQLFragment</type>
+                  </value>
+                </entry>
+              </properties>
+              <qualified>false</qualified>
+            </leftExpression>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_SALARY_MIN</name>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <subType>CheckConstraint</subType>
+                      <type>CONSTRAINT</type>
+                    </parent>
+                    <type>WHERE</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <rightExpression class="oracle.javatools.db.sql.SimpleSQLFragment">
+              <ID class="oracle.javatools.db.IdentifierBasedID">
+                <identifier class="java.lang.String">3023bd36-e4b9-425e-b17a-e597b4669186</identifier>
+              </ID>
+              <SQLText>0</SQLText>
+              <properties>
+                <entry>
+                  <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                  <value class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <parent class="oracle.javatools.db.ReferenceID">
+                          <name>EMP_SALARY_MIN</name>
+                          <parent class="oracle.javatools.db.ReferenceID">
+                            <name>EMPLOYEES</name>
+                            <identifier class="java.math.BigDecimal">73948</identifier>
+                            <schemaName>HR</schemaName>
+                            <type>TABLE</type>
+                          </parent>
+                          <subType>CheckConstraint</subType>
+                          <type>CONSTRAINT</type>
+                        </parent>
+                        <type>WHERE</type>
+                      </parent>
+                      <type>SQLFragment</type>
+                    </parent>
+                    <type>SQLFragment</type>
+                  </value>
+                </entry>
+              </properties>
+            </rightExpression>
+          </argument>
+        </arguments>
+        <operator>372</operator>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EMP_SALARY_MIN</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMPLOYEES</name>
+                  <identifier class="java.math.BigDecimal">73948</identifier>
+                  <schemaName>HR</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <subType>CheckConstraint</subType>
+                <type>CONSTRAINT</type>
+              </parent>
+              <type>WHERE</type>
+            </value>
+          </entry>
+        </properties>
+      </checkConditionFragment>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_SALARY_MIN</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>CheckConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">21dea1a1-a884-4cf6-8d5a-9563f999afc6</identifier>
+      </ID>
+      <name>EMP_DEPT_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>DEPARTMENT_ID</name>
+          <identifier class="java.lang.String">32baa44d-14d8-41d0-b03f-e5356035e737</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES</name>
+            <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_DEPT_FK</name>
+            <childObjectNames>
+              <childObjectName>DEPARTMENT_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>DEPT_ID_PK</name>
+        <identifier class="java.lang.String">7a189dcc-666d-472a-8739-34f194a8701f</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>DEPARTMENTS</name>
+          <identifier class="java.lang.String">2d971aa0-6777-40aa-9458-7f4b343ad7db</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">91da00f7-1ff8-4458-8a26-265089b41561</identifier>
+      </ID>
+      <name>EMP_JOB_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>JOB_ID</name>
+          <identifier class="java.lang.String">09fc5bde-fbbc-4601-934d-984aee46fa8d</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES</name>
+            <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_JOB_FK</name>
+            <childObjectNames>
+              <childObjectName>JOB_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>JOB_ID_PK</name>
+        <identifier class="java.lang.String">cac3ed5b-1a42-4cb7-97b2-4bfaca82838f</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>JOBS</name>
+          <identifier class="java.lang.String">2f5c1e05-bdb3-4c25-bcd9-72c03429b30a</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">b9d8cebd-2be4-4060-bf0a-af131ca7429c</identifier>
+      </ID>
+      <name>EMP_MANAGER_FK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>MANAGER_ID</name>
+          <identifier class="java.lang.String">7762a5f9-4a64-4e93-89c2-257ef68a027f</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES</name>
+            <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_MANAGER_FK</name>
+            <childObjectNames>
+              <childObjectName>MANAGER_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>EMP_EMP_ID_PK</name>
+        <identifier class="java.lang.String">84250961-56e7-4e17-a9ec-e573f80edf0f</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>EMPLOYEES</name>
+          <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+          <schemaName>HR</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>HR</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">84250961-56e7-4e17-a9ec-e573f80edf0f</identifier>
+      </ID>
+      <name>EMP_EMP_ID_PK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>EMPLOYEE_ID</name>
+          <identifier class="java.lang.String">9827afc3-f46c-49dd-8fd1-01ef3c5bf83e</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES</name>
+            <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_EMP_ID_PK</name>
+            <childObjectNames>
+              <childObjectName>EMPLOYEE_ID</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+    <constraint class="oracle.javatools.db.UniqueConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">36fa642d-beb4-4dcf-8089-fbdc7c70ef82</identifier>
+      </ID>
+      <name>EMP_EMAIL_UK</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>EMAIL</name>
+          <identifier class="java.lang.String">72bbce0e-0ac8-432d-8f33-7f72883ed755</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>EMPLOYEES</name>
+            <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+            <schemaName>HR</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>HR</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_EMAIL_UK</name>
+            <childObjectNames>
+              <childObjectName>EMAIL</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>UniqueConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <indexes>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">fee16799-7451-4779-873a-384098b89482</identifier>
+      </ID>
+      <name>EMP_DEPARTMENT_IX</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">1be46560-c89d-4bc7-9564-5217d59a5e62</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">53c45d22-11a7-460a-84ed-cbf97cc0b841</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>DEPARTMENT_ID</name>
+              <identifier class="java.lang.String">32baa44d-14d8-41d0-b03f-e5356035e737</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>EMPLOYEES</name>
+                <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_DEPARTMENT_IX</name>
+                      <identifier class="java.lang.Integer">73951</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>HR</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMP_DEPARTMENT_IX</name>
+                  <identifier class="java.lang.Integer">73951</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMPLOYEES</name>
+                    <identifier class="java.math.BigDecimal">73948</identifier>
+                    <schemaName>HR</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>HR</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_DEPARTMENT_IX</name>
+            <identifier class="java.lang.Integer">73951</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>HR</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">00bccf30-a662-4fb3-bbde-2a76afcd5d73</identifier>
+            </ID>
+            <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>false</logging>
+            <maxExtent>2147483645</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
+            <percentFree>10</percentFree>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMP_DEPARTMENT_IX</name>
+                    <identifier class="java.lang.Integer">73951</identifier>
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMPLOYEES</name>
+                      <identifier class="java.math.BigDecimal">73948</identifier>
+                      <schemaName>HR</schemaName>
+                      <type>TABLE</type>
+                    </parent>
+                    <schemaName>HR</schemaName>
+                    <type>INDEX</type>
+                  </parent>
+                  <type>OracleStorageProperties</type>
+                </value>
+              </entry>
+            </properties>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>EXAMPLE</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+        <entry>
+          <key>Timestamp</key>
+        </entry>
+      </properties>
+      <schema>
+        <name>HR</name>
+      </schema>
+    </indexe>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">db84e9d9-da08-4490-bb36-2595963a5d35</identifier>
+      </ID>
+      <name>EMP_JOB_IX</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">b4c4c7e1-2b2c-4b88-bade-b2b092b8c5f9</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">37f6b561-b99f-42c9-9ada-2f7768e3700f</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>JOB_ID</name>
+              <identifier class="java.lang.String">09fc5bde-fbbc-4601-934d-984aee46fa8d</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>EMPLOYEES</name>
+                <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_JOB_IX</name>
+                      <identifier class="java.lang.Integer">73952</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>HR</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMP_JOB_IX</name>
+                  <identifier class="java.lang.Integer">73952</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMPLOYEES</name>
+                    <identifier class="java.math.BigDecimal">73948</identifier>
+                    <schemaName>HR</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>HR</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_JOB_IX</name>
+            <identifier class="java.lang.Integer">73952</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>HR</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">e8217274-eab4-40a3-811e-30d98b1238a6</identifier>
+            </ID>
+            <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>false</logging>
+            <maxExtent>2147483645</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
+            <percentFree>10</percentFree>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMP_JOB_IX</name>
+                    <identifier class="java.lang.Integer">73952</identifier>
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMPLOYEES</name>
+                      <identifier class="java.math.BigDecimal">73948</identifier>
+                      <schemaName>HR</schemaName>
+                      <type>TABLE</type>
+                    </parent>
+                    <schemaName>HR</schemaName>
+                    <type>INDEX</type>
+                  </parent>
+                  <type>OracleStorageProperties</type>
+                </value>
+              </entry>
+            </properties>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>EXAMPLE</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+        <entry>
+          <key>Timestamp</key>
+        </entry>
+      </properties>
+      <schema>
+        <name>HR</name>
+      </schema>
+    </indexe>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">f2aeb4e0-2d27-41ef-b367-fdfa50992d67</identifier>
+      </ID>
+      <name>EMP_MANAGER_IX</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">f062b525-d8e1-4371-8c8c-e84213a334cf</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">525bedf3-bbb6-4798-ba16-eb5995e13e74</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>MANAGER_ID</name>
+              <identifier class="java.lang.String">7762a5f9-4a64-4e93-89c2-257ef68a027f</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>EMPLOYEES</name>
+                <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_MANAGER_IX</name>
+                      <identifier class="java.lang.Integer">73953</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>HR</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMP_MANAGER_IX</name>
+                  <identifier class="java.lang.Integer">73953</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMPLOYEES</name>
+                    <identifier class="java.math.BigDecimal">73948</identifier>
+                    <schemaName>HR</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>HR</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_MANAGER_IX</name>
+            <identifier class="java.lang.Integer">73953</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>HR</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">3959b1f3-ad06-4e6a-b3d1-9efc923e5135</identifier>
+            </ID>
+            <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>false</logging>
+            <maxExtent>2147483645</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
+            <percentFree>10</percentFree>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMP_MANAGER_IX</name>
+                    <identifier class="java.lang.Integer">73953</identifier>
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMPLOYEES</name>
+                      <identifier class="java.math.BigDecimal">73948</identifier>
+                      <schemaName>HR</schemaName>
+                      <type>TABLE</type>
+                    </parent>
+                    <schemaName>HR</schemaName>
+                    <type>INDEX</type>
+                  </parent>
+                  <type>OracleStorageProperties</type>
+                </value>
+              </entry>
+            </properties>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>EXAMPLE</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+        <entry>
+          <key>Timestamp</key>
+        </entry>
+      </properties>
+      <schema>
+        <name>HR</name>
+      </schema>
+    </indexe>
+    <indexe>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">27313043-09e8-4f5f-a46b-429c1f4518fe</identifier>
+      </ID>
+      <name>EMP_NAME_IX</name>
+      <columnExpressions>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">be1c5bb8-134f-4bd1-b815-ac2a286d1dc1</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">01afd82b-6db4-4e88-9720-9371b3ded88e</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>LAST_NAME</name>
+              <identifier class="java.lang.String">c436b070-2bc7-4218-9876-657c6442ca97</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>EMPLOYEES</name>
+                <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_NAME_IX</name>
+                      <identifier class="java.lang.Integer">73954</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>HR</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMP_NAME_IX</name>
+                  <identifier class="java.lang.Integer">73954</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMPLOYEES</name>
+                    <identifier class="java.math.BigDecimal">73948</identifier>
+                    <schemaName>HR</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>HR</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+        <columnExpression>
+          <ID class="oracle.javatools.db.IdentifierBasedID">
+            <identifier class="java.lang.String">dc131809-0354-4b02-99c0-fb6ad32b6893</identifier>
+          </ID>
+          <expression class="oracle.javatools.db.sql.ColumnUsage">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">6d5a650a-3944-45c0-8ec7-4633d67be2fa</identifier>
+            </ID>
+            <objectID class="oracle.javatools.db.IdentifierBasedID">
+              <name>FIRST_NAME</name>
+              <identifier class="java.lang.String">de7db1e7-c393-44f3-bc8e-28ccf746556e</identifier>
+              <parent class="oracle.javatools.db.IdentifierBasedID">
+                <name>EMPLOYEES</name>
+                <identifier class="java.lang.String">b69e5485-f7dc-42f8-be10-717b4d8376a2</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <schemaName>HR</schemaName>
+              <type>COLUMN</type>
+            </objectID>
+            <outerJoin>false</outerJoin>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMP_NAME_IX</name>
+                      <identifier class="java.lang.Integer">73954</identifier>
+                      <parent class="oracle.javatools.db.ReferenceID">
+                        <name>EMPLOYEES</name>
+                        <identifier class="java.math.BigDecimal">73948</identifier>
+                        <schemaName>HR</schemaName>
+                        <type>TABLE</type>
+                      </parent>
+                      <schemaName>HR</schemaName>
+                      <type>INDEX</type>
+                    </parent>
+                    <type>IndexObject</type>
+                  </parent>
+                  <type>SQLFragment</type>
+                </value>
+              </entry>
+            </properties>
+            <qualified>true</qualified>
+          </expression>
+          <order>ASC</order>
+          <properties>
+            <entry>
+              <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+              <value class="oracle.javatools.db.ReferenceID">
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>EMP_NAME_IX</name>
+                  <identifier class="java.lang.Integer">73954</identifier>
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMPLOYEES</name>
+                    <identifier class="java.math.BigDecimal">73948</identifier>
+                    <schemaName>HR</schemaName>
+                    <type>TABLE</type>
+                  </parent>
+                  <schemaName>HR</schemaName>
+                  <type>INDEX</type>
+                </parent>
+                <type>IndexObject</type>
+              </value>
+            </entry>
+          </properties>
+        </columnExpression>
+      </columnExpressions>
+      <indexType>NORMAL</indexType>
+      <parallelDegree>1</parallelDegree>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>EMP_NAME_IX</name>
+            <identifier class="java.lang.Integer">73954</identifier>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>EMPLOYEES</name>
+              <identifier class="java.math.BigDecimal">73948</identifier>
+              <schemaName>HR</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <schemaName>HR</schemaName>
+            <type>INDEX</type>
+          </value>
+        </entry>
+        <entry>
+          <key>OracleStorageProperties</key>
+          <value class="oracle.javatools.db.ora.OracleStorageProperties">
+            <ID class="oracle.javatools.db.IdentifierBasedID">
+              <identifier class="java.lang.String">b27d0d91-6a92-4fd9-992f-1b982a828e28</identifier>
+            </ID>
+            <bufferMode>DEFAULT</bufferMode>
+            <initialExtent>65536</initialExtent>
+            <initrans>2</initrans>
+            <logging>false</logging>
+            <maxExtent>2147483645</maxExtent>
+            <minExtent>1</minExtent>
+            <nextExtent>1048576</nextExtent>
+            <percentFree>10</percentFree>
+            <properties>
+              <entry>
+                <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+                <value class="oracle.javatools.db.ReferenceID">
+                  <parent class="oracle.javatools.db.ReferenceID">
+                    <name>EMP_NAME_IX</name>
+                    <identifier class="java.lang.Integer">73954</identifier>
+                    <parent class="oracle.javatools.db.ReferenceID">
+                      <name>EMPLOYEES</name>
+                      <identifier class="java.math.BigDecimal">73948</identifier>
+                      <schemaName>HR</schemaName>
+                      <type>TABLE</type>
+                    </parent>
+                    <schemaName>HR</schemaName>
+                    <type>INDEX</type>
+                  </parent>
+                  <type>OracleStorageProperties</type>
+                </value>
+              </entry>
+            </properties>
+            <tablespaceID class="oracle.javatools.db.ReferenceID">
+              <name>EXAMPLE</name>
+              <type>TABLESPACE</type>
+            </tablespaceID>
+          </value>
+        </entry>
+        <entry>
+          <key>Timestamp</key>
+        </entry>
+      </properties>
+      <schema>
+        <name>HR</name>
+      </schema>
+    </indexe>
+  </indexes>
+  <properties>
+    <entry>
+      <key>Comment</key>
+      <value class="java.lang.String">employees table. Contains 107 rows. References with departments,
+jobs, job_history tables. Contains a self reference.</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_CONNECTION</key>
+      <value class="java.lang.String">hr</value>
+    </entry>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>EMPLOYEES</name>
+        <identifier class="java.math.BigDecimal">73948</identifier>
+        <schemaName>HR</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>OracleStorageProperties</key>
+      <value class="oracle.javatools.db.ora.OracleStorageProperties">
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">8b623d8a-fdc8-40f9-bd06-ecc9ba5315bc</identifier>
+        </ID>
+        <bufferMode>DEFAULT</bufferMode>
+        <initialExtent>65536</initialExtent>
+        <initrans>1</initrans>
+        <logging>false</logging>
+        <maxExtent>2147483645</maxExtent>
+        <minExtent>1</minExtent>
+        <nextExtent>1048576</nextExtent>
+        <percentFree>10</percentFree>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>EMPLOYEES</name>
+                <identifier class="java.math.BigDecimal">73948</identifier>
+                <schemaName>HR</schemaName>
+                <type>TABLE</type>
+              </parent>
+              <type>OracleStorageProperties</type>
+            </value>
+          </entry>
+        </properties>
+        <tablespaceID class="oracle.javatools.db.ReferenceID">
+          <name>EXAMPLE</name>
+          <type>TABLESPACE</type>
+        </tablespaceID>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+    <entry>
+      <key>Timestamp</key>
+    </entry>
+  </properties>
+  <schema>
+    <name>HR</name>
+  </schema>
+</table>

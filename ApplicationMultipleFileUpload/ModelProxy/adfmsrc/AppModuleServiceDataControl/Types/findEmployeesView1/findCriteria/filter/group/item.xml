@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="item"
+          Package="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.filter.group"
+          BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.filter.group.item"
+          isJavaBased="false">
+  <Attribute Name="conjunction" IsNotNull="false" Type="java.lang.String"/>
+  <Attribute Name="upperCaseCompare" IsNotNull="true" Type="java.lang.Boolean"/>
+  <Attribute Name="attribute" IsNotNull="true" Type="java.lang.String"/>
+  <Attribute Name="operator" IsNotNull="true" Type="java.lang.String"/>
+  <AccessorAttribute id="value" IsCollection="true"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.filter.group.item.value"
+                     CollectionBeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.filter.group.item_Operations"/>
+  <AccessorAttribute id="nested" IsCollection="false"
+                     BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.filter"/>
+</JavaBean>

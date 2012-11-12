@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<JavaBean xmlns="http://xmlns.oracle.com/adfm/beanmodel" version="11.1.1.60.13" id="value"
+          Package="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.filter.group.item"
+          BeanClass="AppModuleServiceDataControl.Types.findEmployeesView1.findCriteria.filter.group.item.value"
+          isJavaBased="false">
+  <Attribute Name="item" Type="java.lang.String"/>
+</JavaBean>

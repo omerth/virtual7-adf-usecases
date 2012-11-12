@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppModule"
+  Version="11.1.1.60.13"
+  ClearCacheOnRollback="true"
+  ComponentClass="com.virtual7.amComplexParams.model.AppModuleImpl"
+  ComponentInterface="com.virtual7.amComplexParams.model.common.AppModule"
+  ClientProxyName="com.virtual7.amComplexParams.model.client.AppModuleClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="EmployeesView1"
+    ViewObjectName="com.virtual7.amComplexParams.model.views.EmployeesView"/>
+  <ViewUsage
+    Name="EmployeesView2"
+    ViewObjectName="com.virtual7.amComplexParams.model.views.EmployeesView"/>
+  <ViewLinkUsage
+    Name="EmpManagerFkLink1"
+    ViewLinkObjectName="com.virtual7.amComplexParams.model.views.EmpManagerFkLink"
+    SrcViewUsageName="com.virtual7.amComplexParams.model.AppModule.EmployeesView1"
+    DstViewUsageName="com.virtual7.amComplexParams.model.AppModule.EmployeesView2"
+    Reversed="false"/>
+  <ClientInterface>
+    <Method
+      Name="saveUsers">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="users"
+        Type="java.util.List"
+        IsGeneric="true">
+        <Element
+          Type="com.virtual7.amComplexParams.model.UserBean"/>
+      </Parameter>
+    </Method>
+    <Method
+      Name="saveUsers1">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="userList"
+        Type="com.virtual7.amComplexParams.model.UserList"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

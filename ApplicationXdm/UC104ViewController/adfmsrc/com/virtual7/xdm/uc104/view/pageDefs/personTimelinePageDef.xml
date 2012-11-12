@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="personTimelinePageDef"
+                Package="com.virtual7.xdm.uc104.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Person" RangeSize="-1" DataControl="UC104ServiceDataControl" id="PersonIterator"/>
+    <iterator Binds="MinMaxDate" RangeSize="10" DataControl="UC104ServiceDataControl" id="MinMaxDateIterator"/>
+    <iterator Binds="MinMaxDate" RangeSize="10" DataControl="UC104ServiceDataControl" id="MinMaxDateIterator1"/>
+  </executables>
+  <bindings>
+    <gantt IterBinding="PersonIterator" id="Person" xmlns="http://xmlns.oracle.com/adfm/dvt">
+      <ganttDataMap>
+        <nodeDefinition DefName="com.virtual7.xdm.uc104.model.views.PersonsVO" type="Resources">
+          <AttrNames>
+            <Item Value="PersId" type="resourceId"/>
+          </AttrNames>
+          <Accessors>
+            <Item Value="Task" type="tasks"/>
+          </Accessors>
+        </nodeDefinition>
+        <nodeDefinition type="Task" DefName="com.virtual7.xdm.uc104.model.views.TasksVO">
+          <AttrNames>
+            <Item Value="TaskId" type="taskId"/>
+            <Item Value="StartDate" type="startTime"/>
+            <Item Value="EndDate" type="endTime"/>
+          </AttrNames>
+        </nodeDefinition>
+        <nodeDefinition type="Dependents">
+          <AttrNames/>
+        </nodeDefinition>
+        <nodeDefinition type="SplitTasks">
+          <AttrNames/>
+        </nodeDefinition>
+        <nodeDefinition type="RecurringTasks">
+          <AttrNames/>
+        </nodeDefinition>
+        <nodeDefinition type="Subresources">
+          <AttrNames/>
+        </nodeDefinition>
+      </ganttDataMap>
+    </gantt>
+    <attributeValues IterBinding="MinMaxDateIterator" id="MinStartDate">
+      <AttrNames>
+        <Item Value="MinStartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MinMaxDateIterator1" id="MaxEndDate">
+      <AttrNames>
+        <Item Value="MaxEndDate"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

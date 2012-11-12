@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.virtual7.ambcPooling.model.AppModule5">
+      <AppModuleConfig name="AppModule5Local" DeployPlatform="LOCAL" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule5">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule5"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModule5Shared" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule5">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule5"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="com.virtual7.ambcPooling.model.AppModule4">
+      <AppModuleConfig name="AppModule4Local" DeployPlatform="LOCAL" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule4">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule4"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModule4Shared" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule4">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule4"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="com.virtual7.ambcPooling.model.AppModule3">
+      <AppModuleConfig name="AppModule3Local" DeployPlatform="LOCAL" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule3">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule3"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModule3Shared" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule3">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule3"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="com.virtual7.ambcPooling.model.AppModule1">
+      <AppModuleConfig name="AppModule1Local" DeployPlatform="LOCAL" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule1">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule1"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModule1Shared" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule1">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule1"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="com.virtual7.ambcPooling.model.AppModule2">
+      <AppModuleConfig name="AppModule2Local" DeployPlatform="LOCAL" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule2">
+         <Database jbo.locking.mode="optimistic"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule2"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/hrDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="AppModule2Shared" DeployPlatform="LOCAL" JDBCName="hr" jbo.project="com.virtual7.ambcPooling.model.Model" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" ApplicationName="com.virtual7.ambcPooling.model.AppModule2">
+         <AM-Pooling jbo.ampool.isuseexclusive="false" jbo.ampool.maxpoolsize="1"/>
+         <Security AppModuleJndiName="com.virtual7.ambcPooling.model.AppModule2"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

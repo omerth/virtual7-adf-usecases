@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="bottom">
+      <af:panelGroupLayout id="pgl2" layout="horizontal">
+        <af:commandButton actionListener="#{bindings.Commit.execute}" text="OK" id="cb2"/>
+        <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="cb3">
+          <af:resetActionListener/>
+        </af:commandButton>
+      </af:panelGroupLayout>
+    </f:facet>
+    <f:facet name="center">
+      <af:table value="#{bindings.Task1.collectionModel}" var="row" rows="#{bindings.Task1.rangeSize}"
+                emptyText="#{bindings.Task1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.Task1.rangeSize}" rowBandingInterval="0" id="t1" columnStretching="c1"
+                partialTriggers="::cb1">
+        <af:column sortProperty="StartDate" sortable="true" headerText="#{bindings.Task1.hints.StartDate.label}"
+                   id="c6">
+          <af:inputDate value="#{row.bindings.StartDate.inputValue}" label="#{bindings.Task1.hints.StartDate.label}"
+                        required="#{bindings.Task1.hints.StartDate.mandatory}"
+                        shortDesc="#{bindings.Task1.hints.StartDate.tooltip}" id="id2">
+            <f:validator binding="#{row.bindings.StartDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.Task1.hints.StartDate.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column sortProperty="TaskId" sortable="true" headerText="#{bindings.Task1.hints.TaskId.label}" id="c9">
+          <af:inputText value="#{row.bindings.TaskId.inputValue}" label="#{bindings.Task1.hints.TaskId.label}"
+                        required="#{bindings.Task1.hints.TaskId.mandatory}"
+                        columns="#{bindings.Task1.hints.TaskId.displayWidth}"
+                        maximumLength="#{bindings.Task1.hints.TaskId.precision}"
+                        shortDesc="#{bindings.Task1.hints.TaskId.tooltip}" id="it6">
+            <f:validator binding="#{row.bindings.TaskId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="Text" sortable="true" headerText="#{bindings.Task1.hints.Text.label}" id="c1">
+          <af:inputText value="#{row.bindings.Text.inputValue}" label="#{bindings.Task1.hints.Text.label}"
+                        required="#{bindings.Task1.hints.Text.mandatory}"
+                        columns="#{bindings.Task1.hints.Text.displayWidth}"
+                        maximumLength="#{bindings.Task1.hints.Text.precision}"
+                        shortDesc="#{bindings.Task1.hints.Text.tooltip}" id="it2">
+            <f:validator binding="#{row.bindings.Text.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="StartWhere" sortable="true" headerText="#{bindings.Task1.hints.StartWhere.label}"
+                   id="c2">
+          <af:inputText value="#{row.bindings.StartWhere.inputValue}" label="#{bindings.Task1.hints.StartWhere.label}"
+                        required="#{bindings.Task1.hints.StartWhere.mandatory}"
+                        columns="#{bindings.Task1.hints.StartWhere.displayWidth}"
+                        maximumLength="#{bindings.Task1.hints.StartWhere.precision}"
+                        shortDesc="#{bindings.Task1.hints.StartWhere.tooltip}" id="it3">
+            <f:validator binding="#{row.bindings.StartWhere.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="FlightNo" sortable="true" headerText="#{bindings.Task1.hints.FlightNo.label}" id="c3">
+          <af:inputText value="#{row.bindings.FlightNo.inputValue}" label="#{bindings.Task1.hints.FlightNo.label}"
+                        required="#{bindings.Task1.hints.FlightNo.mandatory}"
+                        columns="#{bindings.Task1.hints.FlightNo.displayWidth}"
+                        maximumLength="#{bindings.Task1.hints.FlightNo.precision}"
+                        shortDesc="#{bindings.Task1.hints.FlightNo.tooltip}" id="it1">
+            <f:validator binding="#{row.bindings.FlightNo.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="EndDate" sortable="true" headerText="#{bindings.Task1.hints.EndDate.label}" id="c4">
+          <af:inputDate value="#{row.bindings.EndDate.inputValue}" label="#{bindings.Task1.hints.EndDate.label}"
+                        required="#{bindings.Task1.hints.EndDate.mandatory}"
+                        shortDesc="#{bindings.Task1.hints.EndDate.tooltip}" id="id1">
+            <f:validator binding="#{row.bindings.EndDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.Task1.hints.EndDate.format}"/>
+          </af:inputDate>
+        </af:column>
+        <af:column sortProperty="EndWhere" sortable="true" headerText="#{bindings.Task1.hints.EndWhere.label}" id="c10">
+          <af:inputText value="#{row.bindings.EndWhere.inputValue}" label="#{bindings.Task1.hints.EndWhere.label}"
+                        required="#{bindings.Task1.hints.EndWhere.mandatory}"
+                        columns="#{bindings.Task1.hints.EndWhere.displayWidth}"
+                        maximumLength="#{bindings.Task1.hints.EndWhere.precision}"
+                        shortDesc="#{bindings.Task1.hints.EndWhere.tooltip}" id="it5">
+            <f:validator binding="#{row.bindings.EndWhere.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="Pax" sortable="true" headerText="#{bindings.Task1.hints.Pax.label}" id="c7">
+          <af:inputText value="#{row.bindings.Pax.inputValue}" label="#{bindings.Task1.hints.Pax.label}"
+                        required="#{bindings.Task1.hints.Pax.mandatory}"
+                        columns="#{bindings.Task1.hints.Pax.displayWidth}"
+                        maximumLength="#{bindings.Task1.hints.Pax.precision}"
+                        shortDesc="#{bindings.Task1.hints.Pax.tooltip}" id="it7">
+            <f:validator binding="#{row.bindings.Pax.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.Task1.hints.Pax.format}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="ElemKey" sortable="true" headerText="#{bindings.Task1.hints.ElemKey.label}" id="c8">
+          <af:selectOneChoice value="#{row.bindings.ElemKey.inputValue}" label="#{row.bindings.ElemKey.label}"
+                              required="#{bindings.Task1.hints.ElemKey.mandatory}"
+                              shortDesc="#{bindings.Task1.hints.ElemKey.tooltip}" id="soc1">
+            <f:selectItems value="#{row.bindings.ElemKey.items}" id="si1"/>
+          </af:selectOneChoice>
+        </af:column>
+        <af:column sortProperty="Remarks" sortable="true" headerText="#{bindings.Task1.hints.Remarks.label}" id="c5">
+          <af:inputText value="#{row.bindings.Remarks.inputValue}" label="#{bindings.Task1.hints.Remarks.label}"
+                        required="#{bindings.Task1.hints.Remarks.mandatory}"
+                        columns="#{bindings.Task1.hints.Remarks.displayWidth}"
+                        maximumLength="#{bindings.Task1.hints.Remarks.precision}"
+                        shortDesc="#{bindings.Task1.hints.Remarks.tooltip}" id="it4">
+            <f:validator binding="#{row.bindings.Remarks.validator}"/>
+          </af:inputText>
+        </af:column>
+      </af:table>
+    </f:facet>
+    <f:facet name="start"/>
+    <f:facet name="end"/>
+    <f:facet name="top">
+      <af:panelGroupLayout id="pgl1" layout="horizontal">
+        <af:selectOneChoice value="#{bindings.pResponsable.inputValue}" label="Responsable"
+                            required="#{bindings.pResponsable.hints.mandatory}"
+                            shortDesc="#{bindings.pResponsable.hints.tooltip}" id="soc2">
+          <f:selectItems value="#{bindings.pResponsable.items}" id="si2"/>
+        </af:selectOneChoice>
+        <af:selectOneChoice value="#{bindings.pProgramme.inputValue}" label="Programme"
+                            required="#{bindings.pProgramme.hints.mandatory}"
+                            shortDesc="#{bindings.pProgramme.hints.tooltip}" id="soc3">
+          <f:selectItems value="#{bindings.pProgramme.items}" id="si3"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.pText.inputValue}" label="Text"
+                      required="#{bindings.pText.hints.mandatory}" columns="#{bindings.pText.hints.displayWidth}"
+                      maximumLength="#{bindings.pText.hints.precision}" shortDesc="#{bindings.pText.hints.tooltip}"
+                      id="it8">
+          <f:validator binding="#{bindings.pText.validator}"/>
+        </af:inputText>
+        <af:commandButton actionListener="#{bindings.ExecuteWithParams.execute}" text="Search"
+                          disabled="#{!bindings.ExecuteWithParams.enabled}" id="cb1"/>
+      </af:panelGroupLayout>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

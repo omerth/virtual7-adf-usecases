@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="historizationMainPageDef"
+                Package="com.virtual7.historizationConcept.view">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModule2DataControl" id="EmployeesViewIterator"/>
+    <iterator Binds="EmployeesDetailHistView" RangeSize="25" DataControl="AppModule2DataControl"
+              id="EmployeesDetailHistViewIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesViewIterator" id="EmployeesView">
+      <nodeDefinition DefName="com.virtual7.historizationConcept.model.views.EmployeesView" Name="EmployeesView0">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="LastName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="EmployeesDetailHistViewIterator" id="EmployeesDetailHistView">
+      <nodeDefinition DefName="com.virtual7.historizationConcept.model.views.EmployeesDetailHist2View"
+                      Name="EmployeesDetailHistView0">
+        <AttrNames>
+          <Item Value="LastChangeDate"/>
+          <Item Value="IsLast"/>
+          <Item Value="FirstName"/>
+          <Item Value="EmployeeId"/>
+          <Item Value="LastNameDiff"/>
+          <Item Value="JobTitleDiff"/>
+          <Item Value="DepartmentNameDiff"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="LastChangeDate">
+      <AttrNames>
+        <Item Value="LastChangeDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="JobId">
+      <AttrNames>
+        <Item Value="JobId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="JobTitle">
+      <AttrNames>
+        <Item Value="JobTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="DepartmentId">
+      <AttrNames>
+        <Item Value="DepartmentId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmployeesDetailHistViewIterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

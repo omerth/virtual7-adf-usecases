@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13"
+                id="search_historization_search_historization_filterEmployeesViewPageDef"
+                Package="com.virtual7.historizationConcept.controller" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="EmployeesView" RangeSize="25" DataControl="AppModule1DataControl" id="EmployeesViewIterator"
+              Refresh="never"/>
+  </executables>
+  <bindings>
+    <action IterBinding="EmployeesViewIterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="filterLastName" NDValue="#{pageFlowScope.filterLastName}" NDType="java.lang.String"/>
+      <NamedData NDName="filterDepartmentName" NDValue="#{pageFlowScope.filterDepartmentName}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="filterJobTitle" NDValue="#{pageFlowScope.filterJobTitle}" NDType="java.lang.String"/>
+      <NamedData NDName="filterHideHistory" NDValue="#{pageFlowScope.filterIncludeHistory ? '%' : '1'}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

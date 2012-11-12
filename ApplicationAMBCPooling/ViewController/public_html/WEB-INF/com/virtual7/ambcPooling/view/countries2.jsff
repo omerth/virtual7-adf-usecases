@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelStretchLayout id="psl1">
+    <f:facet name="center">
+      <af:table value="#{bindings.CountriesView1.collectionModel}" var="row" rows="#{bindings.CountriesView1.rangeSize}"
+                emptyText="#{bindings.CountriesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                fetchSize="#{bindings.CountriesView1.rangeSize}" rowBandingInterval="0" id="t1">
+        <af:column sortProperty="CountryId" sortable="false"
+                   headerText="#{bindings.CountriesView1.hints.CountryId.label}" id="c3">
+          <af:inputText value="#{row.bindings.CountryId.inputValue}"
+                        label="#{bindings.CountriesView1.hints.CountryId.label}"
+                        required="#{bindings.CountriesView1.hints.CountryId.mandatory}"
+                        columns="#{bindings.CountriesView1.hints.CountryId.displayWidth}"
+                        maximumLength="#{bindings.CountriesView1.hints.CountryId.precision}"
+                        shortDesc="#{bindings.CountriesView1.hints.CountryId.tooltip}" id="it1">
+            <f:validator binding="#{row.bindings.CountryId.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="CountryName" sortable="false"
+                   headerText="#{bindings.CountriesView1.hints.CountryName.label}" id="c1">
+          <af:inputText value="#{row.bindings.CountryName.inputValue}"
+                        label="#{bindings.CountriesView1.hints.CountryName.label}"
+                        required="#{bindings.CountriesView1.hints.CountryName.mandatory}"
+                        columns="#{bindings.CountriesView1.hints.CountryName.displayWidth}"
+                        maximumLength="#{bindings.CountriesView1.hints.CountryName.precision}"
+                        shortDesc="#{bindings.CountriesView1.hints.CountryName.tooltip}" id="it2">
+            <f:validator binding="#{row.bindings.CountryName.validator}"/>
+          </af:inputText>
+        </af:column>
+        <af:column sortProperty="RegionId" sortable="false" headerText="#{bindings.CountriesView1.hints.RegionId.label}"
+                   id="c2">
+          <af:inputText value="#{row.bindings.RegionId.inputValue}"
+                        label="#{bindings.CountriesView1.hints.RegionId.label}"
+                        required="#{bindings.CountriesView1.hints.RegionId.mandatory}"
+                        columns="#{bindings.CountriesView1.hints.RegionId.displayWidth}"
+                        maximumLength="#{bindings.CountriesView1.hints.RegionId.precision}"
+                        shortDesc="#{bindings.CountriesView1.hints.RegionId.tooltip}" id="it3">
+            <f:validator binding="#{row.bindings.RegionId.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.CountriesView1.hints.RegionId.format}"/>
+          </af:inputText>
+        </af:column>
+      </af:table>
+    </f:facet>
+  </af:panelStretchLayout>
+</jsp:root>

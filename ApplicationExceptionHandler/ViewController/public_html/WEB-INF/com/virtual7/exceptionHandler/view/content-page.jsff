@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:spacer width="10" height="10" id="s2"/>
+    <af:selectOneChoice id="soc1" value="#{sessionManagedBean.exceptionHandleType}" immediate="true" autoSubmit="true">
+      <f:selectItem id="si1" itemLabel="Handle Exceptions with Error Messages"
+                    itemValue="#{sessionManagedBean.typeErrorMessage}"/>
+      <f:selectItem id="si2" itemLabel="Handle Exceptions with Error Page"
+                    itemValue="#{sessionManagedBean.typeErrorPage}"/>
+    </af:selectOneChoice>
+    <af:spacer width="10" height="10" id="s1"/>
+    <af:commandButton text="BackingBean - method" id="cb1" action="backingBeanMethod"/>
+    <af:commandButton text="BackingBean - render" id="cb4" action="backingBeanPage"/>
+    <af:commandButton text="BackingBean - render (handled)" id="cb5" action="backingBeanPageHandled"/>
+    <af:commandButton text="Model - method" id="cb2" action="modelMethod"/>
+    <af:commandButton text="Model - render" id="cb3" action="modelPage"/>
+    <af:spacer width="10" height="10" id="s3"/>
+    <af:inputDate id="id1" minValue="2011-12-07" maxValue="2011-12-10" autoSubmit="true" label="Input Date"/>
+  </af:panelGroupLayout>
+</jsp:root>

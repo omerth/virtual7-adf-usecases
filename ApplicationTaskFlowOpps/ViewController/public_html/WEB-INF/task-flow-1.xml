@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-1">
+    <default-activity id="__1">page1</default-activity>
+    <managed-bean id="__68">
+      <managed-bean-name id="__67">tf1Bean</managed-bean-name>
+      <managed-bean-class id="__70">com.virtual7.taskFlowOpps.view.managed.TF1Bean</managed-bean-class>
+      <managed-bean-scope id="__69">pageFlow</managed-bean-scope>
+    </managed-bean>
+    <exception-handler id="__93">exceptionHandler</exception-handler>
+    <view id="page1">
+      <page>/page1.jsff</page>
+    </view>
+    <view id="page2">
+      <page>/page2.jsff</page>
+    </view>
+    <task-flow-call id="task-flow-2">
+      <task-flow-reference>
+        <document>/WEB-INF/task-flow-2.xml</document>
+        <id>task-flow-2</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <task-flow-call id="task-flow-3">
+      <task-flow-reference>
+        <document>/WEB-INF/task-flow-3.xml</document>
+        <id>task-flow-3</id>
+      </task-flow-reference>
+      <input-parameter id="__35">
+        <name>paramFromPage1</name>
+        <value>123</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="task-flow-4">
+      <task-flow-reference>
+        <document>/WEB-INF/task-flow-4.xml</document>
+        <id>task-flow-4</id>
+      </task-flow-reference>
+      <return-value id="__49">
+        <name>returnedParam</name>
+        <value>#{pageFlowScope.returnedParamByTF4}</value>
+      </return-value>
+    </task-flow-call>
+    <router id="router1">
+      <case>
+        <expression>#{pageFlowScope.returnedParamByTF4 == 'page2'}</expression>
+        <outcome id="__52">goToPage2</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.returnedParamByTF4 == 'TF2'}</expression>
+        <outcome id="__53">goToTF2</outcome>
+      </case>
+      <case>
+        <expression>#{pageFlowScope.methodReturn == 'fail'}</expression>
+        <outcome id="__73">checkFailed</outcome>
+      </case>
+      <default-outcome>default</default-outcome>
+    </router>
+    <method-call id="spellCheck">
+      <method>#{pageFlowScope.tf1Bean.spellCheck}</method>
+      <outcome id="__71">
+        <fixed-outcome>ok</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="routingCheck">
+      <method>#{pageFlowScope.tf1Bean.routingCheck}</method>
+      <parameter>
+        <class>java.lang.String</class>
+        <value>#{pageFlowScope.returnedParamByTF4}</value>
+      </parameter>
+      <outcome id="__85">
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="exceptionHandler">
+      <page>/exceptionHandler.jsff</page>
+    </view>
+    <method-call id="methodCall1">
+      <method>#{pageFlowScope.tf1Bean.throwException}</method>
+      <outcome id="__91">
+        <to-string/>
+      </outcome>
+    </method-call>
+    <view id="wildOne">
+      <page>/wildOne.jsff</page>
+    </view>
+    <view id="parentView">
+      <page>/parentView.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">page1</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">go</from-outcome>
+        <to-activity-id id="__4">page2</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome id="__14">goToPage3</from-outcome>
+        <to-activity-id id="__12">task-flow-2</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__29">
+        <from-outcome id="__30">sendParam</from-outcome>
+        <to-activity-id id="__28">task-flow-3</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__41">
+        <from-outcome id="__43">goPage5</from-outcome>
+        <to-activity-id id="__42">task-flow-4</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__88">
+        <from-outcome id="__90">throwException</from-outcome>
+        <to-activity-id id="__89">methodCall1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__117">
+        <from-outcome id="__119">parentView</from-outcome>
+        <to-activity-id id="__118">parentView</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">page2</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">back</from-outcome>
+        <to-activity-id id="__9">page1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__20">
+      <from-activity-id id="__21">task-flow-2</from-activity-id>
+      <control-flow-case id="__24">
+        <from-outcome id="__23">returnPage1</from-outcome>
+        <to-activity-id id="__22">page1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__26">
+        <from-outcome id="__25">returnPage2</from-outcome>
+        <to-activity-id id="__27">page2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__36">
+      <from-activity-id id="__37">task-flow-3</from-activity-id>
+      <control-flow-case id="__38">
+        <from-outcome id="__40">back</from-outcome>
+        <to-activity-id id="__39">page1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__31">
+      <from-activity-id id="__32">router1</from-activity-id>
+      <control-flow-case id="__34">
+        <from-outcome id="__44">goToPage2</from-outcome>
+        <to-activity-id id="__33">page2</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__45">
+        <from-outcome id="__47">goToTF2</from-outcome>
+        <to-activity-id id="__46">task-flow-2</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__50">
+        <from-outcome id="__51">default</from-outcome>
+        <to-activity-id id="__48">page1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__64">
+        <from-outcome id="__65">checkFailed</from-outcome>
+        <to-activity-id id="__66">task-flow-4</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__54">
+      <from-activity-id id="__55">task-flow-4</from-activity-id>
+      <control-flow-case id="__58">
+        <from-outcome id="__57">sendReturnParam</from-outcome>
+        <to-activity-id id="__56">spellCheck</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__76">
+        <from-outcome id="__75">reroute</from-outcome>
+        <to-activity-id id="__74">routingCheck</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__59">
+      <from-activity-id id="__60">spellCheck</from-activity-id>
+      <control-flow-case id="__62">
+        <from-outcome id="__63">ok</from-outcome>
+        <to-activity-id id="__61">router1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__77">
+      <from-activity-id id="__78">routingCheck</from-activity-id>
+      <control-flow-case id="__79">
+        <from-outcome id="__81">out1</from-outcome>
+        <to-activity-id id="__80">page1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__83">
+        <from-outcome id="__84">out2</from-outcome>
+        <to-activity-id id="__82">task-flow-3</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__94">
+      <from-activity-id id="__95">exceptionHandler</from-activity-id>
+      <control-flow-case id="__97">
+        <from-outcome id="__98">back</from-outcome>
+        <to-activity-id id="__96">page1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__99">
+      <from-activity-id id="__100">*</from-activity-id>
+      <control-flow-case id="__102">
+        <from-outcome id="__103">onlyWildOnesGetHere</from-outcome>
+        <to-activity-id id="__101">wildOne</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__105">
+      <from-activity-id id="__104">*</from-activity-id>
+      <control-flow-case id="__107">
+        <from-outcome id="__108">wildBack</from-outcome>
+        <to-activity-id id="__106">page1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__112">
+      <from-activity-id id="__113">parentView</from-activity-id>
+      <control-flow-case id="__115">
+        <from-outcome id="__116">throwException</from-outcome>
+        <to-activity-id id="__114">methodCall1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
