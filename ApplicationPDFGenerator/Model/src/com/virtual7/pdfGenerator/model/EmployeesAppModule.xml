@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmployeesAppModule"
+  Version="11.1.1.61.92"
+  ComponentClass="com.virtual7.pdfGenerator.model.EmployeesAppModuleImpl"
+  ClearCacheOnRollback="true"
+  ComponentInterface="com.virtual7.pdfGenerator.model.common.EmployeesAppModule"
+  ClientProxyName="com.virtual7.pdfGenerator.model.client.EmployeesAppModuleClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="com.virtual7.pdfGenerator.model.EmployeesAppModule_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewUsage
+    Name="EmployeesVO"
+    ViewObjectName="com.virtual7.pdfGenerator.model.views.EmployeesVO"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.virtual7.pdfGenerator.model.ModelBundle"/>
+  </ResourceBundle>
+  <ClientInterface>
+    <Method
+      Name="generatePDF">
+      <Return
+        Type="byte[]"/>
+    </Method>
+  </ClientInterface>
+</AppModule>
