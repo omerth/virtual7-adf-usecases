@@ -8,6 +8,7 @@ import com.virtual7.pdfGenerator.model.pdf.XmlStringGenerator;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.InputStream;
 import java.io.StringReader;
 
 import java.net.URL;
@@ -53,11 +54,8 @@ public class EmployeesAppModuleImpl extends ApplicationModuleImpl implements Emp
             System.out.println("Preparing...");
 
             // Setup input and output files
-            URL xslLocation = this.getClass().getClassLoader().getResource("com/virtual7/pdfGenerator/view/xsl_files/employeesData.xsl");
-            File xsltfile = new File(xslLocation.getPath());
+            InputStream xslLocation = this.getClass().getClassLoader().getResourceAsStream("com/virtual7/pdfGenerator/model/xsl_files/employeesData.xsl");
             
-            System.out.println("Stylesheet: " + xsltfile);
-            System.out.println();
             System.out.println("Transforming...");
 
             // configure fopFactory as desired
@@ -75,7 +73,7 @@ public class EmployeesAppModuleImpl extends ApplicationModuleImpl implements Emp
 
                 // Setup XSLT
                 TransformerFactory factory = new TransformerFactoryImpl();
-                Transformer transformer = factory.newTransformer(new StreamSource(xsltfile));
+                Transformer transformer = factory.newTransformer(new StreamSource(xslLocation));
 
                 // Setup input for XSLT transformation
                 Source src = new StreamSource(new StringReader(xml));
