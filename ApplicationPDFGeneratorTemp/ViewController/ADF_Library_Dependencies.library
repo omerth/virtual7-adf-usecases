@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<JLibraryNode nselem="JLibraryNode" class="oracle.jdeveloper.library.JLibraryNode" deployedByDefault="true" xmlns="http://xmlns.oracle.com/jdeveloper/110000jlibrarynode">
+   <classPath>
+      <entries>
+         <Item path="../Model/lib/avalon-framework-4.2.0.jar" jar-entry=""/>
+         <Item path="../Model/lib/batik-all-1.7.jar" jar-entry=""/>
+         <Item path="../Model/lib/commons-io-1.3.1.jar" jar-entry=""/>
+         <Item path="../Model/lib/commons-logging-1.0.4.jar" jar-entry=""/>
+         <Item path="../Model/lib/ejb.jar" jar-entry=""/>
+         <Item path="../Model/lib/fop.jar" jar-entry=""/>
+         <Item path="../Model/lib/serializer-2.7.0.jar" jar-entry=""/>
+         <Item path="../Model/lib/xalan-2.7.0.jar" jar-entry=""/>
+         <Item path="../Model/lib/xercesImpl-2.7.1.jar" jar-entry=""/>
+         <Item path="../Model/lib/xml-apis-1.3.04.jar" jar-entry=""/>
+         <Item path="../Model/lib/xml-apis-ext-1.3.04.jar" jar-entry=""/>
+         <Item path="../Model/lib/xmlgraphics-commons-1.4.jar" jar-entry=""/>
+         <Item protocol="jar" path="file:/D:/Work/Workspace/_myspace/virtual7Util/_libs/axis.jar!/"/>
+         <Item protocol="jar" path="file:/D:/Work/Workspace/_myspace/virtual7Util/_libs/commons-discovery-0.2.jar!/"/>
+         <Item protocol="jar" path="file:/D:/Work/Workspace/_myspace/virtual7Util/_libs/commons-email-1.0.jar!/"/>
+         <Item protocol="jar" path="file:/D:/Work/Workspace/_myspace/virtual7Util/_libs/wsdl4j-1.5.1.jar!/"/>
+         <Item protocol="jar" path="file:/D:/Work/Workspace/_myspace/virtual7Util/_libs/virtual7Util_model.jar!/"/>
+      </entries>
+   </classPath>
+   <docPath/>
+   <locked>true</locked>
+   <name>ADF Library Dependencies</name>
+   <sourcePath/>
+</JLibraryNode>
