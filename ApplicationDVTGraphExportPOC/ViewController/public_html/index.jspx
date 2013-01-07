@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="top">
+            <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl1">
+              <af:outputText value="System 1 Price Graph" id="ot1"/>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="center">
+            <af:switcher defaultFacet="year" facetName="#{dvtbean.faceName}" id="bind" binding="#{dvtbean.switcher}">
+              <f:facet name="year">
+                <af:panelGroupLayout layout="vertical" id="pgl3">
+                  <af:panelGroupLayout layout="horizontal" id="pgl4">
+                    <af:commandButton text="Print year JPG" id="cb1" partialSubmit="true">
+                      <af:fileDownloadActionListener method="#{dvtbean.downloadYearJPG}" filename="year.jpg"/>
+                    </af:commandButton>
+                    <af:commandButton text="PDF" id="cb4" partialSubmit="true">
+                      <af:fileDownloadActionListener filename="year.pdf" method="#{dvtbean.downloadYearPDF}"/>
+                    </af:commandButton>
+                  </af:panelGroupLayout>
+                  <dvt:barGraph id="barGraph1" value="#{bindings.PricePerYearView1.graphModel}" subType="BAR_VERT_CLUST"
+                                clickListener="#{dvtbean.yearClick}" binding="#{dvtbean.yearGraph}">
+                    <dvt:background>
+                      <dvt:specialEffects/>
+                    </dvt:background>
+                    <dvt:graphPlotArea/>
+                    <dvt:seriesSet>
+                      <dvt:series/>
+                    </dvt:seriesSet>
+                    <dvt:o1Axis/>
+                    <dvt:y1Axis/>
+                    <dvt:legendArea automaticPlacement="AP_NEVER"/>
+                  </dvt:barGraph>
+                </af:panelGroupLayout>
+              </f:facet>
+              <f:facet name="month">
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                  <af:panelGroupLayout layout="horizontal" id="pgl5">
+                    <af:commandButton text="Back to year view" id="cb2" actionListener="#{dvtbean.backToYear}"/>
+                    <af:commandButton text="Print month JPG" id="cb3" partialSubmit="true">
+                      <af:fileDownloadActionListener method="#{dvtbean.downloadMonthJPG}" filename="year.jpg"/>
+                    </af:commandButton>
+                    <af:commandButton text="PDF" id="cb5" partialSubmit="true">
+                      <af:fileDownloadActionListener filename="month.pdf" method="#{dvtbean.downloadMonthPDF}"/>
+                    </af:commandButton>
+                  </af:panelGroupLayout>
+                  <dvt:barGraph id="barGraph2" value="#{bindings.PricePerMonthView1.graphModel}"
+                                subType="BAR_VERT_CLUST" binding="#{dvtbean.monthGraph}">
+                    <dvt:background>
+                      <dvt:specialEffects/>
+                    </dvt:background>
+                    <dvt:graphPlotArea/>
+                    <dvt:seriesSet>
+                      <dvt:series/>
+                    </dvt:seriesSet>
+                    <dvt:o1Axis/>
+                    <dvt:y1Axis/>
+                    <dvt:legendArea automaticPlacement="AP_NEVER"/>
+                  </dvt:barGraph>
+                </af:panelGroupLayout>
+              </f:facet>
+            </af:switcher>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

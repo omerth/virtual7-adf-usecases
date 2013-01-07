@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.dvtpoc.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="PricePerYearView1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="PricePerYearView1Iterator"/>
+    <iterator Binds="PricePerMonthView1" RangeSize="-1" DataControl="AppModuleDataControl"
+              id="PricePerMonthView1Iterator"/>
+  </executables>
+  <bindings>
+    <graph IterBinding="PricePerYearView1Iterator" id="PricePerYearView1" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="BAR_VERT_CLUST">
+      <graphDataMap leafOnly="true">
+        <series>
+          <data>
+            <item value="Price"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Year"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <graph IterBinding="PricePerMonthView1Iterator" id="PricePerMonthView1" xmlns="http://xmlns.oracle.com/adfm/dvt"
+           type="BAR_VERT_CLUST">
+      <graphDataMap leafOnly="true">
+        <series>
+          <data>
+            <item value="Price"/>
+          </data>
+        </series>
+        <groups>
+          <item value="Month"/>
+        </groups>
+      </graphDataMap>
+    </graph>
+    <action IterBinding="PricePerMonthView1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
+            Action="executeWithParams">
+      <NamedData NDName="yearParam" NDValue="#{requestScope.dvtbean.selectedYear}" NDType="oracle.jbo.domain.Number"/>
+    </action>
+  </bindings>
+</pageDefinition>
