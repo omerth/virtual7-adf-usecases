@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+                Package="com.virtual7.pdfGenerator.view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmployeesVO" RangeSize="25" DataControl="EmployeesAppModuleDataControl" id="EmployeesVOIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="EmployeesVOIterator" id="EmployeesVO">
+      <nodeDefinition DefName="com.virtual7.pdfGenerator.model.views.EmployeesVO" Name="EmployeesVO0">
+        <AttrNames>
+          <Item Value="CommissionPct"/>
+          <Item Value="DepartmentId"/>
+          <Item Value="Email"/>
+          <Item Value="EmployeeId"/>
+          <Item Value="FirstName"/>
+          <Item Value="HireDate"/>
+          <Item Value="JobId"/>
+          <Item Value="LastName"/>
+          <Item Value="ManagerId"/>
+          <Item Value="PhoneNumber"/>
+          <Item Value="Salary"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="generatePDF" RequiresUpdateModel="true" Action="invokeMethod" MethodName="generatePDF"
+                  IsViewObjectMethod="false" DataControl="EmployeesAppModuleDataControl"
+                  InstanceName="EmployeesAppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>
