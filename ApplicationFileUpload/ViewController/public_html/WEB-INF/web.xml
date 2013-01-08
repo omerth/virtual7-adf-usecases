@@ -32,6 +32,14 @@
     <param-name>org.apache.myfaces.trinidad.UPLOAD_TEMP_DIR</param-name>
     <param-value>d:/tmpTrinidad</param-value>
   </context-param>
+  <context-param>
+    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.AV_SERVER</param-name>
+    <param-value>iancu-pc:4711</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_DIR</param-name>
+    <param-value>d:/tmpVirus</param-value>
+  </context-param>
   <filter>
     <filter-name>JpsFilter</filter-name>
     <filter-class>oracle.security.jps.ee.http.JpsFilter</filter-class>
