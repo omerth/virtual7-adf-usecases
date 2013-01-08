@@ -1,4 +1,4 @@
-package com.virtual7.fileUpload.view.avScan;
+package com.virtual7.fileUpload.view.upload.avscan;
 
 public final class AVUtils {
 
