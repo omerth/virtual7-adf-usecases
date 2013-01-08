@@ -30,13 +30,12 @@ public class InputFileBean {
         OutputStream outputStream = null;
         try {
             inputStream = file.getInputStream();
-            outputStream =
-                    new FileOutputStream(new File("d:\\Work\\Workspace\\_myspace\\virtual7-adf-usecases\\ApplicationFileUpload\\UploadedFiles\\" +
-                                                  file.getFilename()));
+            outputStream = new FileOutputStream(new File("d:\\tmp\\" + file.getFilename()));
 
             writeFile(inputStream, outputStream);
         } catch (IOException e) {
-            popupMsg("Can not save the file on the server \n" + e.getMessage());
+            popupMsg("Can not save the file on the server \n" +
+                    e.getMessage());
         } finally {
             //we closing the streams
             try {
@@ -63,7 +62,8 @@ public class InputFileBean {
         }
         outputStream.flush();
     }
-    private void popupMsg(String msg){
+
+    private void popupMsg(String msg) {
         FacesMessage fm = new FacesMessage(msg);
         fm.setSeverity(FacesMessage.SEVERITY_ERROR);
         FacesContext context = FacesContext.getCurrentInstance();

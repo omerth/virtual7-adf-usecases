@@ -6,13 +6,24 @@
     <af:document id="d1">
       <af:messages id="m1"/>
       <af:form id="f1" usesUpload="true">
-        <p>
+        <af:panelGroupLayout id="pgl1" layout="scroll" inlineStyle="margin-left:10.0px;margin-top:10px;">
           <af:outputLabel value="File upload POC" id="ol1"/>
-        </p>
-        <p>
-          <af:inputFile label="Upload File:" id="inputFile" autoSubmit="true"
+          <af:spacer width="10" height="10" id="s2"/>
+          <af:inputFile label="Upload File 1:" id="if1"
                         valueChangeListener="#{InputFileBean.uploadFileValueChangeEvent}"/>
-        </p>
+          <af:inputFile label="Upload File 2:" id="if2"
+                        valueChangeListener="#{InputFileBean.uploadFileValueChangeEvent}"/>
+          <af:inputFile label="Upload File 3:" id="if3"
+                        valueChangeListener="#{InputFileBean.uploadFileValueChangeEvent}"/>
+          <af:inputFile label="Upload File 4:" id="if4"
+                        valueChangeListener="#{InputFileBean.uploadFileValueChangeEvent}"/>
+          <af:spacer width="10" height="10" id="s3"/>
+          <af:panelGroupLayout layout="horizontal" id="pgl2">
+            <af:commandButton text="Submit" id="cb1"/>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:resetButton text="Reset" id="rb1"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
       </af:form>
     </af:document>
   </f:view>
