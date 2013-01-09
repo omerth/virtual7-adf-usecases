@@ -1,4 +1,4 @@
-package com.virtual7.fileUpload.view.upload.avscan;
+package com.virtual7.fileUpload.avscan;
 
 import java.util.Date;
 

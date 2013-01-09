@@ -1,4 +1,4 @@
-package com.virtual7.fileUpload.view.upload;
+package com.virtual7.fileUpload;
 
 import java.io.BufferedReader;
 import java.io.IOException;

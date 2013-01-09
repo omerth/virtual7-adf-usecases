@@ -1,4 +1,4 @@
-package com.virtual7.fileUpload.view.upload.util;
+package com.virtual7.fileUpload.util;
 
 
 import java.lang.reflect.Method;
