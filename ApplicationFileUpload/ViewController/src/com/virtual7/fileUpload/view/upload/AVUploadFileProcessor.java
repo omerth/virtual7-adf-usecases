@@ -50,8 +50,30 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
      *      <param-value>d:/tmpVirus</param-value>
      *  </context-param>
      */
-    public static final String INFECTED_FILES_SERVER_PARAM_NAME =
+    public static final String INFECTED_FILES_DIR_PARAM_NAME =
         "com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_DIR";
+
+    /**
+     * Initialization parameter for the <code>AVUploadFileProcessor</code> that configures the levels of AV warnings
+     * which are considered as infected. In other words said, when the AV returns one of this level of information
+     * regarding the file, that file will be considered as infected and will be treated accordingly (file will be copyed
+     * to the INFECTED_FILES_DIR, the user will be notifyed and the uprocessing of the file will be stopped). When the
+     * parameter is not defined or is defined with emtpy value all levels are considered as INFECTED.
+     * Possible values for this parameter is a String containing a comma separated list with the possible values:
+     *
+     * 'infected' - the AV sends this level when the file is infected with a virus
+     * 'encrypted' - the AV sends this level when the file is encrypted and scanning can not be done (for example a zip protected with password)
+     * 'warning' - the AV sends this level when the file can be read but can not be changed (for example an encrypted PDF)
+     * 'scanerror' - the AV sends this level when an error occured when scanning the file
+     * 'averror' - this level indicates the errors which could occur when connecting to the AV server.
+     *
+     *  <context-param>
+     *      <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
+     *      <param-value>infected,encrypted,warning,scanerror,averror</param-value>
+     *  </context-param>
+     */
+    public static final String INFECTED_FILES_LEVELS_PARAM_NAME =
+        "com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_LEVELS";
 
     /**
      * These will keep the values configured for the init parameters.
@@ -86,7 +108,7 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
         }
 
         // Read the infected files dir.
-        this.infectedFilesDir = RequestUtils.getInitParameter(context, INFECTED_FILES_SERVER_PARAM_NAME);
+        this.infectedFilesDir = RequestUtils.getInitParameter(context, INFECTED_FILES_DIR_PARAM_NAME);
     }
 
     /**
@@ -119,7 +141,7 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
             // Interpret the response.
             ScanObject respObj = new ScanObject();
             respObj.updateScanState(resp);
-            if (respObj.isInfected() || respObj.isError()) {
+            if (respObj.isInfected() || respObj.isError() || respObj.isEncrypted() || respObj.isWarning()) {
                 // File is problematic, so move it to the infected files dir.
                 LOG.info("Found infected/error file:" + fileName);
                 copyUploadedFileToInfectedFolder(uploadedFile);
@@ -137,6 +159,8 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
             throw new IOException("There was an error while trying to scan the file '" + fileName +
                                   "' with the antivirus! Please contact the Administrator!", e);
         }
+
+        // TODO: implement the logic for acting according to the errors, if one of the configured error occured, then copy the file to the infected folder and throw IOException.
 
         // Mock test for checking if a file contains the virus word in it.
         //        BufferedReader br = new BufferedReader(new InputStreamReader(uploadedFile.getInputStream()));
