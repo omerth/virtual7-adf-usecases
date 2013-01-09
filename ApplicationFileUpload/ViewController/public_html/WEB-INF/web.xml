@@ -34,10 +34,14 @@
   </context-param>
   <context-param>
     <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.AV_SERVER</param-name>
-    <param-value>iancu-pc:4711</param-value>
+    <param-value>localhost:4711</param-value>
   </context-param>
   <context-param>
     <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_DIR</param-name>
+    <param-value>d:/tmpVirus</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
     <param-value>d:/tmpVirus</param-value>
   </context-param>
   <filter>
