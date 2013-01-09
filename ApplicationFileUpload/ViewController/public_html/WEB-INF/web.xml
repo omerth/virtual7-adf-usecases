@@ -42,7 +42,7 @@
   </context-param>
   <context-param>
     <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
-    <param-value>d:/tmpVirus</param-value>
+    <param-value>infected,encrypted,warning,scanerror,averror</param-value>
   </context-param>
   <filter>
     <filter-name>JpsFilter</filter-name>
