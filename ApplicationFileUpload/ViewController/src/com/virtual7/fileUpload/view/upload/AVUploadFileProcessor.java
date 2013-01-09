@@ -147,13 +147,7 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
                 copyUploadedFileToInfectedFolder(uploadedFile);
 
                 // Depending on the alert show the correct message.
-                String msg = null;
-                if (respObj.isInfected()) {
-                    msg = "The file '" + fileName + "' is infected, so was not processed!";
-                } else if (respObj.isError()) {
-                    msg = "The file '" + fileName + "' could not be scanned by the antivirus, so was not processed!";
-                }
-                throw new IOException(msg);
+                throw new IOException("The file '" + fileName + "' is infected, so was not processed!");
             }
         } catch (AVServiceException e) {
             throw new IOException("There was an error while trying to scan the file '" + fileName +
