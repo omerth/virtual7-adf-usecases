@@ -12,6 +12,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import oracle.adf.share.logging.ADFLogger;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
@@ -81,7 +85,12 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
     private String serverName;
     private String serverPort;
     private String infectedFilesDir;
+    private List<AVLevel> avLevels;
 
+
+    private enum AVLevel{
+        INFECTED, ENCRYPTED, WARNING, SCANERROR, AVERROR;
+    }
     /**
      * Default constructor.
      */
@@ -106,9 +115,10 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
                 this.serverPort = parts[1];
             }
         }
-
+        
         // Read the infected files dir.
         this.infectedFilesDir = RequestUtils.getInitParameter(context, INFECTED_FILES_DIR_PARAM_NAME);
+        initAvLevels(context);
     }
 
     /**
@@ -141,7 +151,7 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
             // Interpret the response.
             ScanObject respObj = new ScanObject();
             respObj.updateScanState(resp);
-            if (respObj.isInfected() || respObj.isError() || respObj.isEncrypted() || respObj.isWarning()) {
+            if (isBlocked(respObj)) {
                 // File is problematic, so move it to the infected files dir.
                 LOG.info("Found infected/error file:" + fileName);
                 copyUploadedFileToInfectedFolder(uploadedFile);
@@ -150,8 +160,11 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
                 throw new IOException("The file '" + fileName + "' is infected, so was not processed!");
             }
         } catch (AVServiceException e) {
-            throw new IOException("There was an error while trying to scan the file '" + fileName +
-                                  "' with the antivirus! Please contact the Administrator!", e);
+            //the exception is thrown only if there is a averror in the web.xml list of av levels
+            if(avLevels.contains(AVUploadFileProcessor.AVLevel.AVERROR)){
+                throw new IOException("There was an error while trying to scan the file '" + fileName +
+                                      "' with the antivirus! Please contact the Administrator!", e);   
+            }
         }
 
         // TODO: implement the logic for acting according to the errors, if one of the configured error occured, then copy the file to the infected folder and throw IOException.
@@ -230,5 +243,42 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
                 }
             }
         }
+    }
+
+    /**
+     * Init the avLevels List depending on the anti-virus levels list from the web.xml
+     * @param context that need to be pressed as reference on init(Object context) method
+     */
+    private void initAvLevels(Object context) {
+        String avLevelsParam = RequestUtils.getInitParameter(context, INFECTED_FILES_LEVELS_PARAM_NAME);
+        if (avLevelsParam != null){
+            avLevels = new ArrayList<AVLevel>();
+            String levels[] = avLevelsParam.split(",");
+            for (String level : levels) {
+                if("infected".equalsIgnoreCase(level)){
+                    avLevels.add(AVUploadFileProcessor.AVLevel.INFECTED);
+                } else if("encrypted".equalsIgnoreCase(level)){
+                    avLevels.add(AVUploadFileProcessor.AVLevel.ENCRYPTED);
+                } else if("warning".equalsIgnoreCase(level)){
+                    avLevels.add(AVUploadFileProcessor.AVLevel.WARNING);
+                } else if("scanerror".equalsIgnoreCase(level)){
+                    avLevels.add(AVUploadFileProcessor.AVLevel.SCANERROR);
+                } else if("averror".equalsIgnoreCase(level)){
+                    avLevels.add(AVUploadFileProcessor.AVLevel.AVERROR);
+                }
+            }
+        }
+    }
+
+    /**
+     * @param respObj 
+     * @return true if the ScanObject respObj is infected, encrypted, error or warning status and there is a similar
+     * AVLevel in the avLevels list for that status.
+     */
+    private boolean isBlocked(ScanObject respObj){
+        return (respObj.isInfected() && avLevels.contains(AVUploadFileProcessor.AVLevel.INFECTED))
+            || (respObj.isEncrypted() && avLevels.contains(AVUploadFileProcessor.AVLevel.ENCRYPTED))
+            || (respObj.isError() && avLevels.contains(AVUploadFileProcessor.AVLevel.SCANERROR))
+            || (respObj.isWarning() && avLevels.contains(AVUploadFileProcessor.AVLevel.WARNING)); 
     }
 }
