@@ -1,4 +1,4 @@
-package com.virtual7.fileUpload;
+package com.eurofighter.fileupload;
 
 import java.io.BufferedReader;
 import java.io.IOException;

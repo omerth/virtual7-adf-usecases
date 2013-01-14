@@ -33,15 +33,15 @@
     <param-value>d:/tmpTrinidad</param-value>
   </context-param>
   <context-param>
-    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.AV_SERVER</param-name>
+    <param-name>com.eurofighter.fileupload.AVUploadFileProcessor.AV_SERVER</param-name>
     <param-value>localhost:4711</param-value>
   </context-param>
   <context-param>
-    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_DIR</param-name>
+    <param-name>com.eurofighter.fileupload.AVUploadFileProcessor.INFECTED_FILES_DIR</param-name>
     <param-value>d:/tmpVirus</param-value>
   </context-param>
   <context-param>
-    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
+    <param-name>com.eurofighter.fileupload.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
     <param-value>infected,encrypted,warning,scanerror</param-value>
   </context-param>
   <filter>

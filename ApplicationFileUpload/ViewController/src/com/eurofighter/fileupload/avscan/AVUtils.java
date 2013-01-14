@@ -1,4 +1,4 @@
-package com.virtual7.fileUpload.avscan;
+package com.eurofighter.fileupload.avscan;
 
 public final class AVUtils {
 

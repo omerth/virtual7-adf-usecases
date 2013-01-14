@@ -1,4 +1,4 @@
-package com.virtual7.fileUpload.view.managed;
+package com.eurofighter.fileupload.view.managed;
 
 import java.io.File;
 import java.io.FileOutputStream;
