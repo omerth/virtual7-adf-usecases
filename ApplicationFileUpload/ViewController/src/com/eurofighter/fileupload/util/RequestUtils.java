@@ -1,4 +1,4 @@
-package com.virtual7.fileUpload.util;
+package com.eurofighter.fileupload.util;
 
 
 import java.lang.reflect.Method;

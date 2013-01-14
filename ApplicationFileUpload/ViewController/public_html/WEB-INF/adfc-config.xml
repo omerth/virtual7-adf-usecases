@@ -5,7 +5,7 @@
   </view>
   <managed-bean id="__1">
     <managed-bean-name id="__2">InputFileBean</managed-bean-name>
-    <managed-bean-class id="__3">com.virtual7.fileUpload.view.managed.InputFileBean</managed-bean-class>
+    <managed-bean-class id="__3">com.eurofighter.fileupload.view.managed.InputFileBean</managed-bean-class>
     <managed-bean-scope id="__4">request</managed-bean-scope>
   </managed-bean>
 </adfc-config>

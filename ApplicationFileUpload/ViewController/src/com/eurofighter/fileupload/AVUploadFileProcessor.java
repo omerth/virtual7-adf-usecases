@@ -1,10 +1,10 @@
-package com.virtual7.fileUpload;
+package com.eurofighter.fileupload;
 
 
-import com.virtual7.fileUpload.avscan.AVServiceException;
-import com.virtual7.fileUpload.avscan.AVStreamScanner;
-import com.virtual7.fileUpload.avscan.ScanObject;
-import com.virtual7.fileUpload.util.RequestUtils;
+import com.eurofighter.fileupload.avscan.AVServiceException;
+import com.eurofighter.fileupload.avscan.AVStreamScanner;
+import com.eurofighter.fileupload.avscan.ScanObject;
+import com.eurofighter.fileupload.util.RequestUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -35,12 +35,12 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
      * antivirus process is running. The value should contain a String in format "server_name:port", like for example:
      *
      *  <context-param>
-     *      <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.AV_SERVER</param-name>
+     *      <param-name>com.eurofighter.fileupload.AVUploadFileProcessor.AV_SERVER</param-name>
      *      <param-value>localhost:4711</param-value>
      *  </context-param>
      */
     private static final String ANTIVIRUS_SERVER_PARAM_NAME =
-        "com.virtual7.fileUpload.AVUploadFileProcessor.AV_SERVER";
+        "com.eurofighter.fileupload.AVUploadFileProcessor.AV_SERVER";
 
     /**
      * Initialization parameter for the <code>AVUploadFileProcessor</code> that configures the path to the folder where
@@ -49,12 +49,12 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
      * a String containing the aboslute path to the folder like for example:
      *
      *  <context-param>
-     *      <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_DIR</param-name>
+     *      <param-name>com.eurofighter.fileupload.AVUploadFileProcessor.INFECTED_FILES_DIR</param-name>
      *      <param-value>d:/tmpVirus</param-value>
      *  </context-param>
      */
     private static final String INFECTED_FILES_DIR_PARAM_NAME =
-        "com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_DIR";
+        "com.eurofighter.fileupload.AVUploadFileProcessor.INFECTED_FILES_DIR";
 
     /**
      * Initialization parameter for the <code>AVUploadFileProcessor</code> that configures the levels of AV warnings
@@ -70,12 +70,12 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
      * 'scanerror' - the AV sends this level when an error occured when scanning the file
      *
      *  <context-param>
-     *      <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
+     *      <param-name>com.eurofighter.fileupload.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
      *      <param-value>infected,encrypted,warning,scanerror</param-value>
      *  </context-param>
      */
     private static final String INFECTED_FILES_LEVELS_PARAM_NAME =
-        "com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_LEVELS";
+        "com.eurofighter.fileupload.AVUploadFileProcessor.INFECTED_FILES_LEVELS";
 
     /**
      * Enumeration containing the list of all possible Infected File Levels.
