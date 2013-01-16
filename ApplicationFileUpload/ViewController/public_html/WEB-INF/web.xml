@@ -52,10 +52,6 @@
     <param-name>com.eurofighter.fileupload.processor.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
     <param-value>infected,encrypted,warning,scanerror</param-value>
   </context-param>
-  <context-param>
-    <param-name>com.eurofighter.fileupload.avscanner.mock.MockAVScanner.INFECTED_FILES_LEVELS</param-name>
-    <param-value>infected,encrypted,warning,scanerror</param-value>
-  </context-param>
   <filter>
     <filter-name>JpsFilter</filter-name>
     <filter-class>oracle.security.jps.ee.http.JpsFilter</filter-class>
