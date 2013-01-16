@@ -1,7 +1,7 @@
-package com.eurofighter.fileupload.av.savapi;
+package com.eurofighter.fileupload.avscanner.savapi;
 
-import com.eurofighter.fileupload.av.AVConnectionException;
-import com.eurofighter.fileupload.av.utils.AVUtils;
+
+import com.eurofighter.fileupload.avscanner.AVConnectionException;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
@@ -21,11 +21,12 @@ import javax.net.ssl.SSLSocketFactory;
 
 import oracle.adf.share.logging.ADFLogger;
 
+
 /**
  * Useful class for getting the stream of a file and sending it to the SAVAPI scan engine.
  *
  */
-public class AVStreamScanner {
+class AVStreamScanner {
 
     /**
      * The logger for this class.
@@ -72,10 +73,10 @@ public class AVStreamScanner {
     @SuppressWarnings("static-access")
     private static AVStreamScanner getStreamScanner(String host, String port) {
         // check if the host is valid
-        host = (AVUtils.isValidString(host)) ? host : null;
+        host = (Utils.isValidString(host)) ? host : null;
 
         // check if the port is valid
-        Integer portInteger = AVUtils.parseInteger(port);
+        Integer portInteger = Utils.parseInteger(port);
 
         // if all checks out
         if (portInteger != null && host != null) {
@@ -122,7 +123,7 @@ public class AVStreamScanner {
      */
     @SuppressWarnings("static-access")
     private String sendStreamForScanning(InputStream stream, String fileName, String dDocName, String dId,
-                                         boolean isSSLOn) throws AVConnectionException{
+                                         boolean isSSLOn) throws AVConnectionException {
         String response = "";
         Socket socket = null;
         OutputStream outputStream = null;
@@ -208,4 +209,6 @@ public class AVStreamScanner {
         }
         return response;
     }
+
+
 }

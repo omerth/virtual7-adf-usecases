@@ -1,15 +1,12 @@
-package com.eurofighter.fileupload.av.savapi;
-
-import com.eurofighter.fileupload.av.utils.AVUtils;
+package com.eurofighter.fileupload.avscanner.savapi;
 
 import java.util.Date;
 
 /**
- * Model used in saving the scan status information into the table EAP_CDS_REV_AV_SCAN_INFO and exposing useful methods
+ * Bean used in saving the scan status information into the table EAP_CDS_REV_AV_SCAN_INFO and exposing useful methods
  * for handling the scan status.
- *
  */
-public class ScanObject {
+class ScanObject {
 
     public static final Integer AV_SCAN_NOT_INFECTED_DB_STATE = 0;
 
@@ -56,7 +53,7 @@ public class ScanObject {
      *            the received status
      */
     public void updateScanState(String savapiStatus) {
-        if (AVUtils.isValidString(savapiStatus)) {
+        if (Utils.isValidString(savapiStatus)) {
             String[] scanReport = savapiStatus.split(",");
             // the status contain a report like string
             if (scanReport.length > 4) {

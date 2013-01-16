@@ -1,4 +1,4 @@
-package com.eurofighter.fileupload.av.utils;
+package com.eurofighter.fileupload.avscanner.utils;
 
 import java.lang.reflect.Method;
 
@@ -8,7 +8,6 @@ import javax.servlet.ServletRequest;
 import oracle.adf.share.logging.ADFLogger;
 
 import org.apache.myfaces.trinidad.util.ClassLoaderUtils;
-
 
 /**
  * Utility class for handeling request objects.

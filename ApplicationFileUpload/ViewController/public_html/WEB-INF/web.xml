@@ -22,7 +22,7 @@
   </context-param>
   <context-param>
     <param-name>org.apache.myfaces.trinidad.UPLOAD_MAX_MEMORY</param-name>
-    <param-value>204800</param-value>
+    <param-value>102400</param-value>
   </context-param>
   <context-param>
     <param-name>org.apache.myfaces.trinidad.UPLOAD_MAX_DISK_SPACE</param-name>
@@ -33,11 +33,19 @@
     <param-value>d:/tmpTrinidad</param-value>
   </context-param>
   <context-param>
-    <param-name>com.eurofighter.fileupload.processor.AVUploadFileProcessor.AV_SERVER</param-name>
-    <param-value>szabo-pc:4711</param-value>
+    <param-name>com.eurofighter.fileupload.processor.AVUploadFileProcessor.AVSCANNER_CLASS</param-name>
+    <param-value>com.eurofighter.fileupload.avscanner.savapi.SavapiAVScanner</param-value>
   </context-param>
   <context-param>
-    <param-name>com.eurofighter.fileupload.processor.AVUploadFileProcessor.INFECTED_FILES_DIR</param-name>
+    <param-name>com.eurofighter.fileupload.avscanner.AAVScanner.AV_SERVER</param-name>
+    <param-value>localhost:4711</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.eurofighter.fileupload.avscanner.AAVScanner.AV_SERVER_USE_SSL_CONNECTION</param-name>
+    <param-value>false</param-value>
+  </context-param>
+  <context-param>
+    <param-name>com.eurofighter.fileupload.avscanner.AAVScanner.INFECTED_FILES_DIR</param-name>
     <param-value>d:/tmpVirus</param-value>
   </context-param>
   <context-param>
@@ -45,12 +53,8 @@
     <param-value>infected,encrypted,warning,scanerror</param-value>
   </context-param>
   <context-param>
-    <param-name>com.eurofighter.fileupload.av.mock.MockScanner.INFECTED_FILES_LEVELS</param-name>
+    <param-name>com.eurofighter.fileupload.avscanner.mock.MockAVScanner.INFECTED_FILES_LEVELS</param-name>
     <param-value>infected,encrypted,warning,scanerror</param-value>
-  </context-param>
-  <context-param>
-    <param-name>com.eurofighter.fileupload.processor.AVUploadFileProcessor.AVSCANNER_CLASS</param-name>
-    <param-value>com.eurofighter.fileupload.av.mock.MockScanner</param-value>
   </context-param>
   <filter>
     <filter-name>JpsFilter</filter-name>

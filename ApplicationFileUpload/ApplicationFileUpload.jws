@@ -3,7 +3,7 @@
    <hash n="adrs-workspace-properties">
       <value n="adrs-instance-binding" v="DefaultServer"/>
    </hash>
-   <value n="application-package-prefix" v="com.virtual7"/>
+   <value n="application-package-prefix" v="com.eurofighter"/>
    <value n="appTemplateId" v="adfWebappApplicationTemplate"/>
    <hash n="component-versions">
       <value n="oracle.adf.share.dt.migration.jps.JaznCredStoreMigratorHelper" v="11.1.1.1.0"/>
