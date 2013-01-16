@@ -61,7 +61,7 @@
       <string v="oracle.tip.tools.ide.fabric.addin.SCAContentSetProvider/sca-content"/>
       <string v="oracle.bpm.fusion.repository.BPMProjectSettings/bpmProjectsProcessesContentSet"/>
    </list>
-   <value n="defaultPackage" v="com.virtual7.fileUpload.view"/>
+   <value n="defaultPackage" v="com.eurofighter.fileupload.view"/>
    <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
       <value n="hasDataControls" v="true"/>
    </hash>
@@ -190,19 +190,19 @@
                      <hash n="filters">
                         <list n="rules">
                            <hash>
-                              <value n="pattern" v="com/virtual7/fileUpload/UCMUploadFileProcessor.class"/>
+                              <value n="pattern" v="com/eurofighter/fileupload/UCMUploadFileProcessor.class"/>
                               <value n="type" v="1"/>
                            </hash>
                            <hash>
-                              <value n="pattern" v="com/virtual7/fileUpload/view/DataBindings.cpx"/>
+                              <value n="pattern" v="com/eurofighter/fileupload/view/DataBindings.cpx"/>
                               <value n="type" v="1"/>
                            </hash>
                            <hash>
-                              <value n="pattern" v="com/virtual7/fileUpload/view/pageDefs/"/>
+                              <value n="pattern" v="com/eurofighter/fileupload/view/pageDefs/"/>
                               <value n="type" v="1"/>
                            </hash>
                            <hash>
-                              <value n="pattern" v="com/virtual7/fileUpload/view/managed/"/>
+                              <value n="pattern" v="com/eurofighter/fileupload/view/managed/"/>
                               <value n="type" v="1"/>
                            </hash>
                            <hash>

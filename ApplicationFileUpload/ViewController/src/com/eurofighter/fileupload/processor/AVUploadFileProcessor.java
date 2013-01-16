@@ -1,25 +1,14 @@
 package com.eurofighter.fileupload.processor;
 
 
-import com.eurofighter.fileupload.av.AVAlertException;
-import com.eurofighter.fileupload.av.AVConnectionException;
-import com.eurofighter.fileupload.av.AVInfectedException;
-import com.eurofighter.fileupload.av.IAVScanner;
-import com.eurofighter.fileupload.av.AbsAVScanner;
-import com.eurofighter.fileupload.av.mock.AVEncryptedException;
-import com.eurofighter.fileupload.av.mock.AVScanErrorException;
-import com.eurofighter.fileupload.av.mock.AVWarningException;
-import com.eurofighter.fileupload.av.utils.RequestUtils;
-
-import com.eurofighter.fileupload.av.savapi.SavapiAVScanner;
+import com.eurofighter.fileupload.avscanner.AVAlertException;
+import com.eurofighter.fileupload.avscanner.AVConnectionException;
+import com.eurofighter.fileupload.avscanner.AVInfectedException;
+import com.eurofighter.fileupload.avscanner.IAVScanner;
+import com.eurofighter.fileupload.avscanner.ScanResponse;
+import com.eurofighter.fileupload.avscanner.utils.RequestUtils;
 
 import java.io.IOException;
-
-import java.lang.reflect.Constructor;
-
-import java.lang.reflect.InvocationTargetException;
-
-import java.lang.reflect.Method;
 
 import oracle.adf.share.logging.ADFLogger;
 
@@ -38,14 +27,23 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
     private static final ADFLogger LOG = ADFLogger.createADFLogger(AVUploadFileProcessor.class);
 
     /**
-     * These will keep the values configured for the init parameters.
+     * Initialization parameter for the <code>AVUploadFileProcessor</code> that configures the class of the AVScanner
+     * object which will be used to perform the actual file scanning. The class defined must be a class implementing the
+     * <code>com.eurofighter.fileupload.av.IAVScanner interface</code>, like for example:
+     *
+     *  <context-param>
+     *      <param-name>com.eurofighter.fileupload.processor.AVUploadFileProcessor.AVSCANNER_CLASS</param-name>
+     *      <param-value>com.eurofighter.fileupload.av.savapi.SavapiAVScanner</param-value>
+     *  </context-param>
      */
-    private String serverName;
-    private String serverPort;
-    private String infectedFilesDir;
-    
-    private Object context;
+    private static final String ANTIVIRUS_SCANNER_CLASS_PARAM_NAME =
+        "com.eurofighter.fileupload.processor.AVUploadFileProcessor.AVSCANNER_CLASS";
+
+    /**
+     * These will keep the instance of the AVScanner object.
+     */
     private IAVScanner scanner;
+
     /**
      * Default constructor.
      */
@@ -60,69 +58,71 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
      */
     public void init(Object context) {
         LOG.info("Initialize the AVUploadFileProcessor");
-        this.context = context;
-        // Read the AV server configuration.
-        String avServerParam = RequestUtils.getInitParameter(context, AbsAVScanner.ANTIVIRUS_SERVER_PARAM_NAME);
-        LOG.info(AbsAVScanner.ANTIVIRUS_SERVER_PARAM_NAME + "=" + avServerParam);
-        if (avServerParam != null) {
-            String[] parts = avServerParam.split(":");
-            if (parts != null && parts.length > 1) {
-                if (parts[0] != null) {
-                    this.serverName = parts[0].trim();
-                }
-                if (parts[1] != null) {
-                    this.serverPort = parts[1].trim();
-                }
+
+        // Read the IAVScanner class configured in web.xml and instantiate the scanner object.
+        this.scanner = null;
+        try {
+            String avScannerClassName = RequestUtils.getInitParameter(context, ANTIVIRUS_SCANNER_CLASS_PARAM_NAME);
+            LOG.info("Read initialization parameter: " + ANTIVIRUS_SCANNER_CLASS_PARAM_NAME + "=" +
+                     avScannerClassName);
+            if (avScannerClassName != null) {
+                avScannerClassName = avScannerClassName.trim();
             }
+            Object obj = Class.forName(avScannerClassName).newInstance();
+            if (obj instanceof IAVScanner) {
+                this.scanner = (IAVScanner)obj;
+            } else {
+                LOG.warning("The avscanner class:" + avScannerClassName +
+                            " is not implementing the IAVScanner interface!");
+                this.scanner = null;
+            }
+        } catch (Exception e) {
+            LOG.severe("Could not instantiate the AVScanner class!", e);
+            this.scanner = null;
         }
 
-        // Read the infected files dir.
-        String infectedFilesDirParam = RequestUtils.getInitParameter(context, AbsAVScanner.INFECTED_FILES_DIR_PARAM_NAME);
-        LOG.info(AbsAVScanner.INFECTED_FILES_DIR_PARAM_NAME + "=" + infectedFilesDirParam);
-        if (infectedFilesDirParam != null) {
-            this.infectedFilesDir = infectedFilesDirParam.trim();
+        // If there is a valid scanner object, the initialize it.
+        if (this.scanner != null) {
+            this.scanner.init(context);
         }
-        // Obtain the IAVScanner concrete implementation configured in web.xml
-        String antiVirussClassName = RequestUtils.getInitParameter(context, AbsAVScanner.ANTIVIRUS_SCANNER_CLASS_PARAM_NAME);
-        scanner = initAVScannerWithRefrection(antiVirussClassName);
     }
 
     /**
      * Process the uploaded file trough the current antivirus upload file processor.
-     * First check if we have valid antivirus server configuration, if not then throw an exception.
-     * Afetrwards check the file with the antivirus and if virus is found or error on scanning then cppy the file to the infectedFilesDir (if any specifyed) and throw according error.
-     * If check is ok proceed by returning the same file.
+     * First check if we have valid AVScanner object, if not then throw an exception.
+     * Afetrwards execute the scanning and interpret the possible exceptions accordingly.
      *
      * @param request the request.
      * @param uploadedFile the uploaded file.
      * @return the uploaded file if no virus found.
-     * @throws IOException in case no AV server configuration is given, the file contains virus, or there was an error scanning the file.
+     * @throws IOException in case there is no valid AVScanner object or an error occured while performing the file scan.
      */
     public UploadedFile processFile(Object request, UploadedFile uploadedFile) throws IOException {
-        // Check for valid server configuration.
-        if (this.serverName == null || this.serverPort == null) {
-            throw new IOException("No Antivirus Server Configuration specified");
+        // In case the scanner object is invalid, throw an exception.
+        if (this.scanner == null) {
+            throw new IOException("Invalid scanner object specifyed!");
         }
 
         String fileName = uploadedFile.getFilename();
         LOG.info("Start scanning for Virus the uploaded file:" + fileName);
 
         try {
-            scanner.scan(uploadedFile);
+            ScanResponse response = scanner.scan(uploadedFile);
+            String responseMsg = null;
+            if (response != null) {
+                responseMsg = response.getMessage();
+            }
+            LOG.info("Scan of the file " + fileName +
+                     " was processed correctly, and response from scanner returned following message:" + responseMsg);
         } catch (AVConnectionException e) {
-            throw new IOException("Error occurred when connecting to the AV Server to scan the file " + fileName, e);
+            // Connection to the scanner server occured.
+            throw new IOException("Error occurred when connecting to the AV Scanner System to scan the file " +
+                                  fileName, e);
         } catch (AVInfectedException e) {
-            throw new IOException("The file " + fileName + " is infected, so was not processed");            
+            // The file is infected.
+            throw new IOException("The file " + fileName + " is infected, so was not processed");
         } catch (AVAlertException e) {
-//            if(e instanceof AVEncryptedException){
-//                throw new IOException("The file " + fileName + " is infected(encrypted level), so was not processed");    
-//            } 
-//            if(e instanceof AVWarningException){
-//                throw new IOException("The file " + fileName + " is infected(warning level), so was not processed");
-//            }
-//            if(e instanceof AVScanErrorException){
-//                throw new IOException("The file " + fileName + " is infected(scanError level), so was not processed");
-//            }
+            // Other exception occured, so show that particular message.
             throw new IOException(e.getMessage(), e);
         }
         LOG.log("Done scanning for Virus the uploaded file:" + fileName);
@@ -135,45 +135,4 @@ public class AVUploadFileProcessor implements ChainedUploadedFileProcessor {
          */
         return uploadedFile;
     }
-    private IAVScanner initAVScannerWithRefrection(String classFullName){
-        try {
-            Class avScannerClass = Class.forName(classFullName);
-            IAVScanner avScanner;
-            if(IAVScanner.class.isAssignableFrom(avScannerClass)){
-//                Constructor constructor = avScannerClass.getConstructor(new Class[]{AVUploadFileProcessor.class});
-//                avScanner = (IAVScanner)constructor.newInstance(new Object[]{this});
-                avScanner = (IAVScanner)avScannerClass.newInstance();
-                Method initScanner = avScannerClass.getMethod("init", Object.class);
-                initScanner.invoke(avScanner, context);
-                return avScanner;
-            }
-            throw new ClassNotFoundException("The class " + classFullName + "ïs not instance of IAVScanner, so it can`t" +
-                "be instantiated");
-        } catch (InstantiationException e) {
-            LOG.severe(e);
-        } catch (IllegalAccessException e) {
-            LOG.severe(e);
-        } catch (ClassNotFoundException e) {
-            LOG.severe(e);
-        } catch (NoSuchMethodException e) {
-            LOG.severe(e);
-        } catch (InvocationTargetException e) {
-            LOG.severe(e);
-        }
-        return null;
-    }
-//    public String getInfectedFilesDir() {
-//        return infectedFilesDir;
-//    }
-//    public String getServerName() {
-//        return serverName;
-//    }
-//
-//    public String getServerPort() {
-//        return serverPort;
-//    }
-//    
-//    public Object getContext() {
-//        return context;
-//    }
 }
