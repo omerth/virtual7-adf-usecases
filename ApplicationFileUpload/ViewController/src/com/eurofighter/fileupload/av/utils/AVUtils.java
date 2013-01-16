@@ -1,4 +1,4 @@
-package com.eurofighter.fileupload.avscan;
+package com.eurofighter.fileupload.av.utils;
 
 public final class AVUtils {
 

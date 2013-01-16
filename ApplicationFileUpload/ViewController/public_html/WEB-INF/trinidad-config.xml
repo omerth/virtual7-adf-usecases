@@ -2,5 +2,5 @@
 <trinidad-config xmlns="http://myfaces.apache.org/trinidad/config">
   <skin-family>fusionFx</skin-family>
   <skin-version>v1.1</skin-version>
-  <uploaded-file-processor>com.eurofighter.fileupload.AVUploadFileProcessor com.eurofighter.fileupload.UCMUploadFileProcessor</uploaded-file-processor>
+  <uploaded-file-processor>com.eurofighter.fileupload.processor.AVUploadFileProcessor</uploaded-file-processor>
 </trinidad-config>
