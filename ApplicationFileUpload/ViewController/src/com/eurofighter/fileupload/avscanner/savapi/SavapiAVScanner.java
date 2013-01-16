@@ -37,7 +37,7 @@ public class SavapiAVScanner extends AAVScanner {
      *  </context-param>
      */
     private static final String INFECTED_FILES_LEVELS_PARAM_NAME =
-        "com.eurofighter.fileupload.processor.AVUploadFileProcessor.INFECTED_FILES_LEVELS";
+        "com.eurofighter.fileupload.avscanner.savapi.SavapiAVScanner.INFECTED_FILES_LEVELS";
 
     /**
      * Enumeration containing the list of all possible Infected File Levels.
