@@ -3,6 +3,7 @@ package com.eurofighter.fileupload.avscanner.mock;
 
 import com.eurofighter.fileupload.avscanner.AAVScanner;
 import com.eurofighter.fileupload.avscanner.AVAlertException;
+import com.eurofighter.fileupload.avscanner.AVConnectionException;
 import com.eurofighter.fileupload.avscanner.AVInfectedException;
 import com.eurofighter.fileupload.avscanner.ScanResponse;
 
@@ -43,7 +44,8 @@ public class MockAVScanner extends AAVScanner {
      */
     @Override
     protected ScanResponse performScan(String fileName, InputStream fileStream) throws AVInfectedException,
-                                                                                       AVAlertException {
+                                                                                       AVAlertException,
+                                                                                       AVConnectionException {
         BufferedReader br = new BufferedReader(new InputStreamReader(fileStream));
         String line;
         try {
@@ -51,8 +53,8 @@ public class MockAVScanner extends AAVScanner {
                 if (line.indexOf(KEYWORD_INFECTED) != -1) {
                     throw new AVInfectedException("Mock scanner found an infected file:" + fileName);
                 } else if (line.indexOf(KEYWORD_CONNECTION_ERROR) != -1) {
-                    throw new AVInfectedException("Mock scanner found an connection error in file:" + fileName);
-                } else if (line.indexOf(KEYWORD_INFECTED) != -1) {
+                    throw new AVConnectionException("Mock scanner found an connection error in file:" + fileName);
+                } else if (line.indexOf(KEYWORD_CUSTOM_ERROR) != -1) {
                     throw new AVAlertException("Custom error message comming from MockAVScanner for file:" + fileName);
                 }
             }
