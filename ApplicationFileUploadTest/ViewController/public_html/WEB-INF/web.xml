@@ -20,9 +20,11 @@
     <param-name>oracle.adf.view.rich.dvt.DEFAULT_IMAGE_FORMAT</param-name>
     <param-value>HTML5</param-value>
   </context-param>
+  <!-- *************** START AV FILE UPLOAD PROCESSOR CONFIGURATION ************** -->
+  <!-- START default fileUploadProcessor configuration params -->
   <context-param>
     <param-name>org.apache.myfaces.trinidad.UPLOAD_MAX_MEMORY</param-name>
-    <param-value>204800</param-value>
+    <param-value>102400</param-value>
   </context-param>
   <context-param>
     <param-name>org.apache.myfaces.trinidad.UPLOAD_MAX_DISK_SPACE</param-name>
@@ -32,18 +34,34 @@
     <param-name>org.apache.myfaces.trinidad.UPLOAD_TEMP_DIR</param-name>
     <param-value>d:/tmpTrinidad</param-value>
   </context-param>
+  <!-- END default fileUploadProcessor configuration params -->
+  <!-- START AVUploadFileProcessor configuration params -->
   <context-param>
-    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.AV_SERVER</param-name>
+    <param-name>com.eurofighter.fileupload.processor.AVUploadFileProcessor.AVSCANNER_CLASS</param-name>
+    <param-value>com.eurofighter.fileupload.avscanner.mock.MockAVScanner</param-value>
+  </context-param>
+  <!-- EMD AVUploadFileProcessor configuration params -->
+  <!-- START AAVScanner configuration params -->
+  <context-param>
+    <param-name>com.eurofighter.fileupload.avscanner.AAVScanner.AV_SERVER</param-name>
     <param-value>localhost:4711</param-value>
   </context-param>
   <context-param>
-    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_DIR</param-name>
-    <param-value>d:/tmpVirus</param-value>
+    <param-name>com.eurofighter.fileupload.avscanner.AAVScanner.AV_SERVER_USE_SSL_CONNECTION</param-name>
+    <param-value>false</param-value>
   </context-param>
   <context-param>
-    <param-name>com.virtual7.fileUpload.AVUploadFileProcessor.INFECTED_FILES_LEVELS</param-name>
+    <param-name>com.eurofighter.fileupload.avscanner.AAVScanner.INFECTED_FILES_DIR</param-name>
+    <param-value>d:/tmpVirus</param-value>
+  </context-param>
+  <!-- END AAVScanner configuration params -->
+  <!-- START SavapiAVScanner configuration params -->
+  <context-param>
+    <param-name>com.eurofighter.fileupload.avscanner.savapi.SavapiAVScanner.INFECTED_FILES_LEVELS</param-name>
     <param-value>infected,encrypted,warning,scanerror</param-value>
   </context-param>
+  <!-- END SavapiAVScanner configuration params -->
+  <!-- *************** END AV FILE UPLOAD PROCESSOR CONFIGURATION ************** -->
   <filter>
     <filter-name>JpsFilter</filter-name>
     <filter-class>oracle.security.jps.ee.http.JpsFilter</filter-class>
