@@ -157,7 +157,7 @@ public abstract class AAVScanner implements IAVScanner {
         try {
             // Execute scan.
             in = uploadedFile.getInputStream();
-            ScanResponse resp = performScan(fileName, in);
+            ScanResponse resp = performScan(fileName, uploadedFile.getLength(), in);
 
             // Return the response.
             return resp;
@@ -193,6 +193,7 @@ public abstract class AAVScanner implements IAVScanner {
      * of the file with the given fileName and for which the content can be read trough the given fileStream.
      *
      * @param fileName the name of the file that is being scanned.
+     * @param fileSize the zize of the file that is being scanned.
      * @param fileStream stream to the content of the file. The implementing classes can read content once from the stream
      *          and must not take care about closing the input stream.
      * @return a ScanResponse object which can contain informative information about the scanning process. It is returned only in case
@@ -202,9 +203,9 @@ public abstract class AAVScanner implements IAVScanner {
      * @throws AVAlertException see com.eurofighter.fileupload.avscanner.IAVScanner.scan() description of then this exception should be thrown.
      *
      */
-    protected abstract ScanResponse performScan(String fileName, InputStream fileStream) throws AVConnectionException,
-                                                                                                AVInfectedException,
-                                                                                                AVAlertException;
+    protected abstract ScanResponse performScan(String fileName, long fileSize,
+                                                InputStream fileStream) throws AVConnectionException,
+                                                                               AVInfectedException, AVAlertException;
 
     /**
      * Size of the buffer used to copy the uploaded file to the infected folder.

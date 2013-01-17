@@ -37,15 +37,16 @@ public class MockAVScanner extends AAVScanner {
      * Perform the scan.
      *
      * @param fileName
+     * @param fileSize
      * @param fileStream
      * @return
      * @throws AVInfectedException
      * @throws AVAlertException
      */
     @Override
-    protected ScanResponse performScan(String fileName, InputStream fileStream) throws AVInfectedException,
-                                                                                       AVAlertException,
-                                                                                       AVConnectionException {
+    protected ScanResponse performScan(String fileName, long fileSize,
+                                       InputStream fileStream) throws AVInfectedException, AVAlertException,
+                                                                      AVConnectionException {
         BufferedReader br = new BufferedReader(new InputStreamReader(fileStream));
         String line;
         try {

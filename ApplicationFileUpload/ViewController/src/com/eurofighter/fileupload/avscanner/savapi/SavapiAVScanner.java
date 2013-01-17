@@ -100,13 +100,14 @@ public class SavapiAVScanner extends AAVScanner {
      * Perform the scan with AVIRA SAVAPI antivirus.
      *
      * @param fileName the file name to be scanned.
+     * @param fileSize the size of the file.
      * @param fileStream the input stream to the file.
      * @return a ScanReponse status in case the scanning is ok.
      */
     @Override
-    protected ScanResponse performScan(String fileName, InputStream fileStream) throws AVConnectionException,
-                                                                                       AVInfectedException,
-                                                                                       AVAlertException {
+    protected ScanResponse performScan(String fileName, long fileSize,
+                                       InputStream fileStream) throws AVConnectionException, AVInfectedException,
+                                                                      AVAlertException {
         LOG.fine("Start AVIRA SAVAPI scanning for the uploaded file:" + fileName);
 
         // Execute scan.
