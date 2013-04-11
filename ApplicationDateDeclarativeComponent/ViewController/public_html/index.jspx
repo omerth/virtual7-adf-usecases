@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:dateCompLib="/dateCompLib">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1">
+          <f:facet name="separator">
+            <af:spacer width="10" height="10" id="s2"/>
+          </f:facet>
+          <dateCompLib:dateComponent id="dc1" fieldId="#{pageFlowScope.testBean.comp1Id}"
+                                     value="#{pageFlowScope.testBean.val1}"
+                                     fehlerAnzeigen="#{pageFlowScope.testBean.errorFlags[pageFlowScope.testBean.comp1Id]}"
+                                     fehlerText="#{pageFlowScope.testBean.errorTexts[pageFlowScope.testBean.comp1Id]}"
+                                     dateFormat="#{pageFlowScope.testBean.datePattern}"
+                                     secondaryDateFormats="#{pageFlowScope.testBean.secondaryDatePatterns}"/>
+          <dateCompLib:dateComponent id="dc2" fieldId="#{pageFlowScope.testBean.comp1Id}"
+                                     value="#{pageFlowScope.testBean.val2}" label="Component2"
+                                     maxValue="#{pageFlowScope.testBean.maxValue}"
+                                     minValue="#{pageFlowScope.testBean.minValue}"
+                                     dateFormat="#{pageFlowScope.testBean.datePattern}"
+                                     secondaryDateFormats="#{pageFlowScope.testBean.secondaryDatePatterns}"
+                                     valueChangeListener="#{pageFlowScope.testBean.onChangeComp2}"
+                                     fehlerAnzeigen="#{pageFlowScope.testBean.errorFlags[pageFlowScope.testBean.comp2Id]}"
+                                     fehlerText="#{pageFlowScope.testBean.errorTexts[pageFlowScope.testBean.comp2Id]}"/>
+          <dateCompLib:dateRangeComponent fieldIdFrom="#{pageFlowScope.testBean.rangeCompFromId}"
+                                          fieldIdTo="#{pageFlowScope.testBean.rangeCompToId}"
+                                          valueFrom="#{pageFlowScope.testBean.valRangeCompFrom}"
+                                          valueTo="#{pageFlowScope.testBean.valRangeCompTo}"
+                                          label="Date range component" labelBetweenInputs="to" id="drc1"
+                                          valueChangeListenerFrom="#{pageFlowScope.testBean.onChangeRangeCompFrom}"
+                                          valueChangeListenerTo="#{pageFlowScope.testBean.onChangeRangeCompTo}"
+                                          fehlerAnzeigen="#{pageFlowScope.testBean.errorFlags[pageFlowScope.testBean.rangeCompFromId]}"
+                                          fehlerText="#{pageFlowScope.testBean.errorTexts[pageFlowScope.testBean.rangeCompFromId]}"
+                                          dateFormat="#{pageFlowScope.testBean.datePattern}"
+                                          secondaryDateFormats="#{pageFlowScope.testBean.secondaryDatePatterns}"/>
+          <af:commandButton text="Submit" id="cb1" actionListener="#{pageFlowScope.testBean.onSubmit}"/>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

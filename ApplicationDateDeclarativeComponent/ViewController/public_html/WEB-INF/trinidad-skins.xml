@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<skins xmlns="http://myfaces.apache.org/trinidad/skin">
+  <skin>
+    <id>datecomp.desktop</id>
+    <family>datecomp</family>
+    <extends>fusionFx-v1.desktop</extends>
+    <style-sheet-name>css/datecomp.css</style-sheet-name>
+  </skin>
+</skins>
