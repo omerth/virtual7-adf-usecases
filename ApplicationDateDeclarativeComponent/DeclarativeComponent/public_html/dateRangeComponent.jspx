@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:componentDef var="attrs" componentVar="component">
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>dateRangeComponent</display-name>
+        <component-class>com.virtual7.datecomponent.comp.DateRangeComponent</component-class>
+        <attribute>
+          <attribute-name>valueFrom</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>true</required>
+        </attribute>
+        <attribute>
+          <attribute-name>valueTo</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>true</required>
+        </attribute>
+        <attribute>
+          <attribute-name>fieldIdFrom</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>true</required>
+        </attribute>
+        <attribute>
+          <attribute-name>fieldIdTo</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>true</required>
+        </attribute>
+        <attribute>
+          <attribute-name>label</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>labelBetweenInputs</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>dateFormat</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>secondaryDateFormats</attribute-name>
+          <attribute-class>java.util.List</attribute-class>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>required</attribute-name>
+          <attribute-class>java.lang.Boolean</attribute-class>
+          <default-value>false</default-value>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>readOnly</attribute-name>
+          <attribute-class>java.lang.Boolean</attribute-class>
+          <default-value>false</default-value>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>disabled</attribute-name>
+          <attribute-class>java.lang.Boolean</attribute-class>
+          <default-value>false</default-value>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>infoText</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>hilfeText</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>fehlerText</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>fehlerAnzeigen</attribute-name>
+          <attribute-class>java.lang.Boolean</attribute-class>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>screenWidth</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <default-value>_1440</default-value>
+          <required>false</required>
+        </attribute>
+        <attribute>
+          <attribute-name>styleClass</attribute-name>
+          <attribute-class>java.lang.String</attribute-class>
+          <required>false</required>
+        </attribute>
+        <component-extension>
+          <component-tag-namespace>dateRangeComponent</component-tag-namespace>
+          <component-taglib-uri>/dateCompLib</component-taglib-uri>
+          <method-attribute>
+            <attribute-name>valueChangeListenerFrom</attribute-name>
+            <method-signature>void method(javax.faces.event.ValueChangeEvent)</method-signature>
+          </method-attribute>
+          <method-attribute>
+            <attribute-name>valueChangeListenerTo</attribute-name>
+            <method-signature>void method(javax.faces.event.ValueChangeEvent)</method-signature>
+          </method-attribute>
+        </component-extension>
+      </component>
+    </af:xmlContent>
+    <af:group id="dc_pgl">
+      <af:resource type="javascript">
+        function openDatePickerForDateRange(evt, compId) {
+            var component = evt.getSource();
+            var dateInput = component.findComponent(compId);
+            var popupClientId = dateInput.getAbsoluteLocator() + '::pop';
+            var popup = dateInput.findComponent(popupClientId);
+            var hints = {
+                align : AdfRichPopup.ALIGN_END_AFTER, alignId : component.getAbsoluteLocator()
+            };
+            popup.show(hints);
+            evt.cancel();
+        }
+
+        function openDatePickerFrom(evt) {
+            openDatePickerForDateRange(evt, "invisibleInputDateFrom");
+        }
+
+        function openDatePickerTo(evt) {
+            openDatePickerForDateRange(evt, "invisibleInputDateTo");
+        }
+      </af:resource>
+      <af:panelGroupLayout id="pgl1" layout="vertical"
+                           styleClass="ba_input#{attrs.screenWidth} #{attrs.fehlerAnzeigen eq true ? 'ba_input_error' : ''}">
+        <af:panelGroupLayout id="dc_pgl1" layout="vertical">
+          <af:panelGroupLayout id="pgl0" layout="horizontal" rendered="#{attrs.screenWidth eq '_320'}">
+            <!-- Stern wird angezeigt, wenn es sich um ein Required Feld handelt -->
+            <af:outputText value="*" id="dc_ot2" styleClass="ba_input_required_stern" visible="#{attrs.required}"/>
+            <!-- Label von inputText, das oberhalb von inputText angezeigt wird, wenn die Bildschirmbreite 320 ist. Ansonsten wird es ausgeblendet und das label wird direkt über die inputText Komponente ausgegeben -->
+            <af:outputLabel id="msg3" value="#{attrs.label}" styleClass="ba_output_label" for="#{attrs.fieldIdFrom}"/>
+          </af:panelGroupLayout>
+          <!-- Fehlernachricht, die angezeigt wird, wenn das Attribut fehlerAnzeigen auf true gesetzt ist -->
+          <af:panelGroupLayout styleClass="ba_input_error_text#{attrs.screenWidth}" rendered="#{attrs.fehlerAnzeigen}"
+                               layout="horizontal" id="dc_pgl3">
+            <af:outputText id="fehler" value="#{attrs.fehlerText}"/>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl2" layout="horizontal">
+          <!-- Stern wird angezeigt, wenn es sich um ein Required Feld handelt -->
+          <af:panelGroupLayout styleClass="ba_input_required_stern" id="dc_pgl2" layout="vertical"
+                               rendered="#{not (attrs.screenWidth eq '_320')}">
+            <af:outputText value="*" id="dc_ot1" visible="#{attrs.required}"/>
+          </af:panelGroupLayout>
+          <!-- From input -->
+          <af:inputText id="${attrs.fieldIdFrom}" value="#{component.strValFrom}" disabled="#{attrs.disabled}"
+                        simple="#{attrs.screenWidth eq '_320'}" label="#{attrs.label}" readOnly="#{attrs.readOnly}"
+                        styleClass="#{not empty attrs.styleClass ? 'ba_input_text' : attrs.styleClass}#{attrs.hilfeText ? '_hilfe' : ''}#{attrs.screenWidth}"
+                        valueChangeListener="#{component.onChangeStrFrom}" autoSubmit="true"
+                        binding="#{component.textInputFrom}"/>
+          <af:spacer width="3" height="1" id="dc_s1"/>
+          <af:image source="#{'/afr/timedate_ena.png'}" rendered="#{!attrs.readOnly}" visible="#{!attrs.disabled}"
+                    id="dc_i1" inlineStyle="cursor:pointer;">
+            <af:clientListener type="click" method="openDatePickerFrom"/>
+          </af:image>
+          <af:inputDate id="invisibleInputDateFrom" value="#{component.dateValFrom}"
+                        valueChangeListener="#{component.onChangeDateFrom}" autoSubmit="true"
+                        maxValue="#{component.dateValTo}" binding="#{component.dateInputFrom}" clientComponent="true"
+                        visible="false">
+            <af:convertDateTime pattern="#{component.wrappedDateFormatAttr}"/>
+          </af:inputDate>
+          <!-- Label between from and to -->
+          <af:spacer width="10" height="10" id="dc_s3"/>
+          <af:outputLabel value="#{attrs.labelBetweenInputs}" id="dc_ol1" styleClass="ba_output_label"/>
+          <af:spacer width="10" height="10" id="dc_s4"/>
+          <!-- To input -->
+          <af:inputText id="${attrs.fieldIdTo}" value="#{component.strValTo}" disabled="#{attrs.disabled}" simple="true"
+                        label="" readOnly="#{attrs.readOnly}"
+                        styleClass="#{not empty attrs.styleClass ? 'ba_input_text' : attrs.styleClass}#{attrs.hilfeText ? '_hilfe' : ''}#{attrs.screenWidth}"
+                        valueChangeListener="#{component.onChangeStrTo}" autoSubmit="true"
+                        binding="#{component.textInputTo}"/>
+          <af:spacer width="3" height="1" id="dc_s2"/>
+          <af:image source="#{'/afr/timedate_ena.png'}" rendered="#{!attrs.readOnly}" visible="#{!attrs.disabled}"
+                    id="dc_i2" inlineStyle="cursor:pointer;">
+            <af:clientListener type="click" method="openDatePickerTo"/>
+          </af:image>
+          <af:inputDate id="invisibleInputDateTo" value="#{component.dateValTo}"
+                        valueChangeListener="#{component.onChangeDateTo}" autoSubmit="true"
+                        minValue="#{component.dateValFrom}" binding="#{component.dateInputTo}" clientComponent="true"
+                        visible="false">
+            <af:convertDateTime pattern="#{component.wrappedDateFormatAttr}"/>
+          </af:inputDate>
+          <!-- Hilfe Icon, das beim Mausklick das Hilfe Popup offnet -->
+          <af:image rendered="#{not empty attrs.hilfeText}" source="/images/icon/helpButton.gif" id="Suche_Hilfe"
+                    shortDesc="Hilfe">
+            <!-- //THIS SHOULD BE UNCOMMENTED, BUT I DON'T HAVE HERE A MESSAGE BUNDLE\\ shortDesc="#{bacustomcomponentsBundle.HILFE}"-->
+            <af:showPopupBehavior popupId="helpPopup" align="startBefore" alignId="Suche_Hilfe" triggerType="click"/>
+          </af:image>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+      <!-- Hilfe Popup -->
+      <af:popup rendered="#{not empty attrs.hilfeText}" id="helpPopup">
+        <af:panelGroupLayout id="pgl15" styleClass="ba_hilfe_popup_group#{attrs.screenWidth}" layout="vertical">
+          <af:outputText value="#{attrs.hilfeText}" id="ot5"/>
+        </af:panelGroupLayout>
+      </af:popup>
+      <!-- START Stupid hack to fix the JS error 'TrDateTimeRangeValidator' is undefined because the "CoreFormat.js" is not loaded. Placing a  "convertNumber" on the page will load the JS. 
+      This could be placed in the page template and removed from here, but we have to be surre that the JS get loaded, otherwise our JS will not work on first click, but only from the second one-->
+      <af:inputText value="" id="dc_ot3" visible="false">
+        <af:convertNumber/>
+      </af:inputText>
+      <!-- END Stupid hack -->
+    </af:group>
+  </af:componentDef>
+</jsp:root>
