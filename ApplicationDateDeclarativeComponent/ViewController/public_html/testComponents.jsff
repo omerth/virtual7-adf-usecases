@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:dateCompLib="/dateCompLib"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl3">
+    <dateCompLib:dateComponent fieldId="f1" value="#{pageFlowScope.test}" id="dc1"/>
+  </af:panelGroupLayout>
+</jsp:root>
