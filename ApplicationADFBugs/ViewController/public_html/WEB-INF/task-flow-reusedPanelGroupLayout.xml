@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-reusedPanelGroupLayout">
+    <default-activity id="__1">reusedPanelGroupLayout1</default-activity>
+    <view id="reusedPanelGroupLayout1">
+      <page>/reusedPanelGroupLayout1.jsff</page>
+    </view>
+    <view id="reusedPanelGroupLayout2">
+      <page>/reusedPanelGroupLayout2.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">reusedPanelGroupLayout1</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome id="__6">go2</from-outcome>
+        <to-activity-id id="__4">reusedPanelGroupLayout2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">reusedPanelGroupLayout2</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">go1</from-outcome>
+        <to-activity-id id="__9">reusedPanelGroupLayout1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

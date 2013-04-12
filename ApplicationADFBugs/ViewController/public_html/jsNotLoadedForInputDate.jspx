@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="scroll">
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:outputText value="Try the following steps (reproducable in all browsers):" id="ot1"/>
+          <af:outputText value="1. Hover with the mouse over the Date1 date picker icon. Check in browser JS console, not JS error should appear."
+                         id="ot2"/>
+          <af:outputText value="2. Hover with the mouse over the Date2 date picker icon. Check in browser JS console, a JS error 'TrDateTimeRangeValidator is not defined' should appear. This is due to the CoreFmt*.js not loaded."
+                         id="ot3"/>
+          <af:outputText value="3. Click on the command button to render the input text which has the convertNumber converter."
+                         id="ot4"/>
+          <af:outputText value="4. Because of the 'convertNumber' converter, you can observe in the browser's resources when the page is rendered, that the CoreFmt*.js is now also loaded. So retest step 2, and you will notice no JS error occours anymore."
+                         id="ot5"/>
+          <af:spacer width="10" height="10" id="s2"/>
+          <af:inputDate label="Date1 without Min value:" id="id1" value="#{pageFlowScope.jsnlMB.date1}"/>
+          <af:inputDate label="Date2 with Min value:" id="id2" value="#{pageFlowScope.jsnlMB.date2}"
+                        minValue="#{pageFlowScope.jsnlMB.minDate}"/>
+          <af:commandButton text="Render the Input Text with ConvertNumber" id="cb1"
+                            actionListener="#{pageFlowScope.jsnlMB.renderInputText}"/>
+          <af:inputText label="Input Text" id="it1" rendered="false" binding="#{pageFlowScope.jsnlMB.inputText}">
+            <af:convertNumber/>
+          </af:inputText>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

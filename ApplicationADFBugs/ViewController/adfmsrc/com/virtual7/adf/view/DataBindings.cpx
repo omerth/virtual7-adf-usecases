@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="11.1.1.61.92" id="DataBindings"
+             SeparateXMLFiles="false" Package="com.virtual7.adf.view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/reusedPanelGroupLayout.jspx" usageId="com_virtual7_adf_view_reusedPanelGroupLayoutPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_virtual7_adf_view_reusedPanelGroupLayoutPageDef"
+          path="com.virtual7.adf.view.pageDefs.reusedPanelGroupLayoutPageDef"/>
+  </pageDefinitionUsages>
+</Application>
