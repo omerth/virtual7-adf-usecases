@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__3">
+    <managed-bean-name id="__4">vclMB</managed-bean-name>
+    <managed-bean-class id="__2">com.virtual7.adf.view.ValueChangeListenerMB</managed-bean-class>
+    <managed-bean-scope id="__1">pageFlow</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__5">
+    <managed-bean-name id="__7">jsnlMB</managed-bean-name>
+    <managed-bean-class id="__8">com.virtual7.adf.view.JSNotLoadedForInputDate</managed-bean-class>
+    <managed-bean-scope id="__6">pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

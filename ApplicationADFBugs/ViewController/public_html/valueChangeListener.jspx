@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1" layout="scroll">
+          <af:spacer width="10" height="10" id="s1"/>
+          <af:outputText value="Try the following steps (reproducable only in IE browsers):" id="ot1"/>
+          <af:outputText value="1. Write a value in the input text, then move the focus out from the field. Because of autosubmit, the valueChageListener will be invoked correctly"
+                         id="ot2"/>
+          <af:outputText value="2. Focus back in the input text and change the value. Then click on the date picker icon of the input date to focus out of the input. The date picker popup will be opened and again the valueChangeListener of the input text will be invoked correctly."
+                         id="ot3"/>
+          <af:outputText value="3. With the date picker popup opened, click directly inside the input text to move the focus back to it. Change the value of the input text and focus out as done at step 1 or 2. The valueChangeListener is not invoked this time."
+                         id="ot4"/>
+          <af:spacer width="10" height="10" id="s2"/>
+          <af:inputText label="Input Text" id="it1" value="#{pageFlowScope.vclMB.inputValue}"
+                        valueChangeListener="#{pageFlowScope.vclMB.inputTextValueChangeListener}" autoSubmit="true"/>
+          <af:inputDate label="Input Date" id="id1" value="#{pageFlowScope.vclMB.dateValue}"/>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
