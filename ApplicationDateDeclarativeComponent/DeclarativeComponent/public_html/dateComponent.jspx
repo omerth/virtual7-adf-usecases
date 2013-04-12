@@ -106,10 +106,10 @@
         function openDatePicker(evt) {
             var component = evt.getSource();
             var dateInput = component.findComponent("invisibleInputDate");
-            var popupClientId = dateInput.getAbsoluteLocator() + '::pop';
-            var popup = dateInput.findComponent(popupClientId);
+            var popupClientId = dateInput.getClientId() + '::pop';
+            var popup = AdfPage.PAGE.findComponent(popupClientId);
             var hints = {
-                align : AdfRichPopup.ALIGN_END_AFTER, alignId : component.getAbsoluteLocator()
+                align : AdfRichPopup.ALIGN_END_AFTER, alignId : component.getClientId()
             };
             popup.show(hints);
             evt.cancel();
