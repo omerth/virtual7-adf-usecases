@@ -9,6 +9,7 @@
           <f:facet name="separator">
             <af:spacer width="10" height="10" id="s2"/>
           </f:facet>
+          <af:region value="#{bindings.taskflowtestComponents1.regionModel}" id="r1"/>
           <dateCompLib:dateComponent id="dc1" fieldId="#{pageFlowScope.testBean.comp1Id}"
                                      value="#{pageFlowScope.testBean.val1}"
                                      fehlerAnzeigen="#{pageFlowScope.testBean.errorFlags[pageFlowScope.testBean.comp1Id]}"
