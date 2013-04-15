@@ -120,6 +120,10 @@ public class DateRangeComponent extends ADateComponent {
 
         // Refresh also the dateTo input as the min value should be adapted.
         addPartialTarget(getDateInputTo());
+
+        // Set focus on the input text.
+        setFocusOnComponent(getTextInputFrom());
+
     }
 
     /**
@@ -205,6 +209,9 @@ public class DateRangeComponent extends ADateComponent {
 
         // Refresh also the dateFrom input as the min value should be adapted.
         addPartialTarget(getDateInputFrom());
+
+        // Set focus on the input text.
+        setFocusOnComponent(getTextInputTo());
     }
 
     public void setDateValFrom(Date dateValFrom) {
