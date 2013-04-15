@@ -127,6 +127,9 @@ public class DateComponent extends ADateComponent {
 
         // Refresh the text input as well.
         addPartialTarget(getTextInput());
+
+        // Set focus on the input text.
+        setFocusOnComponent(getTextInput());
     }
 
     /**

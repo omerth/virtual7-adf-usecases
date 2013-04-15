@@ -19,6 +19,8 @@ import oracle.adf.view.rich.component.rich.fragment.RichDeclarativeComponent;
 import oracle.adf.view.rich.context.AdfFacesContext;
 
 import org.apache.myfaces.trinidad.component.UIXEditableValue;
+import org.apache.myfaces.trinidad.render.ExtendedRenderKitService;
+import org.apache.myfaces.trinidad.util.Service;
 
 
 abstract class ADateComponent extends RichDeclarativeComponent {
@@ -99,6 +101,41 @@ abstract class ADateComponent extends RichDeclarativeComponent {
 
         // If there is a value change listener given then invoke it.
         invokeValueChangeListener(valueChangeListenerName, comp, oldValue, newValue);
+    }
+
+    /**
+     * Add JavaScript to page to set focus to a component.
+     *
+     * @param comp the component on which to focus.
+     */
+    protected void setFocusOnComponent(UIComponent comp) {
+        if (comp != null) {
+            FacesContext fctx = FacesContext.getCurrentInstance();
+            String clientId = comp.getClientId(fctx);
+
+            // Compose JavaScript to be executed on the client. Use client id to ensure component is found if located innaming container.
+            StringBuilder script = new StringBuilder();
+            script.append("var textInput = ");
+            script.append("AdfPage.PAGE.findComponentByAbsoluteId");
+            script.append("('" + clientId + "');");
+            script.append("if(textInput != null){");
+            script.append("textInput.focus();");
+            script.append("}");
+
+            // Invoke JavaScript.
+            writeJavaScriptToClient(script.toString());
+        }
+    }
+
+    /**
+     * Generic, reusable helper method to call JavaScript on a client
+     *
+     * @param script the script to write.
+     */
+    private void writeJavaScriptToClient(String script) {
+        FacesContext fctx = FacesContext.getCurrentInstance();
+        ExtendedRenderKitService erks = Service.getRenderKitService(fctx, ExtendedRenderKitService.class);
+        erks.addScript(fctx, script);
     }
 
     /////////////////////////////////////////////////
