@@ -105,6 +105,13 @@
       <af:resource type="javascript">
         function openDatePicker(evt) {
             var component = evt.getSource();
+            
+            var textInputId = component.getProperty("inputTextId");
+            var textInput = component.findComponent(textInputId);
+            if(textInput!=null){
+                textInput.focus();
+            }
+            
             var dateInput = component.findComponent("invisibleInputDate");
             var popupClientId = dateInput.getClientId() + '::pop';
             var popup = AdfPage.PAGE.findComponent(popupClientId);
@@ -140,10 +147,11 @@
                         simple="#{attrs.screenWidth eq '_320'}" label="#{attrs.label}" readOnly="#{attrs.readOnly}"
                         styleClass="#{not empty attrs.styleClass ? 'ba_input_text' : attrs.styleClass}#{attrs.hilfeText ? '_hilfe' : ''}#{attrs.screenWidth}"
                         valueChangeListener="#{component.onChangeStr}" autoSubmit="true"
-                        binding="#{component.textInput}"/>
+                        binding="#{component.textInput}" clientComponent="true"/>
           <af:spacer width="3" height="1" id="dc_s1"/>
           <af:image source="#{'/afr/timedate_ena.png'}" rendered="#{!attrs.readOnly}" visible="#{!attrs.disabled}"
                     id="dc_i1" inlineStyle="cursor:pointer;">
+            <af:clientAttribute name="inputTextId" value="#{attrs.fieldId}"/>
             <af:clientListener type="click" method="openDatePicker"/>
           </af:image>
           <af:inputDate id="invisibleInputDate" value="#{component.dateVal}"

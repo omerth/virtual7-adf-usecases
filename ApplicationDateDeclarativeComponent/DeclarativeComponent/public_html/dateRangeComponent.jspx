@@ -114,6 +114,13 @@
       <af:resource type="javascript">
         function openDatePickerForDateRange(evt, compId) {
             var component = evt.getSource();
+            
+            var textInputId = component.getProperty("inputTextId");
+            var textInput = component.findComponent(textInputId);
+            if(textInput!=null){
+                textInput.focus();
+            }
+            
             var dateInput = component.findComponent(compId);
             var popupClientId = dateInput.getClientId() + '::pop';
             var popup = AdfPage.PAGE.findComponent(popupClientId);
@@ -158,10 +165,11 @@
                         simple="#{attrs.screenWidth eq '_320'}" label="#{attrs.label}" readOnly="#{attrs.readOnly}"
                         styleClass="#{not empty attrs.styleClass ? 'ba_input_text' : attrs.styleClass}#{attrs.hilfeText ? '_hilfe' : ''}#{attrs.screenWidth}"
                         valueChangeListener="#{component.onChangeStrFrom}" autoSubmit="true"
-                        binding="#{component.textInputFrom}"/>
+                        binding="#{component.textInputFrom}" clientComponent="true"/>
           <af:spacer width="3" height="1" id="dc_s1"/>
           <af:image source="#{'/afr/timedate_ena.png'}" rendered="#{!attrs.readOnly}" visible="#{!attrs.disabled}"
                     id="dc_i1" inlineStyle="cursor:pointer;">
+            <af:clientAttribute name="inputTextId" value="#{attrs.fieldIdFrom}"/>
             <af:clientListener type="click" method="openDatePickerFrom"/>
           </af:image>
           <af:inputDate id="invisibleInputDateFrom" value="#{component.dateValFrom}"
@@ -179,10 +187,11 @@
                         label="" readOnly="#{attrs.readOnly}"
                         styleClass="#{not empty attrs.styleClass ? 'ba_input_text' : attrs.styleClass}#{attrs.hilfeText ? '_hilfe' : ''}#{attrs.screenWidth}"
                         valueChangeListener="#{component.onChangeStrTo}" autoSubmit="true"
-                        binding="#{component.textInputTo}"/>
+                        binding="#{component.textInputTo}" clientComponent="true"/>
           <af:spacer width="3" height="1" id="dc_s2"/>
           <af:image source="#{'/afr/timedate_ena.png'}" rendered="#{!attrs.readOnly}" visible="#{!attrs.disabled}"
                     id="dc_i2" inlineStyle="cursor:pointer;">
+            <af:clientAttribute name="inputTextId" value="#{attrs.fieldIdTo}"/>
             <af:clientListener type="click" method="openDatePickerTo"/>
           </af:image>
           <af:inputDate id="invisibleInputDateTo" value="#{component.dateValTo}"
