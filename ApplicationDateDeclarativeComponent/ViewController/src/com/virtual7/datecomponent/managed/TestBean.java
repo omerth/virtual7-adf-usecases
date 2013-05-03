@@ -22,6 +22,34 @@ public class TestBean {
     private Map<String, Boolean> errorFlags;
     private Map<String, String> errorTexts;
 
+    private List<Item> items;
+
+    public class Item {
+        private String type;
+        private String value;
+
+        public Item(String type, String value) {
+            this.type = type;
+            this.value = value;
+        }
+
+        public void setValue(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        public void setType(String type) {
+            this.type = type;
+        }
+
+        public String getType() {
+            return type;
+        }
+    }
+
     public TestBean() {
         super();
 
@@ -33,6 +61,14 @@ public class TestBean {
 
         errorFlags = new HashMap<String, Boolean>();
         errorTexts = new HashMap<String, String>();
+
+        // Iterator items.
+        this.items = new ArrayList<Item>();
+        this.items.add(new Item("date", null));
+        this.items.add(new Item("nothing", null));
+        this.items.add(new Item("date", null));
+        this.items.add(new Item("date", null));
+        this.items.add(new Item("range", null));
     }
 
     public void onSubmit(ActionEvent actionEvent) {
@@ -305,5 +341,9 @@ public class TestBean {
 
     public String getValRangeCompTo() {
         return valRangeCompTo;
+    }
+
+    public List<Item> getItems() {
+        return items;
     }
 }

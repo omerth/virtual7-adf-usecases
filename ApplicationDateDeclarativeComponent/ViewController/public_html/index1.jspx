@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dateCompLib="/dateCompLib" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:panelGroupLayout id="pgl1">
+          <f:facet name="separator">
+            <af:spacer width="10" height="10" id="s2"/>
+          </f:facet>
+          <af:commandButton text="Submit" id="cb1"/>
+          <af:forEach items="#{pageFlowScope.testBean.items}" var="item">
+            <c:choose>
+              <c:when test="${item.type eq 'date'}">
+                <dateCompLib:dateComponent id="dc2" fieldId="#{pageFlowScope.testBean.comp1Id}"
+                                           value="#{pageFlowScope.testBean.val2}" label="Component2"
+                                           dateFormat="#{pageFlowScope.testBean.datePattern}"
+                                           secondaryDateFormats="#{pageFlowScope.testBean.secondaryDatePatterns}"
+                                           valueChangeListener="#{pageFlowScope.testBean.onChangeComp2}"
+                                           fehlerAnzeigen="#{pageFlowScope.testBean.errorFlags[pageFlowScope.testBean.comp2Id]}"
+                                           fehlerText="#{pageFlowScope.testBean.errorTexts[pageFlowScope.testBean.comp2Id]}"/>
+              </c:when>
+              <c:when test="${item.type eq 'range'}">
+                <dateCompLib:dateRangeComponent fieldIdFrom="#{pageFlowScope.testBean.rangeCompFromId}"
+                                                fieldIdTo="#{pageFlowScope.testBean.rangeCompToId}"
+                                                valueFrom="#{pageFlowScope.testBean.valRangeCompFrom}"
+                                                valueTo="#{pageFlowScope.testBean.valRangeCompTo}"
+                                                label="Date range component" labelBetweenInputs="to" id="drc1"
+                                                valueChangeListenerFrom="#{pageFlowScope.testBean.onChangeRangeCompFrom}"
+                                                valueChangeListenerTo="#{pageFlowScope.testBean.onChangeRangeCompTo}"
+                                                fehlerAnzeigen="#{pageFlowScope.testBean.errorFlags[pageFlowScope.testBean.rangeCompFromId]}"
+                                                fehlerText="#{pageFlowScope.testBean.errorTexts[pageFlowScope.testBean.rangeCompFromId]}"
+                                                dateFormat="#{pageFlowScope.testBean.datePattern}"
+                                                secondaryDateFormats="#{pageFlowScope.testBean.secondaryDatePatterns}"/>
+              </c:when>
+              <c:otherwise>
+                <af:outputText value="Nothing" id="ot1"/>
+              </c:otherwise>
+            </c:choose>
+          </af:forEach>
+        </af:panelGroupLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
