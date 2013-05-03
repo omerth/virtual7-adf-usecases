@@ -7,10 +7,17 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.el.ELContext;
+import javax.el.ValueExpression;
+
+import javax.faces.context.FacesContext;
 import javax.faces.event.ValueChangeEvent;
 
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
 import oracle.adf.view.rich.component.rich.input.RichInputText;
+
+import org.apache.myfaces.trinidad.bean.FacesBean;
+import org.apache.myfaces.trinidad.bean.PropertyKey;
 
 
 /**
@@ -27,7 +34,10 @@ public class DateComponent extends ADateComponent {
     private static final String METHOD_ATTRIBUTE_VALUE_CHANGE_LISTENER = "valueChangeListener";
 
     private Date dateVal;
+    private boolean dateValInitialized;
+
     private String strVal;
+    private boolean strValInitialized;
 
     private RichInputText textInput;
     private RichInputDate dateInput;
@@ -36,6 +46,12 @@ public class DateComponent extends ADateComponent {
      * Default constructor.
      */
     public DateComponent() {
+        super();
+
+        // In the constructor is too early to lookup for the attributeValue as there will be no valueExpresion yet resolvable at this phase.
+        // So we only set intialization flags for lazy intialization in the getter methods which will be invoked later.
+        this.dateValInitialized = false;
+        this.strValInitialized = false;
     }
 
     /**
@@ -164,6 +180,21 @@ public class DateComponent extends ADateComponent {
     }
 
     public Date getDateVal() {
+        // If the strVal is not yet intialized try to see if there is a value allready comming trough the value.
+        if (!this.dateValInitialized) {
+            String strVal = getStrVal();
+            if (strVal != null && !"".equals(strVal)) {
+                String primaryDateFormat = getWrappedDateFormatAttr();
+                List secondaryDateFormats = (List)getAttribute(ATTRIBUTE_SECONDARY_DATE_FORMATS);
+                this.dateVal = parseStringToDate(this.strVal, primaryDateFormat, secondaryDateFormats);
+            } else {
+                this.dateVal = null;
+            }
+
+            this.dateValInitialized = true;
+        }
+
+
         return dateVal;
     }
 
@@ -173,7 +204,13 @@ public class DateComponent extends ADateComponent {
     }
 
     public String getStrVal() {
-        return strVal;
+        // If the strVal is not yet intialized try to see if there is a value allready comming trough the value.
+        if (!this.strValInitialized) {
+            this.strVal = (String)getAttribute(ATTRIBUTE_VALUE);
+            this.strValInitialized = true;
+        }
+
+        return this.strVal;
     }
 
     public void setTextInput(RichInputText textInput) {
