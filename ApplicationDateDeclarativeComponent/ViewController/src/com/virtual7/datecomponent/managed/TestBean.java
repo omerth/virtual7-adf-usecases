@@ -66,9 +66,11 @@ public class TestBean {
         this.items = new ArrayList<Item>();
         this.items.add(new Item("date", null));
         this.items.add(new Item("nothing", null));
-        this.items.add(new Item("date", null));
-        this.items.add(new Item("date", null));
+        //        this.items.add(new Item("date", null));
+        //        this.items.add(new Item("date", null));
         this.items.add(new Item("range", null));
+        
+        this.val2 = "12.01.2013";
     }
 
     public void onSubmit(ActionEvent actionEvent) {
