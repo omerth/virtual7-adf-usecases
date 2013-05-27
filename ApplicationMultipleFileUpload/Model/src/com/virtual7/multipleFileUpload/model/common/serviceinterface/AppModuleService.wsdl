@@ -47,7 +47,7 @@
     </wsdl:binding>
     <wsdl:service name="AppModuleService">
         <wsdl:port name="AppModuleServiceSoapHttpPort" binding="tns:AppModuleServiceSoapHttp">
-            <soap:address location="http://localhost:7101/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService"/>
+            <soap:address location="http://middleware1:8896/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

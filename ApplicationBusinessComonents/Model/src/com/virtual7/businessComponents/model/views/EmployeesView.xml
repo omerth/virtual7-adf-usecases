@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="EmployeesView"
-  Version="11.1.1.60.13"
+  Version="11.1.1.62.29"
   BindingStyle="OracleName"
   CustomQuery="true"
   PageIterMode="Full"
@@ -24,7 +24,7 @@
   <Variable
     Name="HDate"
     Kind="viewcriteria"
-    Type="java.sql.Date"/>
+    Type="oracle.jbo.domain.Date"/>
   <SQLQuery>
     <![CDATA[SELECT Employees.EMPLOYEE_ID,
        Employees.FIRST_NAME,
@@ -242,7 +242,7 @@ FROM EMPLOYEES Employees]]>
       <ViewCriteriaItem
         Name="FirstName"
         ViewAttribute="FirstName"
-        Operator="STARTSWITH"
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":FNInitial"
         IsBindVarValue="true"
@@ -250,9 +250,9 @@ FROM EMPLOYEES Employees]]>
       <ViewCriteriaItem
         Name="LastName"
         ViewAttribute="LastName"
-        Operator="STARTSWITH"
+        Operator="CONTAINS"
         Conjunction="OR"
-        Value=":HDate"
+        Value=":LName"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

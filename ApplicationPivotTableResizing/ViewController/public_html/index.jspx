@@ -10,6 +10,8 @@
         <af:panelStretchLayout id="psl1">
           <f:facet name="center">
             <af:panelGroupLayout id="pgl1" styleClass="AFStretchWidth" layout="scroll">
+            <af:outputText value="#{bindings.EmployeesView1Iterator.estimatedRowCount*20}"
+                         id="ot1"/>
               <dvt:pivotTable id="pivotTable1" value="#{bindings.EmployeesView1.pivotTableModel}" pivotEnabled="false"
                               dataFormat="#{backingBeanScope.pivotBean.dataFormat}"
                               binding="#{backingBeanScope.pivotBean.pivotTable}"

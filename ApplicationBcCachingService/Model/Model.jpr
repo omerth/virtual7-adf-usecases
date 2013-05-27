@@ -113,7 +113,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="bcProfile1_BCCaching">
+         <hash n="bcCachingService">
             <url n="bcApplication" path="src/com/virtual7/bcCachingService/model/Model.jpx"/>
             <hash n="commonProfile">
                <hash n="archiveOptions">
@@ -264,14 +264,14 @@
                      </hash>
                   </list>
                </hash>
-               <url n="jarURL" path="../../_libs/BcCachingService_Common.jar"/>
+               <url n="jarURL" path="../../_libs/ApplicationBcCachingService_Model_Common.jar"/>
                <hash n="libraryDependencies">
                   <value n="IncludeLibrariesFromOtherContainers" v="true"/>
                </hash>
                <value n="profileClass" v="oracle.jdeveloper.deploy.jar.ArchiveProfile"/>
-               <value n="profileName" v="bcProfile1_BCCaching_Common"/>
+               <value n="profileName" v="bcCachingService_Common"/>
             </hash>
-            <url n="commonProfileURL" path="Model.jpr" ref="bcProfile1_BCCaching_Common"/>
+            <url n="commonProfileURL" path="Model.jpr" ref="bcCachingService_Common"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
@@ -286,12 +286,12 @@
                      <hash>
                         <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
                         <url n="ownerURL" path="Model.jpr"/>
-                        <value n="profileName" v="bcProfile1_BCCaching_Common"/>
+                        <value n="profileName" v="bcCachingService_Common"/>
                      </hash>
                   </list>
                </hash>
-               <url n="earURL" path="deploy/bcProfile1_BCCaching_MiddleTier.ear"/>
-               <value n="enterpriseAppName" v="bcProfile1_BCCaching_MiddleTier"/>
+               <url n="earURL" path="../../_deploy/ApplicationBcCachingService_MiddleTier.ear"/>
+               <value n="enterpriseAppName" v="bcCachingService_MiddleTier"/>
                <hash n="fileGroups">
                   <list n="groups">
                      <hash>
@@ -437,28 +437,28 @@
                      </hash>
                   </list>
                </hash>
-               <url n="jarURL" path="deploy/bcProfile1_BCCaching_MiddleTier.jar"/>
+               <url n="jarURL" path="../../_libs/ApplicationBcCachingService_Model_MiddleTier.jar"/>
                <hash n="libraryDependencies">
                   <value n="IncludeLibrariesFromOtherContainers" v="true"/>
                </hash>
                <value n="profileClass" v="oracle.jdeveloper.deploy.ejb.EjbProfile"/>
-               <value n="profileName" v="bcProfile1_BCCaching_MiddleTier"/>
+               <value n="profileName" v="bcCachingService_MiddleTier"/>
                <hash n="properties">
                   <value n="JboService" v="true"/>
                </hash>
             </hash>
-            <url n="mtProfileURL" path="Model.jpr" ref="bcProfile1_BCCaching_MiddleTier"/>
+            <url n="mtProfileURL" path="Model.jpr" ref="bcCachingService_MiddleTier"/>
             <value n="profileClass" v="oracle.jbo.dt.jdevx.deployment.JbdSDOProfile"/>
-            <value n="profileName" v="bcProfile1_BCCaching"/>
+            <value n="profileName" v="bcCachingService"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="bcProfile1_BCCaching"/>
+         <string v="bcCachingService"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="ApplicationBcCachingService-Model-webapp"/>
-      <value n="j2eeWebContextRoot" v="ApplicationBcCachingService-Model-context-root"/>
+      <value n="j2eeWebAppName" v="ApplicationBcCachingService-Model-MiddleTier"/>
+      <value n="j2eeWebContextRoot" v="ApplicationBcCachingService-Model-MiddleTier"/>
    </hash>
    <hash n="oracle.jdeveloper.model.PathsConfiguration">
       <hash n="javaContentSet">

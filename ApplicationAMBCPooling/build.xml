@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <project name="ApplicationAMBCPooling" default="cloneApp" basedir=".">
 	<property file="../build.properties" />
-	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
+	<property name="oracle.jdeveloper.workspace.path" location="ApplicationAMBCPooling.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
-	<target name="deploy" description="Deploy JDeveloper profiles">
+	
+	<target name="ApplicationAMBCPooling-deploy" description="Deploy JDeveloper profiles" if="${ApplicationAMBCPooling.execute-deploy}">
 
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ModelRoot/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewControllerRoot/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-
+		
 		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
 		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />
 		<ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}" ora:buildscript="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-build.xml" ora:statuslog="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-statuslog.xml">
@@ -53,5 +54,13 @@
 			<replacefilter token="${replace.token4}" value="${do.token4}" />
 			<replacefilter token="${replace.token5}" value="${do.token5}" />
 		</replace>
+	</target>
+
+	<target name="ApplicationAMBCPooling-wldeploy" if="${ApplicationAMBCPooling.execute_install_deployments}">
+		<wldeploy name="ApplicationAMBCPooling" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationAMBCPooling.ear" targets="${ApplicationAMBCPooling.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationAMBCPooling-wlundeploy" if="${ApplicationAMBCPooling.execute_install_deployments}">
+		<wlundeploy name="ApplicationAMBCPooling" targets="${ApplicationAMBCPooling.targets}" />
 	</target>
 </project>

@@ -3,7 +3,8 @@
 	<property file="../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
-	<target name="deploy" description="Deploy JDeveloper profiles">
+	
+	<target name="ApplicationDinamicPivotTable-deploy" description="Deploy JDeveloper profiles" if="${ApplicationDinamicPivotTable.execute-deploy}">
 
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
@@ -53,4 +54,11 @@
 		</replace>
 	</target>
 
+	<target name="ApplicationDinamicPivotTable-wldeploy" if="${ApplicationDinamicPivotTable.execute_install_deployments}">
+		<wldeploy name="ApplicationDinamicPivotTable" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationDinamicPivotTable.ear" targets="${ApplicationDinamicPivotTable.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationDinamicPivotTable-wlundeploy" if="${ApplicationDinamicPivotTable.execute_install_deployments}">
+		<wlundeploy name="ApplicationDinamicPivotTable" targets="${ApplicationDinamicPivotTable.targets}" />
+	</target>
 </project>

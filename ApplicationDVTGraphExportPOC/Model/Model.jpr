@@ -43,6 +43,7 @@
       <value n="oracle.modeler.bmmigrate.management.Migration" v="11.1.1.1.0"/>
       <value n="oracle.toplink.workbench.addin.migration.PersistenceProjectMigrator" v="11.1.1.1.1"/>
       <value n="oracle.toplink.workbench.addin.migration.TopLinkProjectMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.webcenter.internal.dt.migration.WebCenterProjectMigrator" v="11.1.1.4.0.101019.0800"/>
    </hash>
    <list n="contentSets">
       <string v="oracle.jdeveloper.model.PathsConfiguration/javaContentSet"/>
@@ -105,7 +106,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ApplicationDVTGraphExportPOC_Model_adflib7721">
+         <hash n="ApplicationDVTGraphExportPOC_Model">
             <value n="adflib-connectionDetails" v="true"/>
             <value n="adflib-nonReusablesError" v="false"/>
             <hash n="archiveOptions">
@@ -131,17 +132,17 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/ApplicationDVTGraphExportPOC_Model_adflib7721.jar"/>
+            <url n="jarURL" path="../../_libs/ApplicationDVTGraphExportPOC_Model.jar"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <hash n="LibraryDependencies"/>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="ApplicationDVTGraphExportPOC_Model_adflib7721"/>
+            <value n="profileName" v="ApplicationDVTGraphExportPOC_Model"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="ApplicationDVTGraphExportPOC_Model_adflib7721"/>
+         <string v="ApplicationDVTGraphExportPOC_Model"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="virtual7Util" basedir=".">
+	<property file="build.properties" />
+	<property file="build_virtual7Util.properties" />
+
+	<import file="wltasks.xml" optional="true" />
+
+	<target name="virtual7Util-deploy" if="${virtual7Util.execute_deploy}">
+		<ant antfile="${virtual7Util.project.orig.path}/core/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+	</target>
+
+	<target name="virtual7Util-deploy-docs" if="${virtual7Util.execute_deploy}">
+		<delete file="${virtual7Util.project.orig.path}/_deploy/virtual7Util_installguide.zip" />
+		<zip destfile="${virtual7Util.project.orig.path}/_deploy/virtual7Util_installguide.zip">
+			<zipfileset dir="${virtual7Util.project.orig.path}/_install" />
+		</zip>
+		<delete file="${virtual7Util.project.orig.path}/_src/virtual7Util_src.zip" />
+		<zip destfile="${virtual7Util.project.orig.path}/_src/virtual7Util_src.zip">
+			<zipfileset dir="${virtual7Util.project.orig.path}/../">
+				<include name="virtual7Util/build_virtual7Util.properties" />
+				<include name="virtual7Util/build_virtual7Util.xml" />
+				<include name="virtual7Util/build.properties" />
+				<include name="virtual7Util/build.xml" />
+				<include name="virtual7Util/CREATE_VIRTUAL7UTIL*" />
+				<include name="virtual7Util/UPDATE_VIRTUAL7UTIL*" />
+				<include name="virtual7Util/wlstore_user_config.py" />
+				<include name="virtual7Util/wltasks.py" />
+				<include name="virtual7Util/wltasks.xml" />
+
+				<include name="virtual7Util/core/**/*" />
+				<exclude name="virtual7Util/core/**/classes/" />
+				<exclude name="virtual7Util/core/**/deploy/" />
+				<exclude name="virtual7Util/core/**/log/" />
+
+				<include name="virtual7Util/_deploy/*.*" />
+
+				<include name="virtual7Util/_libs/*.*" />
+			</zipfileset>
+		</zip>
+	</target>
+
+	<target name="virtual7Util-copy" if="${virtual7Util.execute_copy}">
+		<copy todir="${virtual7Util.project.dest.path}/_deploy" overwrite="true">
+			<fileset dir="${virtual7Util.project.orig.path}/_deploy">
+				<include name="virtual7Util_datamodel.zip" />
+				<include name="virtual7Util_installguide.zip" />
+				<include name="virtual7Util_model_shared.ear" />
+				<include name="virtual7Util_view_shared.war" />
+			</fileset>
+		</copy>
+		<copy todir="${virtual7Util.project.dest.path}/_libs" overwrite="true">
+			<fileset dir="${virtual7Util.project.orig.path}/_libs">
+				<include name="axis.jar" />
+				<include name="commons-discovery-0.2.jar" />
+				<include name="commons-email-1.0.jar" />
+				<include name="virtual7Util_model_src.jar" />
+				<include name="virtual7Util_model.jar" />
+				<include name="virtual7Util_view_src.jar" />
+				<include name="virtual7Util_view.jar" />
+				<include name="wsdl4j-1.5.1.jar" />
+			</fileset>
+		</copy>
+		<copy todir="${virtual7Util.project.dest.path}/_src" overwrite="true">
+			<fileset dir="${virtual7Util.project.orig.path}/_src">
+				<include name="virtual7Util_src.zip" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="virtual7Util-wlcreate-services" if="${virtual7Util.execute_install_services}">
+		<wlcreate-datasource name="${virtual7Util.datasource.name}" user="${virtual7Util.datasource.user}" url="${virtual7Util.datasource.url}" targets="${virtual7Util.targets}" />
+	</target>
+
+	<target name="virtual7Util-wldestroy-services" if="${virtual7Util.execute_install_services}">
+		<wldestroy-datasource name="${virtual7Util.datasource.name}" />
+	</target>
+
+	<target name="virtual7Util-wldeploy" if="${virtual7Util.execute_install_deployments}">
+		<wldeploy name="virtual7Util_model_shared" source="${virtual7Util.project.dest.path}/_deploy/virtual7Util_model_shared.ear" targets="${virtual7Util.targets}" librarymodule="true" />
+		<wldeploy name="virtual7Util_view_shared" source="${virtual7Util.project.dest.path}/_deploy/virtual7Util_view_shared.war" targets="${virtual7Util.targets}" librarymodule="true" />
+	</target>
+
+	<target name="virtual7Util-wlundeploy" if="${virtual7Util.execute_install_deployments}">
+		<wlundeploy name="virtual7Util_view_shared" targets="${virtual7Util.targets}" librarymodule="true" />
+		<wlundeploy name="virtual7Util_model_shared" targets="${virtual7Util.targets}" librarymodule="true" />
+	</target>
+
+	<target name="virtual7Util-sqldeploy" if="${virtual7Util.execute_install_database}">
+		<sqldeploy name="VIRTUAL7UTIL" user="${virtual7Util.datasource.user}" source="${virtual7Util.project.dest.path}/_deploy/virtual7Util_datamodel.zip" url="${virtual7Util.datasource.url}" />
+	</target>
+</project>

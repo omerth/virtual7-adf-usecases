@@ -3,7 +3,7 @@
 	<property file="../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
-	<target name="deploy" description="Deploy JDeveloper profiles">
+	<target name="ApplicationPivotTableResizing-deploy" description="Deploy JDeveloper profiles" if="${ApplicationPivotTableResizing.execute-deploy}">
 
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
@@ -53,4 +53,11 @@
 		</replace>
 	</target>
 
+	<target name="ApplicationPivotTableResizing-wldeploy" if="${ApplicationPivotTableResizing.execute_install_deployments}">
+		<wldeploy name="ApplicationPivotTableResizing" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationPivotTableResizing.ear" targets="${ApplicationPivotTableResizing.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationPivotTableResizing-wlundeploy" if="${ApplicationPivotTableResizing.execute_install_deployments}">
+		<wlundeploy name="ApplicationPivotTableResizing" targets="${ApplicationPivotTableResizing.targets}" />
+	</target>
 </project>

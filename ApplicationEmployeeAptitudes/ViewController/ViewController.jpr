@@ -326,14 +326,12 @@
             <hash>
                <list n="classPath">
                   <url path="../../_libs/ApplicationEmployeeAptitudes_Model.jar" jar-entry=""/>
-                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+                  <url path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
                <value n="id" v="ADF Library"/>
-               <list n="sourcePath">
-                  <url path="libs/virtual7Util_view_src.jar" jar-entry=""/>
-               </list>
+               <list n="sourcePath"/>
             </hash>
             <hash>
                <list n="classPath">
@@ -341,6 +339,13 @@
                </list>
                <value n="description" v="Library1"/>
                <value n="id" v="Library1"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library2"/>
+               <value n="id" v="Library2"/>
             </hash>
          </list>
       </hash>

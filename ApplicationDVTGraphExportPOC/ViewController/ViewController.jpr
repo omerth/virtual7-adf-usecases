@@ -43,6 +43,7 @@
       <value n="oracle.modeler.bmmigrate.management.Migration" v="11.1.1.1.0"/>
       <value n="oracle.toplink.workbench.addin.migration.PersistenceProjectMigrator" v="11.1.1.1.1"/>
       <value n="oracle.toplink.workbench.addin.migration.TopLinkProjectMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.webcenter.internal.dt.migration.WebCenterProjectMigrator" v="11.1.1.4.0.101019.0800"/>
    </hash>
    <list n="contentSets">
       <string v="oracle.jdeveloper.model.PathsConfiguration/javaContentSet"/>
@@ -91,7 +92,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ApplicationDVTGraphExportPOC_ViewController_webapp1">
+         <hash n="ApplicationDVTGraphExportPOC_ViewController">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
                <value n="autoInclude" v="true"/>
@@ -102,8 +103,8 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <url n="earURL" path="deploy/ApplicationDVTGraphExportPOC_ViewController_webapp1.ear"/>
-            <value n="enterpriseAppName" v="ApplicationDVTGraphExportPOC_ViewController_webapp1"/>
+            <url n="earURL" path="deploy/ApplicationDVTGraphExportPOC_ViewController.ear"/>
+            <value n="enterpriseAppName" v="ApplicationDVTGraphExportPOC_ViewController"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -151,16 +152,16 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/ApplicationDVTGraphExportPOC_ViewController_webapp1.war"/>
+            <url n="jarURL" path="../../_deploy/ApplicationDVTGraphExportPOC_ViewController.war"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="ApplicationDVTGraphExportPOC_ViewController_webapp1"/>
+            <value n="profileName" v="ApplicationDVTGraphExportPOC_ViewController"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="ApplicationDVTGraphExportPOC_ViewController_webapp1"/>
+         <string v="ApplicationDVTGraphExportPOC_ViewController"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">

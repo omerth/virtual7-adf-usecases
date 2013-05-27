@@ -9,11 +9,35 @@
   <pageMap>
     <page path="/index.jspx" usageId="com_virtual7_businessComponents_view_indexPageDef"/>
     <page path="/page1.jsff" usageId="com_virtual7_businessComponents_view_page1PageDef"/>
+    <page path="/vc_search.jsff"
+          usageId="com_virtual7_businessComponents_view_vc_searchPageDef"/>
+    <page path="/WEB-INF/bind-variables-tf.xml#bind-variables-tf@varEmail"
+          usageId="com_virtual7_businessComponents_view_bind_variables_tf_bind_variables_tf_varEmailPageDef"/>
+    <page path="/WEB-INF/bind-variables-tf.xml#bind-variables-tf@varLName"
+          usageId="com_virtual7_businessComponents_view_bind_variables_tf_bind_variables_tf_varLNamePageDef"/>
+    <page path="/WEB-INF/bind-variables-tf.xml#bind-variables-tf@removeWhereClauseParam"
+          usageId="com_virtual7_businessComponents_view_bind_variables_tf_bind_variables_tf_removeWhereClauseParamPageDef"/>
+    <page path="/WEB-INF/bind-variables-tf.xml#bind-variables-tf@varSalary"
+          usageId="com_virtual7_businessComponents_view_bind_variables_tf_bind_variables_tf_varSalaryPageDef"/>
+    <page path="/bind_variables.jsff"
+          usageId="com_virtual7_businessComponents_view_bind_variablesPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_virtual7_businessComponents_view_indexPageDef" path="com.virtual7.businessComponents.view.pageDefs.indexPageDef"/>
     <page id="com_virtual7_businessComponents_view_page1PageDef"
           path="com.virtual7.businessComponents.view.pageDefs.page1PageDef"/>
+    <page id="com_virtual7_businessComponents_view_vc_searchPageDef"
+          path="com.virtual7.businessComponents.view.pageDefs.vc_searchPageDef"/>
+    <page id="com_virtual7_businessComponents_view_bind_variables_tf_bind_variables_tf_varEmailPageDef"
+          path="com.virtual7.businessComponents.view.pageDefs.bind_variables_tf_bind_variables_tf_varEmailPageDef"/>
+    <page id="com_virtual7_businessComponents_view_bind_variables_tf_bind_variables_tf_varLNamePageDef"
+          path="com.virtual7.businessComponents.view.pageDefs.bind_variables_tf_bind_variables_tf_varLNamePageDef"/>
+    <page id="com_virtual7_businessComponents_view_bind_variables_tf_bind_variables_tf_removeWhereClauseParamPageDef"
+          path="com.virtual7.businessComponents.view.pageDefs.bind_variables_tf_bind_variables_tf_removeWhereClauseParamPageDef"/>
+    <page id="com_virtual7_businessComponents_view_bind_variables_tf_bind_variables_tf_varSalaryPageDef"
+          path="com.virtual7.businessComponents.view.pageDefs.bind_variables_tf_bind_variables_tf_varSalaryPageDef"/>
+    <page id="com_virtual7_businessComponents_view_bind_variablesPageDef"
+          path="com.virtual7.businessComponents.view.pageDefs.bind_variablesPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.businessComponents.model"

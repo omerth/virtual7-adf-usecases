@@ -3,6 +3,8 @@
 	<property file="../../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="../ApplicationADFDevelopmentPattern.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
+	
+	
 	<target name="deploy" description="Deploy JDeveloper profiles">
 		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
 		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />

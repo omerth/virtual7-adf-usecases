@@ -4,11 +4,19 @@
   <pageMap>
     <page path="/index.jspx" usageId="com_virtual7_updateForHistorysation_view_indexPageDef"/>
     <page path="PageFlow#Execute" usageId="com_virtual7_updateForHistorysation_view_adfc_config___ExecutePageDef"/>
+    <page path="PageFlow#clearEntityCache"
+          usageId="com_virtual7_updateForHistorysation_view_adfc_config___clearEntityCachePageDef"/>
+    <page path="PageFlow#Commit"
+          usageId="com_virtual7_updateForHistorysation_view_adfc_config___CommitPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_virtual7_updateForHistorysation_view_indexPageDef" path="com.virtual7.updateForHistorysation.view.pageDefs.indexPageDef"/>
     <page id="com_virtual7_updateForHistorysation_view_adfc_config___ExecutePageDef"
           path="com.virtual7.updateForHistorysation.view.pageDefs.adfc_config___ExecutePageDef"/>
+    <page id="com_virtual7_updateForHistorysation_view_adfc_config___clearEntityCachePageDef"
+          path="com.virtual7.updateForHistorysation.view.pageDefs.adfc_config___clearEntityCachePageDef"/>
+    <page id="com_virtual7_updateForHistorysation_view_adfc_config___CommitPageDef"
+          path="com.virtual7.updateForHistorysation.view.pageDefs.adfc_config___CommitPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppModuleDataControl" Package="com.virtual7.updateForHistorysation.model"

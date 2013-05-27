@@ -273,10 +273,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../../_myspace/virtual7Util/core/virtual7Util_view/Virtual7Util_view.jar.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Resource Bundle Variable Resolver"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -318,6 +314,7 @@
             <hash>
                <list n="classPath">
                   <url path="../../_libs/ApplicationTaskflowEndPoint_Model.jar" jar-entry=""/>
+                  <url path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -329,6 +326,13 @@
                </list>
                <value n="description" v="Library1"/>
                <value n="id" v="Library1"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library2"/>
+               <value n="id" v="Library2"/>
             </hash>
          </list>
       </hash>
@@ -415,10 +419,6 @@
          </hash>
          <hash>
             <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../../_myspace/virtual7Util/core/virtual7Util_view/Virtual7Util_view.jar.library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -520,6 +520,17 @@
             <value n="runInEditor" v="true"/>
             <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@project@../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar!/META-INF/v7CompLib.tld"/>
+            <value n="URI" v="/v7ComponentLib"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="v7CompLib 1.0 Tag Libraries"/>
+            <value n="name" v="v7CompLib"/>
+            <value n="prefix" v="v7"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../../_libs/virtual7Util_view.jar!/META-INF/v7CompLib.tld"/>
             <value n="URI" v="/v7ComponentLib"/>
             <value n="version" v="1.0"/>
          </hash>

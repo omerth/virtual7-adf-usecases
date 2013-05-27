@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="wltasks" basedir=".">
+
+	<target name="wlst-script-start">
+		<echo file="${wls.temp.script}" append="false" message="import os" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}import time" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '\n Started at ' + time.asctime() + '\n'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}execfile(os.path.join(r'${basedir}', 'wltasks.py'))" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}mUserConfigFile = sys.argv[1]" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}mUserKeyFile = sys.argv[2]" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}mAdminURL = sys.argv[3]" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}connect(userConfigFile=mUserConfigFile, userKeyFile=mUserKeyFile, url=mAdminURL)" />
+	</target>
+
+
+	<target name="wlst-script-edit">
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '\n ### ### ###: Editing \n'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}edit()" />
+	</target>
+
+	<target name="wlst-script-startEdit">
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '\n ### ### ###: Start Editing \n'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}startEdit(-1,-1,'false')" />
+	</target>
+
+	<target name="wlst-script-save">
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '\n ### ### ###: Saving \n'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}save()" />
+	</target>
+
+	<target name="wlst-script-activate">
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '\n ### ### ###: Activating \n'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}activate()" />
+	</target>
+
+	<target name="wlst-script-end">
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '\n ### ### ###: dumpStack \n'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}dumpStack()" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '############################################'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '#####   Complete                   #########'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}print '############################################'" />
+		<echo file="${wls.temp.script}" append="true" message="${line.separator}exit()" />
+	</target>
+
+
+	<target name="wlst-execute" if="${all.execute_wlst}">
+		<exec logerror="true" executable="${wlst.dir}/${wlst.executable}" dir="${wlst.dir}" failonerror="true" output="${wls.temp.log}">
+			<arg line="${wls.temp.script} ${wls.userconfig} ${wls.userkey} ${wls.host}:${wls.port}" />
+		</exec>
+	</target>
+
+	<macrodef name="sqldeploy">
+		<attribute name="name" />
+		<attribute name="user" />
+		<attribute name="source" default="" />
+		<attribute name="sourceUTILS" default="" />
+		<attribute name="url" />
+		<sequential>
+			<property name="datasource-password-" value="" />
+			<input message="Please enter password for the database user SYS:" addproperty="sqldeploy-password-SYS" />
+
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}sqlDeploy(mAppName='@{name}', mUser='@{user}', mSYSPassword='${sqldeploy-password-SYS}', mURL='@{url}', mSourceZip='@{source}', mUTILSSourceZip='@{sourceUTILS}', mBaseDir=r'${basedir}', mTempDir=r'${temp.folder}', mSqlHomeDir=r'${sql.home}', mExecuteScript='${all.execute_sql}')" />
+		</sequential>
+	</macrodef>
+
+
+	<macrodef name="wlcreate-datasource">
+		<attribute name="name" />
+		<attribute name="user" />
+		<attribute name="url" />
+		<attribute name="targets" />
+		<sequential>
+			<input message="Please enter password for the database user @{user}:" addproperty="datasource-password-@{user}" />
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlCreateDatasource(mDatasourceName='@{name}', mDatasourceUser='@{user}', mDatasourcePassword='${datasource-password-@{user}}', mDatasourceUrl='@{url}', mTargets='@{targets}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlcreate-cred">
+		<attribute name="map" />
+		<attribute name="key" />
+		<sequential>
+			<input message="Please enter the user for property @{key} in map @{map}:" addproperty="cred-password-@{map}-@{key}" />
+			<input message="Please enter password for user ${@{map}@{key}user} in property @{key} in map @{map}:" addproperty="cred-password-@{map}-@{key}" />
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlCreateCred(mMap='@{map}',mKey='@{key}',mUser='${cred-password-@{map}-@{key}}',mPassword='${wlcreate-cred-password-@{map}-@{key}}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldestroy-cred">
+		<attribute name="map" />
+		<attribute name="key" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlDestroyCred(mMap='@{map}',mKey='@{key}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldestroy-datasource">
+		<attribute name="name" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlDestroyDatasource(mDatasourceName='@{name}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlimport-metadata">
+		<attribute name="name" />
+		<attribute name="targets" />
+		<attribute name="source" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlImportMetadata(mAppName='@{name}', mTargets='@{targets}', mPath='@{source}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlcreate-metadata-label">
+		<attribute name="name" />
+		<attribute name="targets" />
+		<attribute name="label" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlCreateMetadataLabel(mAppName='@{name}', mTargets='@{targets}', mLabel='@{label}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlexport-webcenter-resource">
+		<attribute name="name" />
+		<attribute name="targets" />
+		<attribute name="source" />
+		<attribute name="resourceType" />
+		<attribute name="resourceGUID" />
+		<attribute name="exportContentDirectory" default="1" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlExportWebcenterResource(mAppName='@{name}', mTargets='@{targets}', mPath='@{source}', mResType='@{resourceType}', mResGUID='@{resourceGUID}', mExpCD=@{exportContentDirectory})" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlimport-webcenter-resource">
+		<attribute name="name" />
+		<attribute name="targets" />
+		<attribute name="source" />
+		<attribute name="resourceType" />
+		<attribute name="overwriteContentDirectory" default="1" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlImportWebcenterResource(mAppName='@{name}', mTargets='@{targets}', mPath='@{source}', mResType='@{resourceType}', mOwrCD=@{overwriteContentDirectory})" />
+		</sequential>
+	</macrodef>
+
+
+	<macrodef name="wlexport-webcenter-space">
+		<attribute name="name" />
+		<attribute name="targets" />
+		<attribute name="source" />
+		<attribute name="spaceName" />
+		<attribute name="forceOffline" default="1" />
+		<attribute name="exportContentDirectory" default="1" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlExportWebcenterSpaces(mAppName='@{name}', mTargets='@{targets}', mPath='@{source}', mSpaces='@{spaceName}', mForceOffline='@{forceOffline}', mExpCD=@{exportContentDirectory})" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlexport-webcenter-spaceTemplate">
+		<attribute name="name" />
+		<attribute name="targets" />
+		<attribute name="source" />
+		<attribute name="spaceName" />
+		<attribute name="exportContentDirectory" default="1" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlExportWebcenterSpaceTemplates(mAppName='@{name}', mTargets='@{targets}', mPath='@{source}', mSpaces='@{spaceName}', mExpCD=@{exportContentDirectory})" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlimport-webcenter-space">
+		<attribute name="name" />
+		<attribute name="targets" />
+		<attribute name="source" />
+		<attribute name="importCustomizations" default="1" />
+		<attribute name="importSecurity" default="1" />
+		<attribute name="importData" default="1" />
+		<attribute name="forceOffline" default="1" />
+		<attribute name="parentSpace" default="" />
+		<attribute name="overwriteContentDirectory" default="1" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlImportWebcenterSpaces(mAppName='@{name}', mTargets='@{targets}', mPath='@{source}', mImpCust='@{importCustomizations}', mImpSec='@{importSecurity}', mImpData='@{importData}', mForceOffline='@{forceOffline}', mParentSpace='@{parentSpace}', mOwrCD=@{overwriteContentDirectory})" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldeploy-mds">
+		<attribute name="name" />
+		<attribute name="targets" />
+		<attribute name="source" />
+		<attribute name="repositoryName" />
+		<attribute name="repositoryJNDI" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlDeployMDS(mAppName='@{name}', mTargets='@{targets}', mPath='@{source}', mRepositoryName='@{repositoryName}', mRepositoryJNDI='@{repositoryJNDI}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldeploy">
+		<attribute name="name" />
+		<attribute name="source" />
+		<attribute name="targets" default="" />
+		<attribute name="libraryModule" default="false" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlDeploy(mAppName='@{name}', mTargets='@{targets}', mPath='@{source}',mLibraryModule='@{libraryModule}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlundeploy">
+		<attribute name="name" />
+		<attribute name="targets" default="" />
+		<attribute name="libraryModule" default="false" />
+		<attribute name="libSpecVersion" default="" />
+		<attribute name="libImplVersion" default="" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlUndeploy(mAppName='@{name}', mTargets='@{targets}', mLibraryModule='@{libraryModule}', mLibSpecVersion='@{libSpecVersion}', mLibImplVersion='@{libImplVersion}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlstore-user-config">
+		<attribute name="user" default="${wls.user}" />
+		<sequential>
+			<input message="Please enter password for user @{user}:" addproperty="user-config-password-@{user}" />
+			<exec logerror="true" executable="${wlst.dir}/${wlst.executable}" dir="${wlst.dir}" inputstring="y">
+				<arg line="${basedir}/wlstore_user_config.py ${wls.userconfig} ${wls.userkey} @{user} ${user-config-password-@{user}} ${wls.host}:${wls.port}" />
+			</exec>
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlcreate-jmsserver">
+		<attribute name="servers" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlCreateJMSServerAQ(mServers='@{servers}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldestroy-jmsserver">
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlDestroyJMSServerAQ()" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlcreate-foreignserver">
+		<attribute name="name" />
+		<attribute name="datasourceName" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlCreateForeignServer(mAppName='@{name}', mDatasourceName='@{datasourceName}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wldestroy-foreignserver">
+		<attribute name="name" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlDestroyForeignServer(mAppName='@{name}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlstart-servers">
+		<attribute name="targets" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlStartServers(mTargets='@{targets}')" />
+		</sequential>
+	</macrodef>
+
+	<macrodef name="wlstop-servers">
+		<attribute name="targets" />
+		<sequential>
+			<echo append="true" file="${wls.temp.script}" message="${line.separator}wlStopServers(mTargets='@{targets}')" />
+		</sequential>
+	</macrodef>
+
+</project>

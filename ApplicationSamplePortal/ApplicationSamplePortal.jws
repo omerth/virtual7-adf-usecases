@@ -84,6 +84,7 @@
       <list n="profileList">
          <string v="ApplicationSamplePortal"/>
       </list>
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
    </hash>
    <hash n="oracle.webcenter.dt.config.WebCenterSettings">
       <value n="iterativeDevelopment" v="true"/>

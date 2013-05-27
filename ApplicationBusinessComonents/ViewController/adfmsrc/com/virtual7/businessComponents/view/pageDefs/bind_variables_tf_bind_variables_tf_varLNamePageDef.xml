@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29"
+                id="bind_variables_tf_bind_variables_tf_varLNamePageDef"
+                Package="com.virtual7.businessComponents.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="varLName" RequiresUpdateModel="true" Action="invokeMethod"
+            MethodName="varLName" IsViewObjectMethod="false"
+            DataControl="AppModuleDataControl"
+            InstanceName="AppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

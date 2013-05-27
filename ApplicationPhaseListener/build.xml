@@ -3,7 +3,7 @@
 	<property file="../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
-	<target name="deploy" description="Deploy JDeveloper profiles">
+	<target name="ApplicationPhaseListener-deploy" description="Deploy JDeveloper profiles" if="${ApplicationPhaseListener.execute-deploy}">
 
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
@@ -53,4 +53,11 @@
 		</replace>
 	</target>
 
+	<target name="ApplicationPhaseListener-wldeploy" if="${ApplicationPhaseListener.execute_install_deployments}">
+		<wldeploy name="ApplicationPhaseListener" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationPhaseListener.ear" targets="${ApplicationPhaseListener.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationPhaseListener-wlundeploy" if="${ApplicationPhaseListener.execute_install_deployments}">
+		<wlundeploy name="ApplicationPhaseListener" targets="${ApplicationPhaseListener.targets}" />
+	</target>
 </project>

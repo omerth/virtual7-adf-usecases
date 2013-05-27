@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="windows-1252" ?>
-<project name="ApplicationFileUploadTest" default="cloneApp" basedir=".">
+<project name="ApplicationFileUploadTestTest" default="cloneApp" basedir=".">
 	<property file="../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
@@ -53,4 +53,11 @@
 		</replace>
 	</target>
 
+	<target name="ApplicationFileUploadTest-wldeploy" if="${virtual7Usecases.execute_install_deployments}">
+		<wldeploy name="ApplicationFileUploadTest" source="${virtual7Usecases.project.dest.path}/_deploy/ApplicationFileUploadTest.ear" targets="${ApplicationFileUploadTest.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationFileUploadTest-wlundeploy" if="${virtual7Usecases.execute_install_deployments}">
+		<wlundeploy name="ApplicationFileUploadTest" targets="${ApplicationFileUploadTest.targets}" />
+	</target>
 </project>

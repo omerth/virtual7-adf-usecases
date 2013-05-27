@@ -3,7 +3,7 @@
 	<property file="../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
-	<target name="deploy" description="Deploy JDeveloper profiles">
+	<target name="ApplicationSubformSubmit-deploy" description="Deploy JDeveloper profiles" if="${ApplicationSubformSubmit.execute-deploy}">
 
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
@@ -53,4 +53,11 @@
 		</replace>
 	</target>
 
+	<target name="ApplicationSubformSubmit-wldeploy" if="${ApplicationSubformSubmit.execute_install_deployments}">
+		<wldeploy name="ApplicationSubformSubmit" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationSubformSubmit.ear" targets="${ApplicationSubformSubmit.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationSubformSubmit-wlundeploy" if="${ApplicationSubformSubmit.execute_install_deployments}">
+		<wlundeploy name="ApplicationSubformSubmit" targets="${ApplicationSubformSubmit.targets}" />
+	</target>
 </project>

@@ -106,7 +106,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="OrgaLevelsPoc_Model">
+         <hash n="ApplicationOrgaLevels_Model">
             <value n="adflib-connectionDetails" v="false"/>
             <value n="adflib-nonReusablesError" v="false"/>
             <hash n="archiveOptions">
@@ -132,17 +132,17 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="../../_libs/OrgaLevelsPoc_Model.jar"/>
+            <url n="jarURL" path="../../_libs/ApplicationOrgaLevels_Model.jar"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <hash n="LibraryDependencies"/>
             <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="OrgaLevelsPoc_Model"/>
+            <value n="profileName" v="ApplicationOrgaLevels_Model"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="OrgaLevelsPoc_Model"/>
+         <string v="ApplicationOrgaLevels_Model"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">

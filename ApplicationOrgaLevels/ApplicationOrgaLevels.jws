@@ -18,15 +18,16 @@
       <value n="oracle.webcenter.internal.dt.migration.WebCenterWorkspaceMigrator" v="11.1.1.4.0.101019.0800"/>
    </hash>
    <list n="listOfChildren">
+      <hash><url n="URL" path="Datamodel/Datamodel.jpr"/></hash>
       <hash><url n="URL" path="Model/Model.jpr"/></hash>
       <hash><url n="URL" path="ViewController/ViewController.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="DefaultProfile">
-         <value n="ProfileName" v="OrgaLevelsPoc"/>
+         <value n="ProfileName" v="ApplicationOrgaLevels"/>
       </hash>
       <hash n="profileDefinitions">
-         <hash n="OrgaLevelsPoc">
+         <hash n="ApplicationOrgaLevels">
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
@@ -35,12 +36,12 @@
                   <hash>
                      <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
                      <url n="ownerURL" path="ViewController/ViewController.jpr"/>
-                     <value n="profileName" v="OrgaLevelsPoc_ViewController"/>
+                     <value n="profileName" v="ApplicationOrgaLevels_ViewController"/>
                   </hash>
                </list>
             </hash>
-            <url n="earURL" path="../_deploy/OrgaLevelsPoc.ear"/>
-            <value n="enterpriseAppName" v="OrgaLevelsPoc"/>
+            <url n="earURL" path="../_deploy/ApplicationOrgaLevels.ear"/>
+            <value n="enterpriseAppName" v="ApplicationOrgaLevels"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -75,11 +76,12 @@
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
-            <value n="profileName" v="OrgaLevelsPoc"/>
+            <value n="profileName" v="ApplicationOrgaLevels"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="OrgaLevelsPoc"/>
+         <string v="ApplicationOrgaLevels"/>
       </list>
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
    </hash>
 </jws:workspace>

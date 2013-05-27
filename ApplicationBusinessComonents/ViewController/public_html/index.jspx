@@ -9,113 +9,20 @@
         <af:panelTabbed id="pt1">
           <af:showDetailItem text="Step 1: VC Search" id="sdi2">
             <af:panelGroupLayout layout="vertical" id="pgl1">
-              <af:panelHeader text="EmployeesView1" id="ph1">
-                <af:query id="qryId1" headerText="Search" disclosed="true"
-                          value="#{bindings.EmployeesNameViewCriteriaQuery.queryDescriptor}"
-                          model="#{bindings.EmployeesNameViewCriteriaQuery.queryModel}"
-                          queryListener="#{bindings.EmployeesNameViewCriteriaQuery.processQuery}"
-                          queryOperationListener="#{bindings.EmployeesNameViewCriteriaQuery.processQueryOperation}"
-                          resultComponentId="::resId1"/>
-              </af:panelHeader>
-              <af:table value="#{bindings.EmployeesView1.collectionModel}" var="row"
-                        rows="#{bindings.EmployeesView1.rangeSize}"
-                        emptyText="#{bindings.EmployeesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        fetchSize="#{bindings.EmployeesView1.rangeSize}" rowBandingInterval="0" id="resId1">
-                <af:column sortProperty="FirstName" sortable="false"
-                           headerText="#{bindings.EmployeesView1.hints.FirstName.label}" id="resId1c1">
-                  <af:outputText value="#{row.FirstName}" id="ot4"/>
-                </af:column>
-                <af:column sortProperty="LastName" sortable="false"
-                           headerText="#{bindings.EmployeesView1.hints.LastName.label}" id="resId1c2">
-                  <af:outputText value="#{row.LastName}" id="ot3"/>
-                </af:column>
-                <af:column sortProperty="HireDate" sortable="false"
-                           headerText="#{bindings.EmployeesView1.hints.HireDate.label}" id="resId1c3">
-                  <af:outputText value="#{row.HireDate}" id="ot2">
-                    <af:convertDateTime pattern="#{bindings.EmployeesView1.hints.HireDate.format}"/>
-                  </af:outputText>
-                </af:column>
-              </af:table>
-            </af:panelGroupLayout>
-          </af:showDetailItem>
-          <af:showDetailItem text="Multiple LOVs" id="sdi1">
-            <af:panelGroupLayout layout="vertical">
-              <af:outputText value="ApplicationBusinessComonents" id="ot1"/>
-              <af:region value="#{bindings.taskflow11.regionModel}" id="r1"/>
+              <af:region value="#{bindings.vcsearchtf1.regionModel}" id="r2"/>
             </af:panelGroupLayout>
           </af:showDetailItem>
           <af:showDetailItem text="Step 2: bind variables" id="sdi3">
             <af:panelGroupLayout id="pgl2">
-              <af:table value="#{bindings.EmployeesWithCriteriasView.collectionModel}" var="row"
-                        rows="#{bindings.EmployeesWithCriteriasView.rangeSize}"
-                        emptyText="#{bindings.EmployeesWithCriteriasView.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        fetchSize="#{bindings.EmployeesWithCriteriasView.rangeSize}" rowBandingInterval="0" id="t1"
-                        width="700px">
-                <af:column sortProperty="EmployeeId" sortable="false"
-                           headerText="#{bindings.EmployeesWithCriteriasView.hints.EmployeeId.label}" id="c2">
-                  <af:outputText value="#{row.EmployeeId}" id="ot10">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.EmployeesWithCriteriasView.hints.EmployeeId.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column sortProperty="FirstName" sortable="false"
-                           headerText="#{bindings.EmployeesWithCriteriasView.hints.FirstName.label}" id="c4">
-                  <af:outputText value="#{row.FirstName}" id="ot6"/>
-                </af:column>
-                <af:column sortProperty="LastName" sortable="false"
-                           headerText="#{bindings.EmployeesWithCriteriasView.hints.LastName.label}" id="c1">
-                  <af:outputText value="#{row.LastName}" id="ot9"/>
-                </af:column>
-                <af:column sortProperty="Email" sortable="false"
-                           headerText="#{bindings.EmployeesWithCriteriasView.hints.Email.label}" id="c3">
-                  <af:outputText value="#{row.Email}" id="ot7"/>
-                </af:column>
-                <af:column sortProperty="Salary" sortable="false"
-                           headerText="#{bindings.EmployeesWithCriteriasView.hints.Salary.label}" id="c5">
-                  <af:outputText value="#{row.Salary}" id="ot8"/>
-                </af:column>
-                <af:column sortProperty="ManagerId" sortable="false"
-                           headerText="#{bindings.EmployeesWithCriteriasView.hints.ManagerId.label}" id="c6">
-                  <af:outputText value="#{row.ManagerId}" id="ot5">
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.EmployeesWithCriteriasView.hints.ManagerId.format}"/>
-                  </af:outputText>
-                </af:column>
-              </af:table>
-              <af:commandButton actionListener="#{bindings.varEmail.execute}" text="varEmail"
-                                disabled="false" id="cb1"/>
-              <af:commandButton actionListener="#{bindings.varSalary.execute}" text="varSalary"
-                                disabled="false" id="cb2"/>
-              <af:commandButton actionListener="#{bindings.varLName.execute}" text="varLName"
-                                disabled="false" id="cb3"/>
-              <af:commandButton actionListener="#{bindings.varFName.execute}" text="varFName"
-                                disabled="false" id="cb4"/>
-              <af:commandButton actionListener="#{bindings.removeWhereClauseParam.execute}"
-                                text="removeWhereClauseParam"
-                                id="cb5"/>
+              <af:region value="#{bindings.bindvariablestf1.regionModel}"
+                         id="r3"/>
             </af:panelGroupLayout>
           </af:showDetailItem>
-          <af:showDetailItem text="Step: Hierarchyes" id="sdi4">
-            <af:selectOneChoice value="#{bindings.EmpHierarchy1.inputValue}" label="#{bindings.EmpHierarchy1.label}"
-                                required="#{bindings.EmpHierarchy1.hints.mandatory}"
-                                shortDesc="#{bindings.EmpHierarchy1.hints.tooltip}" id="soc1">
-              <f:selectItems value="#{bindings.EmpHierarchy1.items}" id="si1"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{bindings.EmpHierarchy2.inputValue}" label="#{bindings.EmpHierarchy2.label}"
-                                required="#{bindings.EmpHierarchy2.hints.mandatory}"
-                                shortDesc="#{bindings.EmpHierarchy2.hints.tooltip}" id="soc2" partialTriggers="soc1">
-              <f:selectItems value="#{bindings.EmpHierarchy2.items}" id="si2"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{bindings.EmpHierarchy3.inputValue}" label="#{bindings.EmpHierarchy3.label}"
-                                required="#{bindings.EmpHierarchy3.hints.mandatory}"
-                                shortDesc="#{bindings.EmpHierarchy3.hints.tooltip}" id="soc3" partialTriggers="soc2">
-              <f:selectItems value="#{bindings.EmpHierarchy3.items}" id="si3"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{bindings.EmpHierarchy4.inputValue}" label="#{bindings.EmpHierarchy4.label}"
-                                required="#{bindings.EmpHierarchy4.hints.mandatory}"
-                                shortDesc="#{bindings.EmpHierarchy4.hints.tooltip}" id="soc4" partialTriggers="soc3">
-              <f:selectItems value="#{bindings.EmpHierarchy4.items}" id="si4"/>
-            </af:selectOneChoice>
+          <af:showDetailItem text="Step 3: Multiple LOVs" id="sdi1">
+            <af:panelGroupLayout layout="vertical" id="pgl3">
+              <af:outputText value="ApplicationBusinessComonents" id="ot1"/>
+              <af:region value="#{bindings.taskflow11.regionModel}" id="r1"/>
+            </af:panelGroupLayout>
           </af:showDetailItem>
         </af:panelTabbed>
       </af:form>

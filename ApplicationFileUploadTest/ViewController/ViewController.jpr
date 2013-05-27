@@ -161,7 +161,7 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="../../_deploy/ApplicationFileUploadTest_ViewController.war"/>
+            <url n="jarURL" path="../../_libs/ApplicationFileUploadTest_ViewController.war"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
