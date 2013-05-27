@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:table value="#{bindings.EmployeesWithCriteriasView.collectionModel}"
+              var="row" rows="#{bindings.EmployeesWithCriteriasView.rangeSize}"
+              emptyText="#{bindings.EmployeesWithCriteriasView.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.EmployeesWithCriteriasView.rangeSize}" inlineStyle="width:800px;"
+              rowBandingInterval="0" id="t1" partialTriggers="::cb1 ::cb2 ::cb3 ::cb4">
+      <af:column sortProperty="FirstName" sortable="false"
+                 headerText="#{bindings.EmployeesWithCriteriasView.hints.FirstName.label}"
+                 id="c6">
+        <af:outputText value="#{row.FirstName}" id="ot1"/>
+      </af:column>
+      <af:column sortProperty="LastName" sortable="false"
+                 headerText="#{bindings.EmployeesWithCriteriasView.hints.LastName.label}"
+                 id="c4">
+        <af:outputText value="#{row.LastName}" id="ot8"/>
+      </af:column>
+      <af:column sortProperty="Email" sortable="false"
+                 headerText="#{bindings.EmployeesWithCriteriasView.hints.Email.label}"
+                 id="c8">
+        <af:outputText value="#{row.Email}" id="ot11"/>
+      </af:column>
+      <af:column sortProperty="HireDate" sortable="false"
+                 headerText="#{bindings.EmployeesWithCriteriasView.hints.HireDate.label}"
+                 id="c7">
+        <af:outputText value="#{row.HireDate}" id="ot7">
+          <af:convertDateTime pattern="#{bindings.EmployeesWithCriteriasView.hints.HireDate.format}"/>
+        </af:outputText>
+      </af:column>
+      <af:column sortProperty="Salary" sortable="false"
+                 headerText="#{bindings.EmployeesWithCriteriasView.hints.Salary.label}"
+                 id="c9">
+        <af:outputText value="#{row.Salary}" id="ot4"/>
+      </af:column>
+    </af:table>
+    <af:panelGroupLayout id="pgl2" layout="horizontal">
+      <af:commandButton text="Set Email filter" id="cb1" action="email" partialSubmit="true"/>
+      <af:commandButton text="Set Salary filter" id="cb2" action="salary" partialSubmit="true"/>
+      <af:commandButton text="Set LName filter" id="cb4" action="lname" partialSubmit="true"/>
+      <af:commandButton text="Clear criterias" id="cb3" action="clearCriterias" partialSubmit="true"/>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

@@ -154,6 +154,13 @@
          <hash n="Default">
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
+            <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
+               <value n="remoteParameter:jpda:hostname" v="middleware"/>
+               <value n="remoteParameter:jpda:jdi_attach_method:" v=""/>
+               <value n="remoteParameter:jpda:port" v="4002"/>
+               <value n="remoteParameter:jpdaListen:localAddress" v=""/>
+            </hash>
+            <value n="remoteDebuggingProfiling" v="true"/>
          </hash>
       </hash>
       <list n="runConfigurationList">

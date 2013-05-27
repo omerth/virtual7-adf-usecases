@@ -32,13 +32,13 @@ public class Test {
             System.out.println("Preparing...");
 
             // Setup directories
-            File baseDir = new File("D:\\POCs\\ApplicationPDFGeneratorTemp\\Model\\src");
+            File baseDir = new File("D:\\work\\Workspace\\virtual7-adf-usecases\\virtual7-adf-usecases\\ApplicationPDFGenerator\\Model\\src\\com\\virtual7\\pdfGenerator\\model\\xsl_files");
             File outDir = new File(baseDir, "out");
             outDir.mkdirs();
 
             // Setup input and output files
             //            File xmlfile = new File(baseDir, "projectteam.xml");
-            File xsltfile = new File(baseDir, "fbc.xsl");
+            File xsltfile = new File(baseDir, "employeesData.xsl");
             File pdffile = new File(outDir, "testFbc.pdf");
 
             //            System.out.println("Input: XML (" + xmlfile + ")");
@@ -70,26 +70,37 @@ public class Test {
 
                 // Setup input for XSLT transformation
                 //                Source src = new StreamSource(xmlfile);
+//                String s =
+//                    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
+//                    "<fbc>" +
+//                    "<items_to_change_tr>" +
+//                    "<item> A/C Systems (Spec which) </item>" +
+//                    "<item> bbb </item>" +
+//                    "</items_to_change_tr>" +
+//                    "<items_to_change_tr>" +
+//                    "<item> ... </item>" +
+//                    "</items_to_change_tr>" +
+//                    "<items_to_change_tr>" +
+//                    "<item> ASTA </item>" +
+//                    "</items_to_change_tr>" +
+//                    "<items_to_change_tr>" +
+//                    "<item> GSS </item>" +
+//                    "</items_to_change_tr>" +
+//                    "<items_to_change_tr>" +
+//                    "<item> AGRED (Spec. which) </item>" +
+//                    "</items_to_change_tr>" +
+//                    "</fbc>";
+                
                 String s =
                     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" +
-                    "<fbc>" +
-                    "<items_to_change_tr>" +
-                    "<item> A/C Systems (Spec which) </item>" +
-                    "<item> bbb </item>" +
-                    "</items_to_change_tr>" +
-                    "<items_to_change_tr>" +
-                    "<item> ... </item>" +
-                    "</items_to_change_tr>" +
-                    "<items_to_change_tr>" +
-                    "<item> ASTA </item>" +
-                    "</items_to_change_tr>" +
-                    "<items_to_change_tr>" +
-                    "<item> GSS </item>" +
-                    "</items_to_change_tr>" +
-                    "<items_to_change_tr>" +
-                    "<item> AGRED (Spec. which) </item>" +
-                    "</items_to_change_tr>" +
-                    "</fbc>";
+                    "<ROOT>" +
+                    "<CONTENT_TABLE>" +
+                    "<EMPLOYEE_NAME>" +
+                    "<EMPLOYEE_FIRST_NAME> ME </EMPLOYEE_FIRST_NAME>" +
+                    "<EMPLOYEE_LAST_NAME> bbb </EMPLOYEE_LAST_NAME>" +
+                    "</EMPLOYEE_NAME>" +
+                    "</CONTENT_TABLE>" +
+                    "</ROOT>";
 
                 Source src = new StreamSource(new StringReader(s));
                 // Resulting SAX events (the generated FO) must be piped through to FOP

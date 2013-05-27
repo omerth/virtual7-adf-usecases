@@ -273,10 +273,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../KomRepp/komrep_apps/komRepPP/core/komRepPP_model/Virtual7Util_view.jar.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Resource Bundle Variable Resolver"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -318,6 +314,7 @@
             <hash>
                <list n="classPath">
                   <url path="../../_libs/ApplicationDinamicPivotTable_Model.jar" jar-entry=""/>
+                  <url path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -415,10 +412,6 @@
          </hash>
          <hash>
             <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" path="../../../KomRepp/komrep_apps/komRepPP/core/komRepPP_model/Virtual7Util_view.jar.library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -524,5 +517,8 @@
             <value n="version" v="1.0"/>
          </hash>
       </list>
+   </hash>
+   <hash n="ResourceBundleOptions">
+      <list n="RegisteredResourceBundles"/>
    </hash>
 </jpr:project>

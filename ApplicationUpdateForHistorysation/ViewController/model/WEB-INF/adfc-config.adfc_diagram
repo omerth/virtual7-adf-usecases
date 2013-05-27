@@ -26,19 +26,19 @@
       <property
          name="exceptionHandler">false</property>
       <property
-         name="y">179.44824</property>
+         name="y">174.09766</property>
       <property
-         name="x">623.5</property>
+         name="x">620.5</property>
    </MethodCall>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase4"
       from="View2"
-      to="MethodCall3">
+      to="MethodCall6">
       <property
          name="fromOutcome">executeQuery</property>
       <property
-         name="sdm:polyPoints">R46,253.5453,171.33887,582.5,175.59766,L46</property>
+         name="sdm:polyPoints">B50,212.5,228.83887,215.35449,352.28125,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -48,6 +48,52 @@
       <property
          name="fromOutcome">Execute</property>
       <property
-         name="sdm:polyPoints">L54,582.4547,182.59766,253.5,178.33887,R54</property>
+         name="sdm:polyPoints">L50,579.5,173.74707,253.5,174.83887,R50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall6">
+      <property
+         name="activityId">clearEntityCache</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>clearEntityCache&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">406.63184</property>
+      <property
+         name="x">215.35449</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="MethodCall6"
+      to="MethodCall8">
+      <property
+         name="fromOutcome">clearEntityCache</property>
+      <property
+         name="sdm:polyPoints">R50,256.3545,406.28125,587.5,406.09766,L50</property>
+   </ControlFlowCase>
+   <MethodCall
+      id="MethodCall8">
+      <property
+         name="activityId">Commit</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Commit&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">406.44824</property>
+      <property
+         name="x">628.5</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="MethodCall8"
+      to="MethodCall3">
+      <property
+         name="fromOutcome">Commit</property>
+      <property
+         name="sdm:polyPoints">T50,628.5,352.09766,620.5,228.09766,B50</property>
    </ControlFlowCase>
 </SDM>

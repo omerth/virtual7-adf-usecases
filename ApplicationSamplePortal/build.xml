@@ -3,7 +3,7 @@
 	<property file="../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
-	<target name="deploy" description="Deploy JDeveloper profiles">
+	<target name="ApplicationSamplePortal-deploy" description="Deploy JDeveloper profiles" if="${ApplicationSamplePortal.execute-deploy}">
 
 		<ant antfile="PortalWebAssets/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="Portal/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
@@ -53,4 +53,11 @@
 		</replace>
 	</target>
 
+	<target name="ApplicationSamplePortal-wldeploy" if="${ApplicationSamplePortal.execute_install_deployments}">
+		<wldeploy name="ApplicationSamplePortal" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationSamplePortal.ear" targets="${ApplicationSamplePortal.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationSamplePortal-wlundeploy" if="${ApplicationSamplePortal.execute_install_deployments}">
+		<wlundeploy name="ApplicationSamplePortal" targets="${ApplicationSamplePortal.targets}" />
+	</target>
 </project>

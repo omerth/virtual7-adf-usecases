@@ -43,7 +43,7 @@
           <Contents>weblogic.jndi.WLInitialContextFactory</Contents>
        </StringRefAddr>
        <StringRefAddr addrType="jndiProviderURL">
-           <Contents>t3://localhost:7101</Contents>
+           <Contents>t3://middleware1:8896</Contents>
        </StringRefAddr>
          <StringRefAddr addrType="serviceSchemaName">
             <Contents>AppModuleService.xsd</Contents>
@@ -59,7 +59,7 @@
       <RefAddresses>
          <XmlRefAddr addrType="WebServiceConnection">
             <Contents>
-               <wsconnection description="http://localhost:7101/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService?wsdl" service="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService">
+               <wsconnection description="http://middleware1:8896/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService?wsdl" service="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService">
                   <model name="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService" xmlns="http://oracle.com/ws/model">
                      <types xmlns="http://oracle.com/oracle/webservices/mdds">
                         <complexType elementQualified="true" namespace="http://xmlns.oracle.com/adf/svc/errors/" localPart="ServiceMessage" prefix="tns" xmlns="">
@@ -298,7 +298,7 @@
                      </types>
                      <service name="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService">
                         <port name="AppModuleServiceSoapHttpPort" binding="{/com/virtual7/multipleFileUpload/model/common/}AppModuleServiceSoapHttp" portType="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService">
-                           <soap addressUrl="http://localhost:7101/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
+                           <soap addressUrl="http://middleware1:8896/ApplicationMultipleFileUpload_Model_MiddleTier/AppModuleService" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
                            <operation name="findEmployeesView1">
                               <soap soapAction="/com/virtual7/multipleFileUpload/model/common/findEmployeesView1" xmlns="http://schemas.xmlsoap.org/wsdl/soap/"/>
                               <output name="" message="{/com/virtual7/multipleFileUpload/model/common/}AppModuleService_findEmployeesView1Response">

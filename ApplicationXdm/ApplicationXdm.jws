@@ -87,5 +87,6 @@
       <list n="profileList">
          <string v="ApplicationXdm"/>
       </list>
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
    </hash>
 </jws:workspace>

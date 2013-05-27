@@ -279,10 +279,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" protocol="file" path="/C:/Users/andreca/AppData/Roaming/JDeveloper/system11.1.1.4.37.59.23/o.jdeveloper/Virtual7Util.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <url n="id" path="../Model/ADF Library.library"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -449,10 +445,6 @@
          </hash>
          <hash>
             <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <url n="id" protocol="file" path="/C:/Users/andreca/AppData/Roaming/JDeveloper/system11.1.1.4.37.59.23/o.jdeveloper/Virtual7Util.library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>

@@ -23,7 +23,7 @@
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="Model_bcProfile1_BCCaching">
+         <hash n="ApplicationBCCachingService">
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
@@ -32,12 +32,12 @@
                   <hash>
                      <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
                      <url n="ownerURL" path="Model/Model.jpr"/>
-                     <value n="profileName" v="bcProfile1_BCCaching_MiddleTier"/>
+                     <value n="profileName" v="bcCachingService_MiddleTier"/>
                   </hash>
                </list>
             </hash>
-            <url n="earURL" path="deploy/Model_bcProfile1_BCCaching.ear"/>
-            <value n="enterpriseAppName" v="Model_bcProfile1_BCCaching"/>
+            <url n="earURL" path="../_deploy/ApplicationBCCachingService.ear"/>
+            <value n="enterpriseAppName" v="ApplicationBCCachingService"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -72,11 +72,12 @@
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
-            <value n="profileName" v="Model_bcProfile1_BCCaching"/>
+            <value n="profileName" v="ApplicationBCCachingService"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="Model_bcProfile1_BCCaching"/>
+         <string v="ApplicationBCCachingService"/>
       </list>
+      <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
    </hash>
 </jws:workspace>

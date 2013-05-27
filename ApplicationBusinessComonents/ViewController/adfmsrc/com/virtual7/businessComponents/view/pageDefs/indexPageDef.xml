@@ -1,24 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.60.13" id="indexPageDef"
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="indexPageDef"
                 Package="com.virtual7.businessComponents.view.pageDefs">
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <taskFlow id="taskflow11" taskFlowId="/WEB-INF/task-flow-1.xml#task-flow-1" activation="deferred"
+    <taskFlow id="taskflow11" taskFlowId="/WEB-INF/task-flow-1.xml#task-flow-1"
+              activation="deferred"
               xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
-    <iterator Binds="EmployeesView1" RangeSize="25" DataControl="AppModuleDataControl" id="EmployeesView1Iterator"/>
-    <searchRegion Criteria="EmployeesNameViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="EmployeesView1Iterator" id="EmployeesNameViewCriteriaQuery"/>
-    <iterator Binds="EmpHierarchy1" RangeSize="25" DataControl="AppModuleDataControl" id="EmpHierarchy1Iterator"/>
-    <iterator Binds="EmpHierarchy2" RangeSize="25" DataControl="AppModuleDataControl" id="EmpHierarchy2Iterator"/>
-    <iterator Binds="EmpHierarchy3" RangeSize="25" DataControl="AppModuleDataControl" id="EmpHierarchy3Iterator"/>
-    <iterator Binds="EmpHierarchy4" RangeSize="25" DataControl="AppModuleDataControl" id="EmpHierarchy4Iterator"/>
-    <iterator Binds="EmployeesWithCriteriasView" RangeSize="25" DataControl="AppModuleDataControl"
+    <iterator Binds="EmployeesView1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="EmployeesView1Iterator"/>
+    <searchRegion Criteria="EmployeesNameViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="EmployeesView1Iterator"
+                  id="EmployeesNameViewCriteriaQuery"/>
+    <iterator Binds="EmpHierarchy1" RangeSize="25"
+              DataControl="AppModuleDataControl" id="EmpHierarchy1Iterator"/>
+    <iterator Binds="EmpHierarchy2" RangeSize="25"
+              DataControl="AppModuleDataControl" id="EmpHierarchy2Iterator"/>
+    <iterator Binds="EmpHierarchy3" RangeSize="25"
+              DataControl="AppModuleDataControl" id="EmpHierarchy3Iterator"/>
+    <iterator Binds="EmpHierarchy4" RangeSize="25"
+              DataControl="AppModuleDataControl" id="EmpHierarchy4Iterator"/>
+    <iterator Binds="EmployeesWithCriteriasView" RangeSize="25"
+              DataControl="AppModuleDataControl"
               id="EmployeesWithCriteriasViewIterator"/>
+    <taskFlow id="vcsearchtf1"
+              taskFlowId="/WEB-INF/vc-search-tf.xml#vc-search-tf"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="bindvariablestf1"
+              taskFlowId="/WEB-INF/bind-variables-tf.xml#bind-variables-tf"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <tree IterBinding="EmployeesView1Iterator" id="EmployeesView1">
-      <nodeDefinition DefName="com.virtual7.businessComponents.model.views.EmployeesView" Name="EmployeesView10">
+      <nodeDefinition DefName="com.virtual7.businessComponents.model.views.EmployeesView"
+                      Name="EmployeesView10">
         <AttrNames>
           <Item Value="FirstName"/>
           <Item Value="LastName"/>
@@ -26,20 +45,25 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <methodAction id="varEmail" RequiresUpdateModel="true" Action="invokeMethod" MethodName="varEmail"
+    <methodAction id="varEmail" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="varEmail" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl"
+                  InstanceName="AppModuleDataControl.dataProvider"/>
+    <methodAction id="varSalary" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="varSalary"
                   IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="AppModuleDataControl.dataProvider"/>
-    <methodAction id="varSalary" RequiresUpdateModel="true" Action="invokeMethod" MethodName="varSalary"
-                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+    <methodAction id="varLName" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="varLName" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl"
                   InstanceName="AppModuleDataControl.dataProvider"/>
-    <methodAction id="varLName" RequiresUpdateModel="true" Action="invokeMethod" MethodName="varLName"
-                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+    <methodAction id="varFName" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="varFName" IsViewObjectMethod="false"
+                  DataControl="AppModuleDataControl"
                   InstanceName="AppModuleDataControl.dataProvider"/>
-    <methodAction id="varFName" RequiresUpdateModel="true" Action="invokeMethod" MethodName="varFName"
-                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
-                  InstanceName="AppModuleDataControl.dataProvider"/>
-    <list IterBinding="EmpHierarchy1Iterator" ListOperMode="navigation" ListIter="EmpHierarchy1Iterator"
-          id="EmpHierarchy1" DTSupportsMRU="true">
+    <list IterBinding="EmpHierarchy1Iterator" ListOperMode="navigation"
+          ListIter="EmpHierarchy1Iterator" id="EmpHierarchy1"
+          DTSupportsMRU="true">
       <AttrNames>
         <Item Value="EmployeeId"/>
         <Item Value="FirstName"/>
@@ -49,8 +73,9 @@
         <Item Value="Lvl"/>
       </AttrNames>
     </list>
-    <list IterBinding="EmpHierarchy2Iterator" ListOperMode="navigation" ListIter="EmpHierarchy2Iterator"
-          id="EmpHierarchy2" DTSupportsMRU="true">
+    <list IterBinding="EmpHierarchy2Iterator" ListOperMode="navigation"
+          ListIter="EmpHierarchy2Iterator" id="EmpHierarchy2"
+          DTSupportsMRU="true">
       <AttrNames>
         <Item Value="EmployeeId"/>
         <Item Value="FirstName"/>
@@ -60,8 +85,9 @@
         <Item Value="Lvl"/>
       </AttrNames>
     </list>
-    <list IterBinding="EmpHierarchy3Iterator" ListOperMode="navigation" ListIter="EmpHierarchy3Iterator"
-          id="EmpHierarchy3" DTSupportsMRU="true">
+    <list IterBinding="EmpHierarchy3Iterator" ListOperMode="navigation"
+          ListIter="EmpHierarchy3Iterator" id="EmpHierarchy3"
+          DTSupportsMRU="true">
       <AttrNames>
         <Item Value="EmployeeId"/>
         <Item Value="FirstName"/>
@@ -71,8 +97,9 @@
         <Item Value="Lvl"/>
       </AttrNames>
     </list>
-    <list IterBinding="EmpHierarchy4Iterator" ListOperMode="navigation" ListIter="EmpHierarchy4Iterator"
-          id="EmpHierarchy4" DTSupportsMRU="true">
+    <list IterBinding="EmpHierarchy4Iterator" ListOperMode="navigation"
+          ListIter="EmpHierarchy4Iterator" id="EmpHierarchy4"
+          DTSupportsMRU="true">
       <AttrNames>
         <Item Value="EmployeeId"/>
         <Item Value="FirstName"/>
@@ -82,8 +109,10 @@
         <Item Value="Lvl"/>
       </AttrNames>
     </list>
-    <tree IterBinding="EmployeesWithCriteriasViewIterator" id="EmployeesWithCriteriasView">
-      <nodeDefinition DefName="com.virtual7.businessComponents.model.views.EmployeesWithCriteriasView">
+    <tree IterBinding="EmployeesWithCriteriasViewIterator"
+          id="EmployeesWithCriteriasView">
+      <nodeDefinition DefName="com.virtual7.businessComponents.model.views.EmployeesWithCriteriasView"
+                      Name="EmployeesWithCriteriasView0">
         <AttrNames>
           <Item Value="EmployeeId"/>
           <Item Value="FirstName"/>
@@ -94,8 +123,9 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <methodAction id="removeWhereClauseParam" RequiresUpdateModel="true" Action="invokeMethod"
-                  MethodName="removeWhereClauseParam" IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+    <methodAction id="removeWhereClauseParam" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="removeWhereClauseParam"
+                  IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="AppModuleDataControl.dataProvider"/>
   </bindings>
 </pageDefinition>

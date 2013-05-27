@@ -4,7 +4,7 @@
 <JboProject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="Model"
-  Version="11.1.1.60.13"
+  Version="11.1.1.61.92"
   SeparateXMLFiles="true"
   PackageName="com.virtual7.employeeAptitudes.model">
   <DesignTime>
@@ -45,12 +45,4 @@
       <Attr Name="_AM" Value="true"/>
     </DesignTime>
   </Containee>
-  <AppContainee
-    Name="virtual7Util_model"
-    FullName="com.virtual7.util.model.virtual7Util_model"
-    ObjectType="JboProject">
-    <DesignTime>
-      <Attr Name="_SourceName" Value="virtual7Util_model.jar"/>
-    </DesignTime>
-  </AppContainee>
 </JboProject>

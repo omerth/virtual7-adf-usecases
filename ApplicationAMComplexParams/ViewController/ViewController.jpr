@@ -60,13 +60,7 @@
       <value n="hasDataControls" v="true"/>
    </hash>
    <hash n="oracle.ide.model.DependencyConfiguration">
-      <list n="dependencyList">
-         <hash>
-            <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
-            <url n="ownerURL" path="../Model/Model.jpr"/>
-            <value n="profileName" v="ApplicationAMComplexParams_Model"/>
-         </hash>
-      </list>
+      <list n="dependencyList"/>
    </hash>
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
@@ -179,6 +173,13 @@
             <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
                <value n="viewActivityId" v="index"/>
             </hash>
+            <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
+               <value n="remoteParameter:jpda:hostname" v="middleware"/>
+               <value n="remoteParameter:jpda:jdi_attach_method:" v=""/>
+               <value n="remoteParameter:jpda:port" v="4002"/>
+               <value n="remoteParameter:jpdaListen:localAddress" v=""/>
+            </hash>
+            <value n="remoteDebuggingProfiling" v="false"/>
             <url n="targetURL" path="public_html/WEB-INF/adfc-config.xml"/>
          </hash>
       </hash>

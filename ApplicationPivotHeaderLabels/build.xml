@@ -3,7 +3,7 @@
 	<property file="../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
-	<target name="deploy" description="Deploy JDeveloper profiles">
+	<target name="ApplicationPivotHeaderLabels-deploy" description="Deploy JDeveloper profiles" if="${ApplicationPivotHeaderLabels.execute-deploy}">
 
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
@@ -53,4 +53,11 @@
 		</replace>
 	</target>
 
+	<target name="ApplicationPivotHeaderLabels-wldeploy" if="${ApplicationPivotHeaderLabels.execute_install_deployments}">
+		<wldeploy name="ApplicationPivotHeaderLabels" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationPivotHeaderLabels.ear" targets="${ApplicationPivotHeaderLabels.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationPivotHeaderLabels-wlundeploy" if="${ApplicationPivotHeaderLabels.execute_install_deployments}">
+		<wlundeploy name="ApplicationPivotHeaderLabels" targets="${ApplicationPivotHeaderLabels.targets}" />
+	</target>
 </project>

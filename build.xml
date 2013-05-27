@@ -1,27 +1,259 @@
 <?xml version="1.0" encoding="windows-1252" ?>
-<project name="virtual7-adf-usecases" default="deploy" basedir=".">
+<project name="virtual7-adf-usecases" default="deploy-reinstall" basedir=".">
 	<property file="build.properties" />
-	<target name="deploy">
-		<ant antfile="ApplicationAMBCPooling/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="ApplicationSampleTemplate/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="ApplicationStampBinding/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="ApplicationAMComplexParams/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="ApplicationTextMessenger/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+	<property file="build_virtual7Util.properties" />
+
+	<import file="wltasks.xml" />
+	<import file="build_virtual7Util.xml" />
+	
+	<target name="store-credentials" description="Store the passwords for the cvs repositories and the user configuration for the WLST. Requires WLST.">
+		<antcall target="all-wlstore-user-config" />
 	</target>
 
-	<import file="wldeploy.xml" />
-
-	<target name="wldeploy-undeploy-virtual7Util">
-		<input message="Please enter password for ${wls.user}:" addproperty="wls.password" />
-		<wldeploy-undeploy name="virtual7Util_view_shared" />
-		<wldeploy-undeploy name="virtual7Util_model_shared" />
+	<target name="copy-scripts" description="Copy dependencies">
+		<antcall target="virtual7Util-copy-scripts" />
 	</target>
 
-	<target name="wldeploy-deploy-virtual7Util">
-		<input message="Please enter password for ${wls.user}:" addproperty="wls.password" />
-		<wldeploy-deploy-shared name="virtual7Util_model_shared" source="_deploy/virtual7Util_model_shared.ear" />
-		<wldeploy-deploy-shared name="virtual7Util_view_shared" source="_deploy/virtual7Util_view_shared.war" />
+	<target name="deploy" description="Deploys all applications. Requires JDeveloper." depends="copy-scripts">
+		<!--antcall target="virtual7Util-deploy" /-->
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFBugs/build.xml" target="ApplicationADFBugs-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFDevelopmentPattern/build.xml" target="ApplicationADFDevelopmentPattern-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationAMBCPooling/build.xml" target="ApplicationAMBCPooling-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationAMComplexParams/build.xml" target="ApplicationAMComplexParams-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBcCaching/build.xml" target="ApplicationBcCaching-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBcCachingService/build.xml" target="ApplicationBcCachingService-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBeanScopes/build.xml" target="ApplicationBeanScopes-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBusinessComonents/build.xml" target="ApplicationBusinessComonents-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationContextualEvents/build.xml" target="ApplicationContextualEvents-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDateDeclarativeComponent/build.xml" target="ApplicationDateDeclarativeComponent-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDinamicPivotTable/build.xml" target="ApplicationDinamicPivotTable-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDummyDataControl/build.xml" target="ApplicationDummyDataControl-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDVTGraphExportPOC/build.xml" target="ApplicationDVTGraphExportPOC-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmployeeAptitudes/build.xml" target="ApplicationEmployeeAptitudes-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplate/build.xml" target="ApplicationEmptyTemplate-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEntityValidation/build.xml" target="ApplicationEntityValidation-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationExceptionHandler/build.xml" target="ApplicationExceptionHandler-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationFileUpload/build.xml" target="ApplicationFileUpload-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationHistorizationConcept/build.xml" target="ApplicationHistorizationConcept-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationMultipleFileUpload/build.xml" target="ApplicationMultipleFileUpload-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationOrgaLevels/build.xml" target="ApplicationOrgaLevels-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotHeaderLabels/build.xml" target="ApplicationPivotHeaderLabels-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTableResizing/build.xml" target="ApplicationPivotTableResizing-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationShuttleComponents/build.xml" target="ApplicationShuttleComponents-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationStampBinding/build.xml" target="ApplicationStampBinding-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSubformSubmit/build.xml" target="ApplicationSubformSubmit-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTableButton/build.xml" target="ApplicationTableButton-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTaskflowEndPoint/build.xml" target="ApplicationTaskflowEndPoint-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTaskFlowOpps/build.xml" target="ApplicationTaskFlowOpps-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTextMessenger/build.xml" target="ApplicationTextMessenger-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUCMContent/build.xml" target="ApplicationUCMContent-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationXdm/build.xml" target="ApplicationXdm-deploy" inheritall="false" inheritrefs="false" />
+
 	</target>
 
-	<target name="wldeploy-redeploy-virtual7Util" depends="wldeploy-undeploy-virtual7Util,wldeploy-deploy-virtual7Util" />
+	<target name="install" description="Installs all applications. Requires WLST." depends="copy-scripts">
+		<property name="temp.folder" value="${basedir}/_temp" />
+		<property name="wls.temp.script" value="${temp.folder}/temp_install.py" />
+		<property name="wls.temp.log" value="${temp.folder}/temp_install.log" />
+
+		<delete dir="${temp.folder}" />
+
+		<antcall target="wlst-script-start" />
+
+		<!-- BEGIN INSTALL untransactioned stuff -->
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDVTGraphExportPOC/build.xml" target="ApplicationDVTGraphExportPOC-sqldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmployeeAptitudes/build.xml" target="ApplicationEmployeeAptitudes-sqldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationHistorizationConcept/build.xml" target="ApplicationHistorizationConcept-sqldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationOrgaLevels/build.xml" target="ApplicationOrgaLevels-sqldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTextMessenger/build.xml" target="ApplicationTextMessenger-sqldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-sqldeploy" />
+
+		<!-- END INSTALL untransactioned stuff -->
+
+		<antcall target="wlst-script-edit" />
+		<antcall target="wlst-script-startEdit" />
+
+		<!-- BEGIN INSTALL transactioned stuff -->
+
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFBugs/build.xml" target="ApplicationADFBugs-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFDevelopmentPattern/build.xml" target="ApplicationADFDevelopmentPattern-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationAMBCPooling/build.xml" target="ApplicationAMBCPooling-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationAMComplexParams/build.xml" target="ApplicationAMComplexParams-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBcCaching/build.xml" target="ApplicationBcCaching-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBcCachingService/build.xml" target="ApplicationBcCachingService-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBusinessComonents/build.xml" target="ApplicationBusinessComonents-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBeanScopes/build.xml" target="ApplicationBeanScopes-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationContextualEvents/build.xml" target="ApplicationContextualEvents-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDateDeclarativeComponent/build.xml" target="ApplicationDateDeclarativeComponent-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDinamicPivotTable/build.xml" target="ApplicationDinamicPivotTable-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDummyDataControl/build.xml" target="ApplicationDummyDataControl-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDVTGraphExportPOC/build.xml" target="ApplicationDVTGraphExportPOC-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmployeeAptitudes/build.xml" target="ApplicationEmployeeAptitudes-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplate/build.xml" target="ApplicationEmptyTemplate-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEntityValidation/build.xml" target="ApplicationEntityValidation-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationExceptionHandler/build.xml" target="ApplicationExceptionHandler-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationFileUpload/build.xml" target="ApplicationFileUpload-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationHistorizationConcept/build.xml" target="ApplicationHistorizationConcept-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationMultipleFileUpload/build.xml" target="ApplicationMultipleFileUpload-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationOrgaLevels/build.xml" target="ApplicationOrgaLevels-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotHeaderLabels/build.xml" target="ApplicationPivotHeaderLabels-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTableResizing/build.xml" target="ApplicationPivotTableResizing-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationShuttleComponents/build.xml" target="ApplicationShuttleComponents-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationStampBinding/build.xml" target="ApplicationStampBinding-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSubformSubmit/build.xml" target="ApplicationSubformSubmit-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTableButton/build.xml" target="ApplicationTableButton-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTaskflowEndPoint/build.xml" target="ApplicationTaskflowEndPoint-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTaskFlowOpps/build.xml" target="ApplicationTaskFlowOpps-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTextMessenger/build.xml" target="ApplicationTextMessenger-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUCMContent/build.xml" target="ApplicationUCMContent-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationXdm/build.xml" target="ApplicationXdm-wldeploy" />
+
+		<!-- END INSTALL transactioned stuff -->
+
+		<antcall target="wlst-script-save" />
+		<antcall target="wlst-script-activate" />
+		<antcall target="wlst-script-end" />
+
+		<antcall target="wlst-execute" />
+	</target>
+
+	<target name="uninstall" description="Uninstalls all applications. Requires WLST.">
+
+		<property name="wls.temp.script" value="${basedir}/_temp/temp_uninstall.py" />
+		<property name="wls.temp.log" value="${basedir}/_temp/temp_uninstall.log" />
+
+		<antcall target="wlst-script-start" />
+		<antcall target="wlst-script-edit" />
+		<antcall target="wlst-script-startEdit" />
+
+		<!-- BEGIN UNINSTALL transactioned stuff -->
+
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFBugs/build.xml" target="ApplicationADFBugs-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFDevelopmentPattern/build.xml" target="ApplicationADFDevelopmentPattern-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationAMBCPooling/build.xml" target="ApplicationAMBCPooling-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationAMComplexParams/build.xml" target="ApplicationAMComplexParams-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBcCaching/build.xml" target="ApplicationBcCaching-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBcCachingService/build.xml" target="ApplicationBcCachingService-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBusinessComonents/build.xml" target="ApplicationBusinessComonents-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationBeanScopes/build.xml" target="ApplicationBeanScopes-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationContextualEvents/build.xml" target="ApplicationContextualEvents-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDateDeclarativeComponent/build.xml" target="ApplicationDateDeclarativeComponent-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDinamicPivotTable/build.xml" target="ApplicationDinamicPivotTable-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDummyDataControl/build.xml" target="ApplicationDummyDataControl-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDVTGraphExportPOC/build.xml" target="ApplicationDVTGraphExportPOC-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmployeeAptitudes/build.xml" target="ApplicationEmployeeAptitudes-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplate/build.xml" target="ApplicationEmptyTemplate-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEntityValidation/build.xml" target="ApplicationEntityValidation-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationExceptionHandler/build.xml" target="ApplicationExceptionHandler-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationFileUpload/build.xml" target="ApplicationFileUpload-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationHistorizationConcept/build.xml" target="ApplicationHistorizationConcept-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationMultipleFileUpload/build.xml" target="ApplicationMultipleFileUpload-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationOrgaLevels/build.xml" target="ApplicationOrgaLevels-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotHeaderLabels/build.xml" target="ApplicationPivotHeaderLabels-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTableResizing/build.xml" target="ApplicationPivotTableResizing-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationShuttleComponents/build.xml" target="ApplicationShuttleComponents-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationStampBinding/build.xml" target="ApplicationStampBinding-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSubformSubmit/build.xml" target="ApplicationSubformSubmit-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTableButton/build.xml" target="ApplicationTableButton-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTaskflowEndPoint/build.xml" target="ApplicationTaskflowEndPoint-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTaskFlowOpps/build.xml" target="ApplicationTaskFlowOpps-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTextMessenger/build.xml" target="ApplicationTextMessenger-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUCMContent/build.xml" target="ApplicationUCMContent-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationXdm/build.xml" target="ApplicationXdm-wlundeploy" />
+
+		<!-- END UNINSTALL transactioned stuff -->
+
+		<antcall target="wlst-script-save" />
+		<antcall target="wlst-script-activate" />
+
+		<!-- BEGIN UNINSTALL untransactioned stuff -->
+
+		<!-- END UNINSTALL untransactioned stuff -->
+
+		<antcall target="wlst-script-end" />
+
+		<antcall target="wlst-execute" />
+	</target>
+
+	<target name="reinstall" description="Reinstalls all applications. Requires WLST.">
+		<antcall target="uninstall" />
+		<antcall target="install" />
+	</target>
+
+	<target name="wlstop-servers" description="Stops all servers. Requires WLST." if="${all.execute_restart}">
+		<property name="wls.temp.script" value="${basedir}/_temp/temp_stop.py" />
+		<property name="wls.temp.log" value="${basedir}/_temp/temp_stop.log" />
+
+		<antcall target="wlst-script-start" />
+
+		<wlstop-servers targets="${all.execute_restart.servers}" />
+
+		<antcall target="wlst-script-end" />
+
+		<antcall target="wlst-execute" />
+	</target>
+
+	<target name="wlstart-servers" description="Starts all servers. Requires WLST." if="${all.execute_restart}">
+		<property name="wls.temp.script" value="${basedir}/_temp/temp_start.py" />
+		<property name="wls.temp.log" value="${basedir}/_temp/temp_start.log" />
+
+		<antcall target="wlst-script-start" />
+
+		<wlstart-servers targets="${all.execute_restart.servers}" />
+
+		<antcall target="wlst-script-end" />
+
+		<antcall target="wlst-execute" />
+	</target>
+
+	<target name="deploy-reinstall" description="Deployes then reinstalls all applications. Requires JDeveloper and WLST.">
+		<antcall target="deploy" />
+		<antcall target="wlstop-servers" />
+		<antcall target="reinstall" />
+		<antcall target="wlstart-servers" />
+	</target>
+
+	<target name="all-wlstore-user-config" if="${all.execute_wlst}">
+		<wlstore-user-config />
+	</target>
+
+	<target name="all-wlcreate-services" if="${all.execute_install_services}">
+		<wlcreate-jmsserver servers="${all.jmsserver.servers}" />
+	</target>
+
+	<target name="all-wldestroy-services" if="${all.execute_install_services}">
+		<wldestroy-jmsserver />
+	</target>
+
+	<target name="virtual7Util-copy-scripts" if="${virtual7Util.execute_copy_scripts}">
+		<copy todir="${virtual7Util.project.dest.path}" overwrite="true">
+			<fileset dir="${virtual7Util.project.orig.path}">
+				<include name="buildVirtual7Util.xml" />
+				<include name="wlstore_user_config.py" />
+				<include name="wltasks.py" />
+				<include name="wltasks.xml" />
+			</fileset>
+		</copy>
+	</target>
 </project>

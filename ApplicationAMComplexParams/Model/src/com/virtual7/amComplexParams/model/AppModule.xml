@@ -4,7 +4,7 @@
 <AppModule
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="AppModule"
-  Version="11.1.1.60.13"
+  Version="11.1.1.62.29"
   ClearCacheOnRollback="true"
   ComponentClass="com.virtual7.amComplexParams.model.AppModuleImpl"
   ComponentInterface="com.virtual7.amComplexParams.model.common.AppModule"
@@ -27,6 +27,14 @@
     Reversed="false"/>
   <ClientInterface>
     <Method
+      Name="saveUsers1">
+      <Return
+        Type="void"/>
+      <Parameter
+        Name="userList"
+        Type="com.virtual7.amComplexParams.model.UserList"/>
+    </Method>
+    <Method
       Name="saveUsers">
       <Return
         Type="void"/>
@@ -37,14 +45,6 @@
         <Element
           Type="com.virtual7.amComplexParams.model.UserBean"/>
       </Parameter>
-    </Method>
-    <Method
-      Name="saveUsers1">
-      <Return
-        Type="void"/>
-      <Parameter
-        Name="userList"
-        Type="com.virtual7.amComplexParams.model.UserList"/>
     </Method>
   </ClientInterface>
 </AppModule>

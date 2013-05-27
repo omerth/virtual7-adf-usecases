@@ -235,6 +235,7 @@
             <hash>
                <list n="classPath">
                   <url path="../../_libs/virtual7Util_model.jar" jar-entry=""/>
+                  <url path="../../_libs/BcCachingService_Common.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>

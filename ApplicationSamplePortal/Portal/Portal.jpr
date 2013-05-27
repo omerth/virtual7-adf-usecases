@@ -1118,6 +1118,8 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="WebCenter Links Service"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@oracle.home@webcenter/modules/oracle.webcenter.framework_11.1.1/relationship-service-taglib.jar!/META-INF/relationship.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/webcenter/services/relationship"/>
             <value n="version" v="11.1.1.4.0"/>
@@ -1173,6 +1175,8 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="WebCenter Content Display Templates"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@oracle.home@webcenter/modules/oracle.webcenter.framework_11.1.1/content-templates-view.jar!/META-INF/display-templates.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/webcenter/content/templates"/>
             <value n="version" v="11.1.1.4.0"/>
@@ -1184,6 +1188,8 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="WebCenter Content Management Faces"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@oracle.home@webcenter/modules/oracle.webcenter.content.integration_11.1.1/cm_faces.jar!/META-INF/taglib.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/webcenter/content/faces"/>
             <value n="version" v="11.1.1.4.0"/>
@@ -1195,6 +1201,8 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="WebCenter Content Management Functions"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@oracle.home@webcenter/modules/oracle.webcenter.content.integration_11.1.1/cm_functions.jar!/META-INF/taglib.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/webcenter/content/functions"/>
             <value n="version" v="11.1.1.4.0"/>
@@ -1206,6 +1214,8 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="WebCenter SmartTag"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@oracle.home@webcenter/modules/oracle.webcenter.framework_11.1.1/smarttag.jar!/META-INF/smarttag.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/webcenter/collab/smarttag"/>
             <value n="version" v="11.1.1.4.0"/>
@@ -1217,6 +1227,8 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="WebCenter Tagging"/>
+            <value n="runInEditor" v="false"/>
+            <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@oracle.home@webcenter/modules/oracle.webcenter.framework_11.1.1/tagging-taglib.jar!/META-INF/tagging.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/webcenter/services/tagging"/>
             <value n="version" v="11.1.1.4.0"/>
@@ -1250,6 +1262,7 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="WebCenter Document Library Service"/>
+            <value n="runInEditor" v="false"/>
             <value n="showInPalette" v="false"/>
             <value n="tldURL" v="@oracle.home@webcenter/modules/oracle.webcenter.framework_11.1.1/doclib-service-view.jar!/META-INF/doclib.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/webcenter/doclib"/>
@@ -1262,6 +1275,7 @@
             </hash>
             <value n="jspVersion" v="2.1"/>
             <value n="name" v="WebCenter CK Editor/Viewer"/>
+            <value n="runInEditor" v="false"/>
             <value n="showInPalette" v="false"/>
             <value n="tldURL" v="@oracle.home@webcenter/modules/oracle.webcenter.framework_11.1.1/rte-taglib.jar!/META-INF/rte.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/webcenter/services/doclib/rte"/>

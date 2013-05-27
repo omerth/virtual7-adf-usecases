@@ -181,6 +181,13 @@
             <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
                <value n="viewActivityId" v="index"/>
             </hash>
+            <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
+               <value n="remoteParameter:jpda:hostname" v="middleware"/>
+               <value n="remoteParameter:jpda:jdi_attach_method:" v=""/>
+               <value n="remoteParameter:jpda:port" v="4002"/>
+               <value n="remoteParameter:jpdaListen:localAddress" v=""/>
+            </hash>
+            <value n="remoteDebuggingProfiling" v="true"/>
             <url n="targetURL" path="public_html/WEB-INF/adfc-config.xml"/>
          </hash>
       </hash>
@@ -320,7 +327,7 @@
             <hash>
                <list n="classPath">
                   <url path="../../_libs/ApplicationPDFGenerator_Model.jar" jar-entry=""/>
-                  <url path="../../../Work/Workspace/_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+                  <url path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -339,6 +346,13 @@
                </list>
                <value n="description" v="Library2"/>
                <value n="id" v="Library2"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library3"/>
+               <value n="id" v="Library3"/>
             </hash>
          </list>
       </hash>
@@ -526,6 +540,17 @@
             <value n="runInEditor" v="true"/>
             <value n="showInPalette" v="true"/>
             <value n="tldURL" v="@project@../../../Work/Workspace/_myspace/virtual7Util/_libs/virtual7Util_view.jar!/META-INF/v7CompLib.tld"/>
+            <value n="URI" v="/v7ComponentLib"/>
+            <value n="version" v="1.0"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="v7CompLib 1.0 Tag Libraries"/>
+            <value n="name" v="v7CompLib"/>
+            <value n="prefix" v="v7"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../../_libs/virtual7Util_view.jar!/META-INF/v7CompLib.tld"/>
             <value n="URI" v="/v7ComponentLib"/>
             <value n="version" v="1.0"/>
          </hash>

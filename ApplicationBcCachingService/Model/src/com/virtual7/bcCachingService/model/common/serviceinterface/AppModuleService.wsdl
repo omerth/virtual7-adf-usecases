@@ -165,7 +165,7 @@
     </wsdl:binding>
     <wsdl:service name="AppModuleService">
         <wsdl:port name="AppModuleServiceSoapHttpPort" binding="tns:AppModuleServiceSoapHttp">
-            <soap:address location="http://localhost:7101/ApplicationBcCachingService-Model-context-root/AppModuleService"/>
+            <soap:address location="http://middleware1:8896/ApplicationBcCachingService-Model-context-root/AppModuleService"/>
         </wsdl:port>
     </wsdl:service>
 </wsdl:definitions>

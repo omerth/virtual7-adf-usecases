@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="bind-variables-tf">
+    <default-activity id="__1">bind_variables</default-activity>
+    <view id="bind_variables">
+      <page>/bind_variables.jsff</page>
+    </view>
+    <method-call id="varEmail">
+      <method>#{bindings.varEmail.execute}</method>
+      <outcome id="__2">
+        <fixed-outcome>filtered</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="varLName">
+      <method>#{bindings.varLName.execute}</method>
+      <outcome id="__4">
+        <fixed-outcome>filtered</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="removeWhereClauseParam">
+      <method>#{bindings.removeWhereClauseParam.execute}</method>
+      <outcome id="__5">
+        <fixed-outcome>cleared</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="varSalary">
+      <method>#{bindings.varSalary.execute}</method>
+      <outcome id="__12">
+        <fixed-outcome>filtered</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__7">
+      <from-activity-id id="__8">bind_variables</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__11">email</from-outcome>
+        <to-activity-id id="__9">varEmail</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__14">
+        <from-outcome id="__15">salary</from-outcome>
+        <to-activity-id id="__13">varSalary</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__27">
+        <from-outcome id="__28">lname</from-outcome>
+        <to-activity-id id="__26">varLName</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__34">
+        <from-outcome id="__36">clearCriterias</from-outcome>
+        <to-activity-id id="__35">removeWhereClauseParam</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__16">
+      <from-activity-id id="__17">varSalary</from-activity-id>
+      <control-flow-case id="__18">
+        <from-outcome id="__20">filtered</from-outcome>
+        <to-activity-id id="__19">bind_variables</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__21">
+      <from-activity-id id="__22">varEmail</from-activity-id>
+      <control-flow-case id="__25">
+        <from-outcome id="__24">filtered</from-outcome>
+        <to-activity-id id="__23">bind_variables</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__29">
+      <from-activity-id id="__30">varLName</from-activity-id>
+      <control-flow-case id="__33">
+        <from-outcome id="__31">filtered</from-outcome>
+        <to-activity-id id="__32">bind_variables</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__37">
+      <from-activity-id id="__38">removeWhereClauseParam</from-activity-id>
+      <control-flow-case id="__41">
+        <from-outcome id="__40">cleared</from-outcome>
+        <to-activity-id id="__39">bind_variables</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

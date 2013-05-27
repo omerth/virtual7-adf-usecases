@@ -198,10 +198,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../../_myspace/virtual7Util/core/virtual7Util_view/Virtual7Util_model.jar.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="Commons Logging 1.0.4"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -213,7 +209,26 @@
             <value n="id" v="ADF Common Runtime"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
+      <hash n="internalDefinitions">
+         <list n="libraryDefinitions">
+            <hash>
+               <list n="classPath">
+                  <url path="../../_libs/virtual7Util_model.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ADF Library"/>
+               <value n="id" v="ADF Library"/>
+               <list n="sourcePath">
+                  <url path="../../_libs/virtual7Util_model_src.jar" jar-entry=""/>
+               </list>
+            </hash>
+         </list>
+      </hash>
       <list n="libraryReferences">
          <hash>
             <value n="id" v="ADF Model Runtime"/>
@@ -248,10 +263,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <url n="id" path="../../../../_myspace/virtual7Util/core/virtual7Util_view/Virtual7Util_model.jar.library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <url n="id" path="ADF_Library_Dependencies.library"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -265,6 +276,10 @@
          </hash>
          <hash>
             <value n="id" v="ADF Common Runtime"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

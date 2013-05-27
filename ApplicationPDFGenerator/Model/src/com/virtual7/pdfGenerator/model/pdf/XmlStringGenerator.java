@@ -21,6 +21,7 @@ import oracle.jbo.server.ViewObjectImpl;
          StringBuffer xml = new StringBuffer();
          xml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
          xml.append("<ROOT>");
+         xml.append("<CONTENT_TABLE>");
         
          
          // Append content.
@@ -34,7 +35,7 @@ import oracle.jbo.server.ViewObjectImpl;
          }
 
          // Append end tags.
-         
+         xml.append("</CONTENT_TABLE>");
          xml.append("</ROOT>");
          return xml.toString();
      }

@@ -306,7 +306,7 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../_libs/ApplicationAMBCPooling_ModelRoot.jar" jar-entry=""/>
+                  <url path="../../_libs/ApplicationAMBCPooling_ModelRoot.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>

@@ -16,16 +16,16 @@
     <param-name>oracle.adf.view.rich.versionString.HIDDEN</param-name>
     <param-value>false</param-value>
   </context-param>
+  <context-param>
+    <param-name>oracle.adf.view.rich.dvt.DEFAULT_IMAGE_FORMAT</param-name>
+    <param-value>HTML5</param-value>
+  </context-param>
   <filter>
     <filter-name>JpsFilter</filter-name>
     <filter-class>oracle.security.jps.ee.http.JpsFilter</filter-class>
     <init-param>
       <param-name>enable.anonymous</param-name>
       <param-value>true</param-value>
-    </init-param>
-    <init-param>
-      <param-name>remove.anonymous.role</param-name>
-      <param-value>false</param-value>
     </init-param>
   </filter>
   <filter>
@@ -52,12 +52,6 @@
   <filter-mapping>
     <filter-name>adfBindings</filter-name>
     <servlet-name>Faces Servlet</servlet-name>
-    <dispatcher>FORWARD</dispatcher>
-    <dispatcher>REQUEST</dispatcher>
-  </filter-mapping>
-  <filter-mapping>
-    <filter-name>adfBindings</filter-name>
-    <servlet-name>adfAuthentication</servlet-name>
     <dispatcher>FORWARD</dispatcher>
     <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
@@ -95,11 +89,6 @@
     <servlet-name>GatewayServlet</servlet-name>
     <servlet-class>oracle.adfinternal.view.faces.bi.renderkit.graph.FlashBridgeServlet</servlet-class>
   </servlet>
-  <servlet>
-    <servlet-name>adfAuthentication</servlet-name>
-    <servlet-class>oracle.adf.share.security.authentication.AuthenticationServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
@@ -132,10 +121,6 @@
     <servlet-name>GatewayServlet</servlet-name>
     <url-pattern>/flashbridge/*</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>adfAuthentication</servlet-name>
-    <url-pattern>/adfAuthentication</url-pattern>
-  </servlet-mapping>
   <mime-mapping>
     <extension>swf</extension>
     <mime-type>application/x-shockwave-flash</mime-type>
@@ -149,20 +134,4 @@
       <is-xml>true</is-xml>
     </jsp-property-group>
   </jsp-config>
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>adfAuthentication</web-resource-name>
-      <url-pattern>/adfAuthentication</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
-      <role-name>valid-users</role-name>
-    </auth-constraint>
-  </security-constraint>
-  <login-config>
-    <auth-method>BASIC</auth-method>
-    <realm-name>jazn.com</realm-name>
-  </login-config>
-  <security-role>
-    <role-name>valid-users</role-name>
-  </security-role>
 </web-app>

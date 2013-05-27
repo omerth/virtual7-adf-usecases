@@ -1,13 +1,14 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+            xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <f:view>
     <af:document id="d1">
       <af:messages id="m1"/>
       <af:form id="f1">
-        <af:panelGroupLayout layout="vertical">
+        <af:panelGroupLayout layout="vertical" id="pgl1">
           <af:outputText value="ApplicationAMComplexParams" id="ot1"/>
+          <af:outputText value="#{pageFlowScope.managedBean.userList}" id="ot2"/>
           <af:commandButton actionListener="#{bindings.saveUsers.execute}" text="saveUsers" id="cb1"/>
           <af:commandButton actionListener="#{bindings.saveUsers1.execute}" text="saveUsersWrapped"
                             disabled="#{!bindings.saveUsers1.enabled}" id="cb2"/>

@@ -70,14 +70,9 @@
    <hash n="oracle.ide.model.DependencyConfiguration">
       <list n="dependencyList">
          <hash>
-            <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
-            <url n="sourceOwnerURL" path="../ApplicationDateDeclarativeComponent.jws"/>
-            <url n="sourceURL" path="../Model/Model.jpr"/>
-         </hash>
-         <hash>
             <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
             <url n="ownerURL" path="../DeclarativeComponent/DeclarativeComponent.jpr"/>
-            <value n="profileName" v="dateComponent"/>
+            <value n="profileName" v="ApplicationDateDecalarativeComponent_dateComponent"/>
          </hash>
       </list>
    </hash>
@@ -110,7 +105,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ApplicationDateDeclarativeComponent_ViewController_webapp1">
+         <hash n="ApplicationDateDeclarativeComponent_ViewController">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
                <value n="autoInclude" v="true"/>
@@ -121,8 +116,8 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <url n="earURL" path="deploy/ApplicationDateDeclarativeComponent_ViewController_webapp1.ear"/>
-            <value n="enterpriseAppName" v="ApplicationDateDeclarativeComponent_ViewController_webapp1"/>
+            <url n="earURL" path="deploy/ApplicationDateDeclarativeComponent_ViewController.ear"/>
+            <value n="enterpriseAppName" v="ApplicationDateDeclarativeComponent_ViewController"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -170,59 +165,16 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/ApplicationDateDeclarativeComponent_ViewController_webapp1.war"/>
+            <url n="jarURL" path="../../_deploy/ApplicationDateDeclarativeComponent_ViewController.war"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="ApplicationDateDeclarativeComponent_ViewController_webapp1"/>
-         </hash>
-         <hash n="dateComponent">
-            <value n="adflib-connectionDetails" v="true"/>
-            <value n="adflib-nonReusablesError" v="false"/>
-            <hash n="archiveOptions">
-               <value n="hasManifest" v="true"/>
-            </hash>
-            <hash n="fileGroups">
-               <list n="groups">
-                  <hash>
-                     <list n="contributors">
-                        <hash>
-                           <value n="type" v="2"/>
-                        </hash>
-                        <hash>
-                           <value n="type" v="5"/>
-                        </hash>
-                     </list>
-                     <value n="displayName" v="Project Output"/>
-                     <hash n="filters">
-                        <list n="rules"/>
-                     </hash>
-                     <value n="internalName" v="project-output"/>
-                     <value n="type" v="1"/>
-                  </hash>
-               </list>
-            </hash>
-            <url n="jarURL" path="deploy/dateComponent.jar"/>
-            <hash n="libraryDependencies">
-               <value n="IncludeLibrariesFromOtherContainers" v="true"/>
-            </hash>
-            <hash n="LibraryDependencies">
-               <list n="dependencyList">
-                  <hash>
-                     <value n="class" v="oracle.jdeveloper.library.ProjectLibrary"/>
-                     <url n="sourceOwnerURL" path="../ApplicationDateDeclarativeComponent.jws"/>
-                     <url n="sourceURL" path="../Model/Model.jpr"/>
-                  </hash>
-               </list>
-            </hash>
-            <value n="profileClass" v="oracle.adfdt.common.deploy.impl.AdfLibraryProfile"/>
-            <value n="profileName" v="dateComponent"/>
+            <value n="profileName" v="ApplicationDateDeclarativeComponent_ViewController"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="ApplicationDateDeclarativeComponent_ViewController_webapp1"/>
-         <string v="dateComponent"/>
+         <string v="ApplicationDateDeclarativeComponent_ViewController"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -354,14 +306,14 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="deploy/dateComponent.jar" jar-entry=""/>
+                  <url path="deploy/ApplicationDateDecalarativeComponent_dateComponent.jar" jar-entry=""/>
                </list>
                <value n="description" v="Library2"/>
                <value n="id" v="Library2"/>
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../DeclarativeComponent/deploy/dateComponent.jar" jar-entry=""/>
+                  <url path="../../_libs/ApplicationDateDecalarativeComponent_dateComponent.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -376,10 +328,17 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url path="../DeclarativeComponent/deploy/dateComponent.jar" jar-entry=""/>
+                  <url path="../DeclarativeComponent/deploy/ApplicationDateDecalarativeComponent_dateComponent.jar" jar-entry=""/>
                </list>
                <value n="description" v="Library4"/>
                <value n="id" v="Library4"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../_libs/ApplicationDateDecalarativeComponent_dateComponent.jar" jar-entry=""/>
+               </list>
+               <value n="description" v="Library5"/>
+               <value n="id" v="Library5"/>
             </hash>
          </list>
       </hash>
@@ -553,7 +512,7 @@
             <value n="prefix" v="dateCompLib"/>
             <value n="runInEditor" v="true"/>
             <value n="showInPalette" v="true"/>
-            <value n="tldURL" v="@project@../DeclarativeComponent/deploy/dateComponent.jar!/META-INF/dateCompLib.tld"/>
+            <value n="tldURL" v="@project@../DeclarativeComponent/deploy/ApplicationDateDecalarativeComponent_dateComponent.jar!/META-INF/dateCompLib.tld"/>
             <value n="URI" v="/dateCompLib"/>
             <value n="version" v="1.0"/>
          </hash>

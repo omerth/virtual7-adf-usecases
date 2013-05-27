@@ -64,7 +64,7 @@
          <hash>
             <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
             <url n="ownerURL" path="../Model/Model.jpr"/>
-            <value n="profileName" v="OrgaLevelsPoc_Model"/>
+            <value n="profileName" v="ApplicationOrgaLevels_Model"/>
          </hash>
       </list>
    </hash>
@@ -95,7 +95,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="OrgaLevelsPoc_ViewController">
+         <hash n="ApplicationOrgaLevels_ViewController">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
                <value n="autoInclude" v="true"/>
@@ -106,8 +106,8 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <url n="earURL" path="deploy/OrgaLevelsPoc_ViewController.ear"/>
-            <value n="enterpriseAppName" v="OrgaLevelsPoc_ViewController"/>
+            <url n="earURL" path="deploy/ApplicationOrgaLevels_ViewController.ear"/>
+            <value n="enterpriseAppName" v="ApplicationOrgaLevels_ViewController"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -155,21 +155,21 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="../../_deploy/OrgaLevelsPoc_ViewController.war"/>
+            <url n="jarURL" path="../../_deploy/ApplicationOrgaLevels_ViewController.war"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="OrgaLevelsPoc_ViewController"/>
+            <value n="profileName" v="ApplicationOrgaLevels_ViewController"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="OrgaLevelsPoc_ViewController"/>
+         <string v="ApplicationOrgaLevels_ViewController"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
-      <value n="j2eeWebAppName" v="OrgaLevelsPoc_ViewController"/>
-      <value n="j2eeWebContextRoot" v="OrgaLevelsPoc_ViewController"/>
+      <value n="j2eeWebAppName" v="ApplicationOrgaLevels_ViewController"/>
+      <value n="j2eeWebContextRoot" v="ApplicationOrgaLevels_ViewController"/>
    </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">
@@ -309,7 +309,7 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../_libs/OrgaLevelsPoc_Model.jar" jar-entry=""/>
+                  <url path="../../_libs/ApplicationOrgaLevels_Model.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>

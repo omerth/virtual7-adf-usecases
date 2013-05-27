@@ -168,6 +168,13 @@
          <hash n="Default">
             <value n="custom" v="false"/>
             <value n="name" v="Default"/>
+            <hash n="oracle.jdevimpl.runner.debug.DebugConfiguration">
+               <value n="remoteParameter:jpda:hostname" v="middleware"/>
+               <value n="remoteParameter:jpda:jdi_attach_method:" v=""/>
+               <value n="remoteParameter:jpda:port" v="4002"/>
+               <value n="remoteParameter:jpdaListen:localAddress" v=""/>
+            </hash>
+            <value n="remoteDebuggingProfiling" v="true"/>
          </hash>
       </hash>
       <list n="runConfigurationList">
@@ -209,11 +216,11 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Virtual7Util_model.jar"/>
+            <value n="id" v="Commons Logging 1.0.4"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Commons Logging 1.0.4"/>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -221,11 +228,11 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url path="../../../virtual7Util/_libs/virtual7Util_model.jar" jar-entry=""/>
+                  <url path="../../_libs/virtual7Util_model.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
-               <value n="description" v="Virtual7Util_model.jar"/>
-               <value n="id" v="Virtual7Util_model.jar"/>
+               <value n="description" v="ADF Library"/>
+               <value n="id" v="ADF Library"/>
             </hash>
          </list>
       </hash>
@@ -263,15 +270,15 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="Virtual7Util_model.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <url n="id" path="ADF_Library_Dependencies.library"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
             <value n="id" v="Commons Logging 1.0.4"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

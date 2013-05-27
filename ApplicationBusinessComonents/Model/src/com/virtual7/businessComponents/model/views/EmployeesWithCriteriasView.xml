@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="EmployeesWithCriteriasView"
-  Version="11.1.1.60.13"
+  Version="11.1.1.62.29"
   BindingStyle="OracleName"
   CustomQuery="false"
   PageIterMode="Full"
@@ -215,7 +215,7 @@
       <ViewCriteriaItem
         Name="LastName"
         ViewAttribute="LastName"
-        Operator="STARTSWITH"
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":LName"
         IsBindVarValue="true"

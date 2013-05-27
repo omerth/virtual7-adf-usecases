@@ -1,5 +1,6 @@
 package com.virtual7.amComplexParams.model;
 
+
 import com.virtual7.amComplexParams.model.common.AppModule;
 
 import java.util.List;

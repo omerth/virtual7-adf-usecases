@@ -16,7 +16,7 @@
             <Contents>weblogic.jndi.WLInitialContextFactory</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="jndiProviderURL">
-            <Contents>t3://localhost:7101</Contents>
+            <Contents>t3://middleware1:8896</Contents>
          </StringRefAddr>
          <StringRefAddr addrType="serviceSchemaName">
             <Contents>AppModuleService.xsd</Contents>

@@ -9,11 +9,23 @@
       <fixed-outcome>Execute</fixed-outcome>
     </outcome>
   </method-call>
+  <method-call id="clearEntityCache">
+    <method>#{bindings.clearEntityCache.execute}</method>
+    <outcome id="__1">
+      <fixed-outcome>clearEntityCache</fixed-outcome>
+    </outcome>
+  </method-call>
+  <method-call id="Commit">
+    <method>#{bindings.Commit.execute}</method>
+    <outcome id="__13">
+      <fixed-outcome>Commit</fixed-outcome>
+    </outcome>
+  </method-call>
   <control-flow-rule id="__6">
     <from-activity-id id="__7">index</from-activity-id>
     <control-flow-case id="__9">
       <from-outcome id="__10">executeQuery</from-outcome>
-      <to-activity-id id="__8">Execute</to-activity-id>
+      <to-activity-id id="__8">clearEntityCache</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <control-flow-rule id="__16">
@@ -21,6 +33,20 @@
     <control-flow-case id="__18">
       <from-outcome id="__20">Execute</from-outcome>
       <to-activity-id id="__19">index</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__2">
+    <from-activity-id id="__3">clearEntityCache</from-activity-id>
+    <control-flow-case id="__12">
+      <from-outcome id="__4">clearEntityCache</from-outcome>
+      <to-activity-id id="__11">Commit</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__14">
+    <from-activity-id id="__15">Commit</from-activity-id>
+    <control-flow-case id="__23">
+      <from-outcome id="__22">Commit</from-outcome>
+      <to-activity-id id="__21">Execute</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
 </adfc-config>

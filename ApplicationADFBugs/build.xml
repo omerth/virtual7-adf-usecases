@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="ApplicationADFBugs" default="cloneApp" basedir=".">
+	<property file="../build.properties" />
+	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
+	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
+
+	<import file="../wltasks.xml" />
+
+	<target name="ApplicationADFBugs-deploy" description="Deploy JDeveloper profiles" if="${ApplicationADFBugs.execute-deploy}">
+
+		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+
+		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
+		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />
+		<ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}" ora:buildscript="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-build.xml" ora:statuslog="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-statuslog.xml">
+			<ora:deploy>
+				<ora:parameter name="clean" value="true" />
+				<ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}" />
+				<ora:parameter name="profile" value="*" />
+			</ora:deploy>
+		</ora:ojdeploy>
+	</target>
+
+	<target name="cloneApp">
+		<property name="replace.token1" value="${ant.project.name}" />
+		<property name="replace.token2" value="adfdevelopmentpattern" />
+		<property name="replace.token3" value="adfDevelopmentPattern" />
+		<property name="replace.token4" value="ADFDevelopmentPattern" />
+		<property name="replace.token5" value="ADFDEVELOPMENTPATTERN" />
+
+
+		<input message="What is the equivalent for ${replace.token1}?" addproperty="do.token1" defaultvalue="${replace.token1}" />
+		<input message="What is the equivalent for ${replace.token2}?" addproperty="do.token2" defaultvalue="${replace.token2}" />
+		<input message="What is the equivalent for ${replace.token3}?" addproperty="do.token3" defaultvalue="${replace.token3}" />
+		<input message="What is the equivalent for ${replace.token4}?" addproperty="do.token4" defaultvalue="${replace.token4}" />
+		<input message="What is the equivalent for ${replace.token5}?" addproperty="do.token5" defaultvalue="${replace.token5}" />
+
+		<mkdir dir="../${do.token1}" />
+		<copy todir="../${do.token1}" overwrite="true" verbose="true">
+			<fileset dir="." />
+			<filtermapper>
+				<replacestring from="${replace.token1}" to="${do.token1}" />
+				<replacestring from="${replace.token2}" to="${do.token2}" />
+				<replacestring from="${replace.token3}" to="${do.token3}" />
+				<replacestring from="${replace.token4}" to="${do.token4}" />
+				<replacestring from="${replace.token5}" to="${do.token5}" />
+			</filtermapper>
+		</copy>
+		<replace dir="../${do.token1}">
+			<replacefilter token="${replace.token1}" value="${do.token1}" />
+			<replacefilter token="${replace.token2}" value="${do.token2}" />
+			<replacefilter token="${replace.token3}" value="${do.token3}" />
+			<replacefilter token="${replace.token4}" value="${do.token4}" />
+			<replacefilter token="${replace.token5}" value="${do.token5}" />
+		</replace>
+	</target>
+
+	<target name="ApplicationADFBugs-wldeploy" if="${ApplicationADFBugs.execute_install_deployments}">
+		<wldeploy name="ApplicationADFBugs" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationADFBugs.ear" targets="${ApplicationADFBugs.targets}" librarymodule="false" />
+	</target>
+
+	<target name="ApplicationADFBugs-wlundeploy" if="${ApplicationADFBugs.execute_install_deployments}">
+		<wlundeploy name="ApplicationADFBugs" targets="${ApplicationADFBugs.targets}" />
+	</target>
+
+</project>

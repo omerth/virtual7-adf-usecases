@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29"
+                id="adfc_config___clearEntityCachePageDef"
+                Package="com.virtual7.updateForHistorysation.view.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables/>
+  <bindings>
+    <action id="clearEntityCache" RequiresUpdateModel="true"
+            Action="invokeMethod" MethodName="clearEntityCache"
+            IsViewObjectMethod="false" DataControl="AppModuleDataControl"
+            InstanceName="AppModuleDataControl.dataProvider"/>
+  </bindings>
+</pageDefinition>

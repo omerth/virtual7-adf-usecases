@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="EmployeesView1" id="ph1">
+      <af:query id="qryId1" headerText="Search" disclosed="true"
+                value="#{bindings.EmployeesNameViewCriteriaQuery.queryDescriptor}"
+                model="#{bindings.EmployeesNameViewCriteriaQuery.queryModel}"
+                queryListener="#{bindings.EmployeesNameViewCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.EmployeesNameViewCriteriaQuery.processQueryOperation}"
+                resultComponentId="::resId1"/>
+    </af:panelHeader>
+    <af:table value="#{bindings.EmployeesView1.collectionModel}" var="row"
+              rows="#{bindings.EmployeesView1.rangeSize}"
+              emptyText="#{bindings.EmployeesView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              fetchSize="#{bindings.EmployeesView1.rangeSize}"
+              rowBandingInterval="0" id="resId1">
+      <af:column sortProperty="FirstName" sortable="false"
+                 headerText="#{bindings.EmployeesView1.hints.FirstName.label}"
+                 id="resId1c1">
+        <af:outputText value="#{row.FirstName}" id="ot2"/>
+      </af:column>
+      <af:column sortProperty="LastName" sortable="false"
+                 headerText="#{bindings.EmployeesView1.hints.LastName.label}"
+                 id="resId1c2">
+        <af:outputText value="#{row.LastName}" id="ot3"/>
+      </af:column>
+      <af:column sortProperty="HireDate" sortable="false"
+                 headerText="#{bindings.EmployeesView1.hints.HireDate.label}"
+                 id="resId1c3">
+        <af:outputText value="#{row.HireDate}" id="ot1">
+          <af:convertDateTime pattern="#{bindings.EmployeesView1.hints.HireDate.format}"/>
+        </af:outputText>
+      </af:column>
+    </af:table>
+  </af:panelGroupLayout>
+</jsp:root>

@@ -43,6 +43,7 @@
       <value n="oracle.modeler.bmmigrate.management.Migration" v="11.1.1.1.0"/>
       <value n="oracle.toplink.workbench.addin.migration.PersistenceProjectMigrator" v="11.1.1.1.1"/>
       <value n="oracle.toplink.workbench.addin.migration.TopLinkProjectMigrator" v="11.1.1.1.0"/>
+      <value n="oracle.webcenter.internal.dt.migration.WebCenterProjectMigrator" v="11.1.1.4.0.101019.0800"/>
    </hash>
    <list n="contentSets">
       <string v="oracle.jdeveloper.model.PathsConfiguration/javaContentSet"/>
@@ -94,7 +95,7 @@
    </hash>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="ApplicationShuttleComponents_ViewController_webapp1">
+         <hash n="ApplicationShuttleComponents_ViewController">
             <hash n="appletArchives"/>
             <hash n="appletFiles">
                <value n="autoInclude" v="true"/>
@@ -105,8 +106,8 @@
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
-            <url n="earURL" path="deploy/ApplicationShuttleComponents_ViewController_webapp1.ear"/>
-            <value n="enterpriseAppName" v="ApplicationShuttleComponents_ViewController_webapp1"/>
+            <url n="earURL" path="deploy/ApplicationShuttleComponents_ViewController.ear"/>
+            <value n="enterpriseAppName" v="ApplicationShuttleComponents_ViewController"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -154,16 +155,16 @@
                   </hash>
                </list>
             </hash>
-            <url n="jarURL" path="deploy/ApplicationShuttleComponents_ViewController_webapp1.war"/>
+            <url n="jarURL" path="../../_deploy/ApplicationShuttleComponents_ViewController.war"/>
             <hash n="libraryDependencies">
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.jdeveloper.deploy.war.WarProfile"/>
-            <value n="profileName" v="ApplicationShuttleComponents_ViewController_webapp1"/>
+            <value n="profileName" v="ApplicationShuttleComponents_ViewController"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="ApplicationShuttleComponents_ViewController_webapp1"/>
+         <string v="ApplicationShuttleComponents_ViewController"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.model.J2eeSettings">
@@ -308,8 +309,8 @@
          <list n="libraryDefinitions">
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/D:/Work/Workspace/_myspace/virtual7Util/_libs/virtual7Util_view.jar!/"/>
-                  <url protocol="jar" path="file:/D:/Work/Workspace/virtual7-adf-usecases/virtual7-adf-usecases/_libs/ApplicationShuttleComponents_Model.jar!/"/>
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
+                  <url path="../../_libs/ApplicationShuttleComponents_Model.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="ADF Library"/>
@@ -317,7 +318,7 @@
             </hash>
             <hash>
                <list n="classPath">
-                  <url protocol="jar" path="file:/D:/Work/Workspace/_myspace/virtual7Util/_libs/virtual7Util_view.jar!/"/>
+                  <url path="../../../../_myspace/virtual7Util/_libs/virtual7Util_view.jar" jar-entry=""/>
                </list>
                <value n="description" v="Library1"/>
                <value n="id" v="Library1"/>
