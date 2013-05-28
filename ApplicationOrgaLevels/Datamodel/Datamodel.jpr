@@ -115,6 +115,16 @@
       <value n="j2eeWebAppName" v="ApplicationOrgaLevels-Datamodel-webapp"/>
       <value n="j2eeWebContextRoot" v="ApplicationOrgaLevels-Datamodel-context-root"/>
    </hash>
+   <hash n="oracle.jdeveloper.model.PathsConfiguration">
+      <hash n="javaContentSet">
+         <list n="pattern-filters">
+            <string v="+**"/>
+         </list>
+         <list n="url-path">
+            <url path="src/dbscripts/"/>
+         </list>
+      </hash>
+   </hash>
    <hash n="oracle.jdeveloper.runner.RunConfigurations">
       <hash n="runConfigurationDefinitions">
          <hash n="Default">

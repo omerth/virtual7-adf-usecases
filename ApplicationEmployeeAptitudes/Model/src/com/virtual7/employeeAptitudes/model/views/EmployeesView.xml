@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="EmployeesView"
-  Version="11.1.1.60.13"
+  Version="11.1.1.62.29"
   SelectList="Employees.COMMISSION_PCT, 
        Employees.DEPARTMENT_ID, 
        Employees.EMAIL, 

@@ -1,18 +1,23 @@
+
+ALTER TABLE ORGA_NODE DROP CONSTRAINT "ORGA_NODE_ORGA_HEAD_FK1";
+ALTER TABLE ORGA_PHASE DROP CONSTRAINT "ORGA_PHASE_ORGA_HEAD_FK1";
+
+
 drop table orga_head;
 drop table orga_node;
 drop table ORGA_PHASE;
 
 create table orga_head 
 (
-orga_set_id number(10)
-orga_val varchar(30)
+orga_set_id number(10),
+orga_val varchar(30),
 orga_cost number(10)
 );
 
 
 create table orga_node
 (
-orga_set_id number(10)
+orga_set_id number(10),
 orga_subset_id number(10)
 );
 
@@ -37,7 +42,6 @@ from
   ) n, orga_head h
 where n.id = h.orga_set_id
 connect by NOCYCLE level <=7 and prior n.id = n.parent_id AND PRIOR SYS_GUID () IS NOT NULL
-
 start with n.parent_id is null;
 
 
@@ -49,8 +53,7 @@ CREATE OR REPLACE VIEW ORGA_VIEW_WITH_GROUP ("GROUP_ID", "GROUP_DESC", "ID", "DE
 	  (select parent_id, id, descr,val from orga_view where lv=4) l4,
 	  (select parent_id, id, descr,val from orga_view where lv=3) l3,
 	  (select parent_id, id, descr,val from orga_view where lv=2) l2
-
-where l6.parent_id=l5.id and l5.parent_id=l4.id and l4.parent_id=l3.id and l3.parent_id=l2.id;
+ where l6.parent_id=l5.id and l5.parent_id=l4.id and l4.parent_id=l3.id and l3.parent_id=l2.id;
 
 
 
@@ -80,8 +83,8 @@ ALTER TABLE ORGA_HEAD MODIFY ("ORGA_SET_ID" NOT NULL ENABLE);
 ALTER TABLE ORGA_NODE ADD CONSTRAINT "ORGA_NODE_PK" PRIMARY KEY ("ORGA_SUBSET_ID");
 ALTER TABLE ORGA_NODE MODIFY ("ORGA_SUBSET_ID" NOT NULL ENABLE);
 ALTER TABLE ORGA_NODE ADD CONSTRAINT "ORGA_NODE_ORGA_HEAD_FK1" FOREIGN KEY ("ORGA_SET_ID")
-	  REFERENCES "HR"."ORGA_HEAD" ("ORGA_SET_ID") ON DELETE CASCADE ENABLE;
+	  REFERENCES ORGA_HEAD ("ORGA_SET_ID") ON DELETE CASCADE ENABLE;
           
 ALTER TABLE ORGA_PHASE ADD CONSTRAINT "ORGA_PHASE_PK" PRIMARY KEY ("PHASE_ID");
 ALTER TABLE ORGA_PHASE ADD CONSTRAINT "ORGA_PHASE_ORGA_HEAD_FK1" FOREIGN KEY ("ORGA_ID")
-	  REFERENCES "HR"."ORGA_HEAD" ("ORGA_SET_ID") ON DELETE CASCADE ENABLE;
+	  REFERENCES ORGA_HEAD ("ORGA_SET_ID") ON DELETE CASCADE ENABLE;

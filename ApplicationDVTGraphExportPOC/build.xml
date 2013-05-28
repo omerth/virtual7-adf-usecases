@@ -66,4 +66,8 @@
 	<target name="ApplicationDVTGraphExportPOC-sqldeploy" if="${ApplicationDVTGraphExportPOC.execute_install_database}">
 		<sqldeploy name="ApplicationDVTGraphExportPOC" user="${ApplicationDVTGraphExportPOC.datasource.user}" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationDVTGraphExportPOC_datamodel.zip" url="${ApplicationDVTGraphExportPOC.datasource.url}" />
 	</target>
+
+	<target name="ApplicationDVTGraphExportPOC-wlcreate-services" if="${ApplicationDVTGraphExportPOC.execute_install_services}">
+		<wlcreate-datasource name="${ApplicationDVTGraphExportPOC.datasource.name}" user="${ApplicationDVTGraphExportPOC.datasource.user}" url="${ApplicationDVTGraphExportPOC.datasource.url}" targets="${ApplicationDVTGraphExportPOC.targets}" />
+	</target>
 </project>
