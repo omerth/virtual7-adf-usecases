@@ -55,6 +55,7 @@
 
 	<target name="ApplicationSamplePortal-wldeploy" if="${ApplicationSamplePortal.execute_install_deployments}">
 		<wldeploy name="ApplicationSamplePortal" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationSamplePortal.ear" targets="${ApplicationSamplePortal.targets}" librarymodule="false" />
+		<wldeploy-mds name="ApplicationSamplePortal" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationSamplePortal.ear" targets="${ApplicationSamplePortal.targets}" repositoryName="${ApplicationSamplePortal.mds.name}" repositoryJNDI="${ApplicationSamplePortal.mds.jndi}" />
 	</target>
 
 	<target name="ApplicationSamplePortal-wlundeploy" if="${ApplicationSamplePortal.execute_install_deployments}">

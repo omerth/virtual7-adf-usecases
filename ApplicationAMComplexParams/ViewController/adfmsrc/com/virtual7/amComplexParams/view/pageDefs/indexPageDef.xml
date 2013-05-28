@@ -10,7 +10,7 @@
                   IsViewObjectMethod="false" DataControl="AppModuleDataControl"
                   InstanceName="AppModuleDataControl.dataProvider">
       <NamedData NDName="users" NDValue="#{pageFlowScope.managedBean.users}"
-                 NDType="java.util.List&lt;com.virtual7.amComplexParams.model.UserBean>"/>
+                 NDType="java.util.List"/>
     </methodAction>
     <methodAction id="saveUsers1" RequiresUpdateModel="true" Action="invokeMethod" MethodName="saveUsers1"
                   IsViewObjectMethod="false" DataControl="AppModuleDataControl"
