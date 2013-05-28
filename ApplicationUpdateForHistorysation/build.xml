@@ -5,6 +5,7 @@
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
 	<target name="ApplicationUpdateForHistorysation-deploy" description="Deploy JDeveloper profiles" if="${ApplicationUpdateForHistorysation.execute-deploy}">
 
+		<ant antfile="Datamodel/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 

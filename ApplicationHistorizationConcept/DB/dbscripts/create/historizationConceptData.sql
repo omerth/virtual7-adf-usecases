@@ -108,7 +108,7 @@ commit;
 
 
 --version9++
-for i in 1..1000000 loop
+for i in 1..100 loop
 update EMPLOYEES set LAST_NAME = 'King v'||(8+i) ,LAST_CHANGE_DATE = SYSTIMESTAMP where EMPLOYEE_ID=100;
 commit;
 --DBMS_LOCK.SLEEP(0.001);

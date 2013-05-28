@@ -6,6 +6,7 @@
 
 	<target name="ApplicationOrgaLevels-deploy" description="Deploy JDeveloper profiles" if="${ApplicationOrgaLevels.execute-deploy}">
 
+		<ant antfile="Datamodel/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <project name="Datamodel" default="deploy" basedir=".">
 	<property file="../../build.properties" />
-	<property name="oracle.jdeveloper.workspace.path" location="../ApplicationUpdateForHistorization.jws" />
+	<property name="oracle.jdeveloper.workspace.path" location="../ApplicationUpdateForHistorysation.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
 	<target name="deploy" description="Deploy JDeveloper profiles">
 		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
@@ -17,7 +17,7 @@
 	</target>
 	<target name="cloneProject">
 		<property name="replace.token1" value="${ant.project.name}" />
-		<property name="replace.token2" value="updateForHistorization" />
+		<property name="replace.token2" value="updateForHistoryzation" />
 
 		<input message="What is the equivalent for ${replace.token1}?" addproperty="do.token1" defaultvalue="${replace.token1}" />
 		<input message="What is the equivalent for ${replace.token2}?" addproperty="do.token2" defaultvalue="${replace.token2}" />

@@ -6,6 +6,7 @@
 
 	<target name="ApplicationEmployeeAptitudes-deploy" description="Deploy JDeveloper profiles" if="${ApplicationEmployeeAptitudes.execute-deploy}">
 
+		<ant antfile="Datamodel/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 

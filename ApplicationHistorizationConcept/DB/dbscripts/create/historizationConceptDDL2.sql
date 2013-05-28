@@ -81,5 +81,3 @@ analyze table departments_hist compute statistics for table for all indexes for 
 analyze table jobs compute statistics for table for all indexes for all indexed columns;
 analyze table jobs_hist compute statistics for table for all indexes for all indexed columns;
 
-
-/

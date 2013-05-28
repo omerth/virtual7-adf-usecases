@@ -35,17 +35,13 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationExceptionHandler/build.xml" target="ApplicationExceptionHandler-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationFileUpload/build.xml" target="ApplicationFileUpload-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationHistorizationConcept/build.xml" target="ApplicationHistorizationConcept-deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationMultipleFileUpload/build.xml" target="ApplicationMultipleFileUpload-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationOrgaLevels/build.xml" target="ApplicationOrgaLevels-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotHeaderLabels/build.xml" target="ApplicationPivotHeaderLabels-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTableResizing/build.xml" target="ApplicationPivotTableResizing-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationShuttleComponents/build.xml" target="ApplicationShuttleComponents-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationStampBinding/build.xml" target="ApplicationStampBinding-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSubformSubmit/build.xml" target="ApplicationSubformSubmit-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTableButton/build.xml" target="ApplicationTableButton-deploy" inheritall="false" inheritrefs="false" />
@@ -54,7 +50,6 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTextMessenger/build.xml" target="ApplicationTextMessenger-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUCMContent/build.xml" target="ApplicationUCMContent-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationXdm/build.xml" target="ApplicationXdm-deploy" inheritall="false" inheritrefs="false" />
 
 	</target>
 
@@ -81,6 +76,8 @@
 		<antcall target="wlst-script-startEdit" />
 
 		<!-- BEGIN INSTALL transactioned stuff -->
+		
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDVTGraphExportPOC/build.xml" target="ApplicationDVTGraphExportPOC-wlcreate-services" />
 
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFBugs/build.xml" target="ApplicationADFBugs-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFDevelopmentPattern/build.xml" target="ApplicationADFDevelopmentPattern-wldeploy" />
@@ -101,17 +98,13 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationExceptionHandler/build.xml" target="ApplicationExceptionHandler-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationFileUpload/build.xml" target="ApplicationFileUpload-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationHistorizationConcept/build.xml" target="ApplicationHistorizationConcept-wldeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationMultipleFileUpload/build.xml" target="ApplicationMultipleFileUpload-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationOrgaLevels/build.xml" target="ApplicationOrgaLevels-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-wldeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotHeaderLabels/build.xml" target="ApplicationPivotHeaderLabels-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-wldeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTableResizing/build.xml" target="ApplicationPivotTableResizing-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-wldeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationShuttleComponents/build.xml" target="ApplicationShuttleComponents-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationStampBinding/build.xml" target="ApplicationStampBinding-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSubformSubmit/build.xml" target="ApplicationSubformSubmit-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTableButton/build.xml" target="ApplicationTableButton-wldeploy" />
@@ -120,7 +113,6 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTextMessenger/build.xml" target="ApplicationTextMessenger-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUCMContent/build.xml" target="ApplicationUCMContent-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-wldeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationXdm/build.xml" target="ApplicationXdm-wldeploy" />
 
 		<!-- END INSTALL transactioned stuff -->
 
@@ -161,17 +153,13 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationExceptionHandler/build.xml" target="ApplicationExceptionHandler-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationFileUpload/build.xml" target="ApplicationFileUpload-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationHistorizationConcept/build.xml" target="ApplicationHistorizationConcept-wlundeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationMultipleFileUpload/build.xml" target="ApplicationMultipleFileUpload-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationOrgaLevels/build.xml" target="ApplicationOrgaLevels-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-wlundeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotHeaderLabels/build.xml" target="ApplicationPivotHeaderLabels-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-wlundeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTableResizing/build.xml" target="ApplicationPivotTableResizing-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-wlundeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationShuttleComponents/build.xml" target="ApplicationShuttleComponents-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationStampBinding/build.xml" target="ApplicationStampBinding-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSubformSubmit/build.xml" target="ApplicationSubformSubmit-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTableButton/build.xml" target="ApplicationTableButton-wlundeploy" />
@@ -180,7 +168,6 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationTextMessenger/build.xml" target="ApplicationTextMessenger-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUCMContent/build.xml" target="ApplicationUCMContent-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-wlundeploy" />
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationXdm/build.xml" target="ApplicationXdm-wlundeploy" />
 
 		<!-- END UNINSTALL transactioned stuff -->
 
