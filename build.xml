@@ -15,7 +15,7 @@
 	</target>
 
 	<target name="deploy" description="Deploys all applications. Requires JDeveloper." depends="copy-scripts">
-		<!--antcall target="virtual7Util-deploy" /-->
+		<antcall target="virtual7Util-deploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFBugs/build.xml" target="ApplicationADFBugs-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationADFDevelopmentPattern/build.xml" target="ApplicationADFDevelopmentPattern-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationAMBCPooling/build.xml" target="ApplicationAMBCPooling-deploy" inheritall="false" inheritrefs="false" />
