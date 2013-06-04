@@ -1,9 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
-   <hash n="adrs-workspace-properties">
-      <value n="adrs-instance-binding" v="DefaultServer"/>
-   </hash>
-   <value n="application-package-prefix" v="com.virtual7"/>
+   <value n="application-package-prefix" v="com.virtual7.emptytemplate"/>
+   <url n="application-source-directory" path="src/"/>
    <value n="appTemplateId" v="adfWebappApplicationTemplate"/>
    <hash n="component-versions">
       <value n="oracle.adf.share.dt.migration.jps.JaznCredStoreMigratorHelper" v="11.1.1.1.0"/>
@@ -18,13 +16,11 @@
       <value n="oracle.webcenter.internal.dt.migration.WebCenterWorkspaceMigrator" v="11.1.1.4.0.101019.0800"/>
    </hash>
    <list n="listOfChildren">
-      <hash><url n="URL" path="Model/Model.jpr"/></hash>
-      <hash><url n="URL" path="ViewController/ViewController.jpr"/></hash>
+      <hash><url n="URL" path="applicationEmptyTemplate_datamodel/applicationEmptyTemplate_datamodel.jpr"/></hash>
+      <hash><url n="URL" path="applicationEmptyTemplate_model/applicationEmptyTemplate_model.jpr"/></hash>
+      <hash><url n="URL" path="applicationEmptyTemplate_taskflows_frontend/applicationEmptyTemplate_taskflows_frontend.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
-      <hash n="DefaultProfile">
-         <value n="ProfileName" v="ApplicationEmptyTemplate"/>
-      </hash>
       <hash n="profileDefinitions">
          <hash n="ApplicationEmptyTemplate">
             <hash n="archiveOptions">
@@ -34,8 +30,9 @@
                <list n="dependencyList">
                   <hash>
                      <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
-                     <url n="ownerURL" path="ViewController/ViewController.jpr"/>
-                     <value n="profileName" v="ApplicationEmptyTemplate_ViewController"/>
+                     <url n="ownerURL" path="applicationEmptyTemplate_taskflows_frontend/applicationEmptyTemplate_taskflows_frontend.jpr"/>
+                     <value n="pathInEar" v=""/>
+                     <value n="profileName" v="applicationEmptyTemplate_frontend"/>
                   </hash>
                </list>
             </hash>
@@ -81,6 +78,7 @@
       <list n="profileList">
          <string v="ApplicationEmptyTemplate"/>
       </list>
+      <value n="Security-Deployment-Migrate-Users-And-Groups-Key" v="false"/>
       <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>
    </hash>
 </jws:workspace>

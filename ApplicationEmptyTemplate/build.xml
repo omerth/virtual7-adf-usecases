@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="windows-1252" ?>
-<project name="ApplicationEmptyTemplate" default="cloneApp" basedir=".">
+<project name="ApplicationEmptytemplate" default="cloneApp" basedir=".">
 	<property file="../build.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="${ant.project.name}.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
-	
+
 	<target name="ApplicationEmptyTemplate-deploy" description="Deploy JDeveloper profiles" if="${ApplicationEmptyTemplate.execute-deploy}">
 
-		<ant antfile="Model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="ViewController/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="applicationEmptytemplate_datamodel/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="applicationEmptytemplate_model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="applicationEmptytemplate_taskflows_frontend/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 
 		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
 		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />
@@ -60,5 +61,9 @@
 
 	<target name="ApplicationEmptyTemplate-wlundeploy" if="${ApplicationEmptyTemplate.execute_install_deployments}">
 		<wlundeploy name="ApplicationEmptyTemplate" targets="${ApplicationEmptyTemplate.targets}" />
+	</target>
+
+	<target name="ApplicationEmptyTemplate-sqldeploy" if="${ApplicationEmptyTemplate.execute_install_database}">
+		<sqldeploy name="ApplicationEmptyTemplate" user="${ApplicationEmptyTemplate.datasource.user}" source="${virtual7AdfUsecases.project.orig.path}/_deploy/ApplicationEmptyTemplate_datamodel.zip" url="${ApplicationEmptyTemplate.datasource.url}" />
 	</target>
 </project>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Ant-Version: Apache Ant 1.7.1
+Created-By: 10.0-b23 (Sun Microsystems Inc.)
+Extension-Name: applicationEmptyTemplateWSharedLibs_view_shared
+Package: 
+Specification-Version: 1.0
+Implementation-Version: 1.0.0
+Implementation-Label: applicationEmptyTemplateWSharedLibs_view_shared
+Implementation-Vendor: virtual7
+Implementation-Patch-Number: 
+
+
+

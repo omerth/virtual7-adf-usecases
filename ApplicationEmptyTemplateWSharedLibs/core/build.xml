@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="ApplicationEmptyTemplateWSharedLibs_core" default="deploy" basedir=".">
+	<property file="../../build.properties" />
+	<property file="../../build_applicationEmptyTemplateWSharedLibs.properties" />
+	<property name="oracle.jdeveloper.workspace.path" location="ApplicationEmptyTemplateWSharedLibs_core.jws" />
+	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
+	<target name="deploy" description="Deploy JDeveloper profiles">
+
+		<ant antfile="applicationEmptyTemplateWSharedLibs_datamodel/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="applicationEmptyTemplateWSharedLibs_model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="applicationEmptyTemplateWSharedLibs_model_shared/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="applicationEmptyTemplateWSharedLibs_taskflows_frontend/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="applicationEmptyTemplateWSharedLibs_view_shared/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+
+		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
+		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />
+		<ora:ojdeploy xmlns:ora="oraclelib:OJDeployAntTask" executable="${oracle.jdeveloper.ojdeploy.path}" ora:buildscript="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-build.xml" ora:statuslog="${oracle.jdeveloper.ojdeploy.log.path}/ojdeploy-statuslog.xml">
+			<ora:deploy>
+				<ora:parameter name="clean" value="true" />
+				<ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}" />
+				<ora:parameter name="profile" value="*" />
+			</ora:deploy>
+		</ora:ojdeploy>
+	</target>
+
+</project>
