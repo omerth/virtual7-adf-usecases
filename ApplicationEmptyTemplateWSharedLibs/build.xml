@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="ApplicationEmptyTemplateWSharedLibs" default="ApplicationEmptyTemplateWSharedLibs-deploy" basedir=".">
+	<property file="../build.properties" />
+	<property file="../build_virtual7Util.properties" />
+	<property file="../build_applicationEmptyTemplateWSharedLibs.properties" />
+
+	<import file="../wltasks.xml" />
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-deploy" description="Deploy JDeveloper profiles" if="${ApplicationEmptyTemplateWSharedLibs.execute_deploy}">
+		<ant antfile="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/ApplicationEmptyTemplateWSharedLibs/core/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/ApplicationEmptyTemplateWSharedLibs/app/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+	</target>
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-deploy-docs" description="Deploys the sources" if="${ApplicationEmptyTemplateWSharedLibs.execute_deploy}">
+	</target>
+
+
+	<target name="cloneApp">
+		<property name="replace.token1" value="${ant.project.name}" />
+		<property name="replace.token2" value="emptytemplatewsharedlibs" />
+		<property name="replace.token3" value="applicationEmptyTemplateWSharedLibs" />
+		<property name="replace.token4" value="EmptyTemplateWSharedLibs" />
+		<property name="replace.token5" value="EMPTYTEMPLATEWSHAREDLIBS" />
+
+
+		<input message="What is the equivalent for ${replace.token1}?" addproperty="do.token1" defaultvalue="${replace.token1}" />
+		<input message="What is the equivalent for ${replace.token2}?" addproperty="do.token2" defaultvalue="${replace.token2}" />
+		<input message="What is the equivalent for ${replace.token3}?" addproperty="do.token3" defaultvalue="${replace.token3}" />
+		<input message="What is the equivalent for ${replace.token4}?" addproperty="do.token4" defaultvalue="${replace.token4}" />
+		<input message="What is the equivalent for ${replace.token5}?" addproperty="do.token5" defaultvalue="${replace.token5}" />
+
+		<mkdir dir="${ApplicationEmptyTemplateWSharedLibs.project.dest.path}/${do.token1}" />
+		<copy todir="${ApplicationEmptyTemplateWSharedLibs.project.dest.path}/${do.token1}" overwrite="true" verbose="true">
+			<fileset dir="." />
+			<filtermapper>
+				<replacestring from="${replace.token1}" to="${do.token1}" />
+				<replacestring from="${replace.token2}" to="${do.token2}" />
+				<replacestring from="${replace.token3}" to="${do.token3}" />
+				<replacestring from="${replace.token4}" to="${do.token4}" />
+				<replacestring from="${replace.token5}" to="${do.token5}" />
+			</filtermapper>
+		</copy>
+		<replace dir="${ApplicationEmptyTemplateWSharedLibs.project.dest.path}/${do.token1}">
+			<replacefilter token="${replace.token1}" value="${do.token1}" />
+			<replacefilter token="${replace.token2}" value="${do.token2}" />
+			<replacefilter token="${replace.token3}" value="${do.token3}" />
+			<replacefilter token="${replace.token4}" value="${do.token4}" />
+			<replacefilter token="${replace.token5}" value="${do.token5}" />
+		</replace>
+	</target>
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-wlcreate-services" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_services}">
+	</target>
+
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-wldestroy-services" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_services}">
+	</target>
+
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-wlcreate-credentials" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_credentials}">
+	</target>
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-wldestroy-credentials" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_credentials}">
+	</target>
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-wldeploy" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_deployments}">
+		<wldeploy name="applicationEmptyTemplateWSharedLibs_model_shared" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/applicationEmptyTemplateWSharedLibs_model_shared.ear" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
+		<wldeploy name="applicationEmptyTemplateWSharedLibs_view_shared" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/applicationEmptyTemplateWSharedLibs_view_shared.war" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
+		<wldeploy name="applicationEmptyTemplateWSharedLibs" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/applicationEmptyTemplateWSharedLibs.ear" targets="${ApplicationEmptyTemplateWSharedLibs.targets}" />
+	</target>
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-wlundeploy" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_deployments}">
+		<wlundeploy name="applicationEmptyTemplateWSharedLibs" targets="${ApplicationEmptyTemplateWSharedLibs.targets}" />
+		<wlundeploy name="applicationEmptyTemplateWSharedLibs_view_shared" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
+		<wlundeploy name="applicationEmptyTemplateWSharedLibs_model_shared" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
+	</target>
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-wlimport-metadata" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_metadata}">
+		<tstamp />
+	</target>
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-wlexport-metadata" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_metadata}">
+	</target>
+
+	<target name="ApplicationEmptyTemplateWSharedLibs-sqldeploy" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_database}">
+		<sqldeploy name="EMPTYTEMPLATESWSHAREDLIBS" user="${ApplicationEmptyTemplateWSharedLibs.datasource.user}" source="${ApplicationEmptyTemplateWSharedLibs.project.dest.path}/_deploy/applicationEmptyTemplateWSharedLibs_datamodel.zip" sourceUTILS="${virtual7Util.project.dest.path}/_deploy/virtual7Util_datamodel.zip" url="${ApplicationEmptyTemplateWSharedLibs.datasource.url}" />
+	</target>
+
+</project>

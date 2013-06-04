@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<synonym xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">f08bdbad-e381-4349-af46-61683e537355</identifier>
+  </ID>
+  <name>NTT</name>
+  <public>false</public>
+  <reference class="oracle.javatools.db.IdentifierBasedID">
+    <name>NUMBERTABLETYPE</name>
+    <identifier class="java.lang.String">dfc2df9b-7182-410a-a409-02f8330ee40b</identifier>
+    <schemaName>EMPTYTEMPLATESWSHAREDLIBS</schemaName>
+    <type>TYPE</type>
+  </reference>
+  <schema>
+    <name>EMPTYTEMPLATESWSHAREDLIBS</name>
+  </schema>
+</synonym>

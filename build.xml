@@ -114,6 +114,7 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUCMContent/build.xml" target="ApplicationUCMContent-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-wldeploy" />
 
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplateWSharedLibs/build.xml" target="ApplicationEmptyTemplateWSharedLibs-wldeploy" />
 		<!-- END INSTALL transactioned stuff -->
 
 		<antcall target="wlst-script-save" />

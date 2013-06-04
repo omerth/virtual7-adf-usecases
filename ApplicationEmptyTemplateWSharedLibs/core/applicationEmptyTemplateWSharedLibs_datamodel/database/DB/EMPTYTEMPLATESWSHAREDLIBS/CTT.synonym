@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<synonym xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">d49dae34-7f7f-4304-8a28-3dcdfe487743</identifier>
+  </ID>
+  <name>CTT</name>
+  <public>false</public>
+  <reference class="oracle.javatools.db.IdentifierBasedID">
+    <name>CHARTABLETYPE</name>
+    <identifier class="java.lang.String">cbecafe8-8b50-42f1-a3e9-495d5161bfbe</identifier>
+    <schemaName>EMPTYTEMPLATESWSHAREDLIBS</schemaName>
+    <type>TYPE</type>
+  </reference>
+  <schema>
+    <name>EMPTYTEMPLATESWSHAREDLIBS</name>
+  </schema>
+</synonym>

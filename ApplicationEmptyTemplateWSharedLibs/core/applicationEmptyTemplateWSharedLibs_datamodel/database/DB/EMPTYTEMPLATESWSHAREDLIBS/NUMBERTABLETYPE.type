@@ -1,0 +1,26 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<type xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">dfc2df9b-7182-410a-a409-02f8330ee40b</identifier>
+  </ID>
+  <name>NUMBERTABLETYPE</name>
+  <authidCurrentUser>false</authidCurrentUser>
+  <collectionType>TABLE</collectionType>
+  <final>true</final>
+  <instantiable>true</instantiable>
+  <ofTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+    <ID class="oracle.javatools.db.IdentifierBasedID">
+      <identifier class="java.lang.String">325b9de2-8d38-4e8b-af17-b5dc35404925</identifier>
+    </ID>
+    <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+      <providerClass>oracle.javatools.db.ora.OracleDatabaseImpl</providerClass>
+      <typeName>NUMBER</typeName>
+    </dataTypeID>
+  </ofTypeUsage>
+  <schema>
+    <name>EMPTYTEMPLATESWSHAREDLIBS</name>
+  </schema>
+  <source>CREATE OR REPLACE TYPE NUMBERTABLETYPE 
+AS TABLE OF NUMBER;</source>
+  <typeCode>COLLECTION</typeCode>
+</type>

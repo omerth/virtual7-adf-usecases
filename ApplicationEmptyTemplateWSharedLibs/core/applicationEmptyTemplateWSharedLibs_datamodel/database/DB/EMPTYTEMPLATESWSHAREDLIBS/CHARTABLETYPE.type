@@ -1,0 +1,32 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<type xmlns="http://xmlns.oracle.com/jdeveloper/1111/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">cbecafe8-8b50-42f1-a3e9-495d5161bfbe</identifier>
+  </ID>
+  <name>CHARTABLETYPE</name>
+  <authidCurrentUser>false</authidCurrentUser>
+  <collectionType>TABLE</collectionType>
+  <final>true</final>
+  <instantiable>true</instantiable>
+  <ofTypeUsage class="oracle.javatools.db.datatypes.PredefinedDataTypeUsage">
+    <ID class="oracle.javatools.db.IdentifierBasedID">
+      <identifier class="java.lang.String">9128a3cd-0294-4991-ada1-392b37dc8861</identifier>
+    </ID>
+    <attributeValues>
+      <entry>
+        <key>size</key>
+        <value class="java.lang.Long">4000</value>
+      </entry>
+    </attributeValues>
+    <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+      <providerClass>oracle.javatools.db.ora.Oracle9i</providerClass>
+      <typeName>VARCHAR2</typeName>
+    </dataTypeID>
+  </ofTypeUsage>
+  <schema>
+    <name>EMPTYTEMPLATESWSHAREDLIBS</name>
+  </schema>
+  <source>CREATE OR REPLACE TYPE CHARTABLETYPE 
+AS TABLE OF VARCHAR2(4000);</source>
+  <typeCode>COLLECTION</typeCode>
+</type>
