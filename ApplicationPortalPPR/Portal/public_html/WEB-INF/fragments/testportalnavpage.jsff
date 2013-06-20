@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:separator id="s1"/>
+    <af:outputText value="This is the test portal nav page" id="ot1"/>
+    <af:goLink text="Go to URL" id="gl1" destination="#{pageFlowScope.portalURL}"/>
+    <af:commandLink id="pt_cl1" text="Pefrom PPR to #{pageFlowScope.portalNavItem.title}" action="performPPRNav"
+                    actionListener="#{navigationContext.processAction}">
+      <f:attribute name="node" value="#{pageFlowScope.portalNavItem}"/>
+    </af:commandLink>
+    <af:outputText value="Looking up the page1 url from the MB defined in portal faces-config: #{portalMB.page1Url}" id="ot2"/>
+    <af:separator id="s2"/>
+  </af:panelGroupLayout>
+</jsp:root>

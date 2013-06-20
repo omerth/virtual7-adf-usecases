@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="task-flow-testportalnav">
+    <default-activity id="__7">testportalnavpage</default-activity>
+    <input-parameter-definition id="__4">
+      <name id="__3">portalURL</name>
+      <value>#{pageFlowScope.portalURL}</value>
+      <class>java.lang.String</class>
+    </input-parameter-definition>
+    <input-parameter-definition id="__5">
+      <name id="__6">portalNavItem</name>
+      <value>#{pageFlowScope.portalNavItem}</value>
+      <class>oracle.webcenter.navigationframework.NavigationResource</class>
+    </input-parameter-definition>
+    <view id="testportalnavpage">
+      <page>/WEB-INF/fragments/testportalnavpage.jsff</page>
+    </view>
+    <parent-action id="pprnav">
+      <parent-outcome>pprnav</parent-outcome>
+    </parent-action>
+    <control-flow-rule id="__8">
+      <from-activity-id id="__9">testportalnavpage</from-activity-id>
+      <control-flow-case id="__10">
+        <from-outcome id="__12">performPPRNav</from-outcome>
+        <to-activity-id id="__11">pprnav</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>
