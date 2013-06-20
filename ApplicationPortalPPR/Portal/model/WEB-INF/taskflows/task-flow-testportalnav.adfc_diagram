@@ -1,0 +1,52 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="y">266.5</property>
+      <property
+         name="x">91.5</property>
+   </OverallProperties>
+   <ParentAction
+      id="ParentAction2">
+      <property
+         name="activityId">pprnav</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>pprnav&lt;/b>&lt;/p>&lt;p>Activity Type:  Parent Action&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">142.74707</property>
+      <property
+         name="x">643.5</property>
+   </ParentAction>
+   <View
+      id="View3">
+      <property
+         name="activityId">testportalnavpage</property>
+      <property
+         name="page">/WEB-INF/fragments/testportalnavpage.jsff</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>testportalnavpage&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">144.09766</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">310.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View3"
+      to="ParentAction2">
+      <property
+         name="fromOutcome">performPPRNav</property>
+      <property
+         name="sdm:polyPoints">R50,351.5,143.74707,602.5,142.39648,L50</property>
+   </ControlFlowCase>
+</SDM>

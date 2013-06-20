@@ -39,6 +39,7 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPortalPPR/build.xml" target="ApplicationPortalPPR-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-deploy" inheritall="false" inheritrefs="false" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-deploy" inheritall="false" inheritrefs="false" />
@@ -102,6 +103,7 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPortalPPR/build.xml" target="ApplicationPortalPPR-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-wldeploy" />
@@ -158,6 +160,7 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPDFGenerator/build.xml" target="ApplicationPDFGenerator-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPhaseListener/build.xml" target="ApplicationPhaseListener-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPivotTable/build.xml" target="ApplicationPivotTable-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationPortalPPR/build.xml" target="ApplicationPortalPPR-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationProgramaticPivotTableBinding/build.xml" target="ApplicationProgramaticPivotTableBinding-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSamplePortal/build.xml" target="ApplicationSamplePortal-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationSampleTemplate/build.xml" target="ApplicationSampleTemplate-wlundeploy" />
