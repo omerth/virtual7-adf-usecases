@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Specification-Version: 1.0
-Implementation-Version: 1.0.0
-Implementation-Label: applicationEmptyTemplateWSharedLibs_datamodel
-Implementation-Vendor: virtual7

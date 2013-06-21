@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="windows-1252" ?>
-<project name="ApplicationEmptyTemplateWSharedLibs_app" default="deploy" basedir=".">
-	<property file="../../build.properties" />
-	<property file="../../build_emptyTemplateWSharedLibs.properties" />
-	<property name="oracle.jdeveloper.workspace.path" location="ApplicationEmptyTemplateWSharedLibs_app.jws" />
+<project name="emptyTemplateWSharedLibs_view_shared" default="deploy" basedir=".">
+	<property file="../../../build.properties" />
+	<property file="../../../build_emptyTemplateWSharedLibs.properties" />
+	<property name="oracle.jdeveloper.workspace.path" location="../ApplicationEmptyTemplateWSharedLibs_core.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
 	<target name="deploy" description="Deploy JDeveloper profiles">
-		<ant antfile="emptyTemplateWSharedLibs_view_app/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-
 		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
 		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />
 
 		<replaceregexp byline="true">
 			<regexp pattern="Implementation-Version:\s(.*)" />
-			<substitution expression="Implementation-Version: ${ApplicationEmptyTemplateWSharedLibs.version}" />
-			<fileset dir="./src/META-INF/">
-				<include name="MANIFEST.MF" />
-			</fileset>
-		</replaceregexp>
-
-		<replaceregexp byline="true">
-			<regexp pattern="Weblogic-Application-Version:\s(.*)" />
-			<substitution expression="Weblogic-Application-Version: ${ApplicationEmptyTemplateWSharedLibs.version}" />
+			<substitution expression="Implementation-Version: ${ApplicationEmptyTemplateWSharedLibs_view_shared.version}" />
 			<fileset dir="./src/META-INF/">
 				<include name="MANIFEST.MF" />
 			</fileset>
@@ -30,9 +20,9 @@
 			<ora:deploy>
 				<ora:parameter name="clean" value="true" />
 				<ora:parameter name="workspace" value="${oracle.jdeveloper.workspace.path}" />
+				<ora:parameter name="project" value="${ant.project.name}" />
 				<ora:parameter name="profile" value="*" />
 			</ora:deploy>
 		</ora:ojdeploy>
 	</target>
-
 </project>
