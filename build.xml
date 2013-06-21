@@ -95,6 +95,7 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDVTGraphExportPOC/build.xml" target="ApplicationDVTGraphExportPOC-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmployeeAptitudes/build.xml" target="ApplicationEmployeeAptitudes-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplate/build.xml" target="ApplicationEmptyTemplate-wldeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplateWSharedLibs/build.xml" target="ApplicationEmptyTemplateWSharedLibs-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEntityValidation/build.xml" target="ApplicationEntityValidation-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationExceptionHandler/build.xml" target="ApplicationExceptionHandler-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationFileUpload/build.xml" target="ApplicationFileUpload-wldeploy" />
@@ -116,7 +117,6 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUCMContent/build.xml" target="ApplicationUCMContent-wldeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationUpdateForHistorysation/build.xml" target="ApplicationUpdateForHistorysation-wldeploy" />
 
-		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplateWSharedLibs/build.xml" target="ApplicationEmptyTemplateWSharedLibs-wldeploy" />
 		<!-- END INSTALL transactioned stuff -->
 
 		<antcall target="wlst-script-save" />
@@ -152,6 +152,7 @@
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationDVTGraphExportPOC/build.xml" target="ApplicationDVTGraphExportPOC-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmployeeAptitudes/build.xml" target="ApplicationEmployeeAptitudes-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplate/build.xml" target="ApplicationEmptyTemplate-wlundeploy" />
+		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEmptyTemplateWSharedLibs/build.xml" target="ApplicationEmptyTemplateWSharedLibs-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationEntityValidation/build.xml" target="ApplicationEntityValidation-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationExceptionHandler/build.xml" target="ApplicationExceptionHandler-wlundeploy" />
 		<ant antfile="${virtual7AdfUsecases.project.orig.path}/ApplicationFileUpload/build.xml" target="ApplicationFileUpload-wlundeploy" />

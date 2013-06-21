@@ -15,11 +15,11 @@
       <value n="oracle.webcenter.internal.dt.migration.WebCenterWorkspaceMigrator" v="11.1.1.4.0.101019.0800"/>
    </hash>
    <list n="listOfChildren">
-      <hash><url n="URL" path="applicationEmptyTemplateWSharedLibs_datamodel/applicationEmptyTemplateWSharedLibs_datamodel.jpr"/></hash>
-      <hash><url n="URL" path="applicationEmptyTemplateWSharedLibs_model_shared/applicationEmptyTemplateWSharedLibs_model_shared.jpr"/></hash>
-      <hash><url n="URL" path="applicationEmptyTemplateWSharedLibs_model/applicationEmptyTemplateWSharedLibs_model.jpr"/></hash>
-      <hash><url n="URL" path="applicationEmptyTemplateWSharedLibs_taskflows_frontend/applicationEmptyTemplateWSharedLibs_taskflows_frontend.jpr"/></hash>
-      <hash><url n="URL" path="applicationEmptyTemplateWSharedLibs_view_shared/applicationEmptyTemplateWSharedLibs_view_shared.jpr"/></hash>
+      <hash><url n="URL" path="emptyTemplateWSharedLibs_datamodel/emptyTemplateWSharedLibs_datamodel.jpr"/></hash>
+      <hash><url n="URL" path="emptyTemplateWSharedLibs_model_shared/emptyTemplateWSharedLibs_model_shared.jpr"/></hash>
+      <hash><url n="URL" path="emptyTemplateWSharedLibs_model/emptyTemplateWSharedLibs_model.jpr"/></hash>
+      <hash><url n="URL" path="emptyTemplateWSharedLibs_taskflows_frontend/emptyTemplateWSharedLibs_taskflows_frontend.jpr"/></hash>
+      <hash><url n="URL" path="emptyTemplateWSharedLibs_view_shared/emptyTemplateWSharedLibs_view_shared.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="DefaultProfile">
@@ -34,8 +34,8 @@
                <list n="dependencyList">
                   <hash>
                      <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
-                     <url n="ownerURL" path="applicationEmptyTemplateWSharedLibs_taskflows_frontend/applicationEmptyTemplateWSharedLibs_taskflows_frontend.jpr"/>
-                     <value n="profileName" v="ApplicationEmptyTemplateWSharedLibs_applicationEmptyTemplateWSharedLibs_taskflows_frontend_webapp1"/>
+                     <url n="ownerURL" path="emptyTemplateWSharedLibs_taskflows_frontend/emptyTemplateWSharedLibs_taskflows_frontend.jpr"/>
+                     <value n="profileName" v="ApplicationEmptyTemplateWSharedLibs_emptyTemplateWSharedLibs_taskflows_frontend_webapp1"/>
                   </hash>
                </list>
             </hash>

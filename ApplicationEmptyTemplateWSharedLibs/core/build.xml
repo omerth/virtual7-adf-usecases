@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <project name="ApplicationEmptyTemplateWSharedLibs_core" default="deploy" basedir=".">
 	<property file="../../build.properties" />
-	<property file="../../build_applicationEmptyTemplateWSharedLibs.properties" />
+	<property file="../../build_emptyTemplateWSharedLibs.properties" />
 	<property name="oracle.jdeveloper.workspace.path" location="ApplicationEmptyTemplateWSharedLibs_core.jws" />
 	<property name="oracle.jdeveloper.ojdeploy.log.path" location="log" />
 	<target name="deploy" description="Deploy JDeveloper profiles">
 
-		<ant antfile="applicationEmptyTemplateWSharedLibs_datamodel/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="applicationEmptyTemplateWSharedLibs_model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="applicationEmptyTemplateWSharedLibs_model_shared/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="applicationEmptyTemplateWSharedLibs_taskflows_frontend/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
-		<ant antfile="applicationEmptyTemplateWSharedLibs_view_shared/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="emptyTemplateWSharedLibs_datamodel/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="emptyTemplateWSharedLibs_model/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="emptyTemplateWSharedLibs_model_shared/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="emptyTemplateWSharedLibs_taskflows_frontend/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
+		<ant antfile="emptyTemplateWSharedLibs_view_shared/build.xml" target="deploy" inheritall="false" inheritrefs="false" />
 
 		<mkdir dir="${oracle.jdeveloper.ojdeploy.log.path}" />
 		<taskdef name="ojdeploy" classname="oracle.jdeveloper.deploy.ant.OJDeployAntTask" uri="oraclelib:OJDeployAntTask" classpath="${oracle.jdeveloper.ant.library}" />

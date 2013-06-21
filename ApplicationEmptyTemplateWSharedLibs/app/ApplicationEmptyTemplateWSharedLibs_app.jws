@@ -16,11 +16,11 @@
       <value n="oracle.webcenter.internal.dt.migration.WebCenterWorkspaceMigrator" v="11.1.1.4.0.101019.0800"/>
    </hash>
    <list n="listOfChildren">
-      <hash><url n="URL" path="applicationEmptyTemplateWSharedLibs_view_app/applicationEmptyTemplateWSharedLibs_view_app.jpr"/></hash>
+      <hash><url n="URL" path="emptyTemplateWSharedLibs_view_app/emptyTemplateWSharedLibs_view_app.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">
       <hash n="profileDefinitions">
-         <hash n="applicationEmptyTemplateWSharedLibs">
+         <hash n="emptyTemplateWSharedLibs">
             <hash n="archiveOptions">
                <value n="hasManifest" v="false"/>
             </hash>
@@ -28,14 +28,14 @@
                <list n="dependencyList">
                   <hash>
                      <value n="adapterClass" v="oracle.jdevimpl.deploy.common.DefaultProfileDependable"/>
-                     <url n="ownerURL" path="applicationEmptyTemplateWSharedLibs_view_app/applicationEmptyTemplateWSharedLibs_view_app.jpr"/>
+                     <url n="ownerURL" path="emptyTemplateWSharedLibs_view_app/emptyTemplateWSharedLibs_view_app.jpr"/>
                      <value n="pathInEar" v=""/>
-                     <value n="profileName" v="applicationEmptyTemplateWSharedLibs_app"/>
+                     <value n="profileName" v="emptyTemplateWSharedLibs_app"/>
                   </hash>
                </list>
             </hash>
-            <url n="earURL" path="../../_deploy/applicationEmptyTemplateWSharedLibs.ear"/>
-            <value n="enterpriseAppName" v="applicationEmptyTemplateWSharedLibs"/>
+            <url n="earURL" path="../../_deploy/emptyTemplateWSharedLibs.ear"/>
+            <value n="enterpriseAppName" v="emptyTemplateWSharedLibs"/>
             <hash n="fileGroups">
                <list n="groups">
                   <hash>
@@ -70,11 +70,11 @@
                <value n="IncludeLibrariesFromOtherContainers" v="true"/>
             </hash>
             <value n="profileClass" v="oracle.jdeveloper.deploy.ear.EarProfile"/>
-            <value n="profileName" v="applicationEmptyTemplateWSharedLibs"/>
+            <value n="profileName" v="emptyTemplateWSharedLibs"/>
          </hash>
       </hash>
       <list n="profileList">
-         <string v="applicationEmptyTemplateWSharedLibs"/>
+         <string v="emptyTemplateWSharedLibs"/>
       </list>
       <value n="Security-Deployment-Migrate-Users-And-Groups-Key" v="false"/>
       <value n="Weblogic-JDBC-Auto-Sync-Key" v="false"/>

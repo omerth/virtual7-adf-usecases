@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<JLibraryNode nselem="JLibraryNode" class="oracle.jdeveloper.library.JLibraryNode" deployedByDefault="true" xmlns="http://xmlns.oracle.com/jdeveloper/110000jlibrarynode">
+   <classPath>
+      <entries>
+         <Item path="../../_libs/axis.jar" jar-entry=""/>
+         <Item path="../../_libs/commons-discovery-0.2.jar" jar-entry=""/>
+         <Item path="../../_libs/commons-email-1.0.jar" jar-entry=""/>
+         <Item path="../../_libs/wsdl4j-1.5.1.jar" jar-entry=""/>
+         <Item path="../../_libs/virtual7Util_model.jar" jar-entry=""/>
+         <Item path="../../_libs/virtual7Util_view.jar" jar-entry=""/>
+         <Item path="../../_libs/emptyTemplateWSharedLibs_model.jar" jar-entry=""/>
+      </entries>
+   </classPath>
+   <docPath/>
+   <locked>true</locked>
+   <name>ADF Library Dependencies</name>
+   <sourcePath/>
+</JLibraryNode>

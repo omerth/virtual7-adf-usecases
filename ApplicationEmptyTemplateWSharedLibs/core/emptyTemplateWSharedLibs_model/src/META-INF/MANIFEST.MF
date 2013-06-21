@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Specification-Version: 1.0
+Implementation-Version: 1.0.1
+Implementation-Label: emptyTemplateWSharedLibs_model
+Implementation-Vendor: virtual7

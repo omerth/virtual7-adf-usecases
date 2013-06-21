@@ -2,7 +2,7 @@
 <project name="ApplicationEmptyTemplateWSharedLibs" default="ApplicationEmptyTemplateWSharedLibs-deploy" basedir=".">
 	<property file="../build.properties" />
 	<property file="../build_virtual7Util.properties" />
-	<property file="../build_applicationEmptyTemplateWSharedLibs.properties" />
+	<property file="../build_emptyTemplateWSharedLibs.properties" />
 
 	<import file="../wltasks.xml" />
 
@@ -18,7 +18,7 @@
 	<target name="cloneApp">
 		<property name="replace.token1" value="${ant.project.name}" />
 		<property name="replace.token2" value="emptytemplatewsharedlibs" />
-		<property name="replace.token3" value="applicationEmptyTemplateWSharedLibs" />
+		<property name="replace.token3" value="emptyTemplateWSharedLibs" />
 		<property name="replace.token4" value="EmptyTemplateWSharedLibs" />
 		<property name="replace.token5" value="EMPTYTEMPLATEWSHAREDLIBS" />
 
@@ -64,15 +64,15 @@
 	</target>
 
 	<target name="ApplicationEmptyTemplateWSharedLibs-wldeploy" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_deployments}">
-		<wldeploy name="applicationEmptyTemplateWSharedLibs_model_shared" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/applicationEmptyTemplateWSharedLibs_model_shared.ear" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
-		<wldeploy name="applicationEmptyTemplateWSharedLibs_view_shared" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/applicationEmptyTemplateWSharedLibs_view_shared.war" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
-		<wldeploy name="applicationEmptyTemplateWSharedLibs" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/applicationEmptyTemplateWSharedLibs.ear" targets="${ApplicationEmptyTemplateWSharedLibs.targets}" />
+		<wldeploy name="emptyTemplateWSharedLibs_model_shared" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/emptyTemplateWSharedLibs_model_shared.ear" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
+		<wldeploy name="emptyTemplateWSharedLibs_view_shared" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/emptyTemplateWSharedLibs_view_shared.war" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
+		<wldeploy name="emptyTemplateWSharedLibs" source="${ApplicationEmptyTemplateWSharedLibs.project.orig.path}/_deploy/emptyTemplateWSharedLibs.ear" targets="${ApplicationEmptyTemplateWSharedLibs.targets}" />
 	</target>
 
 	<target name="ApplicationEmptyTemplateWSharedLibs-wlundeploy" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_deployments}">
-		<wlundeploy name="applicationEmptyTemplateWSharedLibs" targets="${ApplicationEmptyTemplateWSharedLibs.targets}" />
-		<wlundeploy name="applicationEmptyTemplateWSharedLibs_view_shared" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
-		<wlundeploy name="applicationEmptyTemplateWSharedLibs_model_shared" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
+		<wlundeploy name="emptyTemplateWSharedLibs" targets="${ApplicationEmptyTemplateWSharedLibs.targets}" />
+		<wlundeploy name="emptyTemplateWSharedLibs_view_shared" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
+		<wlundeploy name="emptyTemplateWSharedLibs_model_shared" targets="${ApplicationEmptyTemplateWSharedLibs.shared.targets}" librarymodule="true" />
 	</target>
 
 	<target name="ApplicationEmptyTemplateWSharedLibs-wlimport-metadata" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_metadata}">
@@ -83,7 +83,7 @@
 	</target>
 
 	<target name="ApplicationEmptyTemplateWSharedLibs-sqldeploy" if="${ApplicationEmptyTemplateWSharedLibs.execute_install_database}">
-		<sqldeploy name="EMPTYTEMPLATESWSHAREDLIBS" user="${ApplicationEmptyTemplateWSharedLibs.datasource.user}" source="${ApplicationEmptyTemplateWSharedLibs.project.dest.path}/_deploy/applicationEmptyTemplateWSharedLibs_datamodel.zip" sourceUTILS="${virtual7Util.project.dest.path}/_deploy/virtual7Util_datamodel.zip" url="${ApplicationEmptyTemplateWSharedLibs.datasource.url}" />
+		<sqldeploy name="EMPTYTEMPLATESWSHAREDLIBS" user="${ApplicationEmptyTemplateWSharedLibs.datasource.user}" source="${ApplicationEmptyTemplateWSharedLibs.project.dest.path}/_deploy/emptyTemplateWSharedLibs_datamodel.zip" sourceUTILS="${virtual7Util.project.dest.path}/_deploy/virtual7Util_datamodel.zip" url="${ApplicationEmptyTemplateWSharedLibs.datasource.url}" />
 	</target>
 
 </project>
